@@ -1,0 +1,11 @@
+@import '../styles/globals.scss';
+
+.info {
+    padding: 0 1rem;
+
+    p {
+        text-align: center;
+        color: $offWhite;
+        letter-spacing: 1px;
+    }
+}

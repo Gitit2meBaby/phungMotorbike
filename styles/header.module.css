@@ -1,0 +1,154 @@
+.headerDesk {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+.headerDesk img:first-of-type {
+  border-radius: 50%;
+}
+@media (max-width: 359px) {
+  .headerDesk {
+    display: none;
+  }
+}
+@media (max-width: 450px) {
+  .headerDesk {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 767px) {
+  .headerDesk {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .headerDesk {
+    display: none;
+  }
+}
+
+.mobHead {
+  position: absolute;
+  top: 2.5rem;
+  left: 1.5rem;
+}
+@media (max-width: 450px) {
+  .mobHead {
+    display: flex;
+  }
+}
+@media (min-width: 1025px) {
+  .mobHead {
+    display: none;
+  }
+}
+.mobHead svg {
+  border: 2px solid #e97f26;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.nav li {
+  list-style: none;
+}
+
+.mobNav {
+  transition: all 0.5s ease;
+  background: linear-gradient(to top, #DA251D 0%, #DA251D 10%, #FFFFFF 100%);
+  width: 66vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 10;
+  color: #0d0d0d;
+  padding: 3rem 1rem 0rem 0.5rem;
+}
+.mobNav a {
+  text-decoration: none;
+  color: #0d0d0d;
+}
+.mobNav ul {
+  padding: 0;
+  margin: 0;
+  margin-left: 1.5rem;
+}
+.mobNav li {
+  list-style: none;
+  line-height: 4rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  z-index: 11;
+}
+
+.navItem {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  z-index: 11 !important;
+}
+
+.subItem {
+  font-weight: 500;
+}
+
+.nestedDropdown,
+.nestedMenu {
+  height: 0;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.5s ease, opacity 0.5s ease;
+}
+
+.show {
+  max-height: 12rem;
+  height: 12rem;
+  opacity: 1;
+}
+
+.star {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12rem;
+  right: -12.8rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  z-index: 2000;
+  color: rgba(233, 126, 38, 0.7294117647);
+  font-size: 5rem;
+  transform: rotate(270deg);
+  padding: 0 5rem;
+  letter-spacing: 15px;
+  font-weight: 800;
+  animation: opacity 1s ease forwards;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=header.module.css.map */

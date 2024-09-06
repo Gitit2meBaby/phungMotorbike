@@ -1,0 +1,42 @@
+.hero h1 {
+  color: #ebebeb;
+  font-family: "time";
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.titleWord {
+  margin: 0 0rem -2rem auto;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.stars svg:nth-of-type(5) {
+  margin: 0 0 0.15rem 0.1rem;
+}
+.stars svg:nth-of-type(6) {
+  margin: 0 0 0rem 0.5rem;
+}
+
+.reviews {
+  margin: -0.5rem 0 0 0.5rem;
+}
+.reviews p {
+  color: #ebebeb;
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+.reviews span {
+  color: #e97f26;
+  font-size: 1.5rem;
+}/*# sourceMappingURL=hero.module.css.map */

@@ -1,0 +1,34 @@
+// colors 
+$offWhite: #ebebeb;
+$black: #0d0d0d;
+$theme: #e97f26;
+
+@mixin smallPhone {
+    @media (max-width: 359px) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media (max-width: 450px) {
+        @content;
+    }
+}
+
+@mixin phoneLandscape {
+    @media (min-width: 450px) and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 450px) and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1025px) {
+        @content;
+    }
+}
