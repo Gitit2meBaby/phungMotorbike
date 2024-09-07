@@ -8,7 +8,7 @@ const Button = () => {
         const element = document.getElementById('contactForm');
         if (element) {
             const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - 200;
+            const offsetPosition = elementPosition - 150;
 
             window.scrollTo({
                 top: offsetPosition,
