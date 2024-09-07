@@ -18,6 +18,7 @@ const SliderSection = () => {
 
     var settings = {
         autoplay: true,
+        arrows: false,
         dots: false,
         infinite: true,
         speed: 500,

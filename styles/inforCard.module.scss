@@ -2,10 +2,36 @@
 
 .info {
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
 
     p {
         text-align: center;
         color: $offWhite;
         letter-spacing: 1px;
+    }
+}
+
+.btn {
+    background-color: $theme;
+    color: $offWhite;
+    border: none;
+    border-radius: .3rem;
+    padding: .5rem 1rem;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    width: 140px;
+    margin-top: 1rem;
+
+    &:hover {
+        background-color: $black;
+        color: $theme;
+        transform: scale(1.2);
+        transition: all .5s ease-in-out;
+        border: 2px solid $theme;
     }
 }

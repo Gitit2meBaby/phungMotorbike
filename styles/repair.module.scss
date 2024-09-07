@@ -1,0 +1,46 @@
+@import '../styles/globals.scss';
+
+.divider {
+    background-color: $theme;
+    width: 90%;
+    height: .5px;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.repair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: $theme;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 0 1rem;
+        margin: 1rem;
+    }
+
+    p {
+        text-align: center;
+        color: $offWhite;
+        letter-spacing: 1px;
+        padding: 0 1rem;
+        margin: 0;
+    }
+
+    span,
+    a {
+        color: $theme;
+        cursor: pointer;
+    }
+
+    img {
+        border-radius: .3rem;
+        margin: 1rem 0;
+    }
+}

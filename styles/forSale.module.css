@@ -1,0 +1,58 @@
+.forSale {
+  margin: 2rem 0;
+}
+.forSale h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #e97f26;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0 1rem;
+  margin: 1rem;
+}
+.forSale h3,
+.forSale p {
+  text-align: center;
+  color: #ebebeb;
+  letter-spacing: 1px;
+  padding: 0 1rem;
+  margin: 0;
+}
+.forSale h3 {
+  margin-top: 1rem;
+}
+.forSale img {
+  width: 350px;
+  height: 350px;
+  border-radius: 0.3rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.btnHolder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  background-color: #e97f26;
+  color: #ebebeb;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  align-self: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  width: 140px;
+}
+.btn:hover {
+  background-color: #0d0d0d;
+  color: #e97f26;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+  border: 2px solid #e97f26;
+}/*# sourceMappingURL=forSale.module.css.map */

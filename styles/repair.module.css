@@ -1,0 +1,40 @@
+.divider {
+  background-color: #e97f26;
+  width: 90%;
+  height: 0.5px;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.repair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+.repair h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #e97f26;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0 1rem;
+  margin: 1rem;
+}
+.repair p {
+  text-align: center;
+  color: #ebebeb;
+  letter-spacing: 1px;
+  padding: 0 1rem;
+  margin: 0;
+}
+.repair span,
+.repair a {
+  color: #e97f26;
+  cursor: pointer;
+}
+.repair img {
+  border-radius: 0.3rem;
+  margin: 1rem 0;
+}/*# sourceMappingURL=repair.module.css.map */

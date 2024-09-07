@@ -1,0 +1,98 @@
+.divider {
+  background-color: #e97f26;
+  width: 90%;
+  height: 0.5px;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cards h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #e97f26;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0 1rem;
+  margin: 1rem;
+}
+
+.image,
+.image2,
+.image3 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.3rem;
+  width: 350px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.image::before,
+.image2::before,
+.image3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.image h3,
+.image2 h3,
+.image3 h3 {
+  z-index: 2;
+  padding: 0 1rem;
+  color: #ebebeb;
+  text-align: center;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #0d0d0d;
+  margin-bottom: 7rem;
+}
+
+.image {
+  background: url("../assets/innerCity.webp");
+}
+
+.image2 {
+  background: url("../assets/haGiang.webp");
+}
+
+.image3 {
+  background: url("../assets/onRock.webp");
+}
+
+.btn {
+  background-color: #e97f26;
+  color: #ebebeb;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  width: 120px;
+  z-index: 2;
+}
+.btn:hover {
+  background-color: #0d0d0d;
+  color: #e97f26;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+  border: 2px solid #e97f26;
+}/*# sourceMappingURL=cards.module.css.map */

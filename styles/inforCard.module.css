@@ -1,8 +1,33 @@
 .info {
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
 }
 .info p {
   text-align: center;
   color: #ebebeb;
   letter-spacing: 1px;
+}
+
+.btn {
+  background-color: #e97f26;
+  color: #ebebeb;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  align-self: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  width: 140px;
+  margin-top: 1rem;
+}
+.btn:hover {
+  background-color: #0d0d0d;
+  color: #e97f26;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+  border: 2px solid #e97f26;
 }/*# sourceMappingURL=inforCard.module.css.map */
