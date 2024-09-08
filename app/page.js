@@ -10,7 +10,7 @@ export default function Home() {
     <main>
       <Hero />
       <SliderSection />
-      <h2 style={{ fontSize: "2rem", lineHeight: "2.2rem", textAlign: "center", color: '#e97f26', letterSpacing: '1px', padding: '0 1rem', marginBottom: '0rem' }}>Hanoi's Leading provider of quality motorbikes</h2>
+      <h2 style={{ fontSize: "2rem", lineHeight: "2.2rem", textAlign: "center", color: '#e97f26', letterSpacing: '1px', padding: '0 1rem', marginBottom: '0rem' }}>Hanoi&apos;s Leading provider of quality motorbikes</h2>
       <InfoCard />
       <Cards />
       <ForSale />
