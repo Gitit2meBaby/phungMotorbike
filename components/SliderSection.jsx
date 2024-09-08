@@ -36,6 +36,7 @@ const SliderSection = () => {
                         width={420}
                         height={310}
                         layout="responsive"
+                        priority='high'
                     />
                     <div className={styles.info}>
                         <h3>Honda CRF 250</h3>
@@ -49,6 +50,7 @@ const SliderSection = () => {
                         width={420}
                         height={310}
                         layout="responsive"
+                        priority='high'
                     />
                     <div className={styles.info}>
                         <h3>Sym Attila 125cc</h3>
@@ -62,6 +64,7 @@ const SliderSection = () => {
                         width={420}
                         height={310}
                         layout="responsive"
+                        priority='high'
                     />
                     <div className={styles.info}>
                         <h3>Yamaha Nouvo lx 135cc</h3>
@@ -75,6 +78,7 @@ const SliderSection = () => {
                         width={420}
                         height={310}
                         layout="responsive"
+                        priority='high'
                     />
                     <div className={styles.info}>
                         <h3>Honda CB 500x</h3>
@@ -88,6 +92,7 @@ const SliderSection = () => {
                         width={420}
                         height={310}
                         layout="responsive"
+                        priority='high'
                     />
                     <div className={styles.info}>
                         <h3>Honda Lead 110cc</h3>

@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import './global.css';
 import Footer from '../components/Footer';
 import Header from "../components/Header";
+import { Suspense } from 'react';
 
 
 const kanit = Kanit({
@@ -21,7 +22,9 @@ export default function RootLayout({ children }) {
       <body className={kanit.className}>
         <Header />
         {children}
-        <Footer />
+        <Suspense>
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );

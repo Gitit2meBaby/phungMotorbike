@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Cards from "../components/Cards";
 import ForSale from "../components/ForSale";
 import Hero from "../components/Hero";
@@ -12,9 +13,15 @@ export default function Home() {
       <SliderSection />
       <h2 style={{ fontSize: "2rem", lineHeight: "2.2rem", textAlign: "center", color: '#e97f26', letterSpacing: '1px', padding: '0 1rem', marginBottom: '0rem' }}>Hanoi&apos;s Leading provider of quality motorbikes</h2>
       <InfoCard />
-      <Cards />
-      <ForSale />
-      <Repair />
+      <Suspense>
+        <Cards />
+      </Suspense>
+      <Suspense>
+        <ForSale />
+      </Suspense>
+      <Suspense>
+        <Repair />
+      </Suspense>
     </main>
   );
 }
