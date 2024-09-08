@@ -147,7 +147,7 @@ const Header = () => {
                     transform: showNav ? 'translateX(0)' : 'translateX(-120%)',
                     boxShadow: showNav ? '0 0 2000px 2000px rgba(0, 0, 0, 0.9)' : 'none'
                 }}>
-                <Nav />
+                <Nav showNav={showNav} setShowNav={setShowNav} />
             </aside>
 
             {showNav && (
