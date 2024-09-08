@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/header.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,6 +12,17 @@ const Nav = ({ showNav, setShowNav }) => {
     const [saleDropdownState, setSaleDropdownState] = useState({
         isOpen: false
     });
+
+    const resetAllStates = () => {
+        setRentDropdownState({ isOpen: false, activeNestedDropdown: null });
+        setSaleDropdownState({ isOpen: false });
+    };
+
+    useEffect(() => {
+        if (!showNav) {
+            resetAllStates();
+        }
+    }, [showNav]);
 
     const handleRentDropdownClick = () => {
         setRentDropdownState(prevState => ({
