@@ -11,7 +11,7 @@
         -webkit-text-stroke-color: $black;
         text-shadow: 5px 5px 10px $theme, -5px -5px 10px $theme;
         color: rgba(255, 255, 255, 0.788);
-        margin: 0;
+        margin: 0 0 1rem 0;
     }
 
     @include phone {

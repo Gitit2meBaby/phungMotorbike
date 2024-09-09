@@ -34,6 +34,10 @@
         div {
             display: grid;
             grid-template-columns: 30% 1fr;
+
+            @include desktop {
+                grid-template-columns: 25% 1fr;
+            }
         }
 
         label {
@@ -59,6 +63,12 @@
             line-height: 1.2rem;
         }
     }
+
+    @include desktop {
+        border-right: .5px solid $theme;
+        border-left: .5px solid $theme;
+        padding: 0 2rem;
+    }
 }
 
 .btn {
@@ -75,6 +85,12 @@
     width: 50%;
     align-self: center;
     margin-top: 1rem;
+
+    @include desktop {
+        margin-left: auto;
+        margin-right: 1.6rem;
+        width: fit-content;
+    }
 }
 
 .divider {
@@ -83,6 +99,12 @@
     height: .5px;
     align-self: center;
     margin-bottom: 1rem;
+}
+
+.final {
+    @include desktop {
+        display: none;
+    }
 }
 
 .details {
@@ -119,4 +141,31 @@
     p {
         margin: 0;
     }
+
+    @include desktop {
+        padding-top: .5rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+}
+
+.deskGrid {
+    @include phone {
+        display: flex;
+        flex-direction: column;
+    }
+
+    display: grid;
+    grid-template-columns: 33% 1fr 1fr;
+    gap: 1rem;
+}
+
+.footerInfo {
+    @include phone {
+        display: none;
+    }
+
+    color: $offWhite;
+    letter-spacing: 1px;
+    padding: 1rem 2rem 1rem 6vw;
 }

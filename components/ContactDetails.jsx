@@ -4,7 +4,8 @@ import styles from '../styles/footer.module.css'
 const ContactDetails = () => {
     return (
         <section className={styles.details}>
-            <div className={styles.divider}></div>
+            <div className={`${styles.divider} ${styles.final}`}></div>
+
             <div className={styles.contact}
                 onClick={() => window.open('https://maps.google.com?q=13%20Ngo%20Huyen,%20Hang%20Trong,%20Hoan%20Kiem,%20Ha%20Noi', '_blank')}>
                 <svg stroke="#e97f26" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1.8em" width="1.8em" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
