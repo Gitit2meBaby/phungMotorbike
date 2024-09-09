@@ -5,6 +5,31 @@
   align-self: center;
   margin-bottom: 1rem;
 }
+@media (min-width: 1025px) {
+  .divider:last-of-type {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .divider:last-of-type {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .cardsContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4vw;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .cardsContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4vw;
+  }
+}
 
 .cards {
   display: flex;

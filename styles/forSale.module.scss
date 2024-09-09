@@ -11,6 +11,10 @@
         text-transform: uppercase;
         padding: 0 1rem;
         margin: 1rem;
+
+        @include desktop {
+            margin-bottom: 2rem;
+        }
     }
 
     h3,
@@ -62,4 +66,16 @@
         transition: all .5s ease-in-out;
         border: 2px solid $theme;
     }
+}
+
+.divider {
+    @include phone {
+        display: none;
+    }
+
+    background-color: $theme;
+    width: 90%;
+    height: .5px;
+    align-self: center;
+    margin-bottom: 1rem;
 }

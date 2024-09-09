@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+
       <div className={styles.home}>
         <SliderSection />
         <div className={styles.hero2}>
@@ -20,15 +21,19 @@ export default function Home() {
           <InfoCard />
         </div>
       </div>
+
       <Suspense>
         <Cards />
       </Suspense>
-      <Suspense>
-        <ForSale />
-      </Suspense>
-      <Suspense>
-        <Repair />
-      </Suspense>
+
+      <div className={styles.deskGrid}>
+        <Suspense>
+          <ForSale />
+        </Suspense>
+        <Suspense>
+          <Repair />
+        </Suspense>
+      </div>
     </main>
   );
 }

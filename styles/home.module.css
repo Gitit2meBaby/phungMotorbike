@@ -40,4 +40,13 @@
     max-width: 50vw;
     max-height: 60vh;
   }
+}
+
+@media (min-width: 1025px) {
+  .deskGrid {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
 }/*# sourceMappingURL=home.module.css.map */

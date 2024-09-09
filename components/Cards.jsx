@@ -4,7 +4,7 @@ import styles from '../styles/cards.module.css'
 
 const Cards = () => {
     return (
-        <>
+        <section className={styles.cardsContainer}>
             <section className={styles.cards}>
                 <div className={styles.divider} style={{ margin: '0 auto', width: '85%', marginBottom: '1rem' }}></div>
 
@@ -39,7 +39,7 @@ const Cards = () => {
                 </div>
             </section>
             <div className={styles.divider} style={{ margin: '0 auto', width: '85%', marginBottom: '1rem' }}></div>
-        </>
+        </section>
     )
 }
 

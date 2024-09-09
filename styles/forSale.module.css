@@ -10,6 +10,11 @@
   padding: 0 1rem;
   margin: 1rem;
 }
+@media (min-width: 1025px) {
+  .forSale h2 {
+    margin-bottom: 2rem;
+  }
+}
 .forSale h3,
 .forSale p {
   text-align: center;
@@ -55,4 +60,17 @@
   transform: scale(1.2);
   transition: all 0.5s ease-in-out;
   border: 2px solid #e97f26;
+}
+
+.divider {
+  background-color: #e97f26;
+  width: 90%;
+  height: 0.5px;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+@media (max-width: 450px) {
+  .divider {
+    display: none;
+  }
 }/*# sourceMappingURL=forSale.module.css.map */

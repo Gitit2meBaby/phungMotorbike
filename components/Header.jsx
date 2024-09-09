@@ -15,6 +15,19 @@ const Header = () => {
     const [activeNestedDropdown, setActiveNestedDropdown] = useState(null);
     const [showNav, setShowNav] = useState(false);
 
+    const handleScroll = () => {
+        const element = document.getElementById('contactForm');
+        if (element) {
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - 150;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth',
+            });
+        }
+    }
+
     // Toggles the main dropdown
     const handleDropdownClick = (dropdown) => {
         if (activeDropdown === dropdown) {
@@ -131,7 +144,7 @@ const Header = () => {
 
                         <Link className={styles.navItemDesk} href="/repairs">Repairs</Link>
 
-                        <Link className={styles.navItemDesk} href="/contact">Contact</Link>
+                        <p className={styles.navItemDesk} onClick={() => handleScroll()}>Contact</p>
                     </div>
                 </nav>
                 <div className={styles.stars}>

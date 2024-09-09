@@ -6,6 +6,32 @@
     height: .5px;
     align-self: center;
     margin-bottom: 1rem;
+
+    @include desktop {
+        &:last-of-type {
+            display: none;
+        }
+    }
+
+    @include tablet {
+        &:last-of-type {
+            display: none;
+        }
+    }
+}
+
+.cardsContainer {
+    @include desktop {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 4vw;
+    }
+
+    @include tablet {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 4vw;
+    }
 }
 
 .cards {

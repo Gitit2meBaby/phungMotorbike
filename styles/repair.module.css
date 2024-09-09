@@ -29,6 +29,11 @@
   padding: 0 1rem;
   margin: 0;
 }
+@media (min-width: 1025px) {
+  .repair p:last-of-type {
+    padding: 0 8vw;
+  }
+}
 .repair span,
 .repair a {
   color: #e97f26;
@@ -37,4 +42,26 @@
 .repair img {
   border-radius: 0.3rem;
   margin: 1rem 0;
+}
+.repair button {
+  font-size: 1rem;
+}
+@media (min-width: 1025px) {
+  .repair button {
+    margin-top: auto;
+  }
+}
+
+@media (min-width: 1025px) {
+  .imgWrapper {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    margin: 1rem 0;
+  }
+}
+@media (max-width: 450px) {
+  .imgWrapper img:last-of-type {
+    display: none;
+  }
 }/*# sourceMappingURL=repair.module.css.map */

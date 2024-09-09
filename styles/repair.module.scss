@@ -31,6 +31,12 @@
         letter-spacing: 1px;
         padding: 0 1rem;
         margin: 0;
+
+        &:last-of-type {
+            @include desktop {
+                padding: 0 8vw;
+            }
+        }
     }
 
     span,
@@ -42,5 +48,28 @@
     img {
         border-radius: .3rem;
         margin: 1rem 0;
+    }
+
+    button {
+        font-size: 1rem;
+
+        @include desktop {
+            margin-top: auto;
+        }
+    }
+}
+
+.imgWrapper {
+    @include desktop {
+        display: flex;
+        gap: 2vw;
+        align-items: center;
+        margin: 1rem 0;
+    }
+
+    img:last-of-type {
+        @include phone {
+            display: none;
+        }
     }
 }

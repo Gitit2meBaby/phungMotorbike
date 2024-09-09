@@ -46,3 +46,12 @@
         }
     }
 }
+
+.deskGrid {
+    @include desktop {
+        display: grid;
+        grid-template-columns: 50% 1fr;
+        padding: 0 1rem;
+        gap: 2rem;
+    }
+}
