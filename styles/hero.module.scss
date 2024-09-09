@@ -1,5 +1,15 @@
 @import './globals.scss';
 
+.hero {
+    @include tablet {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+
 .title {
     display: flex;
     flex-direction: column;
@@ -8,7 +18,7 @@
 }
 
 .titleWord {
-    margin: 0 2rem -2rem auto;
+    margin: 0 1rem -2rem auto;
 }
 
 .stars {

@@ -1,3 +1,14 @@
+@media (min-width: 450px) and (max-width: 1024px) {
+  .hero {
+    display: none;
+  }
+}
+@media (min-width: 1025px) {
+  .hero {
+    display: none;
+  }
+}
+
 .title {
   display: flex;
   flex-direction: column;
@@ -6,7 +17,7 @@
 }
 
 .titleWord {
-  margin: 0 2rem -2rem auto;
+  margin: 0 1rem -2rem auto;
 }
 
 .stars {

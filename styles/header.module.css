@@ -1,11 +1,14 @@
 .headerDesk {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 15% 1fr 15%;
   align-items: center;
   padding: 0.5rem 1rem;
 }
-.headerDesk img:first-of-type {
-  border-radius: 50%;
+.headerDesk nav {
+  place-self: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 @media (max-width: 359px) {
   .headerDesk {
@@ -26,6 +29,111 @@
   .headerDesk {
     display: none;
   }
+}
+
+.headLogo div {
+  margin: -0.8rem 0 0 2rem;
+}
+
+.mainMenu {
+  display: flex;
+  gap: 1vw;
+}
+.mainMenu .navItemDesk {
+  text-decoration: none;
+  color: #ebebeb;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  padding: 0 1vw;
+  cursor: pointer;
+}
+.mainMenu .navItemDesk:hover {
+  color: #e97f26;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropBox {
+  position: relative;
+}
+
+.dropdown {
+  z-index: 10;
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #e97f26;
+  padding: 1rem;
+  width: 160px;
+  border-radius: 0.3rem;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.399);
+}
+.dropdown a,
+.dropdown span {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #e97f26;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+.dropdown a {
+  padding: 0.5rem 0;
+}
+
+.dropItem {
+  position: relative;
+}
+
+.nestedDropdown {
+  position: absolute;
+  height: 9rem;
+  top: 0;
+  left: 4rem;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #e97f26;
+  padding: 1rem;
+  width: 120px;
+  border-radius: 0.3rem;
+  background-color: pink;
+}
+.nestedDropdown a {
+  color: #e97f26;
+}
+
+.stars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.stars svg:nth-of-type(5) {
+  margin: 0 0 0.15rem 0.1rem;
+}
+.stars svg:nth-of-type(6) {
+  margin: 0 0 0rem 0.5rem;
+}
+
+.reviews {
+  margin: -0.5rem 0 0 0.5rem;
+}
+.reviews p {
+  color: #ebebeb;
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+.reviews span {
+  color: #e97f26;
+  font-size: 1.5rem;
 }
 
 .mobHead {

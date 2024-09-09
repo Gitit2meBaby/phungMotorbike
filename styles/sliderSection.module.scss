@@ -2,6 +2,11 @@
 
 .slider {
     margin: 1rem 0;
+    overflow: hidden;
+
+    @include desktop {
+        max-width: 50vw;
+    }
 }
 
 .info {

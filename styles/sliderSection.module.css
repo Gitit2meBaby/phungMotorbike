@@ -1,5 +1,11 @@
 .slider {
   margin: 1rem 0;
+  overflow: hidden;
+}
+@media (min-width: 1025px) {
+  .slider {
+    max-width: 50vw;
+  }
 }
 
 .info p,

@@ -1,13 +1,16 @@
 @import '../styles/globals.scss';
 
 .headerDesk {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 15% 1fr 15%;
     align-items: center;
     padding: .5rem 1rem;
 
-    img:first-of-type {
-        border-radius: 50%;
+    nav {
+        place-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     @include smallPhone {
@@ -27,6 +30,122 @@
     }
 }
 
+.headLogo {
+    div {
+        margin: -.8rem 0 0 2rem;
+    }
+}
+
+.mainMenu {
+    display: flex;
+    gap: 1vw;
+
+    .navItemDesk {
+        text-decoration: none;
+        color: $offWhite;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        font-weight: 700;
+        padding: 0 1vw;
+        cursor: pointer;
+
+        &:hover {
+            color: $theme;
+            transition: all .2s ease-in-out;
+        }
+    }
+}
+
+.dropBox {
+    position: relative;
+}
+
+.dropdown {
+    z-index: 10;
+    position: absolute;
+    top: 3rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid $theme;
+    padding: 1rem;
+    width: 160px;
+    border-radius: .3rem;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.399);
+
+    a,
+    span {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        text-align: left;
+        color: $theme;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    a {
+        padding: .5rem 0;
+    }
+}
+
+.dropItem {
+    position: relative;
+}
+
+.nestedDropdown {
+    position: absolute;
+    height: 9rem;
+    top: 0;
+    left: 4rem;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid $theme;
+    padding: 1rem;
+    width: 120px;
+    border-radius: .3rem;
+    background-color: pink;
+
+    a {
+        color: $theme;
+    }
+}
+
+.stars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5rem;
+
+    svg:nth-of-type(5) {
+        margin: 0 0 .15rem .1rem;
+    }
+
+    svg:nth-of-type(6) {
+        margin: 0 0 0rem .5rem;
+    }
+}
+
+.reviews {
+    margin: -.5rem 0 0 .5rem;
+
+    p {
+        color: $offWhite;
+        margin: 0;
+        letter-spacing: 1px;
+        font-size: .8rem;
+    }
+
+    span {
+        color: $theme;
+        font-size: 1.5rem;
+    }
+}
+
+// mobile
 .mobHead {
     @include phone {
         display: flex;
