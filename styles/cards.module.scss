@@ -88,6 +88,10 @@
         text-shadow: 0 0 10px $black;
         margin-bottom: 7rem;
     }
+
+    a {
+        z-index: 2;
+    }
 }
 
 .image {

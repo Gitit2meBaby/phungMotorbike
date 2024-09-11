@@ -142,12 +142,14 @@
 
 .mobHead {
   position: absolute;
-  top: 2.5rem;
-  left: 1.5rem;
+  width: 100vw;
+  top: 1rem;
+  left: 1rem;
 }
 @media (max-width: 450px) {
   .mobHead {
     display: flex;
+    gap: 6vw;
   }
 }
 @media (min-width: 1025px) {
@@ -159,6 +161,9 @@
   border: 2px solid #e97f26;
   border-radius: 50%;
   padding: 0.5rem;
+}
+.mobHead .headLogo {
+  margin-top: -0.3rem;
 }
 
 .nav {

@@ -12,15 +12,15 @@ const Hero = () => {
                     <Image
                         src={phung}
                         alt="phung motorbike logo"
-                        width={240}
-                        height={150}
+                        width={220}
+                        height={130}
                     />
                 </div>
                 <Image
                     src={motorbike}
                     alt="phung motorbike logo"
-                    width={350}
-                    height={150}
+                    width={330}
+                    height={130}
                 />
             </div>
 

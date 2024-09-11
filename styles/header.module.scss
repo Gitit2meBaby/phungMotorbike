@@ -154,6 +154,7 @@
 .mobHead {
     @include phone {
         display: flex;
+        gap: 6vw;
     }
 
     @include desktop {
@@ -161,13 +162,19 @@
     }
 
     position: absolute;
-    top: 2.5rem;
-    left: 1.5rem;
+
+    width: 100vw;
+    top: 1rem;
+    left: 1rem;
 
     svg {
         border: 2px solid $theme;
         border-radius: 50%;
         padding: 0.5rem;
+    }
+
+    .headLogo {
+        margin-top: -.3rem;
     }
 }
 

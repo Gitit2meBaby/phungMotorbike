@@ -87,6 +87,11 @@
   text-shadow: 0 0 10px #0d0d0d;
   margin-bottom: 7rem;
 }
+.image a,
+.image2 a,
+.image3 a {
+  z-index: 2;
+}
 
 .image {
   background: url("../assets/innerCity.webp");

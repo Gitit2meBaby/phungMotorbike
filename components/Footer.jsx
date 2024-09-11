@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import React from 'react'
 import styles from '../styles/footer.module.css'
@@ -39,7 +38,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className={styles.footerInfo}>
-                        <p>We pride ourselves on providing quality service at the best price. Come into the store for a chat and test ride the best vehicles in Hanoi.</p>
+                        <p>We pride ourselves on providing quality service at the best price. Come into the store for a chat and test ride the best motorbike rentals in Hanoi.</p>
                         <p>Please feel free to get in touch with us with any questions you may have.</p>
                     </div>
                 </div>

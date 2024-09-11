@@ -1,0 +1,51 @@
+.signinModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 200px;
+  background-color: #0d0d0d;
+  border: 2px solid #e97f26;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 3000px 3000px rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: #ebebeb;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.buttonGroup button {
+  background-color: transparent;
+  border: 1px solid #e97f26;
+  border-radius: 0.3rem;
+  color: #ebebeb;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}/*# sourceMappingURL=signin.module.css.map */
