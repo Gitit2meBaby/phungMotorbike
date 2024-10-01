@@ -49,9 +49,10 @@ const Header = () => {
         }
     };
 
-    useEffect(() => {
-        console.log('pathname', pathname);
-    }, []);
+    const handleLinkOut = () => {
+        setActiveDropdown(false)
+        setActiveNestedDropdown(false)
+    }
 
     return (
         <>
@@ -75,7 +76,7 @@ const Header = () => {
                 <nav className={styles.nav}>
                     <div className={styles.mainMenu}>
 
-                        <Link className={styles.navItemDesk} href="/">Home</Link>
+                        <Link onClick={() => handleLinkOut()} style={{ color: pathname === '/' ? '#E97F26' : '' }} className={styles.navItemDesk} href="/">Home</Link>
 
                         <div className={styles.dropBox}
                             onClick={() => handleDropdownClick('rent')}>
@@ -91,9 +92,9 @@ const Header = () => {
                                         {activeNestedDropdown === 'innerCity' && (
                                             <div className={styles.nestedDropdown}
                                             >
-                                                <Link href="/rent/inner-city/daily/automatic">Automatic</Link>
-                                                <Link href="/rent/inner-city/daily/semi-auto">Semi-Auto</Link>
-                                                <Link href="/rent/inner-city/daily/manual">Manual</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/inner-city/daily/automatic">Automatic</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/inner-city/daily/semi-auto">Semi-Auto</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/inner-city/daily/manual">Manual</Link>
                                             </div>
                                         )}
                                     </li>
@@ -106,9 +107,9 @@ const Header = () => {
                                         {activeNestedDropdown === 'travelling' && (
                                             <div className={styles.nestedDropdown}
                                             >
-                                                <Link href="/rent/travelling/daily/automatic">Automatic</Link>
-                                                <Link href="/rent/travelling/daily/semi-auto">Semi-Auto</Link>
-                                                <Link href="/rent/travelling/daily/manual">Manual</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/travelling/daily/automatic">Automatic</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/travelling/daily/semi-auto">Semi-Auto</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/travelling/daily/manual">Manual</Link>
                                             </div>
                                         )}
                                     </li>
@@ -121,9 +122,9 @@ const Header = () => {
                                         {activeNestedDropdown === 'monthly' && (
                                             <div className={styles.nestedDropdown}
                                             >
-                                                <Link href="/rent/monthly/automatic">Automatic</Link>
-                                                <Link href="/rent/monthly/semi-auto">Semi-Auto</Link>
-                                                <Link href="/rent/monthly/manual">Manual</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/monthly/automatic">Automatic</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/monthly/semi-auto">Semi-Auto</Link>
+                                                <Link onClick={() => handleLinkOut()} href="/rent/monthly/manual">Manual</Link>
                                             </div>
                                         )}
                                     </li>
@@ -135,14 +136,14 @@ const Header = () => {
                             <span className={styles.navItemDesk} style={activeDropdown === 'sale' ? { color: '#E97F26' } : {}}>For Sale</span>
                             {activeDropdown === 'sale' && (
                                 <div className={styles.dropdown}>
-                                    <Link href="/sale/automatic">Automatic</Link>
-                                    <Link href="/sale/semi-auto">Semi-Auto</Link>
-                                    <Link href="/sale/manual">Manual</Link>
+                                    <Link onClick={() => handleLinkOut()} href="/sale/automatic">Automatic</Link>
+                                    <Link onClick={() => handleLinkOut()} href="/sale/semi-auto">Semi-Auto</Link>
+                                    <Link onClick={() => handleLinkOut()} href="/sale/manual">Manual</Link>
                                 </div>
                             )}
                         </div>
 
-                        <Link className={styles.navItemDesk} href="/repairs">Repairs</Link>
+                        <Link onClick={() => handleLinkOut()} className={styles.navItemDesk} href="/repairs">Repairs</Link>
 
                         <p className={styles.navItemDesk} onClick={() => handleScroll()}>Contact</p>
                     </div>

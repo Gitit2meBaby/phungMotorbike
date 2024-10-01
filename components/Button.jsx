@@ -19,7 +19,7 @@ const Button = () => {
 
 
     return (
-        <button onClick={() => handleScroll()} className={styles.btn}>Book Now</button>
+        <button onClick={() => handleScroll()} className={styles.btn}>Contact Us</button>
     )
 }
 

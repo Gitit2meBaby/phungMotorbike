@@ -30,4 +30,9 @@
   transform: scale(1.2);
   transition: all 0.5s ease-in-out;
   border: 2px solid #e97f26;
+}
+@media (min-width: 1025px) {
+  .btn {
+    width: 160px;
+  }
 }/*# sourceMappingURL=inforCard.module.css.map */

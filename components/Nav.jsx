@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/header.module.css';
 import Link from 'next/link';
@@ -13,16 +14,16 @@ const Nav = ({ showNav, setShowNav }) => {
         isOpen: false
     });
 
-    const resetAllStates = () => {
-        setRentDropdownState({ isOpen: false, activeNestedDropdown: null });
-        setSaleDropdownState({ isOpen: false });
-    };
-
     useEffect(() => {
         if (!showNav) {
             resetAllStates();
         }
     }, [showNav]);
+
+    const resetAllStates = () => {
+        setRentDropdownState({ isOpen: false, activeNestedDropdown: null });
+        setSaleDropdownState({ isOpen: false });
+    };
 
     const handleRentDropdownClick = () => {
         setRentDropdownState(prevState => ({
@@ -33,7 +34,9 @@ const Nav = ({ showNav, setShowNav }) => {
     };
 
     const handleSaleDropdownClick = () => {
-        setSaleDropdownState(prevState => ({ isOpen: !prevState.isOpen }));
+        setSaleDropdownState(prevState => ({
+            isOpen: !prevState.isOpen
+        }));
         setRentDropdownState({
             isOpen: false,
             activeNestedDropdown: null
@@ -48,6 +51,19 @@ const Nav = ({ showNav, setShowNav }) => {
         }));
     };
 
+    const handleScroll = () => {
+        const element = document.getElementById('contactForm');
+        if (element) {
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - 150;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth',
+            });
+        }
+    }
+
     return (
         <nav className={styles.mobNav}>
             <ul className={styles.mobMenu}>
@@ -58,36 +74,38 @@ const Nav = ({ showNav, setShowNav }) => {
                 <li
                     onClick={handleRentDropdownClick}
                     className={rentDropdownState.isOpen ? styles.activeMobDropdown : ''}
-                    style={rentDropdownState.activeNestedDropdown !== null ? { height: '28rem' } : {}}
+                    style={rentDropdownState.isOpen && rentDropdownState.activeNestedDropdown !== null ? { height: '28rem', transition: 'all .5s ease' } : {}}
                 >
                     <span className={styles.navItem}>For Rent</span>
                     <ul className={`${styles.nestedMenu} ${rentDropdownState.isOpen ? styles.show : ''}`}>
-                        <li onClick={(e) => handleNestedDropdownClick(e, 'innerCity')}>
-                            <span className={styles.subItem}>Inner City</span>
-                            <ul className={`${styles.nestedDropdown} ${rentDropdownState.activeNestedDropdown === 'innerCity' ? styles.show : ''}`}>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/automatic">Automatic</Link></li>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/semi-auto">Semi-Auto</Link></li>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/manual">Manual</Link></li>
-                            </ul>
-                        </li>
+                        <ul className={`${styles.nestedMenu} ${rentDropdownState.isOpen ? styles.show : ''}`}>
+                            <li onClick={(e) => handleNestedDropdownClick(e, 'innerCity')}>
+                                <span className={styles.subItem}>Inner City</span>
+                                <ul className={`${styles.nestedMobDropdown} ${rentDropdownState.activeNestedDropdown === 'innerCity' ? styles.show : ''}`}>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/automatic">Automatic</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/semi-auto">Semi-Auto</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/manual">Manual</Link></li>
+                                </ul>
+                            </li>
 
-                        <li onClick={(e) => handleNestedDropdownClick(e, 'travelling')}>
-                            <span className={styles.subItem}>Travelling</span>
-                            <ul className={`${styles.nestedDropdown} ${rentDropdownState.activeNestedDropdown === 'travelling' ? styles.show : ''}`}>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/automatic">Automatic</Link></li>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/semi-auto">Semi-Auto</Link></li>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/manual">Manual</Link></li>
-                            </ul>
-                        </li>
+                            <li onClick={(e) => handleNestedDropdownClick(e, 'travelling')}>
+                                <span className={styles.subItem}>Travelling</span>
+                                <ul className={`${styles.nestedMobDropdown} ${rentDropdownState.activeNestedDropdown === 'travelling' ? styles.show : ''}`}>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/automatic">Automatic</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/semi-auto">Semi-Auto</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/manual">Manual</Link></li>
+                                </ul>
+                            </li>
 
-                        <li onClick={(e) => handleNestedDropdownClick(e, 'monthly')}>
-                            <span className={styles.subItem}>Monthly</span>
-                            <ul className={`${styles.nestedDropdown} ${rentDropdownState.activeNestedDropdown === 'monthly' ? styles.show : ''}`}>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/automatic">Automatic</Link></li>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/semi-auto">Semi-Auto</Link></li>
-                                <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/manual">Manual</Link></li>
-                            </ul>
-                        </li>
+                            <li onClick={(e) => handleNestedDropdownClick(e, 'monthly')}>
+                                <span className={styles.subItem}>Monthly</span>
+                                <ul className={`${styles.nestedMobDropdown} ${rentDropdownState.activeNestedDropdown === 'monthly' ? styles.show : ''}`}>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/automatic">Automatic</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/semi-auto">Semi-Auto</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/manual">Manual</Link></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </ul>
                 </li>
 
@@ -97,9 +115,9 @@ const Nav = ({ showNav, setShowNav }) => {
                 >
                     <span className={styles.navItem}>For Sale</span>
                     <ul className={`${styles.nestedMenu} ${saleDropdownState.isOpen ? styles.show : ''}`}>
-                        <li><Link onClick={() => setShowNav(false)} href="/sale/automatic">Automatic</Link></li>
-                        <li><Link onClick={() => setShowNav(false)} href="/sale/semi-auto">Semi-Auto</Link></li>
-                        <li><Link onClick={() => setShowNav(false)} href="/sale/manual">Manual</Link></li>
+                        <li><Link onClick={() => setShowNav(false)} href="/for-sale/automatic">Automatic</Link></li>
+                        <li><Link onClick={() => setShowNav(false)} href="/for-sale/semi-auto">Semi-Auto</Link></li>
+                        <li><Link onClick={() => setShowNav(false)} href="/for-sale/manual">Manual</Link></li>
                     </ul>
                 </li>
 
@@ -108,7 +126,7 @@ const Nav = ({ showNav, setShowNav }) => {
                 </li>
 
                 <li>
-                    <Link onClick={() => setShowNav(false)} className={styles.navItem} href="/contact">Contact</Link>
+                    <p style={{ margin: '0' }} onClick={() => { setShowNav(false); handleScroll() }} className={styles.navItem}>Contact</p>
                 </li>
             </ul>
             <Image

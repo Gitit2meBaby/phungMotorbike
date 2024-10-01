@@ -34,4 +34,8 @@
         transition: all .5s ease-in-out;
         border: 2px solid $theme;
     }
+
+    @include desktop {
+        width: 160px;
+    }
 }

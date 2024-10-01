@@ -75,6 +75,11 @@
   pointer-events: none;
   border-radius: inherit;
 }
+.image::before:hover,
+.image2::before:hover,
+.image3::before:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
 .image h3,
 .image2 h3,
 .image3 h3 {

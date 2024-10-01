@@ -14,6 +14,7 @@ export const metadata = {
   title: "Phung Motorbike",
   description: "Phung Motorbike is Hanoi's leading provider of quality motorbikes for rent and sale. Find the best deals on bikes with our wide selection and excellent customer service.",
   icon: './favicon.ico',
+  canonical: 'https://phungmotorbike.com',
 
   // Open Graph (OG) tags for social media
   openGraph: {
