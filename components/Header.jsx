@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 
@@ -76,7 +76,9 @@ const Header = () => {
                 <nav className={styles.nav}>
                     <div className={styles.mainMenu}>
 
-                        <Link onClick={() => handleLinkOut()} style={{ color: pathname === '/' ? '#E97F26' : '' }} className={styles.navItemDesk} href="/">Home</Link>
+                        <Link onClick={() => handleLinkOut()}
+                            style={{ color: pathname === '/' ? '#E97F26' : '' }}
+                            className={styles.navItemDesk} href="/">Home</Link>
 
                         <div className={styles.dropBox}
                             onClick={() => handleDropdownClick('rent')}>

@@ -1,0 +1,35 @@
+@import '../styles/globals.scss';
+
+.btn {
+    background-color: transparent;
+    color: $theme;
+    border: 2px solid $theme;
+    padding: 0.3rem .8rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    @include smallPhone {
+        padding: 0.2rem .5rem;
+    }
+}
+
+.activeBtn {
+    background-color: $theme;
+    color: $black;
+    border: 2px solid $theme;
+    padding: 0.3rem .8rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    @include smallPhone {
+        padding: 0.2rem .5rem;
+    }
+}

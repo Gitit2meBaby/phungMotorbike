@@ -1,0 +1,35 @@
+.btn {
+  background-color: transparent;
+  color: #e97f26;
+  border: 2px solid #e97f26;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 359px) {
+  .btn {
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+.activeBtn {
+  background-color: #e97f26;
+  color: #0d0d0d;
+  border: 2px solid #e97f26;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 359px) {
+  .activeBtn {
+    padding: 0.2rem 0.5rem;
+  }
+}/*# sourceMappingURL=button.module.css.map */

@@ -1,0 +1,26 @@
+.hanoiRentals {
+  margin-bottom: 1.5rem;
+}
+.hanoiRentals h1 {
+  text-align: center;
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #0d0d0d;
+  text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
+  color: rgba(255, 255, 255, 0.788);
+  margin: 1.5rem 0;
+}
+.hanoiRentals p {
+  text-align: center;
+  color: #ebebeb;
+  letter-spacing: 1px;
+  padding: 0 1rem;
+  margin: 0;
+}
+.hanoiRentals p:first-of-type {
+  padding-bottom: 0.5rem;
+}/*# sourceMappingURL=hanoiRentals.module.css.map */

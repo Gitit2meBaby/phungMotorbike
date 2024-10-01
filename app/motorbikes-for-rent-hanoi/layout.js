@@ -1,5 +1,3 @@
-import '../styles/globals.css';
-
 export const metadata = {
     title: "Motorbikes for Rent in Hanoi | Phung Motorbike",
     description: "Browse our wide selection of quality motorbikes available for rent in Hanoi. From scooters to motorcycles, find the perfect bike for your inner-city travel needs at one of Hanoi's most trusted brands. Phung Motorbike.",
@@ -23,7 +21,6 @@ export const metadata = {
         // ],
     },
 
-    // Additional meta tags
     meta: {
         keywords: 'motorbikes for rent, Hanoi rentals, scooter rental Hanoi, Vietnam scooter rental, inner-city travel Hanoi, motorbike rental Vietnam',
     },
@@ -31,10 +28,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body>
-                {children}
-            </body>
-        </html>
+        <section>
+            {children}
+        </section>
     );
 }

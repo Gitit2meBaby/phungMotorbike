@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import styles from '../styles/inforCard.module.css'
+import styles from '../styles/infoCard.module.css'
 
 const Button = () => {
 

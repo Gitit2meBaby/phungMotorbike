@@ -1,4 +1,8 @@
 html {
     background-color: #0d0d0d;
     overflow-x: hidden;
+
+    @media screen and (max-width: 768px) {
+        padding-top: 8rem;
+    }
 }

@@ -1,0 +1,31 @@
+@import '../styles/globals.scss';
+
+.hanoiRentals {
+    margin-bottom: 1.5rem;
+
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        line-height: 3rem;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: $black;
+        text-shadow: 5px 5px 10px $theme, -5px -5px 10px $theme;
+        color: rgba(255, 255, 255, 0.788);
+        margin: 1.5rem 0;
+    }
+
+    p {
+        text-align: center;
+        color: $offWhite;
+        letter-spacing: 1px;
+        padding: 0 1rem;
+        margin: 0;
+
+        &:first-of-type {
+            padding-bottom: 0.5rem;
+        }
+    }
+}

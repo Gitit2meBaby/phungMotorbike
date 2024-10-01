@@ -162,9 +162,6 @@
   border-radius: 50%;
   padding: 0.5rem;
 }
-.mobHead .headLogo {
-  margin-top: -0.3rem;
-}
 
 .nav {
   display: flex;
