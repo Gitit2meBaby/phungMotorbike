@@ -4,6 +4,7 @@ import './global.css';
 import Footer from '../components/Footer';
 import Header from "../components/Header";
 import { Suspense } from 'react';
+import ScrollBtn from '../components/ScrollBtn';
 
 const kanit = Kanit({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -81,6 +82,9 @@ export default function RootLayout({ children }) {
         {children}
         <Suspense>
           <Footer />
+        </Suspense>
+        <Suspense>
+          <ScrollBtn />
         </Suspense>
       </body>
     </html>

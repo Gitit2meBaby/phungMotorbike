@@ -1,4 +1,6 @@
 .hanoiRentals {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1.5rem;
 }
 .hanoiRentals h1 {
@@ -12,7 +14,7 @@
   -webkit-text-stroke-color: #0d0d0d;
   text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
   color: rgba(255, 255, 255, 0.788);
-  margin: 1.5rem 0;
+  margin: 1.5rem 0.5rem;
 }
 .hanoiRentals p {
   text-align: center;
@@ -23,4 +25,22 @@
 }
 .hanoiRentals p:first-of-type {
   padding-bottom: 0.5rem;
+}
+
+.divider {
+  background-color: #e97f26;
+  width: 90%;
+  height: 0.5px;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+@media (min-width: 1025px) {
+  .divider:last-of-type {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .divider:last-of-type {
+    display: none;
+  }
 }/*# sourceMappingURL=hanoiRentals.module.css.map */

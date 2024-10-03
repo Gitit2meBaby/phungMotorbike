@@ -1,7 +1,10 @@
 @import '../styles/globals.scss';
 
 .hanoiRentals {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 1.5rem;
+
 
     h1 {
         text-align: center;
@@ -14,7 +17,7 @@
         -webkit-text-stroke-color: $black;
         text-shadow: 5px 5px 10px $theme, -5px -5px 10px $theme;
         color: rgba(255, 255, 255, 0.788);
-        margin: 1.5rem 0;
+        margin: 1.5rem .5rem;
     }
 
     p {
@@ -26,6 +29,26 @@
 
         &:first-of-type {
             padding-bottom: 0.5rem;
+        }
+    }
+}
+
+.divider {
+    background-color: $theme;
+    width: 90%;
+    height: .5px;
+    align-self: center;
+    margin-bottom: 1rem;
+
+    @include desktop {
+        &:last-of-type {
+            display: none;
+        }
+    }
+
+    @include tablet {
+        &:last-of-type {
+            display: none;
         }
     }
 }

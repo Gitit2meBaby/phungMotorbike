@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import btnStyles from '../styles/button.module.css';
 import styles from '../styles/filter.module.css';
 
-const Filter = ({ slug }) => {
+const Filter = ({ onFilter, slug }) => {
     const pathname = usePathname();
     const [hoveredButton, setHoveredButton] = useState(null);
 
@@ -20,6 +20,10 @@ const Filter = ({ slug }) => {
 
     const isActive = (href) => pathname === href && !hoveredButton;
     const isHovered = (button) => hoveredButton === button;
+
+    const handleFilterChange = (newFilter) => {
+        onFilter(newFilter);
+    }
 
     return (
         <section className={styles.filter}>
