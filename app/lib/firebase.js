@@ -4,12 +4,12 @@ import { getStorage } from "firebase/storage";
 
 // Your Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDNfvy97sYccJJGkLDCUXw3w-fKIjX-DVs",
-    authDomain: "phung-motorbike.firebaseapp.com",
-    projectId: "phung-motorbike",
-    storageBucket: "phung-motorbike.appspot.com",
-    messagingSenderId: "239704891376",
-    appId: "1:239704891376:web:20c3fa9d6302c0fa250735",
+    apiKey: FIREBASE_API_KEY,
+    authDomain: FIREBASE_AUTH_DOMAIN,
+    projectId: FIREBASE_PROJECT_ID,
+    storageBucket: FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
+    appId: FIREBASE_APP_ID,
     measurementId: "G-XCZN7TTZHQ"
 };
 
