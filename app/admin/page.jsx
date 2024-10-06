@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { db, storage } from '../lib/firebase';
 import {
@@ -18,6 +19,7 @@ export default function AdminDashboardForm() {
         model: '',
         name: '',
         capacity: '',
+        type: '',
         description: '',
         cityPrice: '',
         travelPrice: '',
@@ -48,8 +50,8 @@ export default function AdminDashboardForm() {
     const uploadImages = async (files, bikeId) => {
         const uploadPromises = files.flatMap(async (file) => {
             if (file && file.thumbImage && file.fullImage) {
-                const thumbRef = ref(storage, `bikes/${bikeId}/thumb_${file.originalName}`);
-                const fullRef = ref(storage, `bikes/${bikeId}/full_${file.originalName}`);
+                const thumbRef = ref(storage, `bikes/${bikeId}/thumb`);
+                const fullRef = ref(storage, `bikes/${bikeId}/full`);
 
                 const [thumbUpload, fullUpload] = await Promise.all([
                     uploadBytes(thumbRef, file.thumbImage),
@@ -81,7 +83,7 @@ export default function AdminDashboardForm() {
         try {
             const bikesRef = collection(db, 'bikes');
             const bikeDoc = doc(bikesRef);
-            const bikeId = `${formData.model}-${formData.name}`; // Generating the bike ID
+            const bikeId = uuidv4()
             const bikeData = {
                 ...formData,
                 timestamp: serverTimestamp(),
@@ -189,6 +191,48 @@ export default function AdminDashboardForm() {
                                 placeholder='125, 250? do not add "CC"'
                                 required
                             />
+                        </div>
+
+                        <div className={styles.radioWraper}>
+                            <div>
+                                <label htmlFor="type">Type:</label>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        id="type-automatic"
+                                        name="type"
+                                        value="automatic"
+                                        checked={formData.type === 'automatic'}
+                                        onChange={handleChange}
+                                        aria-label="Automatic"
+                                    />
+                                    <label htmlFor="type-automatic">Automatic</label>
+                                </div>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        id="type-semi-auto"
+                                        name="type"
+                                        value="semi-auto"
+                                        checked={formData.type === 'semi-auto'}
+                                        onChange={handleChange}
+                                        aria-label="Semi-Automatic"
+                                    />
+                                    <label htmlFor="type-semi-auto">Semi-Automatic</label>
+                                </div>
+                                <div>
+                                    <input
+                                        type="radio"
+                                        id="type-manual"
+                                        name="type"
+                                        value="manual"
+                                        checked={formData.type === 'manual'}
+                                        onChange={handleChange}
+                                        aria-label="Manual"
+                                    />
+                                    <label htmlFor="type-manual">Manual</label>
+                                </div>
+                            </div>
                         </div>
 
                         <div>

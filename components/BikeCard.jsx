@@ -4,28 +4,25 @@ import Link from 'next/link';
 import styles from '../styles/bikeCard.module.css';
 
 const BikeCard = ({ bike }) => {
-    const baseUrlThumb = `https://phung-motorbike.pockethost.io/api/files/${bike.collectionId}/${bike.id}/`;
+    const fallbackImage = '/placeHolderThumb.webp';
 
-    const blurDataURL = '/public/placeHolderThumb.webp';
-    const fallbackImage = '/public/placeHolderThumb.webp';
+    const imageUrl = bike.images && bike.images.length > 0 && bike.images[0].thumbURL
+        ? bike.images[0].thumbURL
+        : fallbackImage;
+
+    const altText = bike.model && bike.name
+        ? `${bike.model} ${bike.name}`
+        : 'Motorbike for rent at Phung Motorbike';
 
     return (
         <div className={styles.bikeCard}>
             <Image
-                src={
-                    bike.thumb && bike.thumb.length > 0
-                        ? `${baseUrlThumb}${bike.thumb[0]}`
-                        : fallbackImage
-                }
-                alt={
-                    bike.model && bike.name
-                        ? `${bike.model} ${bike.name}`
-                        : 'Motorbike for rent at Phung Motorbike'
-                }
+                src={imageUrl}
+                alt={altText}
                 width={300}
                 height={225}
-                placeholder="blur" // Correct usage
-                blurDataURL={blurDataURL}
+                placeholder="blur"
+                blurDataURL={fallbackImage}
                 unoptimized
                 onError={(e) => {
                     e.target.src = fallbackImage;
@@ -34,7 +31,7 @@ const BikeCard = ({ bike }) => {
             <h2>{`${bike.model} ${bike.name} ${bike.capacity}cc`}</h2>
             <p>${bike.cityPrice}/day</p>
             <p>${bike.monthPrice}/month</p>
-            <Link href={`/motorbikes-for-rent-hanoi/${bike.model}-${bike.name}`}>
+            <Link href={`/motorbikes-for-rent-hanoi/${bike.type}/${bike.model}-${bike.name}/${bike.id}`}>
                 <button>Details</button>
             </Link>
 

@@ -22,7 +22,8 @@
     "react-slick": "^0.30.2",
     "sass": "^1.78.0",
     "sharp": "^0.33.5",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "eslint": "^8",
