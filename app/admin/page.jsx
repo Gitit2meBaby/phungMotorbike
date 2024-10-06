@@ -12,6 +12,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 import styles from '../../styles/admin.module.css';
 import ImageUploader from '../../components/ImageUploader';
+import RemoveBike from '../../components/RemoveBike';
 
 export default function AdminDashboardForm() {
     const [admin, setAdmin] = useState(false);
@@ -47,29 +48,44 @@ export default function AdminDashboardForm() {
         }));
     };
 
-    const uploadImages = async (files, bikeId) => {
-        const uploadPromises = files.flatMap(async (file) => {
-            if (file && file.thumbImage && file.fullImage) {
-                const thumbRef = ref(storage, `bikes/${bikeId}/thumb`);
-                const fullRef = ref(storage, `bikes/${bikeId}/full`);
+    const handleType = (e) => {
+        setFormData(prevState => ({
+            ...prevState,
+            type: e.target.value
+        }));
+    };
 
+    const uploadImages = async (files, bikeId, bikeModel, bikeName) => {
+        const uploadPromises = files.flatMap(async (file, index) => {
+            if (file && file.thumbImage && file.fullImage) {
+                // Construct unique file names using model, name, and index to avoid duplicates
+                const thumbFileName = `${bikeModel}-${bikeName}-thumb-${index}.webp`;
+                const fullFileName = `${bikeModel}-${bikeName}-full-${index}.webp`;
+
+                // Update storage references with unique filenames
+                const thumbRef = ref(storage, `bikes/${bikeModel}-${bikeName}-${bikeId}/${thumbFileName}`);
+                const fullRef = ref(storage, `bikes/${bikeModel}-${bikeName}-${bikeId}/${fullFileName}`);
+
+                // Upload thumb and full images
                 const [thumbUpload, fullUpload] = await Promise.all([
                     uploadBytes(thumbRef, file.thumbImage),
                     uploadBytes(fullRef, file.fullImage)
                 ]);
 
+                // Get download URLs for the uploaded files
                 const [thumbURL, fullURL] = await Promise.all([
                     getDownloadURL(thumbUpload.ref),
                     getDownloadURL(fullUpload.ref)
                 ]);
 
-                return { thumbURL, fullURL };
+                return { thumbURL, fullURL };  // Return URLs for this image set
             }
             return null;
         });
 
+        // Wait for all upload promises to resolve
         const imageUrls = await Promise.all(uploadPromises);
-        return imageUrls.filter(Boolean); // Remove any null entries
+        return imageUrls.filter(Boolean);  // Filter out any null entries
     };
 
     const handleSubmit = async (e) => {
@@ -113,11 +129,6 @@ export default function AdminDashboardForm() {
         }
     };
 
-
-    const handleRemove = () => {
-
-    }
-
     const clearFields = () => {
         setFormData({
             model: '',
@@ -138,6 +149,8 @@ export default function AdminDashboardForm() {
                 style={{ filter: admin ? 'blur(5px) brightness(0.5)' : '', pointerEvents: admin ? 'none' : '' }}>
                 <h1>Admin Dashboard</h1>
 
+                <div className={styles.divider}></div>
+
                 <div className={styles.btnWrapper}>
                     <button
                         className={formType === 'Add Bike' ? styles.btnActive : styles.btn}
@@ -155,7 +168,7 @@ export default function AdminDashboardForm() {
 
                 {formType === 'Add Bike' ? (
                     <form onSubmit={handleSubmit}>
-                        <div>
+                        <div className={styles.textInput}>
                             <label htmlFor="model">Model</label>
                             <input
                                 type="text"
@@ -167,7 +180,7 @@ export default function AdminDashboardForm() {
                                 required
                             />
                         </div>
-                        <div>
+                        <div className={styles.textInput}>
                             <label htmlFor="name">Name</label>
                             <input
                                 type="text"
@@ -180,7 +193,7 @@ export default function AdminDashboardForm() {
                             />
                         </div>
 
-                        <div>
+                        <div className={styles.textInput}>
                             <label htmlFor="capacity">Capacity</label>
                             <input
                                 type="number"
@@ -188,54 +201,55 @@ export default function AdminDashboardForm() {
                                 name="capacity"
                                 value={formData.capacity}
                                 onChange={handleChange}
-                                placeholder='125, 250? do not add "CC"'
+                                placeholder='125, 250?'
                                 required
                             />
                         </div>
 
-                        <div className={styles.radioWraper}>
-                            <div>
-                                <label htmlFor="type">Type:</label>
-                                <div>
-                                    <input
-                                        type="radio"
-                                        id="type-automatic"
-                                        name="type"
-                                        value="automatic"
-                                        checked={formData.type === 'automatic'}
-                                        onChange={handleChange}
-                                        aria-label="Automatic"
-                                    />
-                                    <label htmlFor="type-automatic">Automatic</label>
-                                </div>
-                                <div>
-                                    <input
-                                        type="radio"
-                                        id="type-semi-auto"
-                                        name="type"
-                                        value="semi-auto"
-                                        checked={formData.type === 'semi-auto'}
-                                        onChange={handleChange}
-                                        aria-label="Semi-Automatic"
-                                    />
-                                    <label htmlFor="type-semi-auto">Semi-Automatic</label>
-                                </div>
-                                <div>
-                                    <input
-                                        type="radio"
-                                        id="type-manual"
-                                        name="type"
-                                        value="manual"
-                                        checked={formData.type === 'manual'}
-                                        onChange={handleChange}
-                                        aria-label="Manual"
-                                    />
-                                    <label htmlFor="type-manual">Manual</label>
-                                </div>
+                        <label htmlFor="type">Type:</label>
+                        <div className={styles.radioWrapper}>
+
+                            <div className={styles.radio}>
+                                <input
+                                    type="radio"
+                                    id="type-automatic"
+                                    name="type"
+                                    value="automatic"
+                                    checked={formData.type === 'automatic'}
+                                    onChange={(e) => handleType(e)}
+                                    aria-label="Automatic"
+                                />
+                                <label htmlFor="type-automatic">Automatic</label>
+                            </div>
+
+                            <div className={styles.radio}>
+                                <input
+                                    type="radio"
+                                    id="type-semi-auto"
+                                    name="type"
+                                    value="semi-auto"
+                                    checked={formData.type === 'semi-auto'}
+                                    onChange={(e) => handleType(e)}
+                                    aria-label="Semi-Automatic"
+                                />
+                                <label htmlFor="type-semi-auto">Semi-Automatic</label>
+                            </div>
+
+                            <div className={styles.radio}>
+                                <input
+                                    type="radio"
+                                    id="type-manual"
+                                    name="type"
+                                    value="manual"
+                                    checked={formData.type === 'manual'}
+                                    onChange={(e) => handleType(e)}
+                                    aria-label="Manual"
+                                />
+                                <label htmlFor="type-manual">Manual</label>
                             </div>
                         </div>
 
-                        <div>
+                        <div className={styles.description}>
                             <label htmlFor="description">Description</label>
                             <textarea
                                 id="description"
@@ -247,7 +261,7 @@ export default function AdminDashboardForm() {
                             />
                         </div>
 
-                        <div>
+                        <div className={styles.priceInput}>
                             <label htmlFor="cityPrice">Inner City Price</label>
                             <input
                                 type="number"
@@ -255,11 +269,11 @@ export default function AdminDashboardForm() {
                                 name="cityPrice"
                                 value={formData.cityPrice}
                                 onChange={handleChange}
-                                placeholder='USD, use numbers only'
+                                placeholder='USD'
                             />
                         </div>
 
-                        <div>
+                        <div className={styles.priceInput}>
                             <label htmlFor="travelPrice">Travelling Price</label>
                             <input
                                 type="number"
@@ -267,11 +281,11 @@ export default function AdminDashboardForm() {
                                 name="travelPrice"
                                 value={formData.travelPrice}
                                 onChange={handleChange}
-                                placeholder='USD, use numbers only'
+                                placeholder='USD'
                             />
                         </div>
 
-                        <div>
+                        <div className={styles.priceInput}>
                             <label htmlFor="monthPrice">Month Price</label>
                             <input
                                 type="number"
@@ -279,11 +293,11 @@ export default function AdminDashboardForm() {
                                 name="monthPrice"
                                 value={formData.monthPrice}
                                 onChange={handleChange}
-                                placeholder='USD, use numbers only'
+                                placeholder='USD'
                             />
                         </div>
 
-                        <div>
+                        <div className={styles.priceInput}>
                             <label htmlFor="salePrice">Sale Price</label>
                             <input
                                 type="number"
@@ -291,7 +305,7 @@ export default function AdminDashboardForm() {
                                 name="salePrice"
                                 value={formData.salePrice}
                                 onChange={handleChange}
-                                placeholder='USD, use numbers only'
+                                placeholder='USD'
                             />
                         </div>
 
@@ -310,54 +324,7 @@ export default function AdminDashboardForm() {
                         <button className={styles.submitBtn} type="submit">Submit</button>
                     </form>
                 ) : (
-                    <form onSubmit={handleRemove()}>
-                        <div>
-                            <label htmlFor="model">Model</label>
-                            <input
-                                type="text"
-                                id="model"
-                                name="model"
-                                value={formData.model}
-                                onChange={handleChange}
-                                placeholder='Honda, Yamaha?'
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="name">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder='Cub, Nuovo, Jupiter?'
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="capacity">Capacity</label>
-                            <input
-                                type="number"
-                                id="capacity"
-                                name="capacity"
-                                value={formData.capacity}
-                                onChange={handleChange}
-                                placeholder='125, 250? do not add "CC"'
-                                required
-                            />
-                        </div>
-                        <input
-                            type="text"
-                            name="honeypot"
-                            value={formData.honeypot}
-                            onChange={handleChange}
-                            style={{ display: 'none' }}
-                            tabIndex="-1"
-                            autoComplete="off"
-                        />
-                        <button className={styles.submitBtn} type="submit">Find Motorbike</button>
-                    </form>
+                    <RemoveBike />
                 )}
             </section>
             {admin && (

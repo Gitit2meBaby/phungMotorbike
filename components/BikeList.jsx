@@ -21,8 +21,6 @@ export default function BikeList({ initialBikes }) {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center', marginBottom: '2rem', color: 'white' }}>Hello World</h1>
-
             {initialBikes.map(bike => (
                 <div key={bike.id}>
                     <BikeCard bike={bike} />

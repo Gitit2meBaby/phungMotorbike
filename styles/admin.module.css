@@ -23,25 +23,6 @@
   gap: 1rem;
   padding: 1rem;
 }
-.admin form div {
-  display: grid;
-  grid-template-columns: 25% 1fr;
-}
-.admin form div:nth-of-type(6) {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.admin form textarea {
-  height: 6rem;
-  padding: 0.5rem;
-}
-.admin form textarea::-moz-placeholder {
-  font-style: italic;
-}
-.admin form textarea::placeholder {
-  font-style: italic;
-}
 .admin form input {
   padding: 0.2rem;
 }
@@ -58,6 +39,69 @@
   color: #e97f26;
   letter-spacing: 1px;
   font-weight: 600;
+}
+
+.textInput {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+}
+
+.radioWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10vw;
+  gap: 0.5rem;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.radio:first-of-type {
+  margin-top: -1rem;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.description textarea {
+  height: 6rem;
+  padding: 0.5rem;
+}
+.description textarea::-moz-placeholder {
+  font-style: italic;
+}
+.description textarea::placeholder {
+  font-style: italic;
+}
+
+.priceInput {
+  display: grid;
+  grid-template-columns: 50% 1fr;
+}
+.priceInput input {
+  width: 50%;
+}
+
+.fileInput {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.fileInput input {
+  width: 50%;
+}
+
+.imgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .btnWrapper {
@@ -94,9 +138,10 @@
 .submitBtn {
   background-color: #e97f26;
   color: #0d0d0d;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   border: 1px solid #0d0d0d;
   border-radius: 0.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -117,4 +162,22 @@
   text-transform: uppercase;
   text-align: center;
   max-width: 90vw;
+}
+
+.divider {
+  background-color: #e97f26;
+  width: 90%;
+  height: 0.5px;
+  align-self: center;
+  margin: 1rem 0;
+}
+@media (min-width: 1025px) {
+  .divider:last-of-type {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .divider:last-of-type {
+    display: none;
+  }
 }/*# sourceMappingURL=admin.module.css.map */

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -9,39 +9,6 @@ import styles from '../styles/filter.module.css';
 const Filter = ({ slug }) => {
     const pathname = usePathname();
     const [hoveredButton, setHoveredButton] = useState(null);
-
-    const fetchFilteredBikes = async (type = 'all', cityPrice, capacity) => {
-        const queryParams = new URLSearchParams();
-
-        // Add query params conditionally
-        if (type) queryParams.append('type', type);
-        if (cityPrice) queryParams.append('cityPrice', cityPrice);  // 'asc' or 'desc'
-        if (capacity) queryParams.append('capacity', capacity);    // 'asc' or 'desc'
-
-        const res = await fetch(`/api/bikes?${queryParams.toString()}`);
-
-        if (!res.ok) {
-            throw new Error("Failed to fetch bikes");
-        }
-
-        const data = await res.json();
-        return data;
-    };
-
-    // Example usage on a filter interaction
-    useEffect(() => {
-        const getFilteredBikes = async () => {
-            try {
-                const filteredBikes = await fetchFilteredBikes(selectedType, selectedCityPrice, selectedCapacity);
-                setBikes(filteredBikes); // Update state with filtered bikes
-            } catch (error) {
-                console.error("Error fetching bikes:", error);
-            }
-        };
-
-        getFilteredBikes();
-    }, [selectedType, selectedCityPrice, selectedCapacity]);
-
 
     const handleMouseEnter = (button) => {
         setHoveredButton(button);

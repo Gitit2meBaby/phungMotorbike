@@ -1,6 +1,4 @@
-'use client';
 import Image from 'next/image';
-import { useState } from 'react';
 import pica from 'pica';
 
 import styles from '../styles/admin.module.css';
@@ -74,8 +72,8 @@ const ImageUploader = ({ files, setFiles, preview, setPreview }) => {
     };
 
     return (
-        <section>
-            <div>
+        <section className={styles.imageUploader}>
+            <div className={styles.fileInput}>
                 <label htmlFor="featureImage">Feature Image</label>
                 <input
                     type="file"
@@ -99,7 +97,7 @@ const ImageUploader = ({ files, setFiles, preview, setPreview }) => {
 
             {files.length > 0 && (
                 <>
-                    <div>
+                    <div className={styles.fileInput}>
                         <label htmlFor="image2">Image 2</label>
                         <input
                             type="file"
@@ -124,7 +122,7 @@ const ImageUploader = ({ files, setFiles, preview, setPreview }) => {
 
             {files.length > 1 && (
                 <>
-                    <div>
+                    <div className={styles.fileInput}>
                         <label htmlFor="image3">Image 3</label>
                         <input
                             type="file"
@@ -149,7 +147,7 @@ const ImageUploader = ({ files, setFiles, preview, setPreview }) => {
 
             {files.length > 2 && (
                 <>
-                    <div>
+                    <div className={styles.fileInput}>
                         <label htmlFor="image4">Image 4</label>
                         <input
                             type="file"
@@ -174,7 +172,7 @@ const ImageUploader = ({ files, setFiles, preview, setPreview }) => {
 
             {files.length > 3 && (
                 <>
-                    <div>
+                    <div className={styles.fileInput}>
                         <label htmlFor="image5">Image 5</label>
                         <input
                             type="file"
