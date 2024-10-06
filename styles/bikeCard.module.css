@@ -1,0 +1,16 @@
+.bikeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ebebeb;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.bikeCard p,
+.bikeCard h2 {
+  color: #ebebeb;
+  margin: 0;
+}
+.bikeCard p {
+  color: #ebebeb;
+}/*# sourceMappingURL=bikeCard.module.css.map */

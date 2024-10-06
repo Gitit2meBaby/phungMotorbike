@@ -1,20 +1,32 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+
+import { db, storage } from '../lib/firebase';
+import {
+    collection,
+    serverTimestamp,
+    writeBatch, doc,
+} from 'firebase/firestore'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
 import styles from '../../styles/admin.module.css';
-import Image from 'next/image';
+import ImageUploader from '../../components/ImageUploader';
 
 export default function AdminDashboardForm() {
     const [admin, setAdmin] = useState(false);
     const [formData, setFormData] = useState({
         model: '',
         name: '',
-        price: '',
         capacity: '',
-        offer: 'for Rent',
         description: '',
-        honeypot: ''
+        cityPrice: '',
+        travelPrice: '',
+        salePrice: '',
+        monthPrice: '',
     });
     const [files, setFiles] = useState([]);
+    const [preview, setPreview] = useState([]);
+
     const [formType, setFormType] = useState('Add Bike');
 
     useEffect(() => {
@@ -33,10 +45,29 @@ export default function AdminDashboardForm() {
         }));
     };
 
-    const handleFileChange = (e, index) => {
-        const newFiles = [...files];
-        newFiles[index] = e.target.files[0];
-        setFiles(newFiles);
+    const uploadImages = async (files, bikeId) => {
+        const uploadPromises = files.flatMap(async (file) => {
+            if (file && file.thumbImage && file.fullImage) {
+                const thumbRef = ref(storage, `bikes/${bikeId}/thumb_${file.originalName}`);
+                const fullRef = ref(storage, `bikes/${bikeId}/full_${file.originalName}`);
+
+                const [thumbUpload, fullUpload] = await Promise.all([
+                    uploadBytes(thumbRef, file.thumbImage),
+                    uploadBytes(fullRef, file.fullImage)
+                ]);
+
+                const [thumbURL, fullURL] = await Promise.all([
+                    getDownloadURL(thumbUpload.ref),
+                    getDownloadURL(fullUpload.ref)
+                ]);
+
+                return { thumbURL, fullURL };
+            }
+            return null;
+        });
+
+        const imageUrls = await Promise.all(uploadPromises);
+        return imageUrls.filter(Boolean); // Remove any null entries
     };
 
     const handleSubmit = async (e) => {
@@ -47,45 +78,57 @@ export default function AdminDashboardForm() {
             return;
         }
 
-        const formDataToSend = new FormData();
-        Object.keys(formData).forEach(key => {
-            formDataToSend.append(key, formData[key]);
-        });
-        files.forEach((file, index) => {
-            formDataToSend.append(`file${index}`, file);
-        });
-
         try {
-            const response = await fetch('/api/admin', {
-                method: 'POST',
-                body: formDataToSend,
-            });
+            const bikesRef = collection(db, 'bikes');
+            const bikeDoc = doc(bikesRef);
+            const bikeId = `${formData.model}-${formData.name}`; // Generating the bike ID
+            const bikeData = {
+                ...formData,
+                timestamp: serverTimestamp(),
+                id: bikeId
+            };
 
-            if (response.ok) {
-                alert('Form submitted successfully!');
-                // Reset form
-                setFormData({
-                    model: '',
-                    name: '',
-                    price: '',
-                    capacity: '',
-                    offer: 'for Sale',
-                    description: '',
-                    honeypot: ''
-                });
-                setFiles([]);
-            } else {
-                alert('Failed to submit form. Please try again.');
-            }
+            const imageUrls = await uploadImages(files, bikeId);
+            bikeData.images = imageUrls;
+
+            // Create a write batch
+            const batch = writeBatch(db);
+
+            // Set the bike document with bikeData, including image URLs
+            batch.set(bikeDoc, bikeData);
+
+            // Commit the batch
+            await batch.commit();
+
+            console.log('Bike data and images uploaded successfully.');
+
+            clearFields();
+            alert('Bike added successfully!');
+
         } catch (error) {
             console.error('Error:', error);
             alert('An error occurred. Please try again.');
         }
     };
 
+
     const handleRemove = () => {
 
     }
+
+    const clearFields = () => {
+        setFormData({
+            model: '',
+            name: '',
+            capacity: '',
+            description: '',
+            cityPrice: '',
+            travelPrice: '',
+            monthPrice: '',
+            honeypot: ''
+        });
+        setPreview([]);
+    };
 
     return (
         <>
@@ -111,19 +154,6 @@ export default function AdminDashboardForm() {
                 {formType === 'Add Bike' ? (
                     <form onSubmit={handleSubmit}>
                         <div>
-                            <label htmlFor="offer">Offer</label>
-                            <select
-                                id="offer"
-                                name="offer"
-                                value={formData.offer}
-                                onChange={handleChange}
-                                required
-                            >
-                                <option value="for Sale">For Sale</option>
-                                <option value="for Rent">For Rent</option>
-                            </select>
-                        </div>
-                        <div>
                             <label htmlFor="model">Model</label>
                             <input
                                 type="text"
@@ -147,18 +177,7 @@ export default function AdminDashboardForm() {
                                 required
                             />
                         </div>
-                        <div>
-                            <label htmlFor="price">Price</label>
-                            <input
-                                type="number"
-                                id="price"
-                                name="price"
-                                value={formData.price}
-                                onChange={handleChange}
-                                placeholder='USD, use numbers only'
-                                required
-                            />
-                        </div>
+
                         <div>
                             <label htmlFor="capacity">Capacity</label>
                             <input
@@ -183,98 +202,58 @@ export default function AdminDashboardForm() {
                                 required
                             />
                         </div>
+
                         <div>
-                            <label htmlFor="featureImage">Feature Image</label>
+                            <label htmlFor="cityPrice">Inner City Price</label>
                             <input
-                                type="file"
-                                id="featureImage"
-                                name="featureImage"
-                                onChange={(e) => handleFileChange(e, 0)}
-                                accept="image/*"
-                                required
+                                type="number"
+                                id="cityPrice"
+                                name="cityPrice"
+                                value={formData.cityPrice}
+                                onChange={handleChange}
+                                placeholder='USD, use numbers only'
                             />
-                        </div>
-                        <div className={styles.imgWrapper}>
-                            {files[0] && (
-                                <Image
-                                    src={URL.createObjectURL(files[0])}
-                                    alt="Uploaded image"
-                                    width={100}
-                                    height={100}
-                                    responsive
-                                />
-                            )}
                         </div>
 
                         <div>
-                            <label htmlFor="image2">Image 2</label>
+                            <label htmlFor="travelPrice">Travelling Price</label>
                             <input
-                                type="file"
-                                id="image2"
-                                name="image2"
-                                onChange={(e) => handleFileChange(e, 1)}
-                                accept="image/*"
-                                required
+                                type="number"
+                                id="travelPrice"
+                                name="travelPrice"
+                                value={formData.travelPrice}
+                                onChange={handleChange}
+                                placeholder='USD, use numbers only'
                             />
-                        </div>
-                        <div className={styles.imgWrapper}>
-                            {files[1] && (
-                                <Image
-                                    src={URL.createObjectURL(files[1])}
-                                    alt="Uploaded image"
-                                    width={100}
-                                    height={100}
-                                    responsive
-                                />
-                            )}
                         </div>
 
                         <div>
-                            <label htmlFor="image3">Image 3</label>
+                            <label htmlFor="monthPrice">Month Price</label>
                             <input
-                                type="file"
-                                id="image3"
-                                name="image3"
-                                onChange={(e) => handleFileChange(e, 2)}
-                                accept="image/*"
-                                required
+                                type="number"
+                                id="monthPrice"
+                                name="monthPrice"
+                                value={formData.monthPrice}
+                                onChange={handleChange}
+                                placeholder='USD, use numbers only'
                             />
-                        </div>
-                        <div className={styles.imgWrapper}>
-                            {files[2] && (
-                                <Image
-                                    src={URL.createObjectURL(files[2])}
-                                    alt="Uploaded image"
-                                    width={100}
-                                    height={100}
-                                    responsive
-                                />
-                            )}
                         </div>
 
                         <div>
-                            <label htmlFor="image4">Image 4</label>
+                            <label htmlFor="salePrice">Sale Price</label>
                             <input
-                                type="file"
-                                id="image4"
-                                name="image4"
-                                onChange={(e) => handleFileChange(e, 3)}
-                                accept="image/*"
-                                required
+                                type="number"
+                                id="salePrice"
+                                name="salePrice"
+                                value={formData.salePrice}
+                                onChange={handleChange}
+                                placeholder='USD, use numbers only'
                             />
                         </div>
-                        <div className={styles.imgWrapper}>
-                            {files[3] && (
-                                <Image
-                                    src={URL.createObjectURL(files[3])}
-                                    alt="Uploaded image"
-                                    width={100}
-                                    height={100}
-                                    responsive
-                                />
-                            )}
-                        </div>
 
+                        <ImageUploader files={files} setFiles={setFiles} preview={preview} setPreview={setPreview} />
+
+                        {/*Honeypot*/}
                         <input
                             type="text"
                             name="honeypot"
@@ -288,19 +267,6 @@ export default function AdminDashboardForm() {
                     </form>
                 ) : (
                     <form onSubmit={handleRemove()}>
-                        <div>
-                            <label htmlFor="offer">Offer</label>
-                            <select
-                                id="offer"
-                                name="offer"
-                                value={formData.offer}
-                                onChange={handleChange}
-                                required
-                            >
-                                <option value="for Sale">For Sale</option>
-                                <option value="for Rent">For Rent</option>
-                            </select>
-                        </div>
                         <div>
                             <label htmlFor="model">Model</label>
                             <input
@@ -326,18 +292,6 @@ export default function AdminDashboardForm() {
                             />
                         </div>
                         <div>
-                            <label htmlFor="price">Price</label>
-                            <input
-                                type="number"
-                                id="price"
-                                name="price"
-                                value={formData.price}
-                                onChange={handleChange}
-                                placeholder='USD, use numbers only'
-                                required
-                            />
-                        </div>
-                        <div>
                             <label htmlFor="capacity">Capacity</label>
                             <input
                                 type="number"
@@ -358,7 +312,7 @@ export default function AdminDashboardForm() {
                             tabIndex="-1"
                             autoComplete="off"
                         />
-                        <button className={styles.submitBtn} type="submit">Submit</button>
+                        <button className={styles.submitBtn} type="submit">Find Motorbike</button>
                     </form>
                 )}
             </section>

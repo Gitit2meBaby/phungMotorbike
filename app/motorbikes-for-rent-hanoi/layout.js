@@ -1,5 +1,5 @@
-import Filter from '../../components/Filter'
-import Sorter from '../../components/Sorter';
+// import Filter from '../../components/Filter'
+// import Sorter from '../../components/Sorter';
 
 import styles from '../../styles/hanoiRentals.module.scss';
 
@@ -44,8 +44,8 @@ export default function RootLayout({ children }) {
             </section>
             <div className={styles.divider}
                 style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
-            <Filter slug="/motorbikes-for-rent-hanoi" />
-            <Sorter />
+            {/* <Filter slug="/motorbikes-for-rent-hanoi" />
+            <Sorter /> */}
             <div className={styles.divider}
                 style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
             {children}
