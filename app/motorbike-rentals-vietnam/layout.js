@@ -1,0 +1,54 @@
+import Filter from '../../components/Filter'
+import Sorter from '../../components/Sorter';
+
+import styles from '../../styles/hanoiRentals.module.scss';
+
+export const metadata = {
+    title: "Scooters for Rent in Vietnam | Phung Motorbike",
+    description: "Rent a semi-auto scooter in Vietnam and embark on an unforgettable adventure. Explore the beauty and charm of the country at your convenience. Get started with Phung Motorbike!",
+    canonical: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi',
+
+    // Open Graph (OG) tags for social media
+    openGraph: {
+        type: 'website',
+        title: 'Scooters for Rent in Vietnam | Phung Motorbike',
+        description: "Rent a semi-auto scooter in Vietnam and embark on an unforgettable adventure. Explore the beauty and charm of the country at your convenience. Get started with Phung Motorbike!",
+        url: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi',
+        site_name: 'Phung Motorbike',
+
+        // images: [
+        //   {
+        //     url: 'https://phungmotorbike.com/images/hanoi-motorbike-rental.jpg', // Replace with an actual image of your rental fleet or a Hanoi street scene
+        //     width: 1200,
+        //     height: 630,
+        //     alt: 'Motorbikes for rent in Hanoi',
+        //   },
+        // ],
+    },
+
+    meta: {
+        keywords: 'scooters for rent, Vietnam rentals, scooter rental Hanoi, Vietnam semi-autoscooter rental, motorbike rental Vietnam, Honda scooters for rent',
+    },
+};
+
+export default function RootLayout({ children }) {
+    return (
+        <section>
+            <div className={styles.divider}
+                style={{ margin: '0 auto' }}
+            ></div>
+            <section className={styles.hanoiRentals}>
+                <h1>Inner City Rentals</h1>
+                <p>Explore Hanoi's vibrant city center with ease on one of our reliable inner city rental motorbikes. Our fleet is designed for convenient urban travel, with a maximum daily mileage of 50 kilometers.</p>
+                <p>Enjoy the freedom and flexibility of exploring the city at your own pace. Each rental includes essential accessories like helmets, a convenient rack, a phone holder, and secure rubber straps. We'll also provide you with valuable information and tips on must-see destinations and local attractions.</p>
+            </section>
+            <div className={styles.divider}
+                style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
+            <Filter slug="/motorbikes-for-rent-hanoi" />
+            <Sorter />
+            <div className={styles.divider}
+                style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
+            {children}
+        </section>
+    );
+}

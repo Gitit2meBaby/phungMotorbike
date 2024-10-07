@@ -1,18 +1,18 @@
 import BikeList from '../../../components/BikeList';
 
-const Automatic = async () => {
+const SemiAuto = async () => {
 
     const baseUrl = process.env.NEXT_PUBLIC_URL;
     let data = await fetch(`${baseUrl}api/bikes`);
     let bikes = await data.json()
 
-    const automaticBikes = bikes.filter(bike => bike.type === 'automatic');
+    const semiAutoBikes = bikes.filter(bike => bike.type === 'semi-auto');
 
     return (
         <div>
-            <BikeList initialBikes={automaticBikes} />
+            <BikeList initialBikes={semiAutoBikes} />
         </div>
     );
 };
 
-export default Automatic;
+export default SemiAuto;

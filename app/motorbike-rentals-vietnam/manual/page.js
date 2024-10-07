@@ -1,18 +1,18 @@
 import BikeList from '../../../components/BikeList';
 
-const Automatic = async () => {
+const Manual = async () => {
 
     const baseUrl = process.env.NEXT_PUBLIC_URL;
     let data = await fetch(`${baseUrl}api/bikes`);
     let bikes = await data.json()
 
-    const automaticBikes = bikes.filter(bike => bike.type === 'automatic');
+    const manualBikes = bikes.filter(bike => bike.type === 'manual');
 
     return (
         <div>
-            <BikeList initialBikes={automaticBikes} />
+            <BikeList initialBikes={manualBikes} />
         </div>
     );
 };
 
-export default Automatic;
+export default Manual;

@@ -35,6 +35,7 @@ export default function AdminDashboardForm() {
 
     const [formType, setFormType] = useState('Add Bike');
     const [editBikeId, setEditBikeId] = useState(null); // Store bikeId if editing
+    const [initialFiles, setInitialFiles] = useState([]);
 
     useEffect(() => {
         sessionStorage.getItem('Admin');
@@ -43,6 +44,10 @@ export default function AdminDashboardForm() {
             setAdmin(true)
         }
     }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -101,7 +106,12 @@ export default function AdminDashboardForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Submitting files:", files); // Log the files state
 
+        if (files.length === 0) {
+            console.error("No files to submit!");
+            return; // Exit if there are no files
+        }
         if (formData.honeypot) {
             console.log("Bot submission detected");
             return;
@@ -154,7 +164,6 @@ export default function AdminDashboardForm() {
         }
     };
 
-
     const handleEdit = async (bikeId) => {
         try {
             // Fetch the bike data by bikeId
@@ -174,18 +183,28 @@ export default function AdminDashboardForm() {
                     fullImage: image.fullURL
                 }));
 
-                setFiles(loadedFiles);
-                setPreview(loadedFiles.map(file => file.thumbImage));
-
+                console.log("loadedFiles", loadedFiles);
+                setInitialFiles(loadedFiles);
+                console.log("bikeData", bikeData);
             } else {
                 console.log("No such document exists.");
             }
-
-
         } catch (error) {
             console.error("Error fetching bike:", error);
         }
     };
+
+    useEffect(() => {
+        console.log("Updated files state:", files);
+        setFiles(initialFiles)
+        setPreview(initialFiles.map(file => file.thumbImage));
+    }, [initialFiles]);
+
+    useEffect(() => {
+        console.log("Updated preview state:", preview);
+        console.log('files in useEffect', files);
+    }, [files]);
+
 
     const clearFields = () => {
         setFormData({
@@ -202,6 +221,7 @@ export default function AdminDashboardForm() {
         setPreview([]);
         setEditBikeId(null);
         setFormType('Add Bike');
+        scrollToTop();
     };
 
     return (

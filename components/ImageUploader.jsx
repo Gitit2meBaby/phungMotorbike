@@ -2,8 +2,18 @@ import Image from 'next/image';
 import pica from 'pica';
 
 import styles from '../styles/admin.module.css';
+import { useEffect } from 'react';
 
-const ImageUploader = ({ files, setFiles, preview, setPreview }) => {
+const ImageUploader = ({ files, setFiles, preview, setPreview, initialFiles }) => {
+
+    useEffect(() => {
+        console.log("Initial files:", initialFiles);
+        if (initialFiles && files.length === 0) {
+            setFiles(initialFiles);
+            setPreview(initialFiles.map(file => file.thumbImage));
+        }
+    }, [initialFiles, files.length, setFiles, setPreview]);
+
 
     const handleFileChange = async (e, index) => {
         const file = e.target.files[0];
