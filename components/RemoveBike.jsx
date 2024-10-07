@@ -1,16 +1,22 @@
 'use client'
 import React, { useState } from 'react';
-import { query, where, collection, getDocs } from 'firebase/firestore';
-import { db } from '../../phung/app/lib/firebase';
+import { query, where, collection, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
+import { db, storage } from '../../phung/app/lib/firebase';
 import Image from 'next/image';
 
-const RemoveBike = () => {
+import styles from '../styles/admin.module.css';
+import { deleteObject, ref } from 'firebase/storage';
+
+
+const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, }) => {
     const [findData, setFindData] = useState({
         model: '',
         name: '',
         capacity: '',
     });
     const [searchItems, setSearchItems] = useState([]);
+    const [deletedBikes, setDeletedBikes] = useState([]);
+    const fallbackImage = '/placeHolderThumb.webp';
 
     // Handle form input changes
     const handleChange = (event) => {
@@ -47,51 +53,84 @@ const RemoveBike = () => {
         }
     };
 
-    // delete doc function
+    // Helper function to extract the file path from a Firebase Storage URL
+    const getFilePathFromURL = (url) => {
+        const pathStart = url.indexOf("/o/") + 3;
+        const pathEnd = url.indexOf("?alt=");
+        return decodeURIComponent(url.substring(pathStart, pathEnd));
+    };
+
+    // Function to delete all files based on URLs
+    const deleteFilesFromURLs = async (imageUrls) => {
+        const deletePromises = imageUrls.map(async (imageSet) => {
+            if (imageSet.fullURL && imageSet.thumbURL) {
+                const fullFilePath = getFilePathFromURL(imageSet.fullURL);
+                const thumbFilePath = getFilePathFromURL(imageSet.thumbURL);
+
+                const fullRef = ref(storage, fullFilePath);
+                const thumbRef = ref(storage, thumbFilePath);
+
+                // Delete both full and thumbnail images
+                await Promise.all([deleteObject(fullRef), deleteObject(thumbRef)]);
+            }
+        });
+
+        await Promise.all(deletePromises);
+    };
+
+    // Delete document and associated images
     const handleDeleteDoc = async (id) => {
+        console.log("Document ID:", id);
         if (!id) {
             console.error("Id is undefined");
-            alert("Id is undefined, cannot find that motorbike in database");
+            alert("Id is undefined, cannot find that motorbike in the database");
             return;
         }
+
         try {
             const docRef = doc(db, "bikes", id);
-            await deleteDoc(docRef);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                const bikeData = docSnap.data();
+                const imageUrls = bikeData.images || [];
+
+                // Delete images from storage
+                await deleteFilesFromURLs(imageUrls);
+
+                // Delete the document from Firestore
+                await deleteDoc(docRef);
+
+                console.log("Document and images deleted successfully.");
+                alert("Bike and its images deleted successfully.");
+            } else {
+                console.error("No such document exists.");
+                alert("Error: No such document exists.");
+            }
         } catch (error) {
-            console.error("Error deleting document:", error);
-            alert("Error deleting document:", error);
+            console.error("Error deleting document and images:", error);
+            alert("Error deleting document and images:", error);
         }
     };
 
-    // find the folder of images correlating to that post
-    const checkForDuplicates = async () => {
-        const folderPath = `bikes/${bikeModel}-${bikeName}-${bikeId}`;
-        await deleteFilesInFolder(folderPath);
-    }
-
-    // Function to delete all files in a folder
-    const deleteFilesInFolder = async (folderPath) => {
-        console.log("Deleting images in folder:", folderPath);
-        const folderRef = ref(storage, folderPath);
-        try {
-            const files = await listAll(folderRef);
-            const deletePromises = files.items.map((fileRef) => deleteObject(fileRef));
-            await Promise.all(deletePromises);
-        } catch (error) {
-            // console.error("Error deleting images in folder:", error);
-        }
-    };
-
-    const handleRemove = (id) => {
+    const handleRemove = (e, id) => {
+        e.preventDefault()
         handleDeleteDoc(id);
         checkForDuplicates();
+        setDeletedBikes((prev) => [...prev, id]);
         alert("Motorbike removed from database");
     }
 
+    const handleEditClick = (e, id) => {
+        e.preventDefault();
+        handleEdit(id);
+        setFormType("Edit Bike");
+        setEditBikeId(id);
+    }
 
     return (
         <>
-            <form onSubmit={handleRemove()}>
+            <form>
                 <div>
                     <label htmlFor="model">Model</label>
                     <input
@@ -99,7 +138,7 @@ const RemoveBike = () => {
                         id="model"
                         name="model"
                         value={findData.model}
-                        onChange={() => handleChange()}
+                        onChange={(e) => handleChange(e)}
                         placeholder='Honda, Yamaha?'
                         required
                     />
@@ -111,7 +150,7 @@ const RemoveBike = () => {
                         id="name"
                         name="name"
                         value={findData.name}
-                        onChange={() => handleChange()}
+                        onChange={(e) => handleChange(e)}
                         placeholder='Cub, Nuovo, Jupiter?'
                         required
                     />
@@ -123,7 +162,7 @@ const RemoveBike = () => {
                         id="capacity"
                         name="capacity"
                         value={findData.capacity}
-                        onChange={() => handleChange()}
+                        onChange={(e) => handleChange(e)}
                         placeholder='125, 250? do not add "CC"'
                         required
                     />
@@ -132,7 +171,7 @@ const RemoveBike = () => {
                     type="text"
                     name="honeypot"
                     value={findData.honeypot}
-                    onChange={() => handleChange()}
+                    onChange={(e) => handleChange(e)}
                     style={{ display: 'none' }}
                     tabIndex="-1"
                     autoComplete="off"
@@ -145,10 +184,12 @@ const RemoveBike = () => {
                     <h2>Search Results</h2>
                     <ul>
                         {searchItems.map((bike) => (
-                            <div key={bike.id}>
+                            <div key={bike.id}
+                                style={{ display: deletedBikes.includes(bike.id) ? 'none' : 'block' }}>
+
                                 <Image
-                                    src={imageUrl}
-                                    alt={altText}
+                                    src={bike.images[0].thumbURL}
+                                    alt='Motorbike for rent at Phung Motorbike'
                                     width={300}
                                     height={225}
                                     placeholder="blur"
@@ -161,7 +202,8 @@ const RemoveBike = () => {
                                 <h2>{`${bike.model} ${bike.name} ${bike.capacity}cc`}</h2>
                                 <p>${bike.cityPrice}/day</p>
                                 <p>${bike.monthPrice}/month</p>
-                                <button onClick={() => handleRemove(bike.id)}>Delete</button>
+                                <button onClick={(e) => handleEditClick(e, bike.id)}>Edit</button>
+                                <button onClick={(e) => handleRemove(e, bike.id)}>Delete</button>
                             </div>
                         ))}
                     </ul>

@@ -6,7 +6,10 @@ import { db, storage } from '../lib/firebase';
 import {
     collection,
     serverTimestamp,
-    writeBatch, doc,
+    doc,
+    setDoc,
+    getDoc,
+    updateDoc,
 } from 'firebase/firestore'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -31,6 +34,7 @@ export default function AdminDashboardForm() {
     const [preview, setPreview] = useState([]);
 
     const [formType, setFormType] = useState('Add Bike');
+    const [editBikeId, setEditBikeId] = useState(null); // Store bikeId if editing
 
     useEffect(() => {
         sessionStorage.getItem('Admin');
@@ -56,6 +60,13 @@ export default function AdminDashboardForm() {
     };
 
     const uploadImages = async (files, bikeId, bikeModel, bikeName) => {
+        console.log(files, bikeId, bikeModel, bikeName);
+
+        if (!bikeModel || !bikeName) {
+            console.error('Bike model or name is missing:', { bikeModel, bikeName });
+            throw new Error('Bike model and name are required for uploading images.');
+        }
+
         const uploadPromises = files.flatMap(async (file, index) => {
             if (file && file.thumbImage && file.fullImage) {
                 // Construct unique file names using model, name, and index to avoid duplicates
@@ -92,40 +103,87 @@ export default function AdminDashboardForm() {
         e.preventDefault();
 
         if (formData.honeypot) {
-            console.log('Bot submission detected');
+            console.log("Bot submission detected");
             return;
         }
 
         try {
-            const bikesRef = collection(db, 'bikes');
-            const bikeDoc = doc(bikesRef);
-            const bikeId = uuidv4()
-            const bikeData = {
-                ...formData,
-                timestamp: serverTimestamp(),
-                id: bikeId
-            };
+            if (editBikeId) {
 
-            const imageUrls = await uploadImages(files, bikeId);
-            bikeData.images = imageUrls;
+                // Editing an existing bike
+                const bikeDocRef = doc(db, "bikes", editBikeId);
+                const updatedBikeData = {
+                    ...formData,
+                    timestamp: serverTimestamp()
+                };
 
-            // Create a write batch
-            const batch = writeBatch(db);
+                // Upload new images (if any) and add them to the bike data
+                const updatedImageUrls = await uploadImages(files, editBikeId, formData.model, formData.name);
+                updatedBikeData.images = [...(formData.images || []), ...updatedImageUrls];
 
-            // Set the bike document with bikeData, including image URLs
-            batch.set(bikeDoc, bikeData);
+                // Update the bike document with new data and images
+                await updateDoc(bikeDocRef, updatedBikeData);
 
-            // Commit the batch
-            await batch.commit();
+                alert("Bike updated successfully!");
+            } else {
+                // Adding a new bike (existing code)
+                const bikesRef = collection(db, "bikes");
+                const bikeId = uuidv4();
+                const bikeDoc = doc(bikesRef, bikeId);
+                const bikeData = {
+                    ...formData,
+                    timestamp: serverTimestamp(),
+                    id: bikeId
+                };
 
-            console.log('Bike data and images uploaded successfully.');
+                const imageUrls = await uploadImages(files, bikeId, formData.model, formData.name);
+                bikeData.images = imageUrls;
+
+                // Set the bike document with bikeData, including image URLs
+                await setDoc(bikeDoc, bikeData);
+
+                alert("Bike added successfully!");
+            }
 
             clearFields();
-            alert('Bike added successfully!');
+            setEditBikeId(null); // Reset edit state
 
         } catch (error) {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+        }
+    };
+
+
+    const handleEdit = async (bikeId) => {
+        try {
+            // Fetch the bike data by bikeId
+            const bikeDocRef = doc(db, "bikes", bikeId);
+            const bikeDoc = await getDoc(bikeDocRef);
+
+            if (bikeDoc.exists()) {
+                const bikeData = bikeDoc.data();
+
+                setFormData(bikeData); // Populate form
+                setFormType("Edit Bike");
+                setEditBikeId(bikeId);
+
+                // Extract images from Firestore document and prepare for state
+                const loadedFiles = (bikeData.images || []).map(image => ({
+                    thumbImage: image.thumbURL,
+                    fullImage: image.fullURL
+                }));
+
+                setFiles(loadedFiles);
+                setPreview(loadedFiles.map(file => file.thumbImage));
+
+            } else {
+                console.log("No such document exists.");
+            }
+
+
+        } catch (error) {
+            console.error("Error fetching bike:", error);
         }
     };
 
@@ -140,7 +198,10 @@ export default function AdminDashboardForm() {
             monthPrice: '',
             honeypot: ''
         });
+        setFiles([]);
         setPreview([]);
+        setEditBikeId(null);
+        setFormType('Add Bike');
     };
 
     return (
@@ -156,7 +217,7 @@ export default function AdminDashboardForm() {
                         className={formType === 'Add Bike' ? styles.btnActive : styles.btn}
                         onClick={() => setFormType('Add Bike')}
                     >
-                        Add Bike
+                        {formType === 'Edit Bike' ? 'Edit Bike' : 'Add Bike'}
                     </button>
                     <button
                         className={formType === 'Remove Bike' ? styles.btnActive : styles.btn}
@@ -166,7 +227,7 @@ export default function AdminDashboardForm() {
                     </button>
                 </div>
 
-                {formType === 'Add Bike' ? (
+                {formType === 'Add Bike' || formType === 'Edit Bike' ? (
                     <form onSubmit={handleSubmit}>
                         <div className={styles.textInput}>
                             <label htmlFor="model">Model</label>
@@ -321,10 +382,13 @@ export default function AdminDashboardForm() {
                             tabIndex="-1"
                             autoComplete="off"
                         />
-                        <button className={styles.submitBtn} type="submit">Submit</button>
+                        <button className={styles.submitBtn} type="submit">
+                            {formType === 'Edit Bike' ? 'Save Changes' : 'Submit'}</button>
                     </form>
                 ) : (
-                    <RemoveBike />
+                    <RemoveBike setEditBikeId={setEditBikeId}
+                        setFormType={setFormType}
+                        handleEdit={handleEdit} />
                 )}
             </section>
             {admin && (
