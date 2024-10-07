@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 import { db, storage } from '../lib/firebase';
 import {
@@ -138,7 +138,7 @@ export default function AdminDashboardForm() {
             } else {
                 // Adding a new bike (existing code)
                 const bikesRef = collection(db, "bikes");
-                const bikeId = uuidv4();
+                const bikeId = nanoid(10);
                 const bikeDoc = doc(bikesRef, bikeId);
                 const bikeData = {
                     ...formData,

@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 
 import BikeCard from './BikeCard';
 
-export default function BikeList({ initialBikes }) {
+export default function BikeList({ initialBikes, basePath }) {
     const [bikes, setBikes] = useState(initialBikes);
     const searchParams = useSearchParams();
 
@@ -23,7 +23,7 @@ export default function BikeList({ initialBikes }) {
         <div>
             {initialBikes.map(bike => (
                 <div key={bike.id}>
-                    <BikeCard bike={bike} />
+                    <BikeCard bike={bike} basePath={basePath} />
                 </div>
             ))}
         </div>

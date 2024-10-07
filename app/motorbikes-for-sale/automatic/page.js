@@ -6,11 +6,14 @@ const Automatic = async () => {
     let data = await fetch(`${baseUrl}api/bikes`);
     let bikes = await data.json()
 
+    bikes.sort((a, b) => a.salePrice - b.salePrice);
     const automaticBikes = bikes.filter(bike => bike.type === 'automatic');
+
+    const basePath = '/motorbikes-for-sale/automatic';
 
     return (
         <div>
-            <BikeList initialBikes={automaticBikes} />
+            <BikeList initialBikes={automaticBikes} basePath={basePath} />
         </div>
     );
 };

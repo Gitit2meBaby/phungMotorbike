@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/bikeCard.module.css';
 
-const BikeCard = ({ bike }) => {
+const BikeCard = ({ bike, basePath }) => {
     const fallbackImage = '/placeHolderThumb.webp';
 
     const imageUrl = bike.images && bike.images.length > 0 && bike.images[0].thumbURL
@@ -13,6 +13,9 @@ const BikeCard = ({ bike }) => {
     const altText = bike.model && bike.name
         ? `${bike.model} ${bike.name}`
         : 'Motorbike for rent at Phung Motorbike';
+
+    const modelSlug = bike.model.toLowerCase().replace(/\s+/g, '-');
+    const nameSlug = bike.name.toLowerCase().replace(/\s+/g, '-');
 
     return (
         <div className={styles.bikeCard}>
@@ -31,10 +34,10 @@ const BikeCard = ({ bike }) => {
             <h2>{`${bike.model} ${bike.name} ${bike.capacity}cc`}</h2>
             <p>${bike.cityPrice}/day</p>
             <p>${bike.monthPrice}/month</p>
-            <Link href={`/motorbikes-for-rent-hanoi/${bike.type}/${bike.model}-${bike.name}/${bike.id}`}>
+
+            <Link href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`}>
                 <button>Details</button>
             </Link>
-
         </div>
     );
 };

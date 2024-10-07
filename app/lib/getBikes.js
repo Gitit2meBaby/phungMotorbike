@@ -1,25 +1,3 @@
-// import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-// import { db } from './firebase';
-// import { cache } from 'react';
-
-// const listingsCollection = collection(db, 'bikes');
-
-// export const getBikes = cache(async () => {
-//     const bikeQuery = query(
-//         listingsCollection,
-//         orderBy('cityPrice', 'asc')
-//     );
-
-//     const snapshot = await getDocs(bikeQuery);
-//     return snapshot.docs.map(doc => ({
-//         id: doc.id,
-//         ...doc.data()
-//     }));
-// });
-
-// // Optionally, if you want to revalidate the data periodically:
-// export const revalidate = 36000; // revalidate every 10 hours
-
 import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
 import { db } from './firebase';
 import { cache } from 'react';
@@ -38,12 +16,14 @@ export const getBikes = cache(async (filters = {}) => {
         bikeQuery = query(bikeQuery, where('type', '==', type));
     }
 
-    // Sort by cityPrice or capacity if provided
+    // Sort by cityPrice in ascending order
     if (cityPrice) {
-        bikeQuery = query(bikeQuery, orderBy('cityPrice', cityPrice));
+        bikeQuery = query(bikeQuery, orderBy('cityPrice', 'asc'));  // Ascending order by default
     }
+
+    // If no cityPrice is provided, sort by capacity
     if (capacity) {
-        bikeQuery = query(bikeQuery, orderBy('capacity', capacity));
+        bikeQuery = query(bikeQuery, orderBy('capacity', 'asc'));  // Ascending order by default
     }
 
     // Fetch data from Firestore

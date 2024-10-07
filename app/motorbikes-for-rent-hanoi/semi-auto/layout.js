@@ -2,6 +2,7 @@ export const metadata = {
     title: "Rent Semi-Automatic Scooters in Hanoi | Phung Motorbike",
     description: 'Rent high-quality, semi-automatic scooters in Hanoi for a convenient and affordable way to explore the city. Perfect for beginners and experienced riders alike.',
     canonical: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi/semi-auto',
+    keywords: 'semi-automatic scooters for rent, Hanoi rentals, scooter rental Hanoi, explore Hanoi on scooters, beginner friendly motorbikes Hanoi',
 
     // Open Graph (OG) tags for social media
     openGraph: {
@@ -19,10 +20,6 @@ export const metadata = {
         //     alt: 'Semi-automatic motorbikes for rent in Hanoi',
         //   },
         // ],
-    },
-
-    meta: {
-        keywords: 'semi-automatic scooters for rent, Hanoi rentals, scooter rental Hanoi, explore Hanoi on scooters, beginner friendly motorbikes Hanoi',
     },
 };
 

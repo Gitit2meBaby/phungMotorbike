@@ -1,30 +1,28 @@
 export const metadata = {
-    title: "Rent Semi-Automatic Scooters in Hanoi | Phung Motorbike",
-    description: 'Rent high-quality, semi-automatic scooters in Hanoi for a convenient and affordable way to explore the city. Perfect for beginners and experienced riders alike.',
-    canonical: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi/semi-auto',
+    title: "Semi-Automatic Scooters for Sale in Hanoi | Phung Motorbike",
+    description: "Explore our collection of semi-automatic scooters for sale in Hanoi. Perfect for both new riders and seasoned bikers, our scooters offer a blend of comfort and convenience at competitive prices.",
+    canonical: 'https://phungmotorbike.com/motorbikes-for-sale/semi-auto',
+    keywords: 'semi-automatic scooters for sale, Hanoi scooter sales, buy semi-automatic scooters, quality scooters Hanoi, affordable scooters for sale, scooters in Vietnam',
 
     // Open Graph (OG) tags for social media
     openGraph: {
         type: 'website',
-        title: "Rent Semi-Automatic Scooters in Hanoi | Phung Motorbike",
-        description: 'Rent high-quality, semi-automatic scooters in Hanoi for a convenient and affordable way to explore the city. Perfect for beginners and experienced riders alike.',
-        url: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi/semi-auto',
+        title: "Semi-Automatic Scooters for Sale in Hanoi | Phung Motorbike",
+        description: "Discover high-quality semi-automatic scooters for sale in Hanoi. Ideal for navigating the city streets, Phung Motorbike provides reliable options that fit your lifestyle.",
+        url: 'https://phungmotorbike.com/motorbikes-for-sale/semi-auto',
         site_name: 'Phung Motorbike',
 
-        // images: [ // Update with an image of semi-automatic scooters
+        // images: [
         //   {
-        //     url: 'https://phungmotorbike.com/images/hanoi-semi-automatic-rental.jpg', // Replace with actual image
+        //     url: 'https://phungmotorbike.com/images/semi-automatic-scooter-hanoi.jpg', // Replace with an actual image of your semi-automatic scooters for sale
         //     width: 1200,
         //     height: 630,
-        //     alt: 'Semi-automatic motorbikes for rent in Hanoi',
+        //     alt: 'Semi-automatic scooters for sale in Hanoi',
         //   },
         // ],
     },
-
-    meta: {
-        keywords: 'semi-automatic scooters for rent, Hanoi rentals, scooter rental Hanoi, explore Hanoi on scooters, beginner friendly motorbikes Hanoi',
-    },
 };
+
 
 export default function RootLayout({ children }) {
     return (

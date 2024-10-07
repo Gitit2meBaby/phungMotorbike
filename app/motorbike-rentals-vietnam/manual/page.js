@@ -6,11 +6,15 @@ const Manual = async () => {
     let data = await fetch(`${baseUrl}api/bikes`);
     let bikes = await data.json()
 
+    bikes.sort((a, b) => a.cityPrice - b.cityPrice);
     const manualBikes = bikes.filter(bike => bike.type === 'manual');
+
+    const basePath = '/motorbike-rentals-vietnam/manual';
+
 
     return (
         <div>
-            <BikeList initialBikes={manualBikes} />
+            <BikeList initialBikes={manualBikes} basePath={basePath} />
         </div>
     );
 };

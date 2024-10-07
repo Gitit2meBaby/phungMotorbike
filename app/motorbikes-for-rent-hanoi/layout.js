@@ -7,6 +7,7 @@ export const metadata = {
     title: "Motorbikes for Rent in Hanoi | Phung Motorbike",
     description: "Browse our wide selection of quality motorbikes available for rent in Hanoi. From scooters to motorcycles, find the perfect bike for your inner-city travel needs at one of Hanoi's most trusted brands. Phung Motorbike.",
     canonical: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi',
+    keywords: 'motorbikes for rent, Hanoi rentals, scooter rental Hanoi, Vietnam scooter rental, inner-city travel Hanoi, motorbike rental Vietnam',
 
     // Open Graph (OG) tags for social media
     openGraph: {
@@ -25,15 +26,12 @@ export const metadata = {
         //   },
         // ],
     },
-
-    meta: {
-        keywords: 'motorbikes for rent, Hanoi rentals, scooter rental Hanoi, Vietnam scooter rental, inner-city travel Hanoi, motorbike rental Vietnam',
-    },
 };
 
 export default function RootLayout({ children }) {
     return (
         <section>
+            <Filter slug="/motorbikes-for-rent-hanoi" />
             <div className={styles.divider}
                 style={{ margin: '0 auto' }}
             ></div>
@@ -44,7 +42,6 @@ export default function RootLayout({ children }) {
             </section>
             <div className={styles.divider}
                 style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
-            <Filter slug="/motorbikes-for-rent-hanoi" />
             <Sorter />
             <div className={styles.divider}
                 style={{ margin: '0 auto', marginBottom: '1rem' }}></div>

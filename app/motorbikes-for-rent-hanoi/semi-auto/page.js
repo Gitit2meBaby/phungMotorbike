@@ -6,11 +6,14 @@ const SemiAuto = async () => {
     let data = await fetch(`${baseUrl}api/bikes`);
     let bikes = await data.json()
 
+    bikes.sort((a, b) => a.cityPrice - b.cityPrice);
     const semiAutoBikes = bikes.filter(bike => bike.type === 'semi-auto');
+
+    const basePath = '/motorbike-rentals-vietnam/semi-auto';
 
     return (
         <div>
-            <BikeList initialBikes={semiAutoBikes} />
+            <BikeList initialBikes={semiAutoBikes} basePath={basePath} />
         </div>
     );
 };

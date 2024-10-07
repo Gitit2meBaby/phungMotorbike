@@ -1,14 +1,15 @@
 export const metadata = {
     title: "Rent Manual Motorbikes in Hanoi | Phung Motorbike",
     description: "Rent modern or classic manual motorbikes in Hanoi for an authentic local experience. Explore breathtaking landscapes and immerse yourself in local culture.",
-    canonical: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi/manual',
+    canonical: 'https://phungmotorbike.com/motorbike-rentals-vietnam/manual',
+    keywords: 'manual motorbikes for rent, Hanoi rentals, motorbike rental Hanoi, explore Hanoi on motorbikes, authentic Hanoi experience',
 
     // Open Graph (OG) tags for social media
     openGraph: {
         type: 'website',
         title: "Rent Manual Motorbikes in Hanoi | Phung Motorbike",
         description: "Rent modern or classic manual motorbikes in Hanoi for an authentic local experience. Explore breathtaking landscapes and immerse yourself in local culture.",
-        url: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi/manual',
+        url: 'https://phungmotorbike.com/motorbike-rentals-vietnam/manual',
         site_name: 'Phung Motorbike',
 
         // images: [ // Update with an image of manual motorbikes
@@ -19,10 +20,6 @@ export const metadata = {
         //     alt: 'Manual motorbikes for rent in Hanoi',
         //   },
         // ],
-    },
-
-    meta: {
-        keywords: 'manual motorbikes for rent, Hanoi rentals, motorbike rental Hanoi, explore Hanoi on motorbikes, authentic Hanoi experience',
     },
 };
 

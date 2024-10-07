@@ -82,18 +82,18 @@ const Nav = ({ showNav, setShowNav }) => {
                             <li onClick={(e) => handleNestedDropdownClick(e, 'innerCity')}>
                                 <span className={styles.subItem}>Inner City</span>
                                 <ul className={`${styles.nestedMobDropdown} ${rentDropdownState.activeNestedDropdown === 'innerCity' ? styles.show : ''}`}>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/automatic">Automatic</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/semi-auto">Semi-Auto</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/inner-city/daily/manual">Manual</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbikes-for-rent-hanoi/automatic">Automatic</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbikes-for-rent-hanoi/semi-auto">Semi-Auto</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbikes-for-rent-hanoi/manual">Manual</Link></li>
                                 </ul>
                             </li>
 
                             <li onClick={(e) => handleNestedDropdownClick(e, 'travelling')}>
                                 <span className={styles.subItem}>Travelling</span>
                                 <ul className={`${styles.nestedMobDropdown} ${rentDropdownState.activeNestedDropdown === 'travelling' ? styles.show : ''}`}>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/automatic">Automatic</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/semi-auto">Semi-Auto</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/travelling/daily/manual">Manual</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbike-rentals-vietnam/automatic">Automatic</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rmotorbike-rentals-vietnam/semi-auto">Semi-Auto</Link></li>
+                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbike-rentals-vietnam/manual">Manual</Link></li>
                                 </ul>
                             </li>
 
@@ -115,9 +115,9 @@ const Nav = ({ showNav, setShowNav }) => {
                 >
                     <span className={styles.navItem}>For Sale</span>
                     <ul className={`${styles.nestedMenu} ${saleDropdownState.isOpen ? styles.show : ''}`}>
-                        <li><Link onClick={() => setShowNav(false)} href="/for-sale/automatic">Automatic</Link></li>
-                        <li><Link onClick={() => setShowNav(false)} href="/for-sale/semi-auto">Semi-Auto</Link></li>
-                        <li><Link onClick={() => setShowNav(false)} href="/for-sale/manual">Manual</Link></li>
+                        <li><Link onClick={() => setShowNav(false)} href="/motorbikes-for-sale/automatic">Automatic</Link></li>
+                        <li><Link onClick={() => setShowNav(false)} href="/motorbikes-for-sale/semi-auto">Semi-Auto</Link></li>
+                        <li><Link onClick={() => setShowNav(false)} href="/motorbikes-for-sale/manual">Manual</Link></li>
                     </ul>
                 </li>
 

@@ -7,6 +7,7 @@ export const metadata = {
     title: "Motorbikes and Scooters for Sale in Hanoi | Phung Motorbike",
     description: "Discover a wide selection of motorbikes and scooters for sale in Hanoi, catering to all sizes and budgets. Whether you're looking for a reliable scooter for city commuting or a robust motorcycle for adventure, Phung Motorbike has the perfect ride for you.",
     canonical: 'https://phungmotorbike.com/motorbikes-for-sale',
+    keywords: 'motorbikes for sale in Hanoi, scooters for sale in Hanoi, buy motorbikes Hanoi, affordable motorbikes, scooters for every budget, motorbike sales Vietnam',
 
     // Open Graph (OG) tags for social media
     openGraph: {
@@ -25,27 +26,23 @@ export const metadata = {
         //   },
         // ],
     },
-
-    meta: {
-        keywords: 'motorbikes for sale in Hanoi, scooters for sale in Hanoi, buy motorbikes Hanoi, affordable motorbikes, scooters for every budget, motorbike sales Vietnam',
-    },
 };
 
 
 export default function RootLayout({ children }) {
     return (
         <section>
+            <Filter slug="/motorbikes-for-sale" />
             <div className={styles.divider}
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <h1>Inner City Rentals</h1>
-                <p>Explore Hanoi's vibrant city center with ease on one of our reliable inner city rental motorbikes. Our fleet is designed for convenient urban travel, with a maximum daily mileage of 50 kilometers.</p>
-                <p>Enjoy the freedom and flexibility of exploring the city at your own pace. Each rental includes essential accessories like helmets, a convenient rack, a phone holder, and secure rubber straps. We'll also provide you with valuable information and tips on must-see destinations and local attractions.</p>
+                <h1>Motorbikes for Sale</h1>
+                <p>Looking to own a motorbike in Vietnam? All our motorbikes for sale come with an official blue card, ensuring smooth ownership transfer and peace of mind. Each bike undergoes a thorough check by our experienced staff to ensure top performance.</p>
+                <p>Before handing over the keys, we provide a full service, ensuring your bike is in perfect condition for the road ahead. Whether you're staying long-term or just want the freedom of owning your own ride, we offer a variety of reliable bikes to suit your needs.</p>
             </section>
             <div className={styles.divider}
                 style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
-            <Filter slug="/motorbikes-for-rent-hanoi" />
             <Sorter />
             <div className={styles.divider}
                 style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
