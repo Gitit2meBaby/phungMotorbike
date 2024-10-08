@@ -9,7 +9,7 @@ const SemiAuto = async () => {
     bikes.sort((a, b) => a.salePrice - b.salePrice);
     const semiAutoBikes = bikes.filter(bike => bike.type === 'semi-auto');
 
-    const basePath = '/motorbike-rentals-vietnam/semi-auto';
+    const basePath = '/motorbike-rentals-vietnam';
 
     return (
         <div>

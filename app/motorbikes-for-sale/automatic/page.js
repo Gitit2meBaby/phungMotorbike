@@ -9,7 +9,7 @@ const Automatic = async () => {
     bikes.sort((a, b) => a.salePrice - b.salePrice);
     const automaticBikes = bikes.filter(bike => bike.type === 'automatic');
 
-    const basePath = '/motorbikes-for-sale/automatic';
+    const basePath = '/motorbikes-for-sale';
 
     return (
         <div>

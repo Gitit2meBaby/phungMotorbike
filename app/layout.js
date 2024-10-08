@@ -16,6 +16,10 @@ export const metadata = {
   description: "Phung Motorbike is Hanoi's leading provider of quality motorbikes for rent and sale. Find the best deals on bikes with our wide selection and excellent customer service.",
   icon: './favicon.ico',
   canonical: 'https://phungmotorbike.com',
+  robots: 'index, follow',
+  author: 'Phung Motorbike Team',
+  keywords: 'motorbikes fo rent, motorbikes for sale, Hanoi Rentals, Hanoi motorbikes for sale, scooter rental Hanoi, Vietnam scooter rental, Vietnam motorbike rental',
+  'theme-color': '#e97f26',
 
   // Open Graph (OG) tags for social media
   openGraph: {
@@ -41,14 +45,6 @@ export const metadata = {
     title: 'Phung Motorbike',
     description: 'Phung Motorbike is Hanoi\'s leading provider of quality motorbikes for rent and sale. Find the best deals on bikes with our wide selection and excellent customer service.',
     image: '/images/twitter-card.jpg', // Replace with your Twitter card image URL
-  },
-
-  // Additional meta tags
-  meta: {
-    robots: 'index, follow',
-    author: 'Phung Motorbike Team',
-    keywords: 'motorbikes fo rent, motorbikes for sale, Hanoi Rentals, Hanoi motorbikes for sale, scooter rental Hanoi, Vietnam scooter rental, Vietnam motorbike rental',
-    'theme-color': '#e97f26',
   },
 
   // Structured data (Schema.org) for SEO

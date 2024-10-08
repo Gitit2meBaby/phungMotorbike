@@ -10,7 +10,7 @@ const Automatic = async () => {
     bikes.sort((a, b) => a.cityPrice - b.cityPrice);
     const automaticBikes = bikes.filter(bike => bike.type === 'automatic');
 
-    const basePath = '/motorbikes-for-rent-hanoi/automatic';
+    const basePath = '/motorbikes-for-rent-hanoi';
 
     return (
         <div>

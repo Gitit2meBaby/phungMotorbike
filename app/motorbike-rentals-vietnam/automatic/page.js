@@ -1,4 +1,7 @@
 import BikeList from '../../../components/BikeList';
+import Filter from '../../../components/Filter';
+
+import styles from '../../../styles/hanoiRentals.module.scss';
 
 const Automatic = async () => {
 
@@ -9,12 +12,25 @@ const Automatic = async () => {
     bikes.sort((a, b) => a.cityPrice - b.cityPrice);
     const automaticBikes = bikes.filter(bike => bike.type === 'automatic');
 
-    const basePath = '/motorbike-rentals-vietnam/automatic';
+    const basePath = '/motorbike-rentals-vietnam';
 
     return (
-        <div>
+        <>
+            <Filter slug="/motorbike-rentals-vietnam" />
+            <div className={styles.divider}
+                style={{ margin: '0 auto' }}
+            ></div>
+            <section className={styles.hanoiRentals}>
+                <h1>Automatic</h1>
+                <h2>Effortless Exploration</h2>
+                <p>Experience the convenience of our automatic scooters for a hassle-free journey through Vietnam.</p>
+                <p> Perfect for beginners, our fleet of automatic bikes offers a smooth and comfortable ride, great for those who prefer a relaxed driving experience.</p>
+                <p>Explore the country's stunning landscapes without shifting a gear!</p>
+            </section>
+            <div className={styles.divider}
+                style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
             <BikeList initialBikes={automaticBikes} basePath={basePath} />
-        </div>
+        </>
     );
 };
 

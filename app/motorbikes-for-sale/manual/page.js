@@ -9,7 +9,7 @@ const Manual = async () => {
     bikes.sort((a, b) => a.salePrice - b.salePrice);
     const manualBikes = bikes.filter(bike => bike.type === 'manual');
 
-    const basePath = '/motorbikes-for-rent-hanoi/manual';
+    const basePath = '/motorbikes-for-rent-hanoi';
 
     return (
         <div>

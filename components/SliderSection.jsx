@@ -5,7 +5,6 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../styles/globals.css'
 import styles from '../styles/sliderSection.module.css'
 
 import crf from '../assets/bikes/crf.webp'

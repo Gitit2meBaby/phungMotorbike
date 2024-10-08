@@ -1,4 +1,7 @@
 import BikeList from '../../../components/BikeList';
+import Filter from '../../../components/Filter';
+
+import styles from '../../../styles/hanoiRentals.module.scss';
 
 const Manual = async () => {
 
@@ -9,13 +12,25 @@ const Manual = async () => {
     bikes.sort((a, b) => a.cityPrice - b.cityPrice);
     const manualBikes = bikes.filter(bike => bike.type === 'manual');
 
-    const basePath = '/motorbike-rentals-vietnam/manual';
+    const basePath = '/motorbike-rentals-vietnam';
 
 
     return (
-        <div>
+        <>
+            <Filter slug="/motorbike-rentals-vietnam" />
+            <div className={styles.divider}
+                style={{ margin: '0 auto' }}
+            ></div>
+            <section className={styles.hanoiRentals}>
+                <h1>Manual</h1>
+                <h2>A Classic Riding Experience</h2>
+                <p>Our manual bikes offer a classic and engaging riding experience, perfect for those who are feeling a bit more adventorous and enjoy the thrill and control of a manual bike.</p>
+                <p>Before booking a manual, please make sure you have some experience and confidence in handling a motorbike.</p>
+            </section>
+            <div className={styles.divider}
+                style={{ margin: '0 auto', marginBottom: '1rem' }}></div>
             <BikeList initialBikes={manualBikes} basePath={basePath} />
-        </div>
+        </>
     );
 };
 

@@ -1,1 +1,1 @@
-{"version":3,"sources":["sorter.module.scss","sorter.module.css"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,mBAAA;ACDJ","file":"sorter.module.css"}
+{"version":3,"sources":["sorter.module.scss","sorter.module.css","globals.scss"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,6BAAA;EACA,mBAAA;EACA,mBAAA;ACDJ;;ADIA;EACI,yBEPI;EFQJ,UAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;ACDJ","file":"sorter.module.css"}

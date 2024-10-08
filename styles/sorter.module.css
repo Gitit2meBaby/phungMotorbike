@@ -3,4 +3,12 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 1rem;
+}
+
+.divider {
+  background-color: #e97f26;
+  width: 90%;
+  height: 0.5px;
+  align-self: center;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=sorter.module.css.map */

@@ -5,11 +5,9 @@
     flex-direction: column;
     margin-bottom: 1.5rem;
 
-
+    h2,
     h1 {
         text-align: center;
-        font-size: 3rem;
-        line-height: 3rem;
         font-weight: 800;
         text-align: center;
         text-transform: uppercase;
@@ -17,7 +15,19 @@
         -webkit-text-stroke-color: $black;
         text-shadow: 5px 5px 10px $theme, -5px -5px 10px $theme;
         color: rgba(255, 255, 255, 0.788);
-        margin: 1.5rem .5rem;
+
+    }
+
+    h1 {
+        font-size: 3rem;
+        line-height: 3rem;
+        margin: 1.5rem .5rem .5rem .5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        line-height: 2rem;
+        margin: 0 .5rem 1rem 0;
     }
 
     p {

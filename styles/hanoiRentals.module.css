@@ -3,10 +3,9 @@
   flex-direction: column;
   margin-bottom: 1.5rem;
 }
+.hanoiRentals h2,
 .hanoiRentals h1 {
   text-align: center;
-  font-size: 3rem;
-  line-height: 3rem;
   font-weight: 800;
   text-align: center;
   text-transform: uppercase;
@@ -14,7 +13,16 @@
   -webkit-text-stroke-color: #0d0d0d;
   text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
   color: rgba(255, 255, 255, 0.788);
-  margin: 1.5rem 0.5rem;
+}
+.hanoiRentals h1 {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 1.5rem 0.5rem 0.5rem 0.5rem;
+}
+.hanoiRentals h2 {
+  font-size: 2rem;
+  line-height: 2rem;
+  margin: 0 0.5rem 1rem 0;
 }
 .hanoiRentals p {
   text-align: center;
