@@ -9,12 +9,8 @@ const CACHE_DURATION = 86400000 // 24 hours
 export const getBikes = async (filters = {}, forceFirebase = false) => {
     const currentTime = Date.now();
 
-    console.log('Force Firebase:', forceFirebase);
-    console.log('Using Cached Data:', cachedBikes ? 'Yes' : 'No');
-
     // Check if cached data is still valid, unless forceFirebase is true
     if (!forceFirebase && cachedBikes && (currentTime - lastFetchTime < CACHE_DURATION)) {
-        console.log('Returning cached bikes');
         return cachedBikes; // Return cached bikes
     }
 
@@ -45,7 +41,6 @@ export const getBikes = async (filters = {}, forceFirebase = false) => {
         }));
 
         lastFetchTime = currentTime;
-        console.log('Fetched bikes from Firebase:', cachedBikes.length);
 
         return cachedBikes; // Return the fresh bikes data from Firebase
     } catch (error) {

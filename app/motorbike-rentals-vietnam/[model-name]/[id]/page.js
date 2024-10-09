@@ -2,6 +2,13 @@ import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
+
+import styles from '../../../../styles/bikeDetail.module.css';
+import SliderBasic from '../../../../components/SliderBasic';
+
+import think from '../../../../public/think.png'
+import motorcycle from '../../../../public/motorcycle.png'
 
 const SimilarBikes = dynamic(() => import('../../../../components/SimilarBikes'), { ssr: false });
 
@@ -10,6 +17,8 @@ export default async function BikeDetailPage({ params }) {
 
     const baseUrl = process.env.NEXT_PUBLIC_URL;
     const apiUrl = `${baseUrl}/api/bikes/?force=true`;
+
+    const rateTypeUrl = 'travel'
 
     const res = await fetch(apiUrl, {
         next: { revalidate: 0 }
@@ -25,8 +34,10 @@ export default async function BikeDetailPage({ params }) {
     const bike = bikes.find(b => b.id === id);
 
     if (!bike || bike.message === 'Bike not found') {
-        return <p>Bike details not found.</p>;
+        return notFound();
     }
+
+    const monthlyRate = Math.round(bike.travelPrice * 4 * (1 - 0.20));
 
     // Dynamic schema generation
     const rentalSchema = {
@@ -72,30 +83,78 @@ export default async function BikeDetailPage({ params }) {
         }
     };
 
+    // required to change JSON format to allow use as a prop
+    const plainBike = {
+        ...bike,
+        timestamp: {
+            seconds: bike.timestamp.seconds,
+            nanoseconds: bike.timestamp.nanoseconds
+        }
+    };
+
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(rentalSchema) }}
-            />
-            <div>
-                <h1>{bike.model} {bike.name}</h1>
-                <Image
-                    src={bike.images[0].thumbURL}
-                    alt={`${bike.model} ${bike.name}`}
-                    width={300}
-                    height={225}
+            <section className={styles.bikeDetail}>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(rentalSchema) }}
                 />
-                <p>Type: {bike.type}</p>
-                <p>Capacity: {bike.capacity}cc</p>
-                <p>Price: ${bike.cityPrice}/day, ${bike.monthPrice}/month</p>
-                <p>{bike.description}</p>
-                <Link href={`/bookings/${bike.id}`}>
-                    <button>Book Now</button>
+                <div className={styles.divider}></div>
+                <div>
+                    <h1>{bike.model} {bike.name} {bike.capacity}<span>cc</span></h1>
+                    <div className={styles.slider}>
+                        {bike.images.length === 1 ? (
+                            <Image
+                                src={imageUrl}
+                                alt={`${bike.model} ${bike.name}`}
+                                width={300}
+                                height={225}
+                            />
+                        ) : (
+                            <SliderBasic bike={plainBike} />
+                        )}
+                    </div>
+                </div>
+                <div className={styles.details}>
+                    <Image src={motorcycle} width={350} height={350} alt='motorbike icon'></Image>
+                    <h2>Daily rate - ${bike.travelPrice} <span>USD</span></h2>
+                    <h2>Month rate - ${monthlyRate} <span>USD</span>*</h2>
+                    <p className={styles.transmission}>Transmission: {bike.type}</p>
+                    <p>{bike.description}</p>
+                    <div className={styles.disclaimer}></div>
+                    <p><span>*</span>A 5% discount applies to the daily rate for each extra week for our unlimited kilometre rental fleet.</p>
+                    <p> Every outer city rental includes helmets, a  rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You'll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
+                    <div className={styles.btnWrapper}>
+                        <Link href="/motorbike-rentals-vietnam">
+                            <button className={styles.btn}>Return</button>
+                        </Link>
+                        <Link href={`/bookings/${bike.id}`}>
+                            <button className={`${styles.btn} ${styles.pulse}`}>Book Now</button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            <div className={styles.options}>
+                <Image src={think} width={300} height={300} alt='thinking emoji'></Image>
+                <h3>Staying in Hanoi?</h3>
+                <Link href={`/motorbikes-for-rent-hanoi/${bike.id}`}>Get this {bike.model} for just ${bike.cityPrice}/day
+                </Link>
+                <Link href={`/motorbikes-for-rent-hanoi/${bike.id}`}>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get City Rates!</button>
+                </Link>
+                <h3>Planning to stay a while?</h3>
+                <Link href={`/monthly-rentals-hanoi/${bike.id}`}>Special rate for long stays and expats at just ₫{bike.monthPrice}/month!
+                </Link>
+                <Link href={`/monthly-rentals-hanoi/${bike.id}`}>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get Monthly Rates!</button>
                 </Link>
             </div>
+
+            <div className={styles.divider} style={{ margin: '0 auto' }}></div>
+
             <Suspense fallback={<p>Loading similar bikes...</p>}>
-                <SimilarBikes currentBike={bike} />
+                <SimilarBikes currentBike={plainBike} bikes={bikes} rateTypeUrl={rateTypeUrl} />
             </Suspense>
         </>
     );

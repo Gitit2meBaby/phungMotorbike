@@ -11,7 +11,7 @@ const mynerve = Mynerve({
     subsets: ['latin'],
 });
 
-const BikeCard = ({ bike, basePath }) => {
+const BikeCard = ({ bike, basePath, inDetails }) => {
     const fallbackImage = '/placeHolderThumb.webp';
 
     const imageUrl = bike.images && bike.images.length > 0 && bike.images[0].thumbURL
@@ -41,15 +41,22 @@ const BikeCard = ({ bike, basePath }) => {
                             e.target.src = fallbackImage;
                         }}
                     />
-                    <h2 className={mynerve.className}>{`${bike.model} ${bike.name} ${bike.capacity}cc`}</h2>
-                    {basePath === '/motorbikes-for-rent-hanoi' && <p>${bike.cityPrice}<span>/day</span></p>}
-                    {basePath === '/motorbike-rentals-vietnam' && <p>${bike.travelPrice}<span>/day <span>(weekly discounts)</span></span></p>}
-                    {basePath === '/motorbikes-for-sale' && <p>{bike.salePrice}<span>/month</span></p>}
+                    <h2 className={mynerve.className} style={inDetails ? { margin: '.8rem 0 .3rem 0' } : {}}>{`${bike.model} ${bike.name} ${bike.capacity}cc`}
+                    </h2>
+
+                    {basePath === '/motorbikes-for-rent-hanoi' && !inDetails && <p>${bike.cityPrice}<span>/day (USD)</span></p>}
+                    {basePath === '/motorbike-rentals-vietnam' && !inDetails &&
+                        <>
+                            <p>${bike.travelPrice}<span>/day (USD)</span></p>
+                            <p className={styles.discount}>*discounts apply after the 1st week</p>
+                        </>}
+                    {basePath === '/motorbikes-for-sale' && !inDetails && <p>{bike.salePrice}<span>/month (VND)</span></p>}
                 </div>
 
                 <p className={styles.description}>{bike.description}</p>
 
-                <div className={styles.btnWrapper}>
+                <div className={styles.btnWrapper}
+                    style={inDetails ? { borderBottom: 'none' } : { borderBottom: '1px solid #e97f26' }}>
                     <Link href={`bookings/${bike.id}`}>
                         <button className={styles.activeBtn}>Book Now</button>
                     </Link>

@@ -1,0 +1,203 @@
+.bikeDetail {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+.bikeDetail h1 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #0d0d0d;
+  text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
+  color: rgba(255, 255, 255, 0.788);
+}
+.bikeDetail h1 span {
+  text-transform: none;
+}
+.bikeDetail p {
+  text-align: center;
+  color: #ebebeb;
+  letter-spacing: 1px;
+  margin: 0 0.5rem;
+}
+
+.divider {
+  background-color: #e97f26;
+  width: 90%;
+  height: 0.5px;
+  align-self: center;
+}
+@media (min-width: 1025px) {
+  .divider:last-of-type {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .divider:last-of-type {
+    display: none;
+  }
+}
+
+.slider {
+  width: 300px;
+  height: 225px;
+  margin: 0 auto;
+  border: 1px solid #0d0d0d;
+  box-shadow: 0 0 5px 1px #ebebeb, 0 0 10px 1px #e97f26;
+}
+
+.details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+.details h2 {
+  color: #e97f26;
+  margin: 0;
+}
+.details p {
+  margin-top: 0.5rem;
+}
+.details p span {
+  color: #e97f26;
+  font-size: 1.2rem;
+}
+.details span {
+  font-size: 0.8rem;
+}
+.details img {
+  position: absolute;
+  z-index: -1;
+  filter: invert(12%);
+  rotate: -8deg;
+  bottom: 6rem;
+  left: -3rem;
+}
+
+.transmission {
+  letter-spacing: 1px;
+  color: rgb(136, 136, 136) !important;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin: 3rem 0 0 0;
+  width: 90%;
+  border-bottom: 1px solid #e97f26;
+  padding-bottom: 3rem;
+}
+
+.btn {
+  background-color: transparent;
+  color: #e97f26;
+  border: 2px solid #e97f26;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  background-color: #e97f26;
+  color: #0d0d0d;
+  border: 2px solid #e97f26;
+}
+@media (max-width: 359px) {
+  .btn {
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+.pulse {
+  background-color: #e97f26;
+  color: #0d0d0d;
+  border: 2px solid #e97f26;
+  animation-name: pulse_animation;
+  animation-duration: 3s;
+  transform-origin: 70% 70%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  font-size: 1.2rem;
+}
+
+@keyframes pulse_animation {
+  0% {
+    transform: scale(1);
+  }
+  8% {
+    transform: scale(1.01);
+  }
+  16% {
+    transform: scale(1.02);
+  }
+  24% {
+    transform: scale(1.03);
+  }
+  32% {
+    transform: scale(1.04);
+  }
+  40% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  58% {
+    transform: scale(1.05);
+  }
+  66% {
+    transform: scale(1.04);
+  }
+  74% {
+    transform: scale(1.03);
+  }
+  82% {
+    transform: scale(1.02);
+  }
+  90% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.options {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0.5rem 2rem 0.5rem;
+}
+.options h3,
+.options a {
+  letter-spacing: 1px;
+  margin: 0;
+}
+.options h3 {
+  color: #e97f26;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.options h3:last-of-type {
+  margin-top: 1.5rem;
+}
+.options a {
+  color: #ebebeb;
+  text-align: center;
+  text-decoration: none;
+}
+.options img {
+  position: absolute;
+  z-index: -1;
+  filter: invert(12%);
+  top: 2rem;
+  left: 10rem;
+}/*# sourceMappingURL=bikeDetail.module.css.map */

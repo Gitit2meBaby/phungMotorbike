@@ -101,6 +101,21 @@
     margin-bottom: 1rem;
 }
 
+.mobDivider {
+    background-color: $theme;
+    height: .5px;
+    align-self: center;
+    margin-bottom: .5rem;
+
+    @include desktop {
+        display: none;
+    }
+
+    @include tablet {
+        display: none;
+    }
+}
+
 .final {
     @include desktop {
         display: none;
@@ -163,7 +178,7 @@
 
 .footerInfo {
     @include phone {
-        display: none;
+        text-align: center;
     }
 
     color: $offWhite;

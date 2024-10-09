@@ -42,6 +42,9 @@ const Footer = () => {
                         <p>Please feel free to get in touch with us with any questions you may have.</p>
                     </div>
                 </div>
+
+                <div className={styles.mobDivider} style={{ margin: '0 auto', width: '85%', marginBottom: '1rem' }}></div>
+
                 <ContactForm />
                 <ContactDetails />
             </div>

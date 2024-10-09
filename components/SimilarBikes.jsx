@@ -1,25 +1,44 @@
 'use client';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Slider from "react-slick";
-import styles from '../styles/similarBikes.module.css';
+
+import BikeCard from './BikeCard';
+
+import styles from '../styles/bikeCard.module.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState } from 'react';
 
-const SimilarBikes = ({ bikes, currentBike }) => {
+const SimilarBikes = ({ bikes, currentBike, rateTypeUrl }) => {
     const [isClient, setIsClient] = useState(false);
     const [title, setTitle] = useState('Other bikes at this price');
     const [similarBikes, setSimilarBikes] = useState([]);
+    const [rateType, setRateType] = useState(() => {
+        // Initialize rateType based on rateTypeUrl
+        if (rateTypeUrl === 'travel') return currentBike.travelPrice;
+        if (rateTypeUrl === 'city') return currentBike.cityPrice;
+        return currentBike.monthPrice;
+    });
+
+    useEffect(() => {
+        if (rateTypeUrl === 'travel') {
+            setRateType(currentBike.travelPrice);
+        } else if (rateTypeUrl === 'city') {
+            setRateType(currentBike.cityPrice);
+        } else {
+            setRateType(currentBike.monthPrice);
+        }
+    }, [rateTypeUrl, currentBike]);
 
     useEffect(() => {
         setIsClient(true);
-    }, []);
+    }, [rateType, rateTypeUrl, currentBike]);
 
     useEffect(() => {
         if (!bikes || !Array.isArray(bikes)) return;
 
-        let filteredBikes = bikes.filter(bike => bike.cityPrice === currentBike.cityPrice && bike.id !== currentBike.id);
-        let newTitle = `Other bikes at ${currentBike.cityPrice}/day`;
+        let filteredBikes = bikes.filter(bike => rateType === rateType && bike.id !== currentBike.id);
+        let newTitle = `More bikes at $${rateType}/day`;
 
         if (filteredBikes.length < 2) {
             filteredBikes = bikes.filter(bike => bike.capacity === currentBike.capacity && bike.id !== currentBike.id);
@@ -37,7 +56,7 @@ const SimilarBikes = ({ bikes, currentBike }) => {
 
     var settings = {
         autoplay: similarBikes.length > 1,
-        dots: true,
+        dots: false,
         arrows: false,
         infinite: similarBikes.length > 1,
         speed: 500,
@@ -49,21 +68,13 @@ const SimilarBikes = ({ bikes, currentBike }) => {
         <>
             {isClient && similarBikes.length > 0 && (
                 <section className={styles.similar}>
-                    <h2>
+                    <h4>
                         {title}
-                    </h2>
+                    </h4>
                     {similarBikes.length > 1 ? (
                         <Slider {...settings}>
                             {similarBikes.map(bike => (
-                                <div key={bike.id} className={styles.bikeCard}>
-                                    <Image
-                                        src={bike.images[0].thumbURL}
-                                        alt={`${bike.model} ${bike.name}`}
-                                        width={300}
-                                        height={225}
-                                    />
-                                    <h3>{`${bike.model} ${bike.name} ${bike.capacity}cc`}</h3>
-                                </div>
+                                <BikeCard key={bike.id} bike={bike} basePath="/motorbike-rentals-vietnam" inDetails={true} />
                             ))}
                         </Slider>
                     ) : (

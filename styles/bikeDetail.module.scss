@@ -1,0 +1,233 @@
+@import './globals.scss';
+
+.bikeDetail {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: $black;
+        text-shadow: 5px 5px 10px $theme, -5px -5px 10px $theme;
+        color: rgba(255, 255, 255, 0.788);
+
+        span {
+            text-transform: none;
+        }
+    }
+
+    p {
+        text-align: center;
+        color: $offWhite;
+        letter-spacing: 1px;
+        margin: 0 .5rem;
+    }
+}
+
+.divider {
+    background-color: $theme;
+    width: 90%;
+    height: .5px;
+    align-self: center;
+
+    @include desktop {
+        &:last-of-type {
+            display: none;
+        }
+    }
+
+    @include tablet {
+        &:last-of-type {
+            display: none;
+        }
+    }
+}
+
+.slider {
+    width: 300px;
+    height: 225px;
+    margin: 0 auto;
+    border: 1px solid $black;
+    box-shadow: 0 0 5px 1px $offWhite, 0 0 10px 1px $theme;
+}
+
+.details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+
+    h2 {
+        color: $theme;
+        margin: 0;
+    }
+
+    p {
+        margin-top: 0.5rem;
+
+        span {
+            color: $theme;
+            font-size: 1.2rem;
+        }
+    }
+
+    span {
+        font-size: .8rem;
+    }
+
+    img {
+        position: absolute;
+        z-index: -1;
+        filter: invert(12%);
+        rotate: -8deg;
+        bottom: 6rem;
+        left: -3rem;
+    }
+}
+
+.transmission {
+    letter-spacing: 1px;
+    color: rgb(136, 136, 136) !important;
+}
+
+.btnWrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 0 0 0;
+    width: 90%;
+    border-bottom: 1px solid $theme;
+    padding-bottom: 3rem;
+}
+
+.btn {
+    background-color: transparent;
+    color: $theme;
+    border: 2px solid $theme;
+    padding: 0.3rem .8rem;
+    border-radius: 0.3rem;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: $theme;
+        color: $black;
+        border: 2px solid $theme;
+    }
+
+    @include smallPhone {
+        padding: 0.2rem .5rem;
+    }
+}
+
+.pulse {
+    background-color: $theme;
+    color: $black;
+    border: 2px solid $theme;
+    animation-name: pulse_animation;
+    animation-duration: 3s;
+    transform-origin: 70% 70%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    font-size: 1.2rem;
+}
+
+@keyframes pulse_animation {
+    0% {
+        transform: scale(1);
+    }
+
+    8% {
+        transform: scale(1.01);
+    }
+
+    16% {
+        transform: scale(1.02);
+    }
+
+    24% {
+        transform: scale(1.03);
+    }
+
+    32% {
+        transform: scale(1.04);
+    }
+
+    40% {
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+    58% {
+        transform: scale(1.05);
+    }
+
+    66% {
+        transform: scale(1.04);
+    }
+
+    74% {
+        transform: scale(1.03);
+    }
+
+    82% {
+        transform: scale(1.02);
+    }
+
+    90% {
+        transform: scale(1.01);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.options {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 .5rem 2rem .5rem;
+
+    h3,
+    a {
+        letter-spacing: 1px;
+        margin: 0;
+    }
+
+    h3 {
+        color: $theme;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+
+        &:last-of-type {
+            margin-top: 1.5rem;
+        }
+    }
+
+    a {
+        color: $offWhite;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    img {
+        position: absolute;
+        z-index: -1;
+        filter: invert(12%);
+        top: 2rem;
+        left: 10rem;
+    }
+}

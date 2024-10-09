@@ -20,3 +20,5 @@ Photo by Triplegaenger: https://www.pexels.com/photo/ha-giang-loop-27404283/
 Photo by Taryn Elliott: https://www.pexels.com/photo/woman-in-blue-and-white-bikini-sitting-on-rock-near-sea-4390720/
 
 <a href="https://www.freepik.com/icons/camera">Icon by Freepik</a>
+<a href="https://www.flaticon.com/free-icons/think" title="think icons">Think icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/motorcycle" title="motorcycle icons">Motorcycle icons created by Freepik - Flaticon</a>

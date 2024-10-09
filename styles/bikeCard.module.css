@@ -12,6 +12,7 @@
   border: 0.5rem solid #ebebeb;
   padding: 0.5rem;
   background-color: #ebebeb;
+  border-radius: 0.2rem;
 }
 .polaroid img {
   max-width: 90vw;
@@ -21,13 +22,13 @@
 .polaroid h2 {
   margin: 0;
   color: #0d0d0d;
+  text-align: center;
 }
 .polaroid h2 {
   margin-top: 0.7rem;
   font-size: 2rem;
   font-weight: bold;
   transform: rotate(-2deg);
-  text-align: center;
 }
 .polaroid p {
   font-weight: 600;
@@ -36,9 +37,13 @@
 }
 .polaroid span {
   font-size: 1rem;
+  margin: 0;
 }
-.polaroid span span {
-  color: rgb(83, 83, 83);
+
+.discount {
+  color: rgb(83, 83, 83) !important;
+  letter-spacing: 0 !important;
+  font-size: 0.8rem !important;
 }
 
 .description {
@@ -99,4 +104,18 @@
   .activeBtn {
     padding: 0.2rem 0.5rem;
   }
+}
+
+.similar h4 {
+  text-align: center;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #0d0d0d;
+  text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
+  color: rgba(255, 255, 255, 0.788);
+  margin: 2rem 0 1rem 0;
 }/*# sourceMappingURL=bikeCard.module.css.map */

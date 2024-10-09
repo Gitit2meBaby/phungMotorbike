@@ -99,6 +99,23 @@
   margin-bottom: 1rem;
 }
 
+.mobDivider {
+  background-color: #e97f26;
+  height: 0.5px;
+  align-self: center;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 1025px) {
+  .mobDivider {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .mobDivider {
+    display: none;
+  }
+}
+
 @media (min-width: 1025px) {
   .final {
     display: none;
@@ -165,6 +182,6 @@
 }
 @media (max-width: 450px) {
   .footerInfo {
-    display: none;
+    text-align: center;
   }
 }/*# sourceMappingURL=footer.module.css.map */
