@@ -2,15 +2,19 @@ import BikeList from '../../../components/BikeList';
 import Filter from '../../../components/Filter';
 
 import styles from '../../../styles/hanoiRentals.module.scss';
+import camera from '../../../public/camera.png';
+import Image from 'next/image';
 
 const Manual = async () => {
 
     const baseUrl = process.env.NEXT_PUBLIC_URL;
-    let data = await fetch(`${baseUrl}api/bikes`);
+    let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
+        headers: { 'Cache-Control': 'no-store' }
+    });
     let bikes = await data.json()
 
     bikes.sort((a, b) => a.cityPrice - b.cityPrice);
-    const manualBikes = bikes.filter(bike => bike.type === 'manual');
+    const manualBikes = bikes.filter(bike => bike.type === 'Manual');
 
     const basePath = '/motorbike-rentals-vietnam';
 
@@ -22,6 +26,7 @@ const Manual = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
+                <Image src={camera} alt="Hanoi" width={300} height={300} />
                 <h1>Manual</h1>
                 <h2>A Classic Riding Experience</h2>
                 <p>Our manual bikes offer a classic and engaging riding experience, perfect for those who are feeling a bit more adventorous and enjoy the thrill and control of a manual bike.</p>

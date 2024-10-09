@@ -33,14 +33,13 @@ export async function generateMetadata({ params }) {
     };
 }
 
-
 import { notFound } from 'next/navigation';
 
 const BikeDetailLayout = async ({ children, params }) => {
     const { id, 'model-name': modelName } = params;
 
     const baseUrl = process.env.NEXT_PUBLIC_URL;
-    const apiUrl = `${baseUrl}/api/bikes`;
+    const apiUrl = `${baseUrl}/api/bikes?force=true`;
 
     const res = await fetch(apiUrl);
     const bikes = await res.json();
@@ -49,7 +48,6 @@ const BikeDetailLayout = async ({ children, params }) => {
     if (!bike) {
         return notFound();
     }
-
 
     return (
         <>

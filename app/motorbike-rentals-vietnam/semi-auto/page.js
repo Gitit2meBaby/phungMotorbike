@@ -1,16 +1,20 @@
+import Image from 'next/image';
 import BikeList from '../../../components/BikeList';
 import Filter from '../../../components/Filter';
 
 import styles from '../../../styles/hanoiRentals.module.scss';
 
+import camera from '../../../public/camera.png';
+
 const SemiAuto = async () => {
 
     const baseUrl = process.env.NEXT_PUBLIC_URL;
-    let data = await fetch(`${baseUrl}api/bikes`);
-    let bikes = await data.json()
+    let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
+        headers: { 'Cache-Control': 'no-store' }
+    }); let bikes = await data.json()
 
     bikes.sort((a, b) => a.cityPrice - b.cityPrice);
-    const semiAutoBikes = bikes.filter(bike => bike.type === 'semi-auto');
+    const semiAutoBikes = bikes.filter(bike => bike.type === 'Semi - Automatic');
 
     const basePath = '/motorbike-rentals-vietnam';
 
@@ -21,6 +25,7 @@ const SemiAuto = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
+                <Image src={camera} alt="Hanoi" width={300} height={300} />
                 <h1>Semi-Auto</h1>
                 <h2>A Balanced Approach</h2>
                 <p>Enjoy the best of both worlds with our semi-automatic motorbikes. Still no need to worry about clutch, and ideal for hilly terrain.</p>

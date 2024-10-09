@@ -6,20 +6,33 @@ import Link from 'next/link';
 const SimilarBikes = dynamic(() => import('../../../../components/SimilarBikes'), { ssr: false });
 
 export default async function BikeDetailPage({ params }) {
-    const { id, 'model-name': modelName } = params;
+    const { id } = params;
 
     const baseUrl = process.env.NEXT_PUBLIC_URL;
-    const apiUrl = `${baseUrl}/api/bikes`;
+    const apiUrl = `${baseUrl}/api/bikes/?force=true`;
 
-    const res = await fetch(apiUrl);
+    const res = await fetch(apiUrl, {
+        next: { revalidate: 0 }
+    });
+
+    if (!res.ok) {
+        console.error('Failed to fetch bike data:', res.statusText);
+        return <p>Error fetching bike data.</p>;
+    }
+
     const bikes = await res.json();
-    const bike = bikes.find(b => b.id === id && `${b.model.toLowerCase()}-${b.name.toLowerCase()}` === modelName);
+
+    const bike = bikes.find(b => b.id === id);
+
+    if (!bike || bike.message === 'Bike not found') {
+        return <p>Bike details not found.</p>;
+    }
 
     // Dynamic schema generation
     const rentalSchema = {
         "@context": "https://schema.org",
-        "@type": "Vehicle", // Changed from "RentalVehicle" to "Vehicle"
-        "name": `${bike.model} ${bike.name}`,
+        "@type": "Vehicle",
+        "name": `${bike.name}`,
         "brand": {
             "@type": "Brand",
             "name": bike.model
@@ -59,11 +72,6 @@ export default async function BikeDetailPage({ params }) {
         }
     };
 
-
-    if (!bike) {
-        return <p>Bike details not found.</p>;
-    }
-
     return (
         <>
             <script
@@ -87,9 +95,8 @@ export default async function BikeDetailPage({ params }) {
                 </Link>
             </div>
             <Suspense fallback={<p>Loading similar bikes...</p>}>
-                <SimilarBikes bikes={bikes} currentBike={bike} />
+                <SimilarBikes currentBike={bike} />
             </Suspense>
         </>
     );
 }
-

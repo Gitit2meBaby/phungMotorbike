@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 .hanoiRentals h2,
 .hanoiRentals h1 {
@@ -33,6 +34,14 @@
 }
 .hanoiRentals p:first-of-type {
   padding-bottom: 0.5rem;
+}
+.hanoiRentals img {
+  filter: invert(15%);
+  rotate: -30deg;
+  position: absolute;
+  z-index: -1;
+  bottom: -5rem;
+  left: -2rem;
 }
 
 .divider {

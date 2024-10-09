@@ -1,38 +1,55 @@
-import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { query, where, orderBy, getDocs, collection } from 'firebase/firestore';
 import { db } from './firebase';
-import { cache } from 'react';
 
-const listingsCollection = collection(db, 'bikes');
+// Declare the variables globally to hold the cached data
+let cachedBikes = null;
+let lastFetchTime = 0;
+const CACHE_DURATION = 86400000 // 24 hours
 
-// Cache the data so it doesn't re-fetch unnecessarily
-export const getBikes = cache(async (filters = {}) => {
+export const getBikes = async (filters = {}, forceFirebase = false) => {
+    const currentTime = Date.now();
+
+    console.log('Force Firebase:', forceFirebase);
+    console.log('Using Cached Data:', cachedBikes ? 'Yes' : 'No');
+
+    // Check if cached data is still valid, unless forceFirebase is true
+    if (!forceFirebase && cachedBikes && (currentTime - lastFetchTime < CACHE_DURATION)) {
+        console.log('Returning cached bikes');
+        return cachedBikes; // Return cached bikes
+    }
+
+    // Fallback to the Firebase query if forceFirebase is true or cache is stale
     const { type, cityPrice, capacity } = filters;
 
-    // Build Firebase query based on filters
+    const listingsCollection = collection(db, 'bikes');
+
     let bikeQuery = query(listingsCollection);
 
-    // Filter by type if provided
     if (type) {
         bikeQuery = query(bikeQuery, where('type', '==', type));
     }
 
-    // Sort by cityPrice in ascending order
     if (cityPrice) {
-        bikeQuery = query(bikeQuery, orderBy('cityPrice', 'asc'));  // Ascending order by default
+        bikeQuery = query(bikeQuery, orderBy('cityPrice', cityPrice));
     }
 
-    // If no cityPrice is provided, sort by capacity
     if (capacity) {
-        bikeQuery = query(bikeQuery, orderBy('capacity', 'asc'));  // Ascending order by default
+        bikeQuery = query(bikeQuery, orderBy('capacity', capacity));
     }
 
-    // Fetch data from Firestore
-    const snapshot = await getDocs(bikeQuery);
-    return snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-    }));
-});
+    try {
+        const snapshot = await getDocs(bikeQuery);
+        cachedBikes = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
 
-// Optionally, if you want to revalidate the data periodically:
-export const revalidate = 36000; // Revalidate every 10 hours
+        lastFetchTime = currentTime;
+        console.log('Fetched bikes from Firebase:', cachedBikes.length);
+
+        return cachedBikes; // Return the fresh bikes data from Firebase
+    } catch (error) {
+        console.error('Error fetching bikes from Firebase:', error);
+        throw new Error('Failed to fetch bikes from Firebase');
+    }
+};

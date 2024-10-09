@@ -1,5 +1,6 @@
+// app/api/bikes/[id]/route.js
 import { NextResponse } from 'next/server';
-import { getBikes } from '../../../lib/getBikes';  // Adjust this import path as necessary
+import { getBikes } from '../../../lib/getBikes';
 
 export async function GET(request, { params }) {
     const { id } = params;

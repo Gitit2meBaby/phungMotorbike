@@ -2,15 +2,101 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #ebebeb;
   padding: 0.5rem;
-  margin-bottom: 1.5rem;
 }
-.bikeCard p,
-.bikeCard h2 {
-  color: #ebebeb;
+
+.polaroid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.5rem solid #ebebeb;
+  padding: 0.5rem;
+  background-color: #ebebeb;
+}
+.polaroid img {
+  max-width: 90vw;
+  border: 2px solid #0d0d0d;
+}
+.polaroid p,
+.polaroid h2 {
   margin: 0;
+  color: #0d0d0d;
 }
-.bikeCard p {
+.polaroid h2 {
+  margin-top: 0.7rem;
+  font-size: 2rem;
+  font-weight: bold;
+  transform: rotate(-2deg);
+  text-align: center;
+}
+.polaroid p {
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+}
+.polaroid span {
+  font-size: 1rem;
+}
+.polaroid span span {
+  color: rgb(83, 83, 83);
+}
+
+.description {
+  text-align: center;
   color: #ebebeb;
+  letter-spacing: 1px;
+  padding: 0 1rem;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5rem 0;
+  width: 90%;
+  border-bottom: 1px solid #e97f26;
+}
+
+.btn {
+  background-color: transparent;
+  color: #e97f26;
+  border: 2px solid #e97f26;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 2rem;
+}
+.btn:hover {
+  background-color: #e97f26;
+  color: #0d0d0d;
+  border: 2px solid #e97f26;
+}
+@media (max-width: 359px) {
+  .btn {
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+.activeBtn {
+  background-color: #e97f26;
+  color: #0d0d0d;
+  border: 2px solid #e97f26;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.activeBtn svg path {
+  fill: #0d0d0d;
+}
+@media (max-width: 359px) {
+  .activeBtn {
+    padding: 0.2rem 0.5rem;
+  }
 }/*# sourceMappingURL=bikeCard.module.css.map */

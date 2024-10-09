@@ -4,17 +4,108 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid $offWhite;
     padding: .5rem;
-    margin-bottom: 1.5rem;
+}
+
+.polaroid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: .5rem solid $offWhite;
+    // border-bottom: none;
+    padding: .5rem;
+    background-color: $offWhite;
+
+    img {
+        max-width: 90vw;
+        border: 2px solid $black;
+    }
 
     p,
     h2 {
-        color: $offWhite;
         margin: 0;
+        color: $black;
+    }
+
+    h2 {
+        margin-top: 0.7rem;
+        font-size: 2rem;
+        font-weight: bold;
+        transform: rotate(-2deg);
+        text-align: center;
     }
 
     p {
-        color: $offWhite;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 1.5rem;
+    }
+
+    span {
+        font-size: 1rem;
+
+        span {
+            color: rgb(83, 83, 83);
+        }
+    }
+}
+
+.description {
+    text-align: center;
+    color: $offWhite;
+    letter-spacing: 1px;
+    padding: 0 1rem;
+}
+
+.btnWrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: .5rem 0;
+    width: 90%;
+    border-bottom: 1px solid $theme;
+}
+
+.btn {
+    background-color: transparent;
+    color: $theme;
+    border: 2px solid $theme;
+    padding: 0.3rem .8rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 2rem;
+
+    &:hover {
+        background-color: $theme;
+        color: $black;
+        border: 2px solid $theme;
+    }
+
+    @include smallPhone {
+        padding: 0.2rem .5rem;
+    }
+}
+
+.activeBtn {
+    background-color: $theme;
+    color: $black;
+    border: 2px solid $theme;
+    padding: 0.3rem .8rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    svg path {
+        fill: #0d0d0d;
+    }
+
+    @include smallPhone {
+        padding: 0.2rem .5rem;
     }
 }
