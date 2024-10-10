@@ -1,0 +1,44 @@
+.notFound {
+  position: relative;
+  max-width: 90vw;
+  min-height: 600px;
+}
+.notFound img {
+  position: absolute;
+  z-index: -1;
+  max-width: 100%;
+  min-height: 100dvh;
+  min-height: 100vh;
+  aspect-ratio: 0, 5;
+  filter: brightness(50%);
+}
+.notFound h1 {
+  z-index: 2;
+  font-size: 3rem;
+  line-height: 4rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #0d0d0d;
+  text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
+  color: rgba(255, 255, 255, 0.788);
+  margin: 0 0 1rem 0;
+}
+.notFound p {
+  color: #ebebeb;
+  text-shadow: 0 0 10px #0d0d0d;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0;
+  line-height: 2rem;
+  margin: 0.5rem;
+}
+.notFound p:nth-of-type(2), .notFound p:nth-of-type(3), .notFound p:nth-of-type(4), .notFound p:nth-of-type(5) {
+  opacity: 0.6;
+}
+.notFound a {
+  color: #e97f26;
+}/*# sourceMappingURL=notfound.module.css.map */

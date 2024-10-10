@@ -1,6 +1,18 @@
+@import './globals.scss';
+
 .filter {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 1rem;
+
+    @include tablet {
+        justify-content: center;
+        gap: 5vw;
+    }
+
+    @include desktop {
+        justify-content: center;
+        gap: 5vw;
+    }
 }

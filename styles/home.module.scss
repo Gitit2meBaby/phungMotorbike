@@ -1,5 +1,11 @@
 @import './globals.scss';
 
+.main {
+    @include phone {
+        margin-top: -8rem;
+    }
+}
+
 .home {
     h1 {
         font-size: 7rem;

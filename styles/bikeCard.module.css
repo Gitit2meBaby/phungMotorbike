@@ -4,6 +4,18 @@
   align-items: center;
   padding: 0.5rem;
 }
+@media (min-width: 450px) and (max-width: 1024px) {
+  .bikeCard {
+    max-width: 380px;
+    min-height: 100%;
+  }
+}
+@media (min-width: 1025px) {
+  .bikeCard {
+    max-width: 380px;
+    min-height: 100%;
+  }
+}
 
 .polaroid {
   display: flex;
@@ -52,6 +64,12 @@
   letter-spacing: 1px;
   padding: 0 1rem;
 }
+@media (min-width: 1025px) {
+  .description {
+    padding: 1rem 0 0 0;
+    margin: 0;
+  }
+}
 
 .btnWrapper {
   display: flex;
@@ -59,6 +77,11 @@
   margin: 0.5rem 0;
   width: 90%;
   border-bottom: 1px solid #e97f26;
+}
+@media (min-width: 1025px) {
+  .btnWrapper {
+    margin-top: auto;
+  }
 }
 
 .btn {
@@ -118,4 +141,14 @@
   text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
   color: rgba(255, 255, 255, 0.788);
   margin: 2rem 0 1rem 0;
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .similar h4 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1025px) {
+  .similar h4 {
+    font-size: 4rem;
+  }
 }/*# sourceMappingURL=bikeCard.module.css.map */

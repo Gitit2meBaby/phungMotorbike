@@ -5,6 +5,50 @@
     justify-content: space-around;
     align-items: center;
     margin-bottom: 1rem;
+
+    @include tablet {
+        justify-content: flex-start;
+        gap: 5vw;
+        padding: 0 10%;
+    }
+
+    @include desktop {
+        justify-content: flex-start;
+        gap: 5vw;
+        padding: 0 10%;
+    }
+}
+
+.deskOnly {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+
+    h3 {
+        color: $theme;
+        margin: 0;
+        font-size: 2rem;
+
+        @include phone {
+            display: none;
+        }
+
+        @include phoneLandscape {
+            display: none;
+        }
+    }
+
+    svg {
+        margin-bottom: -0.3rem;
+
+        @include phone {
+            display: none;
+        }
+
+        @include phoneLandscape {
+            display: none;
+        }
+    }
 }
 
 .divider {

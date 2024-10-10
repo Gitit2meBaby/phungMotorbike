@@ -1,0 +1,19 @@
+@import './globals.scss';
+
+.bikeList {
+    @include tablet {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    @include desktop {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 3rem;
+    }
+}

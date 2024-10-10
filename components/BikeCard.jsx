@@ -26,7 +26,7 @@ const BikeCard = ({ bike, basePath, inDetails }) => {
     const nameSlug = bike.name.toLowerCase().replace(/\s+/g, '-');
 
     return (
-        <section>
+        <>
             <div className={styles.bikeCard}>
                 <div className={styles.polaroid}>
                     <Image
@@ -56,7 +56,7 @@ const BikeCard = ({ bike, basePath, inDetails }) => {
                 <p className={styles.description}>{bike.description}</p>
 
                 <div className={styles.btnWrapper}
-                    style={inDetails ? { borderBottom: 'none' } : { borderBottom: '1px solid #e97f26' }}>
+                    style={inDetails ? { borderBottom: 'none', marginTop: '1.5rem' } : { borderBottom: '1px solid #e97f26' }}>
                     <Link href={`bookings/${bike.id}`}>
                         <button className={styles.activeBtn}>Book Now</button>
                     </Link>
@@ -65,7 +65,7 @@ const BikeCard = ({ bike, basePath, inDetails }) => {
                     </Link>
                 </div>
             </div>
-        </section>
+        </>
     );
 };
 

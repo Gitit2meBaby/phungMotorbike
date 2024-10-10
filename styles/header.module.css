@@ -31,7 +31,7 @@
 }
 @media (min-width: 450px) and (max-width: 1024px) {
   .headerDesk {
-    display: none;
+    grid-template-columns: 30% 1fr;
   }
 }
 
@@ -125,6 +125,11 @@
 .stars svg:nth-of-type(6) {
   margin: 0 0 0rem 0.5rem;
 }
+@media (min-width: 450px) and (max-width: 1024px) {
+  .stars {
+    display: none;
+  }
+}
 
 .reviews {
   margin: -0.5rem 0 0 0.5rem;
@@ -139,6 +144,11 @@
   color: #e97f26;
   font-size: 1.5rem;
 }
+@media (min-width: 450px) and (max-width: 1024px) {
+  .reviews {
+    display: none;
+  }
+}
 
 .mobHead {
   position: absolute;
@@ -150,6 +160,17 @@
   .mobHead {
     display: flex;
     gap: 6vw;
+  }
+}
+@media (min-width: 450px) and (max-width: 767px) {
+  .mobHead {
+    display: flex;
+    gap: 6vw;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .mobHead {
+    display: none;
   }
 }
 @media (min-width: 1025px) {
@@ -177,11 +198,15 @@
 }
 .nav li {
   list-style: none;
+  cursor: pointer;
+}
+.nav a {
+  cursor: pointer;
 }
 
 .mobNav {
   transition: all 0.5s ease;
-  background: linear-gradient(to top, #DA251D 0%, #DA251D 40%, #0d0d0d 100%);
+  background: linear-gradient(to top right, #DA251D 0%, #DA251D 30%, #0d0d0d 100%);
   width: 66vw;
   position: absolute;
   top: 0;
@@ -194,6 +219,7 @@
 .mobNav a {
   text-decoration: none;
   color: #e97f26;
+  cursor: pointer;
 }
 .mobNav ul {
   padding: 0;
@@ -207,6 +233,7 @@
   letter-spacing: 1px;
   z-index: 11;
   color: #e97f26;
+  cursor: pointer;
   text-shadow: -0.5px -0.5px 0 #0d0d0d, 0.5px -0.5px 0 #0d0d0d, -0.5px 0.5px 0 #0d0d0d, 0.5px 0.5px 0 #0d0d0d;
 }
 

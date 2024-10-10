@@ -3,4 +3,16 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 1rem;
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .filter {
+    justify-content: center;
+    gap: 5vw;
+  }
+}
+@media (min-width: 1025px) {
+  .filter {
+    justify-content: center;
+    gap: 5vw;
+  }
 }/*# sourceMappingURL=filter.module.css.map */

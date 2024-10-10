@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import BikeCard from './BikeCard';
 import Sorter from './Sorter';
 
+import styles from '../styles/bikeList.module.css'
+
 export default function BikeList({ initialBikes, basePath }) {
     const [sortedBikes, setSortedBikes] = useState(initialBikes);
     const [sortMethod, setSortMethod] = useState({ key: 'cityPrice', direction: 'asc' });
@@ -29,15 +31,15 @@ export default function BikeList({ initialBikes, basePath }) {
     };
 
     return (
-        <div>
+        <>
             <Sorter onSortChange={handleSortChange} />
-            <div>
+            <div className={styles.bikeList}>
                 {sortedBikes.map(bike => (
                     <div key={bike.id}>
                         <BikeCard bike={bike} basePath={basePath} />
                     </div>
                 ))}
             </div>
-        </div>
+        </>
     );
 }

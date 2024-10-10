@@ -1,0 +1,54 @@
+@import './globals.scss';
+
+.notFound {
+    position: relative;
+    max-width: 90vw;
+    min-height: 600px;
+
+    img {
+        position: absolute;
+        z-index: -1;
+        max-width: 100%;
+        min-height: 100dvh;
+        min-height: 100vh;
+        aspect-ratio: 0, 5;
+        filter: brightness(50%);
+    }
+
+    h1 {
+        z-index: 2;
+        font-size: 3rem;
+        line-height: 4rem;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: $black;
+        text-shadow: 5px 5px 10px $theme, -5px -5px 10px $theme;
+        color: rgba(255, 255, 255, 0.788);
+        margin: 0 0 1rem 0;
+    }
+
+    p {
+        color: $offWhite;
+        text-shadow: 0 0 10px $black;
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-align: center;
+        margin: 0;
+        line-height: 2rem;
+        margin: 0.5rem;
+
+        &:nth-of-type(2),
+        &:nth-of-type(3),
+        &:nth-of-type(4),
+        &:nth-of-type(5) {
+            opacity: .6;
+        }
+    }
+
+    a {
+        color: $theme;
+    }
+}

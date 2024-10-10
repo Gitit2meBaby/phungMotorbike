@@ -19,6 +19,22 @@
         span {
             text-transform: none;
         }
+
+        @include phoneLandscape {
+            font-size: 2rem;
+            line-height: 3.5rem;
+            margin: 1rem 1rem 2rem 1rem;
+        }
+
+        @include tablet {
+            font-size: 4rem;
+            margin: 1rem 1rem 2rem 1rem;
+        }
+
+        @include desktop {
+            font-size: 6rem;
+            margin: 1rem 1rem 2rem 1rem;
+        }
     }
 
     p {
@@ -29,22 +45,41 @@
     }
 }
 
+.deskLayout {
+    @include desktop {
+        display: flex;
+        gap: 5vw;
+        padding: 0 10vw;
+    }
+}
+
 .divider {
     background-color: $theme;
     width: 90%;
     height: .5px;
     align-self: center;
 
-    @include desktop {
-        &:last-of-type {
-            display: none;
-        }
-    }
-
     @include tablet {
         &:last-of-type {
             display: none;
         }
+    }
+}
+
+.deskSlider {
+    width: 600px;
+    height: 450px;
+
+    @include phone {
+        display: none;
+    }
+
+    @include phoneLandscape {
+        display: none;
+    }
+
+    @include tablet {
+        display: none;
     }
 }
 
@@ -54,6 +89,10 @@
     margin: 0 auto;
     border: 1px solid $black;
     box-shadow: 0 0 5px 1px $offWhite, 0 0 10px 1px $theme;
+
+    @include desktop {
+        display: none;
+    }
 }
 
 .details {
@@ -88,6 +127,11 @@
         rotate: -8deg;
         bottom: 6rem;
         left: -3rem;
+
+        @include desktop {
+            left: 60%;
+            bottom: -10rem;
+        }
     }
 }
 
@@ -103,6 +147,14 @@
     width: 90%;
     border-bottom: 1px solid $theme;
     padding-bottom: 3rem;
+
+    @include desktop {
+        border-bottom: none;
+    }
+
+    @include tablet {
+        border-bottom: none;
+    }
 }
 
 .btn {
@@ -194,6 +246,26 @@
     }
 }
 
+.imgRow {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+
+    img {
+        margin: 1rem 0;
+        border-radius: .2rem;
+    }
+
+    @include tablet {
+        border-bottom: 1px solid $theme;
+        width: 90%;
+        margin: 0 auto;
+        padding-bottom: 1rem;
+    }
+}
+
 .options {
     position: relative;
     display: flex;
@@ -214,6 +286,10 @@
 
         &:last-of-type {
             margin-top: 1.5rem;
+        }
+
+        @include desktop {
+            font-size: 2rem;
         }
     }
 

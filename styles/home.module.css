@@ -1,3 +1,9 @@
+@media (max-width: 450px) {
+  .main {
+    margin-top: -8rem;
+  }
+}
+
 .home h1 {
   font-size: 7rem;
   line-height: 5rem;

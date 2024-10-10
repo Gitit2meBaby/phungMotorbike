@@ -49,3 +49,17 @@ export default function RootLayout({ children }) {
         </section>
     );
 }
+
+// Motorcycles are nothing new in general; however, driving motorcycles around Hanoi is something truly different.
+
+// Setting off on a tour in Hanoi makes you feel immersed in the hustle and bustle of life there. You may experience:
+// - People passing through traffic lights rulelessly.
+// - Being stuck in dozens of traffic jams or in a narrow path of an old quarter’s ally.
+// - Getting confused or even frustrated by all the bulky, huge and funny-looking vehicles.
+
+// But eventually you will get to the destination safe and sound. At the end of the day, Hà Nội has its own way of operating things, you are adopting our Vietnamese lifestyle, which is surely will be your most unforgettable memories as you try:
+// - Driving through all those stressful things then get yourselves a bowl of hot Phở as a reward
+// - Slowly follow along around the West lake and get tripped off into any local coffee shop
+// - Taking a ride to Long Bien bridge and having the best open view of Ha Noi
+
+// These are some of very least things that you must do! After all, traveling with motorbike in Việt Nam in general is much more fun than any other options. So come with us, Take a motorcycle and Explore our culture yourselves!

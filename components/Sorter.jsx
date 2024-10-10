@@ -25,6 +25,10 @@ const Sorter = ({ onSortChange }) => {
     return (
         <>
             <section className={styles.sorter}>
+                <div className={styles.deskOnly}>
+                    <h3>Sort By</h3>
+                    <svg stroke="currentColor" fill="#e97f26" strokeWidth="0" viewBox="0 0 24 24" height="3em" width="3em" xmlns="http://www.w3.org/2000/svg"><path d="M10.296 7.71L14.621 12 10.296 16.29 11.704 17.71 17.461 12 11.704 6.29z"></path><path d="M6.704 6.29L5.296 7.71 9.621 12 5.296 16.29 6.704 17.71 12.461 12z"></path></svg>
+                </div>
                 <div>
                     <button
                         onClick={handlePriceClick}

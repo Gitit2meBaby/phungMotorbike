@@ -10,7 +10,7 @@ import styles from "../styles/home.module.css";
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.main}>
       <Hero />
 
       <div className={styles.home}>

@@ -20,6 +20,13 @@
   line-height: 3rem;
   margin: 1.5rem 0.5rem 0.5rem 0.5rem;
 }
+@media (min-width: 1025px) {
+  .hanoiRentals h1 {
+    font-size: 6rem;
+    margin: 0rem 4rem 3rem 4rem;
+    line-height: 6rem;
+  }
+}
 .hanoiRentals h2 {
   font-size: 2rem;
   line-height: 2rem;
@@ -35,13 +42,71 @@
 .hanoiRentals p:first-of-type {
   padding-bottom: 0.5rem;
 }
-.hanoiRentals img {
+
+@media (min-width: 450px) and (max-width: 1024px) {
+  .deskContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+    padding: 0 10vw;
+  }
+  .deskContent div {
+    padding-top: 2rem;
+  }
+}
+@media (min-width: 1025px) {
+  .deskContent {
+    display: flex;
+    gap: 4vw;
+    padding: 0 10vw;
+  }
+  .deskContent div {
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .deskInfo {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 767px) {
+  .deskInfo {
+    display: none;
+  }
+}
+
+.cameraImg {
   filter: invert(15%);
   rotate: -30deg;
   position: absolute;
   z-index: -1;
   bottom: -5rem;
   left: -2rem;
+}
+@media (min-width: 1025px) {
+  .cameraImg {
+    left: 70vw;
+  }
+}
+
+.sunriseImg {
+  border-radius: 0.3rem;
+}
+@media (max-width: 450px) {
+  .sunriseImg {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 767px) {
+  .sunriseImg {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .sunriseImg {
+    display: none;
+  }
 }
 
 .divider {
@@ -52,7 +117,7 @@
   margin-bottom: 1rem;
 }
 @media (min-width: 1025px) {
-  .divider:last-of-type {
+  .divider {
     display: none;
   }
 }

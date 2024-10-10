@@ -8,7 +8,6 @@ import star from '../assets/star.webp';
 const Nav = ({ showNav, setShowNav }) => {
     const [rentDropdownState, setRentDropdownState] = useState({
         isOpen: false,
-        activeNestedDropdown: null
     });
     const [saleDropdownState, setSaleDropdownState] = useState({
         isOpen: false
@@ -21,14 +20,13 @@ const Nav = ({ showNav, setShowNav }) => {
     }, [showNav]);
 
     const resetAllStates = () => {
-        setRentDropdownState({ isOpen: false, activeNestedDropdown: null });
+        setRentDropdownState({ isOpen: false });
         setSaleDropdownState({ isOpen: false });
     };
 
     const handleRentDropdownClick = () => {
         setRentDropdownState(prevState => ({
             isOpen: !prevState.isOpen,
-            activeNestedDropdown: null
         }));
         setSaleDropdownState({ isOpen: false });
     };
@@ -39,16 +37,7 @@ const Nav = ({ showNav, setShowNav }) => {
         }));
         setRentDropdownState({
             isOpen: false,
-            activeNestedDropdown: null
         });
-    };
-
-    const handleNestedDropdownClick = (event, nestedDropdown) => {
-        event.stopPropagation();
-        setRentDropdownState(prevState => ({
-            ...prevState,
-            activeNestedDropdown: prevState.activeNestedDropdown === nestedDropdown ? null : nestedDropdown
-        }));
     };
 
     const handleScroll = () => {
@@ -73,38 +62,30 @@ const Nav = ({ showNav, setShowNav }) => {
 
                 <li
                     onClick={handleRentDropdownClick}
-                    className={rentDropdownState.isOpen ? styles.activeMobDropdown : ''}
-                    style={rentDropdownState.isOpen && rentDropdownState.activeNestedDropdown !== null ? { height: '28rem', transition: 'all .5s ease' } : {}}
-                >
+                    className={rentDropdownState.isOpen ? styles.activeMobDropdown : ''}>
                     <span className={styles.navItem}>For Rent</span>
                     <ul className={`${styles.nestedMenu} ${rentDropdownState.isOpen ? styles.show : ''}`}>
                         <ul className={`${styles.nestedMenu} ${rentDropdownState.isOpen ? styles.show : ''}`}>
-                            <li onClick={(e) => handleNestedDropdownClick(e, 'innerCity')}>
-                                <span className={styles.subItem}>Inner City</span>
-                                <ul className={`${styles.nestedMobDropdown} ${rentDropdownState.activeNestedDropdown === 'innerCity' ? styles.show : ''}`}>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbikes-for-rent-hanoi/automatic">Automatic</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbikes-for-rent-hanoi/semi-auto">Semi-Auto</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'innerCity' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbikes-for-rent-hanoi/manual">Manual</Link></li>
-                                </ul>
-                            </li>
+                            <Link href='/motorbikes-for-rent-hanoi' onClick={() => setShowNav(false)}
+                                style={rentDropdownState.isOpen ? {} : { pointerEvents: 'none' }}>
+                                <li>
+                                    <span className={styles.subItem}>Inner City</span>
+                                </li>
+                            </Link>
 
-                            <li onClick={(e) => handleNestedDropdownClick(e, 'travelling')}>
-                                <span className={styles.subItem}>Travelling</span>
-                                <ul className={`${styles.nestedMobDropdown} ${rentDropdownState.activeNestedDropdown === 'travelling' ? styles.show : ''}`}>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbike-rentals-vietnam/automatic">Automatic</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rmotorbike-rentals-vietnam/semi-auto">Semi-Auto</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'travelling' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/motorbike-rentals-vietnam/manual">Manual</Link></li>
-                                </ul>
-                            </li>
+                            <Link href='/motorbike-rentals-vietnam' onClick={() => setShowNav(false)}
+                                style={rentDropdownState.isOpen ? {} : { pointerEvents: 'none' }}>
+                                <li>
+                                    <span className={styles.subItem}>Travelling</span>
+                                </li>
+                            </Link>
 
-                            <li onClick={(e) => handleNestedDropdownClick(e, 'monthly')}>
-                                <span className={styles.subItem}>Monthly</span>
-                                <ul className={`${styles.nestedMobDropdown} ${rentDropdownState.activeNestedDropdown === 'monthly' ? styles.show : ''}`}>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/automatic">Automatic</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/semi-auto">Semi-Auto</Link></li>
-                                    <li><Link style={rentDropdownState.activeNestedDropdown !== 'monthly' ? { display: 'none' } : {}} onClick={() => setShowNav(false)} href="/rent/monthly/manual">Manual</Link></li>
-                                </ul>
-                            </li>
+                            <Link href='/monthly-rentals-hanoi' onClick={() => setShowNav(false)}
+                                style={rentDropdownState.isOpen ? {} : { pointerEvents: 'none' }}>
+                                <li>
+                                    <span className={styles.subItem}>Monthly</span>
+                                </li>
+                            </Link>
                         </ul>
                     </ul>
                 </li>
@@ -122,7 +103,7 @@ const Nav = ({ showNav, setShowNav }) => {
                 </li>
 
                 <li>
-                    <Link onClick={() => setShowNav(false)} className={styles.navItem} href="/repairs">Repairs</Link>
+                    <Link onClick={() => setShowNav(false)} className={styles.navItem} href="/motorbike-repairs-hanoi">Repairs</Link>
                 </li>
 
                 <li>

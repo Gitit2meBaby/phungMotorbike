@@ -4,6 +4,54 @@
   align-items: center;
   margin-bottom: 1rem;
 }
+@media (min-width: 450px) and (max-width: 1024px) {
+  .sorter {
+    justify-content: flex-start;
+    gap: 5vw;
+    padding: 0 10%;
+  }
+}
+@media (min-width: 1025px) {
+  .sorter {
+    justify-content: flex-start;
+    gap: 5vw;
+    padding: 0 10%;
+  }
+}
+
+.deskOnly {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.deskOnly h3 {
+  color: #e97f26;
+  margin: 0;
+  font-size: 2rem;
+}
+@media (max-width: 450px) {
+  .deskOnly h3 {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 767px) {
+  .deskOnly h3 {
+    display: none;
+  }
+}
+.deskOnly svg {
+  margin-bottom: -0.3rem;
+}
+@media (max-width: 450px) {
+  .deskOnly svg {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 767px) {
+  .deskOnly svg {
+    display: none;
+  }
+}
 
 .divider {
   background-color: #e97f26;

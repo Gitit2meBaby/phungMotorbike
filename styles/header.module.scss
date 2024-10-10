@@ -31,7 +31,7 @@
     }
 
     @include tablet {
-        display: none;
+        grid-template-columns: 30% 1fr
     }
 }
 
@@ -132,6 +132,10 @@
     svg:nth-of-type(6) {
         margin: 0 0 0rem .5rem;
     }
+
+    @include tablet {
+        display: none;
+    }
 }
 
 .reviews {
@@ -148,6 +152,10 @@
         color: $theme;
         font-size: 1.5rem;
     }
+
+    @include tablet {
+        display: none;
+    }
 }
 
 // mobile
@@ -155,6 +163,15 @@
     @include phone {
         display: flex;
         gap: 6vw;
+    }
+
+    @include phoneLandscape {
+        display: flex;
+        gap: 6vw;
+    }
+
+    @include tablet {
+        display: none;
     }
 
     @include desktop {
@@ -189,12 +206,17 @@
 
     li {
         list-style: none;
+        cursor: pointer;
+    }
+
+    a {
+        cursor: pointer;
     }
 }
 
 .mobNav {
     transition: all .5s ease;
-    background: linear-gradient(to top, #DA251D 0%, #DA251D 40%, $black 100%);
+    background: linear-gradient(to top right, #DA251D 0%, #DA251D 30%, $black 100%);
     width: 66vw;
     position: absolute;
     top: 0;
@@ -207,6 +229,7 @@
     a {
         text-decoration: none;
         color: $theme;
+        cursor: pointer;
     }
 
     ul {
@@ -222,6 +245,7 @@
         letter-spacing: 1px;
         z-index: 11;
         color: $theme;
+        cursor: pointer;
         text-shadow:
             -.5px -.5px 0 $black,
             /* Top-left shadow */

@@ -17,11 +17,38 @@
 .bikeDetail h1 span {
   text-transform: none;
 }
+@media (min-width: 450px) and (max-width: 767px) {
+  .bikeDetail h1 {
+    font-size: 2rem;
+    line-height: 3.5rem;
+    margin: 1rem 1rem 2rem 1rem;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .bikeDetail h1 {
+    font-size: 4rem;
+    margin: 1rem 1rem 2rem 1rem;
+  }
+}
+@media (min-width: 1025px) {
+  .bikeDetail h1 {
+    font-size: 6rem;
+    margin: 1rem 1rem 2rem 1rem;
+  }
+}
 .bikeDetail p {
   text-align: center;
   color: #ebebeb;
   letter-spacing: 1px;
   margin: 0 0.5rem;
+}
+
+@media (min-width: 1025px) {
+  .deskLayout {
+    display: flex;
+    gap: 5vw;
+    padding: 0 10vw;
+  }
 }
 
 .divider {
@@ -30,13 +57,28 @@
   height: 0.5px;
   align-self: center;
 }
-@media (min-width: 1025px) {
+@media (min-width: 450px) and (max-width: 1024px) {
   .divider:last-of-type {
     display: none;
   }
 }
+
+.deskSlider {
+  width: 600px;
+  height: 450px;
+}
+@media (max-width: 450px) {
+  .deskSlider {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 767px) {
+  .deskSlider {
+    display: none;
+  }
+}
 @media (min-width: 450px) and (max-width: 1024px) {
-  .divider:last-of-type {
+  .deskSlider {
     display: none;
   }
 }
@@ -47,6 +89,11 @@
   margin: 0 auto;
   border: 1px solid #0d0d0d;
   box-shadow: 0 0 5px 1px #ebebeb, 0 0 10px 1px #e97f26;
+}
+@media (min-width: 1025px) {
+  .slider {
+    display: none;
+  }
 }
 
 .details {
@@ -78,6 +125,12 @@
   bottom: 6rem;
   left: -3rem;
 }
+@media (min-width: 1025px) {
+  .details img {
+    left: 60%;
+    bottom: -10rem;
+  }
+}
 
 .transmission {
   letter-spacing: 1px;
@@ -91,6 +144,16 @@
   width: 90%;
   border-bottom: 1px solid #e97f26;
   padding-bottom: 3rem;
+}
+@media (min-width: 1025px) {
+  .btnWrapper {
+    border-bottom: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .btnWrapper {
+    border-bottom: none;
+  }
 }
 
 .btn {
@@ -169,6 +232,26 @@
     transform: scale(1);
   }
 }
+.imgRow {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+.imgRow img {
+  margin: 1rem 0;
+  border-radius: 0.2rem;
+}
+@media (min-width: 450px) and (max-width: 1024px) {
+  .imgRow {
+    border-bottom: 1px solid #e97f26;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+  }
+}
+
 .options {
   position: relative;
   display: flex;
@@ -188,6 +271,11 @@
 }
 .options h3:last-of-type {
   margin-top: 1.5rem;
+}
+@media (min-width: 1025px) {
+  .options h3 {
+    font-size: 2rem;
+  }
 }
 .options a {
   color: #ebebeb;

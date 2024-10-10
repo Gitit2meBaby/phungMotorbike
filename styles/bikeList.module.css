@@ -1,0 +1,18 @@
+@media (min-width: 450px) and (max-width: 1024px) {
+  .bikeList {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+@media (min-width: 1025px) {
+  .bikeList {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+}/*# sourceMappingURL=bikeList.module.css.map */
