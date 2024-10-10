@@ -99,20 +99,20 @@
 }
 
 .image {
-    background: url('../assets/innerCity.webp');
+    background: url('../public/innerCity.webp');
 }
 
 .image2 {
-    background: url('../assets/haGiang.webp');
+    background: url('../public/haGiang.webp');
 }
 
 .image3 {
-    background: url('../assets/onRock.webp');
+    background: url('../public/onRock.webp');
 }
 
 .btn {
     background-color: $theme;
-    color: $offWhite;
+    color: $black;
     border: none;
     border-radius: .3rem;
     padding: .5rem 1rem;

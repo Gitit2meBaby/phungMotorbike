@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from '../styles/hero.module.css'
 import Image from 'next/image'
-import phung from '../assets/phung.png'
-import motorbike from '../assets/motorbike.png'
+import phung from '../public/phung.png'
+import motorbike from '../public/motorbike.png'
 
 const Hero = () => {
     return (

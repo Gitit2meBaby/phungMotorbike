@@ -10,19 +10,19 @@ $theme: #e97f26;
 }
 
 @mixin phone {
-    @media (max-width: 450px) {
+    @media (max-width: 449px) {
         @content;
     }
 }
 
 @mixin phoneLandscape {
-    @media (min-width: 450px) and (max-width: 767px) {
+    @media (min-width: 450px) and (max-width: 766px) {
         @content;
     }
 }
 
 @mixin tablet {
-    @media (min-width: 450px) and (max-width: 1024px) {
+    @media (min-width: 767px) and (max-width: 1024px) {
         @content;
     }
 }

@@ -17,7 +17,7 @@ export const metadata = {
   icon: './favicon.ico',
   canonical: 'https://phungmotorbike.com',
   robots: 'index, follow',
-  author: 'Phung Motorbike Team',
+  author: 'Daniel Thomas',
   keywords: 'motorbikes fo rent, motorbikes for sale, Hanoi Rentals, Hanoi motorbikes for sale, scooter rental Hanoi, Vietnam scooter rental, Vietnam motorbike rental',
   'theme-color': '#e97f26',
 
@@ -26,7 +26,7 @@ export const metadata = {
     type: 'website',
     title: 'Phung Motorbike',
     description: 'Phung Motorbike is Hanoi\'s leading provider of quality motorbikes for rent and sale. Find the best deals on bikes with our wide selection and excellent customer service.',
-    url: 'https://phungmotorbike.com', // Replace with your actual URL
+    url: 'https://phungmotorbike.com',
     site_name: 'Phung Motorbike',
     images: [
       {
@@ -41,32 +41,12 @@ export const metadata = {
   // Twitter Card data
   twitter: {
     card: 'summary_large_image',
-    site: '@Phung_Motorbike.', // Replace with your Twitter handle
+    site: '@Phung_Motorbike.',
     title: 'Phung Motorbike',
     description: 'Phung Motorbike is Hanoi\'s leading provider of quality motorbikes for rent and sale. Find the best deals on bikes with our wide selection and excellent customer service.',
-    image: '/images/twitter-card.jpg', // Replace with your Twitter card image URL
+    // image: '/images/twitter-card.jpg', 
   },
 
-  // Structured data (Schema.org) for SEO
-  structuredData: {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Phung Motorbike',
-    url: 'https://phungmotorbike.com',
-    logo: '../assets/logo.webp',
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'Customer Service',
-      telephone: '+84-123-456-789',
-      email: '2wheelsvietnam@gmail.com',
-    },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '13 Ngo Huyện, Hàng Trống, Hoàn Kiếm',
-      addressLocality: 'Hà Nội',
-      addressCountry: 'VN',
-    },
-  },
 };
 
 

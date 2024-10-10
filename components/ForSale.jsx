@@ -16,7 +16,7 @@ const ForSale = () => {
                 <SaleSlider />
 
                 <div className={styles.btnHolder}>
-                    <Link href="/for-sale"><button className={styles.btn}>View All</button></Link>
+                    <Link href="/motorbikes-for-sale"><button className={styles.btn}>View All</button></Link>
                 </div>
             </section>
         </>

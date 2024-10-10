@@ -166,8 +166,8 @@
     }
 
     @include phoneLandscape {
-        display: flex;
-        gap: 6vw;
+        display: flex !important;
+        gap: 6vw !important;
     }
 
     @include tablet {
@@ -264,6 +264,7 @@
     letter-spacing: 5px;
     font-weight: 600;
     z-index: 11 !important;
+    margin: 0;
     text-shadow:
         -.5px -.5px 0 $black,
         /* Top-left shadow */
@@ -271,25 +272,26 @@
         /* Top-right shadow */
         -.5px .5px 0 $black,
         /* Bottom-left shadow */
-        .5px .5px 0 $black,
+        .5px .5px 0 $black;
 }
 
 .subItem {
     font-weight: 500;
 }
 
-.nestedDropdown,
 .nestedMenu {
     height: 0;
     max-height: 0;
     opacity: 0;
     transition: all 0.5s ease, opacity 0.5s ease;
+    pointer-events: none;
 }
 
 .show {
-    max-height: 12rem;
-    height: 12rem;
+    // max-height: 12rem;
+    // height: 12rem;
     opacity: 1;
+    pointer-events: auto;
 }
 
 .star {

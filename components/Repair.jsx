@@ -2,8 +2,8 @@ import React from 'react'
 import styles from '../styles/repair.module.scss'
 import Image from 'next/image'
 
-import repair from '../assets/repair.webp'
-import repair2 from '../assets/repair2.webp'
+import repair from '../public/repair.webp'
+import repair2 from '../public/repair2.webp'
 import Button from './Button'
 import RepairLinkText from './RepairLinkText'
 

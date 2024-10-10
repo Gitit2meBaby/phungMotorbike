@@ -26,7 +26,7 @@ const Manual = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <Image src={camera} alt="Hanoi" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
                 <h1>Manual</h1>
                 <h2>A Classic Riding Experience</h2>
                 <p>Our manual bikes offer a classic and engaging riding experience, perfect for those who are feeling a bit more adventorous and enjoy the thrill and control of a manual bike.</p>

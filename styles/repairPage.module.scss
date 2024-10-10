@@ -1,0 +1,158 @@
+@import './globals.scss';
+
+.repairPage {
+    display: flex;
+    flex-direction: column;
+    padding: 0 .5rem;
+
+    h1 {
+        font-size: 3rem;
+        line-height: 3rem;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: $black;
+        text-shadow: 5px 5px 10px $theme, -5px -5px 10px $theme;
+        color: rgba(255, 255, 255, 0.788);
+        margin: 0 0 1rem 0;
+    }
+
+    h2,
+    h3 {
+        color: $theme;
+        letter-spacing: 2px;
+        margin: 0;
+        text-align: center;
+    }
+
+    li {
+        color: $offWhite;
+        letter-spacing: 1px;
+        padding-bottom: 0.3rem;
+    }
+
+    p {
+        color: $offWhite;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    @include phoneLandscape {
+        h1 {
+            font-size: 3rem;
+            margin: 1rem .5rem !important;
+        }
+    }
+
+    @include tablet {
+        h1 {
+            font-size: 3rem;
+            margin: 2rem .5rem 3rem .5rem;
+        }
+    }
+
+    @include desktop {
+        h1 {
+            font-size: 4rem;
+            margin: 2rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+    }
+}
+
+.deskContent {
+    display: flex;
+    padding: 1rem 5vw;
+    gap: 2vw;
+
+    img {
+        border-radius: .2rem;
+    }
+
+    @include phone {
+        flex-direction: column;
+        padding: 0 .5rem;
+    }
+
+    @include phoneLandscape {
+        flex-direction: column;
+        padding: 0 .5rem;
+
+        &:last-of-type {
+            margin-bottom: 2rem;
+        }
+    }
+
+    @include tablet {
+        flex-direction: column;
+        padding: 0 5vw;
+
+        &:last-of-type {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.imgWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.normImg {
+    max-width: 90vw;
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.mobImg {
+    margin: 1rem 0 2rem 0;
+    max-width: 87vw;
+
+    @include desktop {
+        display: none;
+    }
+
+    @include tablet {
+        display: none;
+    }
+
+    @include phoneLandscape {
+        display: flex;
+        margin: 0 auto;
+
+        &:first-of-type {
+            padding: 1rem;
+        }
+    }
+}
+
+.deskImg {
+    margin: 0 auto;
+
+    @include phone {
+        display: none;
+    }
+
+    @include phoneLandscape {
+        display: none;
+    }
+}
+
+.listItems {
+    padding: 5vw;
+
+    @include tablet {
+        padding: 1rem 5vw;
+    }
+}
+
+.padded {
+    padding: 3rem 15vw;
+}

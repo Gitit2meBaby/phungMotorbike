@@ -2,9 +2,9 @@ import Image from 'next/image'
 import React from 'react'
 import styles from '../styles/footer.module.css'
 
-import logo from '../assets/logo.webp'
-import phungSmall from '../assets/phungSmall.png'
-import motoSmall from '../assets/motoSmall.png'
+import logo from '../public/logo.webp'
+import phungSmall from '../public/phungSmall.png'
+import motoSmall from '../public/motoSmall.png'
 import ContactForm from './ContactForm'
 import ContactDetails from './ContactDetails'
 

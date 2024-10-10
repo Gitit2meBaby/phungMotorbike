@@ -1,0 +1,154 @@
+.repairPage {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
+}
+.repairPage h1 {
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #0d0d0d;
+  text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
+  color: rgba(255, 255, 255, 0.788);
+  margin: 0 0 1rem 0;
+}
+.repairPage h2,
+.repairPage h3 {
+  color: #e97f26;
+  letter-spacing: 2px;
+  margin: 0;
+  text-align: center;
+}
+.repairPage li {
+  color: #ebebeb;
+  letter-spacing: 1px;
+  padding-bottom: 0.3rem;
+}
+.repairPage p {
+  color: #ebebeb;
+  letter-spacing: 1px;
+  text-align: center;
+}
+@media (min-width: 450px) and (max-width: 766px) {
+  .repairPage h1 {
+    font-size: 3rem;
+    margin: 1rem 0.5rem !important;
+  }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .repairPage h1 {
+    font-size: 3rem;
+    margin: 2rem 0.5rem 3rem 0.5rem;
+  }
+}
+@media (min-width: 1025px) {
+  .repairPage h1 {
+    font-size: 4rem;
+    margin: 2rem;
+  }
+  .repairPage h3 {
+    font-size: 2rem;
+  }
+}
+
+.deskContent {
+  display: flex;
+  padding: 1rem 5vw;
+  gap: 2vw;
+}
+.deskContent img {
+  border-radius: 0.2rem;
+}
+@media (max-width: 449px) {
+  .deskContent {
+    flex-direction: column;
+    padding: 0 0.5rem;
+  }
+}
+@media (min-width: 450px) and (max-width: 766px) {
+  .deskContent {
+    flex-direction: column;
+    padding: 0 0.5rem;
+  }
+  .deskContent:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .deskContent {
+    flex-direction: column;
+    padding: 0 5vw;
+  }
+  .deskContent:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
+
+.imgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.normImg {
+  max-width: 90vw;
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .normImg {
+    display: none;
+  }
+}
+
+.mobImg {
+  margin: 1rem 0 2rem 0;
+  max-width: 87vw;
+}
+@media (min-width: 1025px) {
+  .mobImg {
+    display: none;
+  }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .mobImg {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 766px) {
+  .mobImg {
+    display: flex;
+    margin: 0 auto;
+  }
+  .mobImg:first-of-type {
+    padding: 1rem;
+  }
+}
+
+.deskImg {
+  margin: 0 auto;
+}
+@media (max-width: 449px) {
+  .deskImg {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 766px) {
+  .deskImg {
+    display: none;
+  }
+}
+
+.listItems {
+  padding: 5vw;
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .listItems {
+    padding: 1rem 5vw;
+  }
+}
+
+.padded {
+  padding: 3rem 15vw;
+}/*# sourceMappingURL=repairPage.module.css.map */
