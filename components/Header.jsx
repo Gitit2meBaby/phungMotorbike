@@ -69,9 +69,9 @@ const Header = () => {
             items: [
                 { href: '/motorbikes-for-rent-hanoi', label: 'Inner City' },
                 { href: '/motorbike-rentals-vietnam', label: 'Travelling' },
-                { href: '/monthly-rentals/automatic', label: 'Monthly' },
+                { href: '/monthly-rentals-hanoi', label: 'Monthly' },
             ],
-            activeCheck: ['/motorbike-rentals-vietnam', '/motorbikes-for-rent-hanoi', '/monthly-rentals'],
+            activeCheck: ['/motorbike-rentals-vietnam', '/motorbikes-for-rent-hanoi', '/monthly-rentals-hanoi'],
         },
         {
             type: 'dropdown',

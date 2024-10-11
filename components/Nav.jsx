@@ -59,7 +59,7 @@ const Nav = ({ showNav, setShowNav }) => {
                 { href: '/motorbike-rentals-vietnam', label: 'Travelling' },
                 { href: '/monthly-rentals-hanoi', label: 'Monthly' },
             ],
-            activeCheck: ['/motorbike-rentals-vietnam', '/motorbikes-for-rent-hanoi', '/monthly-rentals'],
+            activeCheck: ['/motorbike-rentals-vietnam', '/motorbikes-for-rent-hanoi', '/monthly-rentals-hanoi'],
         },
         {
             type: 'dropdown',

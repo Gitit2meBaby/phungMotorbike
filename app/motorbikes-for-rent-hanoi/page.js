@@ -5,7 +5,7 @@ import BikeList from "../../components/BikeList";
 import Image from 'next/image';
 
 import camera from '../../public/camera.png';
-import hanoi from '../../public/hanoi.webp';
+import hanoi2 from '../../public/hanoi.webp';
 
 const Hanoi = async () => {
     const baseUrl = process.env.NEXT_PUBLIC_URL;
@@ -23,10 +23,10 @@ const Hanoi = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="camera-icon" width={300} height={300} />
                 <h1>Inner City Rentals</h1>
                 <div className={styles.deskContent}>
-                    <Image className={styles.deskImg} src={hanoi} alt="Hanoi" width={500} height={750} priority />
+                    <Image className={styles.deskImg} src={hanoi2} alt="Hanoi street" width={500} height={750} priority />
                     <div>
                         <p>Explore Hanoi's vibrant city center with ease on one of our reliable inner city rental motorbikes. Our fleet is designed for convenient urban travel, with a maximum daily mileage of 50 kilometers.</p>
                         <p>Enjoy the freedom and flexibility of exploring the city at your own pace. Each rental includes essential accessories like helmets, a convenient rack, a phone holder, and secure rubber straps. We'll also provide you with valuable information and tips on must-see destinations and local attractions.</p>
