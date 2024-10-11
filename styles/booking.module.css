@@ -29,6 +29,30 @@
   margin: 0 auto;
   border-radius: 0.2rem;
 }
+@media (min-width: 450px) and (max-width: 766px) {
+  .bookings {
+    padding: 0 10vw;
+  }
+  .bookings img {
+    margin: 0 auto 2rem auto;
+  }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .bookings {
+    padding: 0 15vw;
+  }
+  .bookings img {
+    margin: 0 auto 2rem auto;
+  }
+}
+@media (min-width: 1025px) {
+  .bookings {
+    padding: 0 25vw;
+  }
+  .bookings img {
+    margin: 0 auto 2rem auto;
+  }
+}
 
 .details {
   margin-top: 1rem;
@@ -181,4 +205,30 @@
   .btn {
     padding: 0.2rem 0.5rem;
   }
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+}
+.success h3 {
+  color: #ebebeb;
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+.success p {
+  font-size: 1.2rem;
+  color: #e97f26;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.success img {
+  filter: invert(100%);
+  margin: 0 auto 1rem auto;
+}
+.success a {
+  margin: 1rem auto 3rem auto;
+  text-decoration: none;
 }/*# sourceMappingURL=booking.module.css.map */

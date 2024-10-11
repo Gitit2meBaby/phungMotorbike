@@ -26,7 +26,7 @@ export default async function BikeDetailPage({ params }) {
 
     if (!res.ok) {
         console.error('Failed to fetch bike data:', res.statusText);
-        return <p>Error fetching bike data.</p>;
+        return notFound();
     }
 
     const bikes = await res.json();
@@ -54,7 +54,7 @@ export default async function BikeDetailPage({ params }) {
         "offers": {
             "@type": "Offer",
             "priceCurrency": "USD",
-            "price": bike.cityPrice,
+            "price": bike.travelPrice,
             "itemCondition": "https://schema.org/UsedCondition",
             "availability": "https://schema.org/InStock"
         },
@@ -159,7 +159,7 @@ export default async function BikeDetailPage({ params }) {
                         <p>{bike.description}</p>
                         <div className={styles.disclaimer}></div>
                         <p><span>*</span>A 5% discount applies to the daily rate for each extra week for our unlimited kilometre rental fleet.</p>
-                        <p> Every outer city rental includes helmets, a  rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You'll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
+                        <p> Every outer city rental includes helmets, a rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You'll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
                         <div className={styles.btnWrapper}>
                             <Link href="/motorbike-rentals-vietnam">
                                 <button className={styles.btn}>Return</button>

@@ -50,10 +50,13 @@
         &:first-of-type {
             padding-bottom: 0.5rem;
         }
+    }
 
-        @include desktop {
-            padding: 0 20vw 2rem 20vw;
-        }
+    a {
+        color: $theme;
+        text-decoration: none;
+        letter-spacing: 1px;
+        font-weight: bold;
     }
 }
 
@@ -76,8 +79,14 @@
         margin: 1rem 0;
 
         div {
-            padding-top: 2rem;
+            padding-top: 1rem;
         }
+    }
+
+    li {
+        color: $offWhite;
+        letter-spacing: 1px;
+        margin: 0;
     }
 }
 
@@ -88,6 +97,13 @@
 
     @include phoneLandscape {
         display: none;
+    }
+}
+
+.padded {
+    @include desktop {
+        padding: 0 15vw;
+
     }
 }
 
@@ -104,7 +120,7 @@
     }
 }
 
-.sunriseImg {
+.deskImg {
     border-radius: .3rem;
 
     @include phone {

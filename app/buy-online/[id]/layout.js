@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BookingLayout = ({ children }) => {
+const BuyOnline = ({ children }) => {
     return (
         <>
             {children}
@@ -8,4 +8,4 @@ const BookingLayout = ({ children }) => {
     );
 };
 
-export default BookingLayout;
+export default BuyOnline;

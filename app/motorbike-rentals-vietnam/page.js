@@ -2,19 +2,18 @@ import Image from "next/image";
 
 import BikeList from "../../components/BikeList";
 import Filter from "../../components/Filter";
-import { getBikes } from "../lib/getBikes";
 
 import styles from '../../styles/hanoiRentals.module.scss';
 import camera from '../../public/camera.png';
 import sunrise from '../../public/sunrise.webp';
 
-const Hanoi = async () => {
-    const bikes = await getBikes();
-
+const Travel = async () => {
+    const baseUrl = process.env.NEXT_PUBLIC_URL;
+    const response = await fetch(`${baseUrl}/api/bikes`, {
+        next: { revalidate: 3600 } // Revalidate every hour
+    });
+    const bikes = await response.json();
     const basePath = '/motorbike-rentals-vietnam';
-
-    console.log(bikes.length);
-
 
     return (
         <>
@@ -25,7 +24,7 @@ const Hanoi = async () => {
                 <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
                 <h1 style={{ marginBottom: '1rem' }}>Motorbikes for Travelling</h1>
                 <div className={styles.deskContent}>
-                    <Image className={styles.sunriseImg} src={sunrise} alt="Hanoi" width={600} height={600} priority />
+                    <Image className={styles.deskImg} src={sunrise} alt="Hanoi" width={600} height={600} priority />
                     <div>
                         <p>Embark on your next adventure with our reliable scooters and motorbikes designed for long-distance travel. Unlike inner city rentals, there's no limit to the number of kilometers you can cover in a day, allowing you to explore Vietnam at your own pace.</p>
                         <p>Our travel bikes come equipped with all the essentials to make your journey comfortable and stress-free. Each rental includes helmets, a sturdy rack for your belongings, a phone holder for navigation, and secure rubber straps. You'll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
@@ -41,4 +40,4 @@ const Hanoi = async () => {
     );
 };
 
-export default Hanoi;
+export default Travel;

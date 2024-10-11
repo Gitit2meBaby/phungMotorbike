@@ -24,3 +24,9 @@ Photo by Taryn Elliott: https://www.pexels.com/photo/woman-in-blue-and-white-bik
 <a href="https://www.flaticon.com/free-icons/motorcycle" title="motorcycle icons">Motorcycle icons created by Freepik - Flaticon</a>
 
 Photo by Q. Hưng Phạm: https://www.pexels.com/photo/low-clouds-above-terraced-fields-at-sunset-27373859/
+
+<a href="https://www.vectorstock.com/royalty-free-vector/good-job-vector-47223651">Vector image by VectorStock / Vlska_Design</a>
+
+Photo by Flo Dahm: https://www.pexels.com/photo/people-sitting-on-sidewalk-1483778/
+
+Photo by Tình Huỳnh: https://www.pexels.com/photo/motorcyclist-rides-with-dog-in-vibrant-street-scene-28739150/

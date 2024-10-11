@@ -20,7 +20,7 @@ export async function POST(req) {
 
         await client.sendEmail({
             From: process.env.FROM_EMAIL,
-            To: email,
+            To: process.env.TO_EMAIL,
             Subject: 'New Contact Form Submission',
             HtmlBody: emailContent,
             TextBody: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,

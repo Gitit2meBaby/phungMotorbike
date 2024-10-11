@@ -50,7 +50,7 @@ const BikeCard = ({ bike, basePath, inDetails }) => {
                             <p>${bike.travelPrice}<span>/day (USD)</span></p>
                             <p className={styles.discount}>*discounts apply after the 1st week</p>
                         </>}
-                    {basePath === '/motorbikes-for-sale' && !inDetails && <p>{bike.salePrice}<span>/month (VND)</span></p>}
+                    {basePath === '/motorbikes-for-sale' && !inDetails && <p>${bike.salePrice}<span>USD</span></p>}
                 </div>
 
                 <p className={styles.description}>{bike.description}</p>

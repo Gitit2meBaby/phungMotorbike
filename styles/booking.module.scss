@@ -35,6 +35,30 @@
         margin: 0 auto;
         border-radius: .2rem;
     }
+
+    @include phoneLandscape {
+        padding: 0 10vw;
+
+        img {
+            margin: 0 auto 2rem auto;
+        }
+    }
+
+    @include tablet {
+        padding: 0 15vw;
+
+        img {
+            margin: 0 auto 2rem auto;
+        }
+    }
+
+    @include desktop {
+        padding: 0 25vw;
+
+        img {
+            margin: 0 auto 2rem auto;
+        }
+    }
 }
 
 .details {
@@ -204,5 +228,35 @@
 
     @include smallPhone {
         padding: 0.2rem .5rem;
+    }
+}
+
+.success {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+        color: $offWhite;
+        letter-spacing: 2px;
+        font-size: 2.5rem;
+        text-align: center;
+        margin: 0 0 1rem 0;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: $theme;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    img {
+        filter: invert(100%);
+        margin: 0 auto 1rem auto;
+    }
+
+    a {
+        margin: 1rem auto 3rem auto;
+        text-decoration: none;
     }
 }
