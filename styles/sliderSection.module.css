@@ -9,7 +9,7 @@
 }
 .slider img {
   max-width: 90vw;
-  aspect-ratio: 4/3;
+  max-height: 100%;
 }
 
 .info p,

@@ -63,12 +63,22 @@ const setupRealtimeListener = () => {
     if (unsubscribe) unsubscribe();
 
     const bikesRef = collection(db, 'bikes');
+    // unsubscribe = onSnapshot(bikesRef, (snapshot) => {
+    //     if (snapshot.docChanges().length > 0) {
+    //         console.log('Changes detected in Firebase, invalidating cache');
+    //         cache.del(CACHE_KEY);
+    //     }
+    // });
     unsubscribe = onSnapshot(bikesRef, (snapshot) => {
         if (snapshot.docChanges().length > 0) {
             console.log('Changes detected in Firebase, invalidating cache');
             cache.del(CACHE_KEY);
+
+            // Fetch fresh data from Firebase and update the cache immediately
+            getBikes({}, true);
         }
     });
+
 };
 
 export const getBikes = async (filters = {}, forceFirebase = false) => {

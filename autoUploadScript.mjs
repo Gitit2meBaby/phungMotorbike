@@ -1,3 +1,5 @@
+// works with spreadSheetData.json format
+
 import admin from 'firebase-admin';
 import sharp from 'sharp';
 import fetch from 'node-fetch';

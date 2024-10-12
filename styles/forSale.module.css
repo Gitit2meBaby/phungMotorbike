@@ -75,14 +75,11 @@
   }
 }
 
+.slider img {
+  aspect-ratio: 600/450;
+}
 @media (min-width: 1025px) {
   .slider {
-    width: 600px;
-    height: 450px;
     margin-left: 5vw;
-  }
-  .slider img {
-    width: 80%;
-    height: 80%;
   }
 }/*# sourceMappingURL=forSale.module.css.map */

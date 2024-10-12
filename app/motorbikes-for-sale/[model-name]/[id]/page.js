@@ -154,7 +154,7 @@ export default async function BikeDetailPage({ params }) {
                     </div>
                     <div className={styles.details}>
                         <Image src={motorcycle} width={350} height={350} alt='motorbike icon'></Image>
-                        <h2>Selling Price - ₫{bike.salePrice} <span>VND</span></h2>
+                        <h2>Selling Price - ${bike.salePrice} <span>USD</span></h2>
                         <p className={styles.transmission}>Transmission: {bike.type}</p>
                         <p>{bike.description}</p>
                         <div className={styles.disclaimer}></div>
