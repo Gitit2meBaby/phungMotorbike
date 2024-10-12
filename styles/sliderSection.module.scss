@@ -7,6 +7,11 @@
     @include desktop {
         max-width: 50vw;
     }
+
+    img {
+        max-width: 90vw;
+        aspect-ratio: 4 / 3;
+    }
 }
 
 .info {

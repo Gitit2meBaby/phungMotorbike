@@ -243,7 +243,7 @@ export default function AdminDashboardForm() {
                         className={formType === 'Remove Bike' ? styles.btnActive : styles.btn}
                         onClick={() => setFormType('Remove Bike')}
                     >
-                        Remove Bike
+                        Edit/Remove Bike
                     </button>
                 </div>
 

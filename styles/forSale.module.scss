@@ -79,3 +79,16 @@
     align-self: center;
     margin-bottom: 1rem;
 }
+
+.slider {
+    @include desktop {
+        width: 600px;
+        height: 450px;
+        margin-left: 5vw;
+
+        img {
+            width: 80%;
+            height: 80%;
+        }
+    }
+}

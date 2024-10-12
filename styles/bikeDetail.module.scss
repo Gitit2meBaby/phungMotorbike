@@ -105,19 +105,14 @@
     h2 {
         color: $theme;
         margin: 0;
+
+        span {
+            font-size: .8rem;
+        }
     }
 
     p {
         margin-top: 0.5rem;
-
-        span {
-            color: $theme;
-            font-size: 1.2rem;
-        }
-    }
-
-    span {
-        font-size: .8rem;
     }
 
     img {
@@ -138,6 +133,10 @@
 .transmission {
     letter-spacing: 1px;
     color: rgb(136, 136, 136) !important;
+
+    span {
+        color: $offWhite;
+    }
 }
 
 .btnWrapper {

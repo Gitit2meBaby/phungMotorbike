@@ -9,6 +9,8 @@
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .btn svg path {
   fill: #e97f26;
@@ -30,6 +32,8 @@
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .activeBtn svg path {
   fill: #0d0d0d;

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import BookingPage from '../../../components/BookingPage';
+import PurchaseForm from '../../../components/PurchaseForm';
 
 export default async function Purchase({ params }) {
     const { id } = params; // Get the bike ID from URL params
@@ -16,6 +16,6 @@ export default async function Purchase({ params }) {
     }
 
     return (
-        <BookingPage bike={bike} />
+        <PurchaseForm bike={bike} />
     );
 }

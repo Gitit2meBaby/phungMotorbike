@@ -1,27 +1,27 @@
 export const metadata = {
-    title: "Automatic scooters for Rent in Hanoi | Phung Motorbike",
-    description: 'Explore our fleet of automatic scooters available for rent in Hanoi. Perfect for inner-city travel, quality vehicles at competitive prices.',
-    canonical: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi/automatic',
-    keywords: 'automatic scooters for rent, Hanoi rentals, scooter rental Hanoi, inner-city travel Hanoi, automatic scooters in Hanoi',
+    title: "Monthly Automatic Scooter Rentals in Hanoi | Phung Motorbike",
+    description: "Discover the ease of long-term automatic scooter rentals in Hanoi. Ideal for extended stays, our scooters offer comfort and convenience for daily city commuting.",
+    canonical: 'https://phungmotorbike.com/monthly-rentals-hanoi/automatic',
+    keywords: 'monthly automatic scooter rental, Hanoi scooter rentals, long-term scooter rental Hanoi, automatic motorbikes Hanoi, expat rentals Hanoi',
 
-    // Open Graph (OG) tags for social media
     openGraph: {
         type: 'website',
-        title: 'Automatic scooters for Rent in Hanoi | Phung Motorbike',
-        description: 'Explore our fleet of automatic scooters available for rent in Hanoi. Perfect for inner-city travel, quality vehicles at competitive prices.',
-        url: 'https://phungmotorbike.com/motorbikes-for-rent-hanoi/automatic',
+        title: 'Monthly Automatic Scooter Rentals in Hanoi | Phung Motorbike',
+        description: "Discover the ease of long-term automatic scooter rentals in Hanoi. Perfect for expats and locals, ride hassle-free with our comfortable and reliable scooters.",
+        url: 'https://phungmotorbike.com/monthly-rentals-hanoi/automatic',
         site_name: 'Phung Motorbike',
 
         // images: [
         //   {
-        //     url: 'https://phungmotorbike.com/images/hanoi-motorbike-rental.jpg', // Replace with an actual image of your rental fleet or a Hanoi street scene
+        //     url: 'https://phungmotorbike.com/images/hanoi-monthly-automatic.jpg', // Replace with an actual image of an automatic scooter
         //     width: 1200,
         //     height: 630,
-        //     alt: 'Motorbikes for rent in Hanoi',
+        //     alt: 'Monthly automatic scooter rental in Hanoi',
         //   },
         // ],
     },
 };
+
 
 export default function RootLayout({ children }) {
     return (

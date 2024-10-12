@@ -37,6 +37,8 @@ export default async function BikeDetailPage({ params }) {
         return notFound();
     }
 
+    const bikeUrl = `${bike.model.toLowerCase()}-${bike.name.toLowerCase()}`;
+
     const rentalSchema = {
         "@context": "https://schema.org",
         "@type": "Vehicle",
@@ -186,15 +188,15 @@ export default async function BikeDetailPage({ params }) {
             <div className={styles.options}>
                 <Image src={think} width={300} height={300} alt='thinking emoji'></Image>
                 <h3>Want to explore the countryside?</h3>
-                <Link href={`/motorbike-rentals-vietnam/${bike.id}`}>Get this {bike.model} for just ${bike.cityPrice}/day with weekly discounts for longer rental periods!
+                <Link href={`/motorbike-rentals-vietnam/${bikeUrl}/${bike.id}`}>Get this {bike.model} for just ${bike.cityPrice}/day with weekly discounts for longer rental periods!
                 </Link>
-                <Link href={`/motorbike-rentals-vietnam/${bike.id}`}>
+                <Link href={`/motorbike-rentals-vietnam/${bikeUrl}/${bike.id}`}>
                     <button className={styles.btn} style={{ marginTop: '1rem' }}>Show Travel Rates!</button>
                 </Link>
                 <h3>Only here for a short time?</h3>
-                <Link href={`/motorbikes-for-rent-hanoi/${bike.id}`}>We have daily rates from just ${bike.cityPrice}.!
+                <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>We have daily rates from just ${bike.cityPrice}.!
                 </Link>
-                <Link href={`/motorbikes-for-rent-hanoi/${bike.id}`}>
+                <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>
                     <button className={styles.btn} style={{ marginTop: '1rem' }}>Check Daily Rates!</button>
                 </Link>
             </div>

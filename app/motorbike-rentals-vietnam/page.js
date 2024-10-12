@@ -21,7 +21,7 @@ const Travel = async () => {
 
             <div className={styles.divider} style={{ margin: '0 auto' }}></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} />
                 <h1 style={{ marginBottom: '1rem' }}>Motorbikes for Travelling</h1>
                 <div className={styles.deskContent}>
                     <Image className={styles.deskImg} src={sunrise} alt="Hanoi" width={600} height={600} priority />

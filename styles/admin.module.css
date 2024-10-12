@@ -176,8 +176,22 @@
     display: none;
   }
 }
-@media (min-width: 450px) and (max-width: 1024px) {
+@media (min-width: 767px) and (max-width: 1024px) {
   .divider:last-of-type {
     display: none;
   }
+}
+
+.removeBike {
+  padding: 0 1rem;
+}
+.removeBike p {
+  color: #ebebeb;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 1rem 0;
+}
+.removeBike span {
+  font-style: italic;
+  color: rgb(113, 113, 113);
 }/*# sourceMappingURL=admin.module.css.map */

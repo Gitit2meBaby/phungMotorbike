@@ -330,7 +330,6 @@ const BookingPage = ({ bike }) => {
                 </>
             ) : (
                 <div className={styles.success}>
-                    <h3>Success!</h3>
                     <Image
                         src={success}
                         alt="success"

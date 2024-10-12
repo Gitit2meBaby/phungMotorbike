@@ -21,6 +21,7 @@
     "lucide-react": "^0.451.0",
     "nanoid": "^5.0.7",
     "next": "14.2.8",
+    "next-sitemap": "^4.2.3",
     "node-cache": "^5.1.2",
     "node-fetch": "^3.3.2",
     "pica": "^9.0.1",

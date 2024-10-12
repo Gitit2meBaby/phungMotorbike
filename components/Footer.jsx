@@ -1,10 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import styles from '../styles/footer.module.css'
 
 import logo from '../public/logo.webp'
 import phungSmall from '../public/phungSmall.png'
-import motoSmall from '../public/motoSmall.png'
+import motorbike from '../public/motorbike.png'
 import ContactForm from './ContactForm'
 import ContactDetails from './ContactDetails'
 
@@ -30,7 +31,7 @@ const Footer = () => {
                                 height={50}
                             />
                             <Image
-                                src={motoSmall}
+                                src={motorbike}
                                 alt="phung motorbike logo"
                                 width={180}
                                 height={50}
@@ -50,6 +51,10 @@ const Footer = () => {
             </div>
 
             <p className={styles.copyright}>© 2024 phung motorbike. All rights reserved.</p>
+            <div className={styles.finePrint}>
+                <Link href='/privacy-policy' className={styles.privacyPolicy}>Privacy Policy</Link>
+                <Link href='/attributes' className={styles.attributes}>Attributes</Link>
+            </div>
         </footer>
     )
 }

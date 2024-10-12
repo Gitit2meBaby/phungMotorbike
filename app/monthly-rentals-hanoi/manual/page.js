@@ -26,9 +26,9 @@ const Manual = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} />
                 <h1>Manual</h1>
-                <h2>The Classic Ride, Now Available for Monthly Rentals</h2>
+                <h2>The Classic Ride</h2>
                 <div className={styles.padded}>
                     <p>For riders who seek adventure and control, our manual motorbikes are available for discounted monthly rentals in Hanoi. Get the full experience of riding a manual, with all the power and precision you need.</p>
                     <p>This option is perfect for experienced riders who want to immerse themselves in Hanoi’s streets while enjoying the classic manual riding experience. Please note the 1000 km/month restriction—ideal for local city riding. For longer adventures, you might prefer our <Link href="/motorbike-rentals-vietnam/manual">unlimited kilometer packages.</Link></p>

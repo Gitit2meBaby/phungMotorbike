@@ -27,7 +27,7 @@ const SemiAuto = async () => {
             <section className={styles.hanoiRentals}>
                 <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
                 <h1>Semi-Auto</h1>
-                <h2>A Balanced Approach for Long-Term Renters</h2>
+                <h2>For Long-Term Renters</h2>
                 <div className={styles.padded}>
                     <p>Take advantage of the versatility of semi-automatic scooters with our monthly rental options in Hanoi. With the ease of automatic controls and extra power when needed, these bikes offer flexibility for your extended stay.</p>
                     <p>Ideal for those who want a bit more control over their ride while navigating Hanoi’s bustling streets, our semi-auto bikes provide a great balance between power and simplicity, capped at 1000 km/month.</p>

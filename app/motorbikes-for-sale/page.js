@@ -18,12 +18,12 @@ const ForSale = async () => {
 
     return (
         <section>
-            <Filter slug="/motorbikes-for-sale';" />
+            <Filter slug="/motorbikes-for-sale" />
             <div className={styles.divider}
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} />
                 <h1>Motorbikes for Sale</h1>
                 <div className={styles.deskContent}>
                     <Image className={styles.deskImg} src={dogOnBike} alt="Hanoi" width={500} height={791} priority />

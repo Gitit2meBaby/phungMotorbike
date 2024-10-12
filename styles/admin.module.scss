@@ -189,3 +189,19 @@
         }
     }
 }
+
+.removeBike {
+    padding: 0 1rem;
+
+    p {
+        color: $offWhite;
+        letter-spacing: 1px;
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    span {
+        font-style: italic;
+        color: rgb(113, 113, 113);
+    }
+}

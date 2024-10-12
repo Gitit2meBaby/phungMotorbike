@@ -8,8 +8,6 @@ import Image from 'next/image';
 
 const SliderBasic = ({ bike, settings, fallbackImage, useFullUrl = false, width = 300, height = 225 }) => {
 
-    console.log('bike', bike);
-
     return (
         <>
             <Slider {...settings}>

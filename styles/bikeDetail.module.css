@@ -107,15 +107,11 @@
   color: #e97f26;
   margin: 0;
 }
+.details h2 span {
+  font-size: 0.8rem;
+}
 .details p {
   margin-top: 0.5rem;
-}
-.details p span {
-  color: #e97f26;
-  font-size: 1.2rem;
-}
-.details span {
-  font-size: 0.8rem;
 }
 .details img {
   position: absolute;
@@ -135,6 +131,9 @@
 .transmission {
   letter-spacing: 1px;
   color: rgb(136, 136, 136) !important;
+}
+.transmission span {
+  color: #ebebeb;
 }
 
 .btnWrapper {

@@ -1,15 +1,15 @@
 .notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  max-width: 90vw;
-  min-height: 600px;
+  height: 600px;
+  margin-bottom: 2rem;
 }
 .notFound img {
   position: absolute;
   z-index: -1;
   max-width: 100%;
-  min-height: 100dvh;
-  min-height: 100vh;
-  aspect-ratio: 0, 5;
   filter: brightness(50%);
 }
 .notFound h1 {
@@ -24,6 +24,11 @@
   text-shadow: 5px 5px 10px #e97f26, -5px -5px 10px #e97f26;
   color: rgba(255, 255, 255, 0.788);
   margin: 0 0 1rem 0;
+}
+@media (min-width: 1025px) {
+  .notFound h1 {
+    margin-top: 2rem;
+  }
 }
 .notFound p {
   color: #ebebeb;
@@ -41,4 +46,34 @@
 }
 .notFound a {
   color: #e97f26;
+  opacity: 1;
+}
+
+.imgMob {
+  margin: 0 auto;
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .imgMob {
+    display: none;
+  }
+}
+@media (min-width: 1025px) {
+  .imgMob {
+    display: none;
+  }
+}
+
+.imgDesk {
+  margin: 0 auto;
+  border-radius: 0.2rem;
+}
+@media (max-width: 449px) {
+  .imgDesk {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 766px) {
+  .imgDesk {
+    display: none;
+  }
 }/*# sourceMappingURL=notfound.module.css.map */

@@ -21,7 +21,7 @@ export default function BikeList({ initialBikes, basePath }) {
             case '/monthly-rentals':
                 return 'monthPrice';
             default:
-                return 'cityPrice'; // Fallback to 'cityPrice' or any default
+                return 'cityPrice'; // Fallback to 'cityPrice' if basePath is not recognized
         }
     }
 

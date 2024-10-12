@@ -8,9 +8,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from '../styles/forSale.module.css'
 
-import win from '../assets/bikes/win.webp'
-import cub from '../assets/bikes/cub.webp'
-import nuovo from '../assets/bikes/nuovo.webp'
+import crf from '../public/crf.webp'
+import bike2 from '../public/bike2.webp'
+import bike3 from '../public/bike3.webp'
+import bike4 from '../public/bike4.webp'
+import bike5 from '../public/bike5.webp'
+import bike6 from '../public/bike6.webp'
+
 
 const SaleSlider = () => {
     var settings = {
@@ -24,14 +28,14 @@ const SaleSlider = () => {
     };
 
     return (
-        <section>
+        <section className={styles.slider}>
             <Slider {...settings}>
                 <div>
                     <Image
-                        src={win}
+                        src={bike2}
                         alt="Honda win 125cc"
-                        width={350}
-                        height={350}
+                        width={600}
+                        height={450}
                     />
                     <div className={styles.info}>
                         <h3>Customized Win 125cc</h3>
@@ -41,27 +45,66 @@ const SaleSlider = () => {
 
                 <div>
                     <Image
-                        src={cub}
-                        alt="Honda cub 50cc"
-                        width={350}
-                        height={350}
+                        src={bike3}
+                        alt="Honda win 125cc"
+                        width={600}
+                        height={450}
                     />
                     <div className={styles.info}>
-                        <h3>Real Honda Cub 50ccc</h3>
-                        <p>$700usd</p>
+                        <h3>Customized Win 125cc</h3>
+                        <p>$400usd</p>
                     </div>
                 </div>
 
                 <div>
                     <Image
-                        src={nuovo}
-                        alt="Yamaha Nuovo 135cc"
-                        width={350}
-                        height={350}
+                        src={bike4}
+                        alt="Honda win 125cc"
+                        width={600}
+                        height={450}
                     />
                     <div className={styles.info}>
-                        <h3>Yamaha Nuovo lx 135cc</h3>
-                        <p>$300usd</p>
+                        <h3>Customized Win 125cc</h3>
+                        <p>$400usd</p>
+                    </div>
+                </div>
+
+                <div>
+                    <Image
+                        src={bike5}
+                        alt="Honda win 125cc"
+                        width={600}
+                        height={450}
+                    />
+                    <div className={styles.info}>
+                        <h3>Customized Win 125cc</h3>
+                        <p>$400usd</p>
+                    </div>
+                </div>
+
+                <div>
+                    <Image
+                        src={bike6}
+                        alt="Honda win 125cc"
+                        width={600}
+                        height={450}
+                    />
+                    <div className={styles.info}>
+                        <h3>Customized Win 125cc</h3>
+                        <p>$400usd</p>
+                    </div>
+                </div>
+
+                <div>
+                    <Image
+                        src={crf}
+                        alt="Honda win 125cc"
+                        width={600}
+                        height={450}
+                    />
+                    <div className={styles.info}>
+                        <h3>Customized Win 125cc</h3>
+                        <p>$400usd</p>
                     </div>
                 </div>
             </Slider>

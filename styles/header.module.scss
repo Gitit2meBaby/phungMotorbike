@@ -253,7 +253,7 @@
             /* Top-right shadow */
             -.5px .5px 0 $black,
             /* Bottom-left shadow */
-            .5px .5px 0 $black,
+            .5px .5px 0 $black
     }
 }
 
@@ -288,8 +288,6 @@
 }
 
 .show {
-    // max-height: 12rem;
-    // height: 12rem;
     opacity: 1;
     pointer-events: auto;
 }
@@ -328,3 +326,8 @@
         opacity: 1;
     }
 }
+
+// .activeNavItem {
+//     color: $black !important;
+//     margin-left: 0.3rem;
+// }

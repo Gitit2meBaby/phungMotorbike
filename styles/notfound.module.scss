@@ -1,17 +1,17 @@
 @import './globals.scss';
 
 .notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    max-width: 90vw;
-    min-height: 600px;
+    height: 600px;
+    margin-bottom: 2rem;
 
     img {
         position: absolute;
         z-index: -1;
         max-width: 100%;
-        min-height: 100dvh;
-        min-height: 100vh;
-        aspect-ratio: 0, 5;
         filter: brightness(50%);
     }
 
@@ -27,6 +27,10 @@
         text-shadow: 5px 5px 10px $theme, -5px -5px 10px $theme;
         color: rgba(255, 255, 255, 0.788);
         margin: 0 0 1rem 0;
+
+        @include desktop {
+            margin-top: 2rem;
+        }
     }
 
     p {
@@ -50,5 +54,31 @@
 
     a {
         color: $theme;
+        opacity: 1;
+    }
+}
+
+.imgMob {
+    margin: 0 auto;
+
+    @include tablet {
+        display: none;
+    }
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.imgDesk {
+    margin: 0 auto;
+    border-radius: .2rem;
+
+    @include phone {
+        display: none;
+    }
+
+    @include phoneLandscape {
+        display: none;
     }
 }

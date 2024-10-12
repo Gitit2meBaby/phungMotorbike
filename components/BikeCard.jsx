@@ -25,6 +25,9 @@ const BikeCard = ({ bike, basePath, inDetails }) => {
     const modelSlug = bike.model.toLowerCase().replace(/\s+/g, '-');
     const nameSlug = bike.name.toLowerCase().replace(/\s+/g, '-');
 
+    const formRedirectUrl = basePath === '/motorbikes-for-sale' ? `/buy-online/${bike.id}` : `/bookings/${bike.id}`
+    const buttonText = basePath === '/motorbikes-for-sale' ? 'Buy Now' : 'Book Now'
+
     return (
         <>
             <div className={styles.bikeCard}>
@@ -57,8 +60,8 @@ const BikeCard = ({ bike, basePath, inDetails }) => {
 
                 <div className={styles.btnWrapper}
                     style={inDetails ? { borderBottom: 'none', marginTop: '1.5rem' } : { borderBottom: '1px solid #e97f26' }}>
-                    <Link href={`bookings/${bike.id}`}>
-                        <button className={styles.activeBtn}>Book Now</button>
+                    <Link href={formRedirectUrl}>
+                        <button className={styles.activeBtn}>{buttonText}</button>
                     </Link>
                     <Link href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`}>
                         <button className={styles.btn}>Details</button>

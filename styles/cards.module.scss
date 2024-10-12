@@ -121,8 +121,10 @@
     font-weight: 700;
     font-size: 1rem;
     letter-spacing: 1px;
-    width: 120px;
+    min-width: 120px;
+    width: fit-content;
     z-index: 2;
+    box-shadow: 0 0 10px $black;
 
     &:hover {
         background-color: $black;

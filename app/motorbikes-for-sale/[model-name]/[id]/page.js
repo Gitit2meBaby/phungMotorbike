@@ -37,7 +37,7 @@ export default async function BikeDetailPage({ params }) {
         return notFound();
     }
 
-    const monthlyRate = Math.round(bike.travelPrice * 4 * (1 - 0.20));
+    const bikeUrl = `${bike.model.toLowerCase()}-${bike.name.toLowerCase()}`;
 
     // Dynamic schema generation
     const saleSchema = {
@@ -192,15 +192,15 @@ export default async function BikeDetailPage({ params }) {
             <div className={styles.options}>
                 <Image src={think} width={300} height={300} alt='thinking emoji'></Image>
                 <h3>Want to rent before you buy?</h3>
-                <Link href={`/motorbikes-for-rent-hanoi/${bike.id}`}>Get this {bike.model} for just ${bike.cityPrice}/day
+                <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>Get this {bike.model} for just ${bike.cityPrice}/day
                 </Link>
-                <Link href={`/motorbikes-for-rent-hanoi/${bike.id}`}>
+                <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>
                     <button className={styles.btn} style={{ marginTop: '1rem' }}>Get City Rates!</button>
                 </Link>
                 <h3>Just looking for a rental in Hanoi?</h3>
-                <Link href={`/monthly-rentals-hanoi/${bike.id}`}>Special rate for long stays and expats at just ₫{bike.monthPrice}/month!
+                <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>Special rate for long stays and expats at just ₫{bike.monthPrice}/month!
                 </Link>
-                <Link href={`/monthly-rentals-hanoi/${bike.id}`}>
+                <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>
                     <button className={styles.btn} style={{ marginTop: '1rem' }}>Get Monthly Rates!</button>
                 </Link>
             </div>

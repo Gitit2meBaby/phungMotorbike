@@ -8,7 +8,7 @@ import styles from '../styles/admin.module.css';
 import { deleteObject, ref } from 'firebase/storage';
 
 
-const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, }) => {
+const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     const [findData, setFindData] = useState({
         model: '',
         name: '',
@@ -129,9 +129,11 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, }) => {
     }
 
     return (
-        <>
+        <section className={styles.removeBike}>
+            <p>Search by: Model, Name or Capacity, you will then get a list of matching motorbikes.</p>
+            <p>*If you are having trouble make sure you are using the correct capitalization<br></br><span> (ie. Cub, not cub or Honda, not honda)</span></p>
             <form>
-                <div>
+                <div className={styles.textInput}>
                     <label htmlFor="model">Model</label>
                     <input
                         type="text"
@@ -140,10 +142,9 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, }) => {
                         value={findData.model}
                         onChange={(e) => handleChange(e)}
                         placeholder='Honda, Yamaha?'
-                        required
                     />
                 </div>
-                <div>
+                <div className={styles.textInput}>
                     <label htmlFor="name">Name</label>
                     <input
                         type="text"
@@ -152,10 +153,9 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, }) => {
                         value={findData.name}
                         onChange={(e) => handleChange(e)}
                         placeholder='Cub, Nuovo, Jupiter?'
-                        required
                     />
                 </div>
-                <div>
+                <div className={styles.textInput}>
                     <label htmlFor="capacity">Capacity</label>
                     <input
                         type="number"
@@ -164,7 +164,6 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, }) => {
                         value={findData.capacity}
                         onChange={(e) => handleChange(e)}
                         placeholder='125, 250? do not add "CC"'
-                        required
                     />
                 </div>
                 <input
@@ -176,7 +175,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, }) => {
                     tabIndex="-1"
                     autoComplete="off"
                 />
-                <button className={styles.submitBtn} type="button" onClick={() => handleSearch()}>Find Motorbike</button>
+                <button className={styles.submitBtn} style={{ marginTop: '1rem' }} type="button" onClick={() => handleSearch()}>Find Motorbike</button>
             </form>
 
             {searchItems.length > 0 && (
@@ -209,7 +208,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, }) => {
                     </ul>
                 </div>
             )}
-        </>
+        </section>
     )
 }
 

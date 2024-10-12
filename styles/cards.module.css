@@ -121,8 +121,11 @@
   font-weight: 700;
   font-size: 1rem;
   letter-spacing: 1px;
-  width: 120px;
+  min-width: 120px;
+  width: -moz-fit-content;
+  width: fit-content;
   z-index: 2;
+  box-shadow: 0 0 10px #0d0d0d;
 }
 .btn:hover {
   background-color: #0d0d0d;
