@@ -65,7 +65,7 @@ const page = () => {
 
                     <h2>Comprehensive Motorbike Check-Up & Repair</h2>
                     <p>
-                        Our repair process starts with a thorough inspection and a test drive to assess your bike’s condition. Based on the test results, we’ll provide you with a detailed breakdown of any necessary repairs, along with a transparent cost estimate. Only when you’re comfortable with the proposed plan and cost will we proceed with the work.
+                        Our repair process starts with a thorough inspection and a test drive to assess your bike&apos;s condition. Based on the test results, we&apos;ll provide you with a detailed breakdown of any necessary repairs, along with a transparent cost estimate. Only when you&apos;re comfortable with the proposed plan and cost will we proceed with the work.
                     </p>
                 </div>
             </div>
@@ -81,7 +81,7 @@ const page = () => {
                             Engine diagnostics and tuning to keep your bike running smoothly.
                         </li>
                         <li>Oil changes, using high-quality motorbike oil to protect your engine.</li>
-                        <li>Brake system checks and repairs, ensuring your bike’s safety on the road.</li>
+                        <li>Brake system checks and repairs, ensuring your bike&apos;s safety on the road.</li>
                         <li>Tyre repair and replacement, including puncture fixes and tyre balancing.</li>
                         <li>Battery inspection and replacement, for reliable starting power.</li>
                         <li>Chain and sprocket adjustments or replacements, for efficient power transfer.</li>

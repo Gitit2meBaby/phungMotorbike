@@ -28,8 +28,8 @@ const Hanoi = async () => {
                 <div className={styles.deskContent}>
                     <Image className={styles.deskImg} src={hanoi2} alt="Hanoi street" width={500} height={750} priority />
                     <div>
-                        <p>Explore Hanoi's vibrant city center with ease on one of our reliable inner city rental motorbikes. Our fleet is designed for convenient urban travel, with a maximum daily mileage of 50 kilometers.</p>
-                        <p>Enjoy the freedom and flexibility of exploring the city at your own pace. Each rental includes essential accessories like helmets, a convenient rack, a phone holder, and secure rubber straps. We'll also provide you with valuable information and tips on must-see destinations and local attractions.</p>
+                        <p>Explore Hanoi&apos;s vibrant city center with ease on one of our reliable inner city rental motorbikes. Our fleet is designed for convenient urban travel, with a maximum daily mileage of 50 kilometers.</p>
+                        <p>Enjoy the freedom and flexibility of exploring the city at your own pace. Each rental includes essential accessories like helmets, a convenient rack, a phone holder, and secure rubber straps. We&apos;ll also provide you with valuable information and tips on must-see destinations and local attractions.</p>
                         <div className={styles.deskInfo}>
                             <p>Setting off on a tour in Hanoi makes you feel immersed in the hustle and bustle of life there. You may experience:</p>
                             <ul>
