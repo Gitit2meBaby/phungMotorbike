@@ -59,7 +59,7 @@ const page = () => {
                 </div>
                 <div>
                     <p>
-                        At Phung Motorbike in Hanoi, we take pride in offering professional and reliable motorbike repair services, ensuring your bike is in top condition for the bustling streets of Vietnam. Whether you're a daily commuter or a traveller exploring the country, keeping your motorbike in optimal shape is essential, and that's where we come in.</p>
+                        At Phung Motorbike in Hanoi, we take pride in offering professional and reliable motorbike repair services, ensuring your bike is in top condition for the bustling streets of Vietnam. Whether you&apos;re a daily commuter or a traveller exploring the country, keeping your motorbike in optimal shape is essential, and that&apos;s where we come in.</p>
 
                     <Image className={styles.mobImg} src={repairShop340} width={340} height={191} alt='Phung Motorbikes in Hanoi' priority></Image>
 
