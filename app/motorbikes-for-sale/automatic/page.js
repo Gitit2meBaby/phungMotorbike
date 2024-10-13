@@ -29,11 +29,11 @@ const Automatic = async () => {
                 <h1>Automatic</h1>
                 <h2>Your Key to Vietnam</h2>
                 <div className={styles.padded}>
-                    <p>Unlock the full potential of Vietnam's breathtaking landscapes with your very own automatic bike. Say goodbye to rental worries and hello to unlimited freedom!</p>
+                    <p>Unlock the full potential of Vietnam&apos;s breathtaking landscapes with your very own automatic bike. Say goodbye to rental worries and hello to unlimited freedom!</p>
 
-                    <p>Perfectly suited for both newcomers and experienced riders, our selection of automatic bikes offers the ideal blend of comfort, reliability, and ease of use. Imagine cruising through bustling city streets and winding mountain roads without ever having to shift gears – that's the joy of owning an automatic.</p>
+                    <p>Perfectly suited for both newcomers and experienced riders, our selection of automatic bikes offers the ideal blend of comfort, reliability, and ease of use. Imagine cruising through bustling city streets and winding mountain roads without ever having to shift gears – that&apos;s the joy of owning an automatic.</p>
 
-                    <p>Don't limit your Vietnamese adventure to a short-term rental. Make the smart choice and invest in your own automatic bike today. Freedom, flexibility, and unforgettable experiences await!</p>
+                    <p>Don&apos;t limit your Vietnamese adventure to a short-term rental. Make the smart choice and invest in your own automatic bike today. Freedom, flexibility, and unforgettable experiences await!</p>
                 </div>
             </section>
             <div className={styles.divider}

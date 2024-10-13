@@ -158,7 +158,7 @@ export default async function BikeDetailPage({ params }) {
                         <p>{bike.description}</p>
                         <div className={styles.disclaimer}></div>
                         <p>Inner city rentals have a maximum of 50km/day and can not be taken outside of Hanoi city limits.</p>
-                        <p> All inner city rentals include helmets, a rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You'll also receive insider tips on the best routes, must-visit destinations, and local attractions in Hanoi.</p>
+                        <p> All inner city rentals include helmets, a rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You&apos;ll also receive insider tips on the best routes, must-visit destinations, and local attractions in Hanoi.</p>
                         <div className={styles.btnWrapper}>
                             <Link href="/motorbikes-for-rent-hanoi">
                                 <button className={styles.btn}>Return</button>

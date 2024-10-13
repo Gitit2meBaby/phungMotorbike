@@ -34,7 +34,7 @@ const Hanoi = async () => {
                             <p>Setting off on a tour in Hanoi makes you feel immersed in the hustle and bustle of life there. You may experience:</p>
                             <ul>
                                 <li>People passing through traffic lights rulelessly.</li>
-                                <li>Being stuck in dozens of traffic jams or in a narrow path of an old quarter’s ally.</li>
+                                <li>Being stuck in dozens of traffic jams or in a narrow path of an old quarter&apos;s ally.</li>
                                 <li>Getting confused or even frustrated by all the bulky, huge and funny-looking vehicles.</li>
                             </ul>
 
@@ -45,7 +45,7 @@ const Hanoi = async () => {
                                 <li>Slowly follow along around the West lake and get tripped off into any local coffee shop</li>
                                 <li>Taking a ride to Long Bien bridge and having the best open view of Ha Noi</li>
                             </ul>
-                            <p>These are some of very least things that you must do! After all, traveling with motorbike in Việt Nam in general is much more fun than any other options. So come with us, Take a motorcycle and Explore our culture yourselves!</p>
+                            <p>These are some of very least things that you must do! After all, travelling with motorbike in Vietnam in general is much more fun than any other options. So come with us, Take a motorcycle and Explore our culture yourselves!</p>
                         </div>
                     </div>
                 </div>

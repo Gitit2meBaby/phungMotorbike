@@ -26,8 +26,8 @@ const Travel = async () => {
                 <div className={styles.deskContent}>
                     <Image className={styles.deskImg} src={sunrise} alt="Hanoi" width={600} height={600} priority />
                     <div>
-                        <p>Embark on your next adventure with our reliable scooters and motorbikes designed for long-distance travel. Unlike inner city rentals, there's no limit to the number of kilometers you can cover in a day, allowing you to explore Vietnam at your own pace.</p>
-                        <p>Our travel bikes come equipped with all the essentials to make your journey comfortable and stress-free. Each rental includes helmets, a sturdy rack for your belongings, a phone holder for navigation, and secure rubber straps. You'll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
+                        <p>Embark on your next adventure with our reliable scooters and motorbikes designed for long-distance travel. Unlike inner city rentals, there&apos;s no limit to the number of kilometers you can cover in a day, allowing you to explore Vietnam at your own pace.</p>
+                        <p>Our travel bikes come equipped with all the essentials to make your journey comfortable and stress-free. Each rental includes helmets, a sturdy rack for your belongings, a phone holder for navigation, and secure rubber straps. You&apos;ll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
                         <div className={styles.deskInfo}>
                             <p>Unlike the bustling streets of Hanoi, venturing beyond the city offers a unique and immersive experience. Imagine cruising along scenic coastal roads, winding through lush rice paddies, or conquering challenging mountain passes. With a motorbike, you have the freedom to explore hidden gems, off-the-beaten-path destinations, and cultural experiences that are often missed by tourists.</p>
                         </div>

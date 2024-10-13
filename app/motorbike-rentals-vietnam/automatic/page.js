@@ -30,7 +30,7 @@ const Automatic = async () => {
                 <h2>Effortless Exploration</h2>
                 <p>Experience the convenience of our automatic scooters for a hassle-free journey through Vietnam.</p>
                 <p> Perfect for beginners, our fleet of automatic bikes offers a smooth and comfortable ride, great for those who prefer a relaxed driving experience.</p>
-                <p>Explore the country's stunning landscapes without shifting a gear!</p>
+                <p>Explore the country&apos;s stunning landscapes without shifting a gear!</p>
             </section>
             <div className={styles.divider}
                 style={{ margin: '0 auto', marginBottom: '1rem' }}></div>

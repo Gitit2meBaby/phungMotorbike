@@ -158,11 +158,11 @@ export default async function BikeDetailPage({ params }) {
                         <p className={styles.transmission}>Transmission: {bike.type}</p>
                         <p>{bike.description}</p>
                         <div className={styles.disclaimer}></div>
-                        <p>Experience the freedom of owning your own ride in Vietnam! This well-maintained {bike.model} {bike.name} {bike.capacity}<span>cc</span> is your ticket to endless adventures across the country's stunning landscapes.</p>
+                        <p>Experience the freedom of owning your own ride in Vietnam! This well-maintained {bike.model} {bike.name} {bike.capacity}<span>cc</span> is your ticket to endless adventures across the country&apos;s stunning landscapes.</p>
 
                         <p>As new owners, you will receive the official bluecard and tips for keeping your new ride in top shape. This bike is fully serviced and well maintained throughout its lifetime.</p>
 
-                        <p>Whether you're planning a short trip or a cross-country expedition, this bike is ready to take you there. Don't miss this opportunity to own a piece of adventure. Your dream of exploring Vietnam on two wheels is closer than you think. Contact us today to make this bike yours!</p>
+                        <p>Whether you&apos;re planning a short trip or a cross-country expedition, this bike is ready to take you there. Dont miss this opportunity to own a piece of adventure. Your dream of exploring Vietnam on two wheels is closer than you think. Contact us today to make this bike yours!</p>
                         <div className={styles.btnWrapper}>
                             <Link href="/motorbikes-for-sale">
                                 <button className={styles.btn}>Return</button>

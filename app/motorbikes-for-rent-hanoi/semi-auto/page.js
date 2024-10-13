@@ -30,7 +30,7 @@ const SemiAuto = async () => {
                 <h2>A Balanced Approach</h2>
                 <div className={styles.padded}>
                     <p>Enjoy the best of both worlds with our semi-automatic scooters. Still no need to worry about clutch when navigating the chaotic Hanoi traffic, but pleny of power when you need it.</p>
-                    <p> These scooters provide a versatile riding experience. Whether you're a seasoned rider or a beginner, semi-automatic bikes are a great choice for getting around Hanoi.</p>
+                    <p> These scooters provide a versatile riding experience. Whether you&apos;re a seasoned rider or a beginner, semi-automatic bikes are a great choice for getting around Hanoi.</p>
                 </div>
             </section>
             <div className={styles.divider}

@@ -30,7 +30,7 @@ const Manual = async () => {
                 <h2>A Classic Riding Experience</h2>
                 <div className={styles.padded}>
                     <p>Our manual bikes offer a classic and engaging riding experience, perfect for those who are feeling a bit more adventorous and enjoy the thrill and control of a manual bike.</p>
-                    <p>Purchasing a manual is a great way to experience the full potential of Vietnam's breathtaking landscapes. Great for long distance adventures and offroad experiences.</p>
+                    <p>Purchasing a manual is a great way to experience the full potential of Vietnam&apos;s breathtaking landscapes. Great for long distance adventures and offroad experiences.</p>
                 </div>
             </section>
             <div className={styles.divider}

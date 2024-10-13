@@ -35,8 +35,9 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.25.8",
     "eslint": "^8",
-    "eslint-config-next": "^14.2.8"
+    "eslint-config-next": "^14.2.15"
   },
   "description": "Change postMark account to client address",
   "main": "imageScript.js",

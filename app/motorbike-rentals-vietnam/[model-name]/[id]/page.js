@@ -161,7 +161,7 @@ export default async function BikeDetailPage({ params }) {
                         <p>{bike.description}</p>
                         <div className={styles.disclaimer}></div>
                         <p><span>*</span>A 5% discount applies to the daily rate for each extra week for our unlimited kilometre rental fleet.</p>
-                        <p> Every outer city rental includes helmets, a rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You'll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
+                        <p> Every outer city rental includes helmets, a rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You&apos;ll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
                         <div className={styles.btnWrapper}>
                             <Link href="/motorbike-rentals-vietnam">
                                 <button className={styles.btn}>Return</button>

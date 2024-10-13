@@ -108,9 +108,9 @@ const page = () => {
                     <h2>Why Choose Phung Motorbike?</h2>
                     <p>
                         Experienced Technicians: Our team has years of experience in repairing and maintaining all types of motorbikes, from local brands to high-end imports.
-                        Affordable & Transparent Pricing: We believe in offering fair, competitive pricing without any hidden fees. You’ll always know what you’re paying for before we start any work.
-                        Convenient Location: Centrally located in Hanoi, we’re easy to find and ready to help you with all your motorbike needs.
-                        Customer-Focused Service: Your satisfaction is our top priority. We’ll explain the work in detail and ensure you feel confident in your bike’s repair.
+                        Affordable & Transparent Pricing: We believe in offering fair, competitive pricing without any hidden fees. You&apos;ll always know what you&apos;re paying for before we start any work.
+                        Convenient Location: Centrally located in Hanoi, we&apos;re easy to find and ready to help you with all your motorbike needs.
+                        Customer-Focused Service: Your satisfaction is our top priority. We&apos;ll explain the work in detail and ensure you feel confident in your bike&apos;s repair.
                         Whether you need a quick oil change, a tyre repair, or a more in-depth overhaul, Phung Motorbike is here to ensure your bike runs at its best. Drop by for a general check-up or contact us directly to discuss any specific issues.</p>
                 </div>
 
