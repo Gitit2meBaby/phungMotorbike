@@ -7,11 +7,21 @@
     max-width: 50vw;
   }
 }
+@media (min-width: 767px) and (max-width: 1024px) {
+  .slider {
+    padding-bottom: 2rem;
+  }
+}
 .slider img {
   max-width: 90vw;
   max-height: 100%;
 }
 
+@media (min-width: 1025px) {
+  .info {
+    margin-top: -3rem;
+  }
+}
 .info p,
 .info h3 {
   color: #ebebeb;

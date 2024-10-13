@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import { query, where, collection, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
 import { db, storage } from '../../phung/app/lib/firebase';
-import Image from 'next/image';
 
-import styles from '../styles/admin.module.css';
+import styles from '../styles/removeBike.module.css';
 import { deleteObject, ref } from 'firebase/storage';
+import BikeCard from './BikeCard';
+
+import { scrollToTop } from '../app/lib/scrollToTop';
 
 
 const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
@@ -16,7 +18,6 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     });
     const [searchItems, setSearchItems] = useState([]);
     const [deletedBikes, setDeletedBikes] = useState([]);
-    const fallbackImage = '/placeHolderThumb.webp';
 
     // Handle form input changes
     const handleChange = (event) => {
@@ -39,6 +40,25 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
         if (findData.capacity) {
             bikeQuery = query(bikeQuery, where('capacity', '==', findData.capacity));
         }
+
+        try {
+            const snapshot = await getDocs(bikeQuery);
+            const results = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+
+            setSearchItems(results);
+        } catch (error) {
+            console.error('Error fetching bikes:', error);
+        }
+    };
+
+    // Show all bikes in collection
+    const handleListAll = async () => {
+        const listingsCollection = collection(db, 'bikes');
+
+        let bikeQuery = query(listingsCollection);
 
         try {
             const snapshot = await getDocs(bikeQuery);
@@ -119,6 +139,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
         checkForDuplicates();
         setDeletedBikes((prev) => [...prev, id]);
         alert("Motorbike removed from database");
+        scrollToTop();
     }
 
     const handleEditClick = (e, id) => {
@@ -126,89 +147,89 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
         handleEdit(id);
         setFormType("Edit Bike");
         setEditBikeId(id);
+        scrollToTop();
     }
 
     return (
-        <section className={styles.removeBike}>
-            <p>Search by: Model, Name or Capacity, you will then get a list of matching motorbikes.</p>
-            <p>*If you are having trouble make sure you are using the correct capitalization<br></br><span> (ie. Cub, not cub or Honda, not honda)</span></p>
-            <form>
-                <div className={styles.textInput}>
-                    <label htmlFor="model">Model</label>
-                    <input
-                        type="text"
-                        id="model"
-                        name="model"
-                        value={findData.model}
-                        onChange={(e) => handleChange(e)}
-                        placeholder='Honda, Yamaha?'
-                    />
-                </div>
-                <div className={styles.textInput}>
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={findData.name}
-                        onChange={(e) => handleChange(e)}
-                        placeholder='Cub, Nuovo, Jupiter?'
-                    />
-                </div>
-                <div className={styles.textInput}>
-                    <label htmlFor="capacity">Capacity</label>
-                    <input
-                        type="number"
-                        id="capacity"
-                        name="capacity"
-                        value={findData.capacity}
-                        onChange={(e) => handleChange(e)}
-                        placeholder='125, 250? do not add "CC"'
-                    />
-                </div>
-                <input
-                    type="text"
-                    name="honeypot"
-                    value={findData.honeypot}
-                    onChange={(e) => handleChange(e)}
-                    style={{ display: 'none' }}
-                    tabIndex="-1"
-                    autoComplete="off"
-                />
-                <button className={styles.submitBtn} style={{ marginTop: '1rem' }} type="button" onClick={() => handleSearch()}>Find Motorbike</button>
-            </form>
+        <>
+            <section className={styles.removeBike}>
+                <div className={styles.content}>
+                    <p>Search by: Model, Name or Capacity, you will then get a list of matching motorbikes.</p>
+                    <p>*If you are having trouble make sure you are using the correct capitalization<br></br><span> (ie. Cub, not cub or Honda, not honda)</span></p>
+                    <form>
+                        <div className={styles.textInput}>
+                            <label htmlFor="model">Model</label>
+                            <input
+                                type="text"
+                                id="model"
+                                name="model"
+                                value={findData.model}
+                                onChange={(e) => handleChange(e)}
+                                placeholder='Honda, Yamaha?'
+                            />
+                        </div>
+                        <div className={styles.textInput}>
+                            <label htmlFor="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={findData.name}
+                                onChange={(e) => handleChange(e)}
+                                placeholder='Cub, Nuovo, Jupiter?'
+                            />
+                        </div>
+                        <div className={styles.textInput}>
+                            <label htmlFor="capacity">Capacity</label>
+                            <input
+                                type="number"
+                                id="capacity"
+                                name="capacity"
+                                value={findData.capacity}
+                                onChange={(e) => handleChange(e)}
+                                placeholder='125, 250? do not add "CC"'
+                            />
+                        </div>
+                        <input
+                            type="text"
+                            name="honeypot"
+                            value={findData.honeypot}
+                            onChange={(e) => handleChange(e)}
+                            style={{ display: 'none' }}
+                            tabIndex="-1"
+                            autoComplete="off"
+                        />
+                        <button className={styles.submitBtn} style={{ marginTop: '1rem' }} type="button" onClick={() => handleSearch()}>Find Motorbike</button>
 
-            {searchItems.length > 0 && (
-                <div>
-                    <h2>Search Results</h2>
-                    <ul>
-                        {searchItems.map((bike) => (
-                            <div key={bike.id}
-                                style={{ display: deletedBikes.includes(bike.id) ? 'none' : 'block' }}>
-
-                                <Image
-                                    src={bike.images[0].thumbURL}
-                                    alt='Motorbike for rent at Phung Motorbike'
-                                    width={300}
-                                    height={225}
-                                    placeholder="blur"
-                                    blurDataURL={fallbackImage}
-                                    unoptimized
-                                    onError={(e) => {
-                                        e.target.src = fallbackImage;
-                                    }}
-                                />
-                                <h2>{`${bike.model} ${bike.name} ${bike.capacity}cc`}</h2>
-                                <p>${bike.cityPrice}/day</p>
-                                <p>${bike.monthPrice}/month</p>
-                                <button onClick={(e) => handleEditClick(e, bike.id)}>Edit</button>
-                                <button onClick={(e) => handleRemove(e, bike.id)}>Delete</button>
-                            </div>
-                        ))}
-                    </ul>
+                        <button className={styles.submitBtn} type="button" onClick={() => handleListAll()}>List All</button>
+                    </form>
                 </div>
-            )}
-        </section>
+            </section>
+            <section className={styles.removeBikeList}>
+                {searchItems.length > 0 && (
+                    <>
+                        <h2>Search Results</h2>
+                        <div className={styles.searchList}>
+                            {searchItems.map((bike) => (
+                                <div key={bike.id}
+                                    className={styles.listItem}>
+                                    <BikeCard
+                                        bike={bike}
+                                        basePath={'/admin'}
+                                        inDetails={false}
+                                        inAdmin={true}
+                                    />
+                                    <div className={styles.btnWrapper}>
+                                        <button className={styles.btnActive} onClick={(e) => handleEditClick(e, bike.id)}>Edit</button>
+                                        <button className={styles.btnActive} onClick={(e) => handleRemove(e, bike.id)}>Delete</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                )}
+            </section>
+        </>
     )
 }
 

@@ -74,6 +74,11 @@
     display: none;
   }
 }
+@media (min-width: 450px) and (max-width: 766px) {
+  .divider {
+    display: none;
+  }
+}
 
 .slider img {
   aspect-ratio: 600/450;

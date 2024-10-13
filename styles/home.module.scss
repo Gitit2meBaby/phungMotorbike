@@ -28,9 +28,12 @@
 
     @include tablet {
         display: flex;
-        flex-direction: row-reverse;
-        height: 80vh;
-        height: 80dvh;
+        flex-direction: column-reverse;
+        height: auto;
+
+        h1 {
+            margin-top: 2rem;
+        }
     }
 
     @include desktop {

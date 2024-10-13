@@ -60,6 +60,13 @@
 }
 
 .imgWrapper {
+    @include tablet {
+        display: flex;
+        gap: 2vw;
+        align-items: center;
+        margin: 1rem 0;
+    }
+
     @include desktop {
         display: flex;
         gap: 2vw;
@@ -69,6 +76,10 @@
 
     img:last-of-type {
         @include phone {
+            display: none;
+        }
+
+        @include phoneLandscape {
             display: none;
         }
     }

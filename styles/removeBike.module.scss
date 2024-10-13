@@ -1,6 +1,6 @@
 @import './globals.scss';
 
-.admin {
+.content {
     display: flex;
     flex-direction: column;
 
@@ -9,14 +9,10 @@
         margin: 0 auto;
     }
 
-    h1 {
+    p {
+        color: $offWhite;
         text-align: center;
-        font-size: 2.2rem;
-        color: $theme;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        padding: 0 1rem;
-        margin: 0
+        letter-spacing: 1px;
     }
 
     form {
@@ -50,70 +46,11 @@
     grid-template-columns: 25% 1fr;
 }
 
-.radioWrapper {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10vw;
-    gap: .5rem;
-}
-
-.radio {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    &:first-of-type {
-        margin-top: -1rem;
-    }
-}
-
-.description {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    margin-bottom: 0.5rem;
-
-    textarea {
-        height: 6rem;
-        padding: 0.5rem;
-
-        &::placeholder {
-            font-style: italic;
-        }
-    }
-}
-
-.priceInput {
-    display: grid;
-    grid-template-columns: 50% 1fr;
-
-    input {
-        width: 50%;
-    }
-}
-
-.fileInput {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-
-    input {
-        width: 50%;
-    }
-}
-
-.imgWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
 
 .btnWrapper {
     display: flex;
     justify-content: space-around;
-    margin: 1rem 0;
+    margin: -.5rem 0;
 }
 
 .btn {
@@ -158,36 +95,57 @@
     margin-bottom: 2rem;
 }
 
-.adminOnly {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: $theme;
-    letter-spacing: 3px;
-    line-height: 2.5rem;
-    text-transform: uppercase;
-    text-align: center;
-    max-width: 90vw;
+.removeBike {
+    padding: 0 1rem;
+
+    p {
+        color: $offWhite;
+        letter-spacing: 1px;
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    span {
+        font-style: italic;
+        color: rgb(113, 113, 113);
+    }
 }
 
-.divider {
-    background-color: $theme;
-    width: 90%;
-    height: .5px;
-    align-self: center;
-    margin: 1rem 0;
+.removeBikeList {
+    h2 {
+        color: $theme;
+        text-align: center;
+        letter-spacing: 1px;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+
+        @include desktop {
+            font-size: 3rem;
+        }
+    }
+}
+
+.searchList {
+    @include tablet {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
 
     @include desktop {
-        &:last-of-type {
-            display: none;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 3rem;
     }
+}
 
-    @include tablet {
-        &:last-of-type {
-            display: none;
-        }
-    }
+.listItem {
+
+    border-bottom: 1px solid $theme;
+    padding-bottom: 4rem;
+    margin-bottom: 1rem;
 }

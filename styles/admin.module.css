@@ -121,6 +121,7 @@
   transition: all 0.5s ease;
   cursor: pointer;
   filter: blur(0.8px);
+  min-width: 120px;
 }
 
 .btnActive {
@@ -133,6 +134,7 @@
   letter-spacing: 1px;
   transition: all 0.5s ease;
   cursor: pointer;
+  min-width: 120px;
 }
 
 .submitBtn {
@@ -180,18 +182,4 @@
   .divider:last-of-type {
     display: none;
   }
-}
-
-.removeBike {
-  padding: 0 1rem;
-}
-.removeBike p {
-  color: #ebebeb;
-  letter-spacing: 1px;
-  text-align: center;
-  margin: 1rem 0;
-}
-.removeBike span {
-  font-style: italic;
-  color: rgb(113, 113, 113);
 }/*# sourceMappingURL=admin.module.css.map */

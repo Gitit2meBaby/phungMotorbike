@@ -13,7 +13,7 @@ import lead from '../public/lead.webp'
 import xr from '../public/xr.webp'
 import wave from '../public/wave.webp'
 import cub from '../public/cub.webp'
-import jupiter from '../public/jupiter.webp'
+import custom from '../public/custom.webp'
 import blade from '../public/blade.webp'
 import detech from '../public/blade.webp'
 
@@ -52,14 +52,14 @@ const SliderSection = () => {
                     <div style={{ position: 'relative', width: '100%', paddingTop: '75%', maxHeight: '500px' }}>
                         <Image
                             src={lifan}
-                            alt="Honda XR 190cc"
+                            alt="Lifan custom 150cc"
                             fill
                             style={{ objectFit: 'contain' }}
                         />
                     </div>
                     <div className={styles.info}>
-                        <h3>Honda XR 190cc</h3>
-                        <p><span>from </span>$5usd</p>
+                        <h3>Lifan custom 150cc</h3>
+                        <p><span>from </span>$9usd</p>
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@ const SliderSection = () => {
                     <div style={{ position: 'relative', width: '100%', paddingTop: '75%', maxHeight: '500px' }}>
                         <Image
                             src={blade}
-                            alt="Honda XR 190cc"
+                            alt="Honda Blade 110cc"
                             fill
                             style={{ objectFit: 'contain' }}
                         />
@@ -81,15 +81,15 @@ const SliderSection = () => {
                 <div>
                     <div style={{ position: 'relative', width: '100%', paddingTop: '75%', maxHeight: '500px' }}>
                         <Image
-                            src={jupiter}
-                            alt="Honda XR 190cc"
+                            src={custom}
+                            alt="Honda custom 150cc"
                             fill
                             style={{ objectFit: 'contain' }}
                         />
                     </div>
                     <div className={styles.info}>
-                        <h3>Honda XR 190cc</h3>
-                        <p><span>from </span>$5usd</p>
+                        <h3>Honda custom 150cc</h3>
+                        <p><span>from </span>$12usd</p>
                     </div>
                 </div>
 
@@ -112,14 +112,14 @@ const SliderSection = () => {
                     <div style={{ position: 'relative', width: '100%', paddingTop: '73.81%', maxHeight: '500px' }}>
                         <Image
                             src={lead}
-                            alt="bike155"
+                            alt="Honda Lead 110cc"
                             fill
                             style={{ objectFit: 'contain' }}
                         />
                     </div>
                     <div className={styles.info}>
-                        <h3>Yamaha Nouvo lx 135cc</h3>
-                        <p><span>from </span>$6usd</p>
+                        <h3>Honda Lead 110cc</h3>
+                        <p><span>from </span>$10usd</p>
                     </div>
                 </div>
 
@@ -142,7 +142,7 @@ const SliderSection = () => {
                     <div style={{ position: 'relative', width: '100%', paddingTop: '73.81%', maxHeight: '500px' }}>
                         <Image
                             src={wave}
-                            alt="hornet"
+                            alt="Honda Wave AT 110cc"
                             fill
                             style={{ objectFit: 'contain' }}
                         />

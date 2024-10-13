@@ -11,7 +11,7 @@ const mynerve = Mynerve({
     subsets: ['latin'],
 });
 
-const BikeCard = ({ bike, basePath, inDetails }) => {
+const BikeCard = ({ bike, basePath, inDetails, inAdmin }) => {
     const fallbackImage = '/placeHolderThumb.webp';
 
     const imageUrl = bike.images && bike.images.length > 0 && bike.images[0].thumbURL
@@ -54,19 +54,30 @@ const BikeCard = ({ bike, basePath, inDetails }) => {
                             <p className={styles.discount}>*discounts apply after the 1st week</p>
                         </>}
                     {basePath === '/motorbikes-for-sale' && !inDetails && <p>${bike.salePrice}<span>USD</span></p>}
+                    {basePath === '/admin' && (
+                        <>
+                            <p>City Price - ${bike.cityPrice}<span>USD</span></p>
+                            <p>Travel Price - ${bike.travelPrice}<span>USD</span></p>
+                            <p>Month Price - ${bike.monthPrice}<span>VND</span></p>
+                            <p>Sale Price - {bike.salePrice}<span>USD</span></p>
+                        </>
+
+                    )}
                 </div>
 
                 <p className={styles.description}>{bike.description}</p>
 
-                <div className={styles.btnWrapper}
-                    style={inDetails ? { borderBottom: 'none', marginTop: '1.5rem' } : { borderBottom: '1px solid #e97f26' }}>
-                    <Link href={formRedirectUrl}>
-                        <button className={styles.activeBtn}>{buttonText}</button>
-                    </Link>
-                    <Link href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`}>
-                        <button className={styles.btn}>Details</button>
-                    </Link>
-                </div>
+                {!inAdmin && (
+                    <div className={styles.btnWrapper}
+                        style={inDetails ? { borderBottom: 'none', marginTop: '1.5rem' } : { borderBottom: '1px solid #e97f26' }}>
+                        <Link href={formRedirectUrl}>
+                            <button className={styles.activeBtn}>{buttonText}</button>
+                        </Link>
+                        <Link href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`}>
+                            <button className={styles.btn}>Details</button>
+                        </Link>
+                    </div>
+                )}
             </div>
         </>
     );

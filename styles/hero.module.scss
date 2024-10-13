@@ -1,6 +1,12 @@
 @import './globals.scss';
 
 .hero {
+    @include phoneLandscape {
+        display: flex;
+        margin: -8rem 0 0 0;
+        padding-left: 10vw;
+    }
+
     @include tablet {
         display: none;
     }
@@ -34,6 +40,10 @@
     svg:nth-of-type(6) {
         margin: 0 0 0rem .5rem;
     }
+
+    @include phoneLandscape {
+        display: none;
+    }
 }
 
 .reviews {
@@ -49,5 +59,9 @@
     span {
         color: $theme;
         font-size: 1.5rem;
+    }
+
+    @include phoneLandscape {
+        display: none;
     }
 }

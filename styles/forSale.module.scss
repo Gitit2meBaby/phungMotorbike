@@ -73,6 +73,10 @@
         display: none;
     }
 
+    @include phoneLandscape {
+        display: none;
+    }
+
     background-color: $theme;
     width: 90%;
     height: .5px;

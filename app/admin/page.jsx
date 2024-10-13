@@ -40,7 +40,7 @@ export default function AdminDashboardForm() {
     useEffect(() => {
         sessionStorage.getItem('Admin');
 
-        if (!sessionStorage.getItem('Admin')) {
+        if (sessionStorage.getItem('Admin')) {
             setAdmin(true)
         }
     }, []);
@@ -106,7 +106,6 @@ export default function AdminDashboardForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Submitting files:", files); // Log the files state
 
         if (files.length === 0) {
             console.error("No files to submit!");
@@ -195,16 +194,9 @@ export default function AdminDashboardForm() {
     };
 
     useEffect(() => {
-        console.log("Updated files state:", files);
         setFiles(initialFiles)
         setPreview(initialFiles.map(file => file.thumbImage));
     }, [initialFiles]);
-
-    useEffect(() => {
-        console.log("Updated preview state:", preview);
-        console.log('files in useEffect', files);
-    }, [files]);
-
 
     const clearFields = () => {
         setFormData({
@@ -227,7 +219,7 @@ export default function AdminDashboardForm() {
     return (
         <>
             <section className={styles.admin}
-                style={{ filter: admin ? 'blur(5px) brightness(0.5)' : '', pointerEvents: admin ? 'none' : '' }}>
+                style={{ filter: !admin ? 'blur(5px) brightness(0.5)' : '', pointerEvents: !admin ? 'none' : '' }}>
                 <h1>Admin Dashboard</h1>
 
                 <div className={styles.divider}></div>
@@ -247,7 +239,7 @@ export default function AdminDashboardForm() {
                     </button>
                 </div>
 
-                {formType === 'Add Bike' || formType === 'Edit Bike' ? (
+                {(formType === 'Add Bike' || formType === 'Edit Bike') && (
                     <form onSubmit={handleSubmit}>
                         <div className={styles.textInput}>
                             <label htmlFor="model">Model</label>
@@ -374,7 +366,7 @@ export default function AdminDashboardForm() {
                                 name="monthPrice"
                                 value={formData.monthPrice}
                                 onChange={handleChange}
-                                placeholder='USD'
+                                placeholder='VND'
                             />
                         </div>
 
@@ -405,13 +397,18 @@ export default function AdminDashboardForm() {
                         <button className={styles.submitBtn} type="submit">
                             {formType === 'Edit Bike' ? 'Save Changes' : 'Submit'}</button>
                     </form>
-                ) : (
+                )}
+            </section>
+
+            <section>
+                {formType === 'Remove Bike' && (
                     <RemoveBike setEditBikeId={setEditBikeId}
                         setFormType={setFormType}
                         handleEdit={handleEdit} />
                 )}
             </section>
-            {admin && (
+
+            {!admin && (
                 <h3 className={styles.adminOnly}>This page is only available for Administration</h3>
             )}
         </>

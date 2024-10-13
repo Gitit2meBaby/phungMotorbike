@@ -52,6 +52,14 @@
   }
 }
 
+@media (min-width: 767px) and (max-width: 1024px) {
+  .imgWrapper {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+    margin: 1rem 0;
+  }
+}
 @media (min-width: 1025px) {
   .imgWrapper {
     display: flex;
@@ -60,7 +68,12 @@
     margin: 1rem 0;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 449px) {
+  .imgWrapper img:last-of-type {
+    display: none;
+  }
+}
+@media (min-width: 450px) and (max-width: 766px) {
   .imgWrapper img:last-of-type {
     display: none;
   }

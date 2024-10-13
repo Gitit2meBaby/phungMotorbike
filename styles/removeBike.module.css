@@ -1,0 +1,143 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1025px) {
+  .content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+.content p {
+  color: #ebebeb;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+.content form input {
+  padding: 0.2rem;
+}
+.content form input::-moz-placeholder {
+  font-style: italic;
+}
+.content form input::placeholder {
+  font-style: italic;
+}
+.content form select {
+  width: 50%;
+}
+.content label {
+  color: #e97f26;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.textInput {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin: -0.5rem 0;
+}
+
+.btn {
+  background-color: transparent;
+  color: #e97f26;
+  padding: 0.5rem;
+  border: 1px solid #e97f26;
+  border-radius: 0.3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  filter: blur(0.8px);
+  min-width: 120px;
+}
+
+.btnActive {
+  background-color: #e97f26;
+  color: #0d0d0d;
+  padding: 0.5rem;
+  border: 1px solid #0d0d0d;
+  border-radius: 0.3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.submitBtn {
+  background-color: #e97f26;
+  color: #0d0d0d;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid #0d0d0d;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+.removeBike {
+  padding: 0 1rem;
+}
+.removeBike p {
+  color: #ebebeb;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 1rem 0;
+}
+.removeBike span {
+  font-style: italic;
+  color: rgb(113, 113, 113);
+}
+
+.removeBikeList h2 {
+  color: #e97f26;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 1025px) {
+  .removeBikeList h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  .searchList {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+@media (min-width: 1025px) {
+  .searchList {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+}
+
+.listItem {
+  border-bottom: 1px solid #e97f26;
+  padding-bottom: 4rem;
+  margin-bottom: 1rem;
+}/*# sourceMappingURL=removeBike.module.css.map */

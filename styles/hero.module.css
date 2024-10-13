@@ -1,4 +1,11 @@
-@media (min-width: 450px) and (max-width: 1024px) {
+@media (min-width: 450px) and (max-width: 766px) {
+  .hero {
+    display: flex;
+    margin: -8rem 0 0 0;
+    padding-left: 10vw;
+  }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
   .hero {
     display: none;
   }
@@ -32,6 +39,11 @@
 .stars svg:nth-of-type(6) {
   margin: 0 0 0rem 0.5rem;
 }
+@media (min-width: 450px) and (max-width: 766px) {
+  .stars {
+    display: none;
+  }
+}
 
 .reviews {
   margin: -0.5rem 0 0 0.5rem;
@@ -45,4 +57,9 @@
 .reviews span {
   color: #e97f26;
   font-size: 1.5rem;
+}
+@media (min-width: 450px) and (max-width: 766px) {
+  .reviews {
+    display: none;
+  }
 }/*# sourceMappingURL=hero.module.css.map */
