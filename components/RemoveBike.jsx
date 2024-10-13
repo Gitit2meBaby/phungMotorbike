@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { query, where, collection, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
-import { db, storage } from '../../phung/app/lib/firebase';
+import { db, storage } from '../app/lib/firebase';
 
 import styles from '../styles/removeBike.module.css';
 import { deleteObject, ref } from 'firebase/storage';
