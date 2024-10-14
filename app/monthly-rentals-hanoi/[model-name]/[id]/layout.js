@@ -1,11 +1,10 @@
+import { getBikes } from '../../../lib/getBikes';
+import { notFound } from 'next/navigation';
+
 export async function generateMetadata({ params }) {
     const { id, 'model-name': modelName } = params;
 
-    const baseUrl = process.env.NEXT_PUBLIC_URL;
-    const apiUrl = `${baseUrl}/api/bikes`;
-
-    const res = await fetch(apiUrl);
-    const bikes = await res.json();
+    const bikes = await getBikes();
     const bike = bikes.find(b => b.id === id && `${b.model.toLowerCase()}-${b.name.toLowerCase()}` === modelName);
 
     if (!bike) {
@@ -33,17 +32,10 @@ export async function generateMetadata({ params }) {
     };
 }
 
-import { notFound } from 'next/navigation';
-import React from 'react';
-
 const BikeDetailLayout = async ({ children, params }) => {
     const { id, 'model-name': modelName } = params;
 
-    const baseUrl = process.env.NEXT_PUBLIC_URL;
-    const apiUrl = `${baseUrl}/api/bikes?force=true`;
-
-    const res = await fetch(apiUrl);
-    const bikes = await res.json();
+    const bikes = await getBikes();
     const bike = bikes.find(b => b.id === id && `${b.model.toLowerCase()}-${b.name.toLowerCase()}` === modelName);
 
     if (!bike) {

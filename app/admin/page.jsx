@@ -16,6 +16,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import styles from '../../styles/admin.module.css';
 import ImageUploader from '../../components/ImageUploader';
 import RemoveBike from '../../components/RemoveBike';
+import { clearBikeCache } from '../lib/clearBikeCache';
 
 export default function AdminDashboardForm() {
     const [admin, setAdmin] = useState(false);
@@ -132,7 +133,6 @@ export default function AdminDashboardForm() {
 
                 // Update the bike document with new data and images
                 await updateDoc(bikeDocRef, updatedBikeData);
-
                 alert("Bike updated successfully!");
             } else {
                 // Adding a new bike (existing code)
@@ -155,6 +155,7 @@ export default function AdminDashboardForm() {
             }
 
             clearFields();
+            clearBikeCache();
             setEditBikeId(null); // Reset edit state
 
         } catch (error) {
@@ -182,9 +183,7 @@ export default function AdminDashboardForm() {
                     fullImage: image.fullURL
                 }));
 
-                console.log("loadedFiles", loadedFiles);
                 setInitialFiles(loadedFiles);
-                console.log("bikeData", bikeData);
             } else {
                 console.log("No such document exists.");
             }

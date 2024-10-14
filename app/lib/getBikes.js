@@ -1,120 +1,52 @@
-// import { query, where, orderBy, getDocs, collection } from 'firebase/firestore';
-// import { db } from './firebase';
+// app/lib/getBikes.js
+import { getBikesFromFirebase } from './getBikesFromFirebase';
+import globalCache from './globalCache';
 
-// // Declare the variables globally to hold the cached data
-// let cachedBikes = null;
-// let lastFetchTime = 0;
-// const CACHE_DURATION = 86400000 // 24 hours
+// Key for storing all bikes
+const ALL_BIKES_KEY = 'ALL_BIKES';
 
-// export const getBikes = async (filters = {}, forceFirebase = false) => {
-//     const currentTime = Date.now();
+export async function getBikes(filters = {}) {
+    // Check if we have all bikes in cache
+    let allBikes = globalCache.get(ALL_BIKES_KEY);
 
-//     // Check if cached data is still valid, unless forceFirebase is true
-//     if (!forceFirebase && cachedBikes && (currentTime - lastFetchTime < CACHE_DURATION)) {
-//         return cachedBikes; // Return cached bikes
-//     }
+    if (!allBikes) {
+        console.log('Fetching all bikes from Firebase');
+        try {
+            allBikes = await getBikesFromFirebase();
 
-//     // Fallback to the Firebase query if forceFirebase is true or cache is stale
-//     const { type, cityPrice, capacity } = filters;
+            // Transform the bikes data to ensure it's serializable
+            allBikes = allBikes.map(bike => ({
+                id: bike.id,
+                type: bike.type,
+                timestamp: bike.timestamp ? {
+                    seconds: bike.timestamp.seconds,
+                    nanoseconds: bike.timestamp.nanoseconds
+                } : null,
+                images: bike.images,
+                capacity: bike.capacity,
+                cityPrice: bike.cityPrice,
+                description: bike.description,
+                salePrice: bike.salePrice,
+                model: bike.model,
+                travelPrice: bike.travelPrice,
+                name: bike.name
+            }));
 
-//     const listingsCollection = collection(db, 'bikes');
-
-//     let bikeQuery = query(listingsCollection);
-
-//     if (type) {
-//         bikeQuery = query(bikeQuery, where('type', '==', type));
-//     }
-
-//     if (cityPrice) {
-//         bikeQuery = query(bikeQuery, orderBy('cityPrice', cityPrice));
-//     }
-
-//     if (capacity) {
-//         bikeQuery = query(bikeQuery, orderBy('capacity', capacity));
-//     }
-
-//     try {
-//         const snapshot = await getDocs(bikeQuery);
-//         cachedBikes = snapshot.docs.map(doc => ({
-//             id: doc.id,
-//             ...doc.data(),
-//         }));
-
-//         lastFetchTime = currentTime;
-
-//         return cachedBikes; // Return the fresh bikes data from Firebase
-//     } catch (error) {
-//         console.error('Error fetching bikes from Firebase:', error);
-//         throw new Error('Failed to fetch bikes from Firebase');
-//     }
-// };
-
-import { query, where, orderBy, getDocs, collection, onSnapshot } from 'firebase/firestore';
-import { db } from './firebase';
-import NodeCache from 'node-cache';
-
-const cache = new NodeCache({ stdTTL: 86400 }); // 24 hours TTL
-const CACHE_KEY = 'allBikes';
-
-let unsubscribe = null;
-
-// Setup real-time listener for changes
-const setupRealtimeListener = () => {
-    if (unsubscribe) unsubscribe();
-
-    const bikesRef = collection(db, 'bikes');
-    // unsubscribe = onSnapshot(bikesRef, (snapshot) => {
-    //     if (snapshot.docChanges().length > 0) {
-    //         console.log('Changes detected in Firebase, invalidating cache');
-    //         cache.del(CACHE_KEY);
-    //     }
-    // });
-    unsubscribe = onSnapshot(bikesRef, (snapshot) => {
-        if (snapshot.docChanges().length > 0) {
-            console.log('Changes detected in Firebase, invalidating cache');
-            cache.del(CACHE_KEY);
-
-            // Fetch fresh data from Firebase and update the cache immediately
-            getBikes({}, true);
+            // Store all bikes in cache
+            globalCache.set(ALL_BIKES_KEY, allBikes);
+        } catch (error) {
+            console.error('Error fetching bikes:', error);
+            return [];
         }
+    } else {
+        console.log('Using cached bikes');
+    }
+
+    // Apply filters
+    return allBikes.filter(bike => {
+        for (const [key, value] of Object.entries(filters)) {
+            if (bike[key] !== value) return false;
+        }
+        return true;
     });
-
-};
-
-export const getBikes = async (filters = {}, forceFirebase = false) => {
-    if (!forceFirebase && cache.has(CACHE_KEY)) {
-        console.log('Returning cached data');
-        return cache.get(CACHE_KEY);
-    }
-
-    console.log('Fetching fresh data from Firebase');
-    const { type, cityPrice, capacity } = filters;
-    const listingsCollection = collection(db, 'bikes');
-    let bikeQuery = query(listingsCollection);
-
-    if (type) {
-        bikeQuery = query(bikeQuery, where('type', '==', type));
-    }
-    if (cityPrice) {
-        bikeQuery = query(bikeQuery, orderBy('cityPrice', cityPrice));
-    }
-    if (capacity) {
-        bikeQuery = query(bikeQuery, orderBy('capacity', capacity));
-    }
-
-    try {
-        const snapshot = await getDocs(bikeQuery);
-        const bikes = snapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data(),
-        }));
-
-        cache.set(CACHE_KEY, bikes);
-        setupRealtimeListener(); // Setup listener after successful fetch
-
-        return bikes;
-    } catch (error) {
-        console.error('Error fetching bikes from Firebase:', error);
-        throw new Error('Failed to fetch bikes from Firebase');
-    }
-};
+}

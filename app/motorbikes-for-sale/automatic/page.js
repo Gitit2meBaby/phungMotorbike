@@ -1,20 +1,22 @@
 import Image from 'next/image';
 import BikeList from '../../../components/BikeList';
 import Filter from '../../../components/Filter';
+import { getBikes } from '../../lib/getBikes';
 
 import styles from '../../../styles/hanoiRentals.module.scss';
 import camera from '../../../public/camera.png';
 
 const Automatic = async () => {
 
-    const baseUrl = process.env.NEXT_PUBLIC_URL;
-    let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
-        headers: { 'Cache-Control': 'no-store' }
-    });
-    let bikes = await data.json()
+    // const baseUrl = process.env.NEXT_PUBLIC_URL;
+    // let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
+    //     headers: { 'Cache-Control': 'no-store' }
+    // });
+    // let bikes = await data.json()
 
-    bikes.sort((a, b) => a.cityPrice - b.cityPrice);
-    const automaticBikes = bikes.filter(bike => bike.type === 'Automatic');
+    // bikes.sort((a, b) => a.cityPrice - b.cityPrice);
+    // const automaticBikes = bikes.filter(bike => bike.type === 'Automatic');
+    const automaticBikes = await getBikes({ type: 'Automatic' });
 
     const basePath = '/motorbikes-for-sale';
 

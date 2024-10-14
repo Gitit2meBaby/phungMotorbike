@@ -6,13 +6,15 @@ import Image from 'next/image';
 
 import camera from '../../public/camera.png';
 import dogOnBike from '../../public/dogOnBike.webp';
+import { getBikes } from '../lib/getBikes';
 
 const ForSale = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_URL;
-    const response = await fetch(`${baseUrl}/api/bikes`, {
-        next: { revalidate: 3600 } // Revalidate every hour
-    });
-    const bikes = await response.json();
+    // const baseUrl = process.env.NEXT_PUBLIC_URL;
+    // const response = await fetch(`${baseUrl}/api/bikes`, {
+    //     next: { revalidate: 3600 } // Revalidate every hour
+    // });
+    // const bikes = await response.json();
+    const bikes = await getBikes();
 
     const basePath = '/motorbikes-for-sale';
 

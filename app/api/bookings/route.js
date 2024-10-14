@@ -11,8 +11,6 @@ export async function POST(req) {
             days, roundedTotalPrice
         } = await req.json();
 
-        console.log('Received Data:', { name, email, phone, bike, rentalType, startDate, endDate, days, roundedTotalPrice });
-
         if (honeypot) {
             return new Response(JSON.stringify({ error: 'Bot submission detected' }), { status: 400 });
         }

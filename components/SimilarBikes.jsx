@@ -9,7 +9,7 @@ import styles from '../styles/bikeCard.module.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SimilarBikes = ({ bikes, currentBike, rateTypeUrl }) => {
+const SimilarBikes = ({ bikes, currentBike, rateTypeUrl, basePath }) => {
     const [isClient, setIsClient] = useState(false);
     const [title, setTitle] = useState('Other bikes at this price');
     const [similarBikes, setSimilarBikes] = useState([]);
@@ -17,6 +17,7 @@ const SimilarBikes = ({ bikes, currentBike, rateTypeUrl }) => {
         // Initialize rateType based on rateTypeUrl
         if (rateTypeUrl === 'travel') return currentBike.travelPrice;
         if (rateTypeUrl === 'city') return currentBike.cityPrice;
+        if (rateTypeUrl === 'sale') return currentBike.salePrice;
         return currentBike.monthPrice;
     });
 
@@ -25,6 +26,8 @@ const SimilarBikes = ({ bikes, currentBike, rateTypeUrl }) => {
             setRateType(currentBike.travelPrice);
         } else if (rateTypeUrl === 'city') {
             setRateType(currentBike.cityPrice);
+        } else if (rateTypeUrl === 'sale') {
+            setRateType(currentBike.salePrice);
         } else {
             setRateType(currentBike.monthPrice);
         }
@@ -39,6 +42,11 @@ const SimilarBikes = ({ bikes, currentBike, rateTypeUrl }) => {
 
         let filteredBikes = bikes.filter(bike => rateType === rateType && bike.id !== currentBike.id);
         let newTitle = `More bikes at $${rateType}/day`;
+
+        if (rateTypeUrl === 'sale') {
+            filteredBikes = bikes.filter(bike => bike.salePrice === rateType && bike.id !== currentBike.id);
+            newTitle = `Other bikes for sale at $${rateType}`;
+        }
 
         if (filteredBikes.length < 2) {
             filteredBikes = bikes.filter(bike => bike.capacity === currentBike.capacity && bike.id !== currentBike.id);
@@ -91,7 +99,7 @@ const SimilarBikes = ({ bikes, currentBike, rateTypeUrl }) => {
                     {similarBikes.length > 1 ? (
                         <Slider {...settings}>
                             {similarBikes.map(bike => (
-                                <BikeCard key={bike.id} bike={bike} basePath="/motorbike-rentals-vietnam" inDetails={true} />
+                                <BikeCard key={bike.id} bike={bike} basePath={basePath} inDetails={true} />
                             ))}
                         </Slider>
                     ) : (

@@ -1,3 +1,4 @@
+// for redirects from the old site
 import { NextResponse } from 'next/server';
 
 export function middleware(request) {

@@ -1,5 +1,6 @@
 import BikeList from '../../../components/BikeList';
 import Filter from '../../../components/Filter';
+import { getBikes } from '../../lib/getBikes';
 
 import styles from '../../../styles/hanoiRentals.module.scss';
 import camera from '../../../public/camera.png';
@@ -8,14 +9,16 @@ import Link from 'next/link';
 
 const Manual = async () => {
 
-    const baseUrl = process.env.NEXT_PUBLIC_URL;
-    let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
-        headers: { 'Cache-Control': 'no-store' }
-    });
-    let bikes = await data.json()
+    // const baseUrl = process.env.NEXT_PUBLIC_URL;
+    // let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
+    //     headers: { 'Cache-Control': 'no-store' }
+    // });
+    // let bikes = await data.json()
 
-    bikes.sort((a, b) => a.cityPrice - b.cityPrice);
-    const manualBikes = bikes.filter(bike => bike.type === 'Manual');
+    // bikes.sort((a, b) => a.cityPrice - b.cityPrice);
+    // const manualBikes = bikes.filter(bike => bike.type === 'Manual');
+
+    const manualBikes = await getBikes({ type: 'Manual' });
 
     const basePath = '/motorbikes-for-rent-hanoi';
 

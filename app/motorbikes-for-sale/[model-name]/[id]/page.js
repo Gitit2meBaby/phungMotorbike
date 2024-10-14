@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { getBikes } from '../../../lib/getBikes';
 
 import styles from '../../../../styles/bikeDetail.module.css';
 import SliderBasic from '../../../../components/SliderBasic';
@@ -12,32 +13,23 @@ import motorcycle from '../../../../public/motorcycle.png'
 
 const SimilarBikes = dynamic(() => import('../../../../components/SimilarBikes'), { ssr: false });
 
+
 export default async function BikeDetailPage({ params }) {
     const { id } = params;
 
-    const baseUrl = process.env.NEXT_PUBLIC_URL;
-    const apiUrl = `${baseUrl}/api/bikes/?force=true`;
+    // Fetch all bikes using our cached getBikes function
+    const bikes = await getBikes();
 
-    const rateTypeUrl = 'travel'
-
-    const res = await fetch(apiUrl, {
-        next: { revalidate: 0 }
-    });
-
-    if (!res.ok) {
-        console.error('Failed to fetch bike data:', res.statusText);
-        return notFound();
-    }
-
-    const bikes = await res.json();
-
+    // Find the specific bike
     const bike = bikes.find(b => b.id === id);
 
-    if (!bike || bike.message === 'Bike not found') {
+    if (!bike) {
         return notFound();
     }
 
     const bikeUrl = `${bike.model.toLowerCase()}-${bike.name.toLowerCase()}`;
+    const rateTypeUrl = 'sale'
+    const basePath = '/motorbikes-for-sale';
 
     // Dynamic schema generation
     const saleSchema = {
@@ -84,15 +76,6 @@ export default async function BikeDetailPage({ params }) {
         },
     };
 
-    // required to change JSON format to allow use as a prop
-    const plainBike = {
-        ...bike,
-        timestamp: {
-            seconds: bike.timestamp.seconds,
-            nanoseconds: bike.timestamp.nanoseconds
-        }
-    };
-
     const thumbSettings = {
         dots: false,
         arrows: false,
@@ -137,7 +120,7 @@ export default async function BikeDetailPage({ params }) {
                                 height={450}
                             />
                         ) : (
-                            <SliderBasic bike={plainBike} settings={fullSettings} fallbackImage={fullFallback} useFullUrl={true} width={600} height={450} />
+                            <SliderBasic bike={bike} settings={fullSettings} fallbackImage={fullFallback} useFullUrl={true} width={600} height={450} />
                         )}
                     </div>
                     <div className={styles.slider}>
@@ -149,7 +132,7 @@ export default async function BikeDetailPage({ params }) {
                                 height={225}
                             />
                         ) : (
-                            <SliderBasic bike={plainBike} settings={thumbSettings} fallbackImage={thumbFallback} />
+                            <SliderBasic bike={bike} settings={thumbSettings} fallbackImage={thumbFallback} />
                         )}
                     </div>
                     <div className={styles.details}>
@@ -208,7 +191,7 @@ export default async function BikeDetailPage({ params }) {
             <div className={styles.divider} style={{ margin: '0 auto' }}></div>
 
             <Suspense fallback={<p>Loading similar bikes...</p>}>
-                <SimilarBikes currentBike={plainBike} bikes={bikes} rateTypeUrl={rateTypeUrl} />
+                <SimilarBikes currentBike={bike} bikes={bikes} rateTypeUrl={rateTypeUrl} basePath={basePath} />
             </Suspense>
         </>
     );
