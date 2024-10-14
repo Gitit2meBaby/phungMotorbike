@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Mynerve } from 'next/font/google';
 
 import styles from '../styles/bikeCard.module.css';
+import { clearBikeCache } from '../app/lib/clearBikeCache';
 
 const mynerve = Mynerve({
     weight: ['400'],
@@ -26,6 +27,9 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin }) => {
 
     const formRedirectUrl = basePath === '/motorbikes-for-sale' ? `/buy-online/${bike.id}` : `/bookings/${bike.id}`
     const buttonText = basePath === '/motorbikes-for-sale' ? 'Buy Now' : 'Book Now'
+
+    console.log(bike.monthPrice);
+
 
     return (
         <>
@@ -53,6 +57,7 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin }) => {
                             <p className={styles.discount}>*discounts apply after the 1st week</p>
                         </>}
                     {basePath === '/motorbikes-for-sale' && !inDetails && <p>${bike.salePrice}<span>USD</span></p>}
+                    {basePath === '/monthly-rentals-hanoi' && !inDetails && <p>${bike.monthPrice}<span>USD</span></p>}
                     {basePath === '/admin' && (
                         <>
                             <p>City Price - ${bike.cityPrice}<span>USD</span></p>

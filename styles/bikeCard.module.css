@@ -153,4 +153,7 @@
   .similar h4 {
     font-size: 4rem;
   }
+}
+.similar a {
+  text-decoration: none;
 }/*# sourceMappingURL=bikeCard.module.css.map */

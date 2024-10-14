@@ -29,6 +29,7 @@ export async function getBikes(filters = {}) {
                 salePrice: bike.salePrice,
                 model: bike.model,
                 travelPrice: bike.travelPrice,
+                monthPrice: bike.monthPrice,
                 name: bike.name
             }));
 
