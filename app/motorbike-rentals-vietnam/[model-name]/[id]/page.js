@@ -35,6 +35,7 @@ export default async function BikeDetailPage({ params }) {
         "@context": "https://schema.org",
         "@type": "Vehicle",
         "name": `${bike.name}`,
+        "price": bike.travelPrice,
         "brand": {
             "@type": "Brand",
             "name": bike.model
@@ -144,10 +145,10 @@ export default async function BikeDetailPage({ params }) {
                         <p> Every outer city rental includes helmets, a rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You&apos;ll also receive insider tips on the best routes, must-visit destinations, and local attractions across Vietnam.</p>
                         <div className={styles.btnWrapper}>
                             <Link href="/motorbike-rentals-vietnam">
-                                <button className={styles.btn}>Return</button>
+                                <button className={styles.btn} aria-label='Return to motorbike rentals Vietnam'>Return</button>
                             </Link>
                             <Link href={`/bookings/${bike.id}`}>
-                                <button className={`${styles.btn} ${styles.pulse}`}>Book Now</button>
+                                <button className={`${styles.btn} ${styles.pulse}`} aria-label={`Book ${bike.model} ${bike.name} Now`}>Book Now</button>
                             </Link>
                         </div>
                     </div>
@@ -174,13 +175,13 @@ export default async function BikeDetailPage({ params }) {
                 <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>Get this {bike.model} for just ${bike.cityPrice}/day
                 </Link>
                 <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>
-                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get City Rates!</button>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }} aria-label={`Get City Rates for ${bike.model}`}>Get City Rates!</button>
                 </Link>
                 <h3>Planning to stay a while?</h3>
                 <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>Special rate for long stays and expats at just ₫{bike.monthPrice}/month!
                 </Link>
                 <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>
-                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get Monthly Rates!</button>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }} aria-label={`Get Monthly Rates for ${bike.model}`}>Get Monthly Rates!</button>
                 </Link>
             </div>
 

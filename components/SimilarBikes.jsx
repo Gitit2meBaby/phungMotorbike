@@ -8,6 +8,7 @@ import BikeCard from './BikeCard';
 import styles from '../styles/bikeCard.module.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from 'next/link';
 
 const SimilarBikes = ({ bikes, currentBike, rateTypeUrl, basePath }) => {
     const [isClient, setIsClient] = useState(false);
@@ -99,19 +100,23 @@ const SimilarBikes = ({ bikes, currentBike, rateTypeUrl, basePath }) => {
                     {similarBikes.length > 1 ? (
                         <Slider {...settings}>
                             {similarBikes.map(bike => (
-                                <BikeCard key={bike.id} bike={bike} basePath={basePath} inDetails={true} />
+                                <Link href={`/${basePath}/${bike.id}`} key={bike.id}>
+                                    <BikeCard key={bike.id} bike={bike} basePath={basePath} inDetails={true} />
+                                </Link>
                             ))}
                         </Slider>
                     ) : (
-                        <div className={styles.bikeCard}>
-                            <Image
-                                src={similarBikes[0].images[0].thumbURL}
-                                alt={`${similarBikes[0].model} ${similarBikes[0].name}`}
-                                width={300}
-                                height={225}
-                            />
-                            <h3>{`${similarBikes[0].model} ${similarBikes[0].name} ${similarBikes[0].capacity}cc`}</h3>
-                        </div>
+                        <Link href={`/${basePath}/${similarBikes[0].id}`}>
+                            <div className={styles.bikeCard}>
+                                <Image
+                                    src={similarBikes[0].images[0].thumbURL}
+                                    alt={`${similarBikes[0].model} ${similarBikes[0].name}`}
+                                    width={300}
+                                    height={225}
+                                />
+                                <h3>{`${similarBikes[0].model} ${similarBikes[0].name} ${similarBikes[0].capacity}cc`}</h3>
+                            </div>
+                        </Link>
                     )}
                 </section>
             )}

@@ -28,7 +28,7 @@ const SemiAuto = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} priority />
                 <h1>Semi-Auto</h1>
                 <h2>For Long-Term Renters</h2>
                 <div className={styles.padded}>

@@ -19,7 +19,7 @@ const Button = () => {
 
 
     return (
-        <button onClick={() => handleScroll()} className={styles.btn}>Contact Us</button>
+        <button aria-label='Contact Us' onClick={() => handleScroll()} className={styles.btn}>Contact Us</button>
     )
 }
 

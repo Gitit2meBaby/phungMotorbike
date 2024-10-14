@@ -9,11 +9,6 @@ import sunrise from '../../public/sunrise.webp';
 import { getBikes } from "../lib/getBikes";
 
 const Travel = async () => {
-    // const baseUrl = process.env.NEXT_PUBLIC_URL;
-    // const response = await fetch(`${baseUrl}/api/bikes`, {
-    //     next: { revalidate: 3600 } // Revalidate every hour
-    // });
-    // const bikes = await response.json();
     const bikes = await getBikes();
 
     const basePath = '/motorbike-rentals-vietnam';
@@ -24,7 +19,7 @@ const Travel = async () => {
 
             <div className={styles.divider} style={{ margin: '0 auto' }}></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} priority />
                 <h1 style={{ marginBottom: '1rem' }}>Motorbikes for Travelling</h1>
                 <div className={styles.deskContent}>
                     <Image className={styles.deskImg} src={sunrise} alt="Hanoi" width={600} height={600} priority />

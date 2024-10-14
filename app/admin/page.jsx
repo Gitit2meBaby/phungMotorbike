@@ -70,6 +70,7 @@ export default function AdminDashboardForm() {
 
         if (!bikeModel || !bikeName) {
             console.error('Bike model or name is missing:', { bikeModel, bikeName });
+            alert('Error: Bike model or name is missing');
             throw new Error('Bike model and name are required for uploading images.');
         }
 
@@ -110,7 +111,7 @@ export default function AdminDashboardForm() {
 
         if (files.length === 0) {
             console.error("No files to submit!");
-            return; // Exit if there are no files
+            return;
         }
         if (formData.honeypot) {
             console.log("Bot submission detected");

@@ -154,50 +154,59 @@ const BookingPage = ({ bike }) => {
     return (
         <main className={styles.bookings}>
             {formSubmitted ? (
-                <h1>Booked</h1>
+                <h1 aria-live="polite">Booking Confirmed</h1>
             ) : (
-                <h1>Booking</h1>
+                <h1 aria-live="polite">Book Your Motorbike</h1>
             )}
             <h2>Your {bike.model} {bike.name} {bike.capacity}cc</h2>
 
             {!formSubmitted ? (
                 <>
-                    <Image src={bike.images[0].thumbURL} alt={`${bike.model} ${bike.name}`} width={300} height={225}></Image>
+                    <Image
+                        src={bike.images[0].thumbURL}
+                        alt={`Image of ${bike.model} ${bike.name}`}
+                        width={300}
+                        height={225}
+                        priority
+                    />
 
                     {/* Personal Details Section */}
                     <div className={styles.details}>
                         <div>
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name">Full Name</label>
                             <input
                                 id="name"
                                 type="text"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
-                                placeholder='*required'
+                                placeholder="*required"
+                                aria-required="true"
                             />
                         </div>
                         <div>
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">Email Address</label>
                             <input
                                 id="email"
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                placeholder='*required'
+                                placeholder="*required"
+                                aria-required="true"
+                                aria-describedby="emailError"
                                 onFocus={() => setEmailError(false)}
                             />
                         </div>
-                        {emailError && <p style={{ color: 'red', fontStyle: 'italic' }}>*Please provide a valid email.</p>}
+                        {emailError && <p id="emailError" style={{ color: 'red', fontStyle: 'italic' }}>*Please provide a valid email address.</p>}
                         <div>
-                            <label htmlFor="phone">Phone</label>
+                            <label htmlFor="phone">Phone Number</label>
                             <input
                                 id="phone"
                                 type="tel"
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
-                                placeholder='optional'
+                                placeholder="optional"
                             />
                         </div>
                     </div>
@@ -212,8 +221,9 @@ const BookingPage = ({ bike }) => {
                                     type="date"
                                     value={startDate}
                                     onChange={(e) => setStartDate(e.target.value)}
+                                    aria-required="true"
                                 />
-                                <CalendarIcon />
+                                <CalendarIcon aria-hidden="true" />
                             </div>
                         </div>
                         <div>
@@ -224,8 +234,9 @@ const BookingPage = ({ bike }) => {
                                     type="date"
                                     value={endDate}
                                     onChange={(e) => setEndDate(e.target.value)}
+                                    aria-required="true"
                                 />
-                                <CalendarIcon />
+                                <CalendarIcon aria-hidden="true" />
                             </div>
                         </div>
                         {dateError && <p style={{ color: 'red' }}>End date cannot be before start date.</p>}
@@ -238,15 +249,23 @@ const BookingPage = ({ bike }) => {
                     {/* Rental Type Section */}
                     <div className={styles.rentType} role="group" aria-labelledby="rental-type-label">
                         <span id="rental-type-label">Rental Type</span>
-                        <svg onClick={() => setShowToolTip(true)} stroke="currentColor" fill="#e97f26" strokeWidth="2" viewBox="0 0 1024 1024" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 708c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm62.9-219.5a48.3 48.3 0 0 0-30.9 44.8V620c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-21.5c0-23.1 6.7-45.9 19.9-64.9 12.9-18.6 30.9-32.8 52.1-40.9 34-13.1 56-41.6 56-72.7 0-44.1-43.1-80-96-80s-96 35.9-96 80v7.6c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V420c0-39.3 17.2-76 48.4-103.3C430.4 290.4 470 276 512 276s81.6 14.5 111.6 40.7C654.8 344 672 380.7 672 420c0 57.8-38.1 109.8-97.1 132.5z"></path></svg>
+                        <button aria-label="View pricing structure" onClick={() => setShowToolTip(true)}>
+                            <svg stroke="currentColor" fill="#e97f26" strokeWidth="2" viewBox="0 0 1024 1024" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="..."></path>
+                            </svg>
+                        </button>
 
                         {showToolTip && (
-                            <div className={styles.toolTip}>
-                                <svg onClick={() => setShowToolTip(false)} stroke="#e97f26" fill="#e97f26" strokeWidth="1" viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg>
+                            <div className={styles.toolTip} aria-live="polite">
+                                <button aria-label="Close tooltip" onClick={() => setShowToolTip(false)}>
+                                    <svg stroke="#e97f26" fill="#e97f26" strokeWidth="1" viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="..."></path>
+                                    </svg>
+                                </button>
                                 <h4>Pricing Structure</h4>
-                                <p>*Inner city rentals are limited to 50km/day and are not permitted outside Hanoi city limits.</p>
-                                <p>*Unlimited km&apos;s allows you to travel anywhere in Vietnam, a 5% discount/week will be applied for longer rentals.</p>
-                                <p>*Monthly rates are for travel inside Hanoi only, and are limited to 1000kms/month.</p>
+                                <p>*Inner city rentals limited to 50km/day within Hanoi city limits.</p>
+                                <p>*Unlimited kms allows travel anywhere in Vietnam. A 5% discount applies for longer rentals.</p>
+                                <p>*Monthly rates are for Hanoi only, with a 1000km/month limit.</p>
                             </div>
                         )}
 
@@ -291,37 +310,30 @@ const BookingPage = ({ bike }) => {
                         {rentalType === 'monthly' && monthlyError && (
                             <p style={{ color: 'red' }}>Monthly rental must be between 28 and 31 days.</p>
                         )}
-
-                        {/* Honeypot field - hidden from users but visible to bots */}
-                        <input
-                            type="text"
-                            name="honeypot"
-                            value={honeypot}
-                            onChange={() => setHoneyPot(true)}
-                            style={{ display: 'none' }}
-                            tabIndex="-1"
-                            autoComplete="off"
-                        />
                     </div>
 
                     <div className={styles.totals}>
                         {rentalType === 'travel' && discount > 0 && (
                             <h3>Discount applied: <span>{discount}%</span></h3>
                         )}
-
-                        <h3>Total Price: <span >{rentalType === 'monthly' ? 'đ' : '$'}{roundedTotalPrice}<span >{rentalType === 'monthly' ? 'VND' : 'USD'}</span></span></h3>
+                        <h3>Total Price: <span>{rentalType === 'monthly' ? 'đ' : '$'}{roundedTotalPrice} <span>{rentalType === 'monthly' ? 'VND' : 'USD'}</span></span></h3>
                     </div>
 
+                    {/* Buttons */}
                     <div className={styles.btnWrapper}>
-                        <button className={styles.btn}
-                            style={error ? { filter: 'blur(2px)', pointerEvents: 'none' } : {}}
+                        <button
+                            className={styles.btn}
                             onClick={(e) => handleBookNow(e)}
+                            disabled={error}
+                            aria-disabled={error}
                         >
                             Book Now (Pay Later)
                         </button>
-                        <button className={styles.btn}
-                            style={error ? { filter: 'blur(2px)', pointerEvents: 'none' } : {}}
+                        <button
+                            className={styles.btn}
                             onClick={() => handlePayNow()}
+                            disabled={error}
+                            aria-disabled={error}
                         >
                             Pay Now (4.4% Surcharge)
                         </button>
@@ -332,7 +344,7 @@ const BookingPage = ({ bike }) => {
                 <div className={styles.success}>
                     <Image
                         src={success}
-                        alt="success"
+                        alt="Booking successful"
                         width={300}
                         height={300}
                     />
@@ -340,12 +352,10 @@ const BookingPage = ({ bike }) => {
                     <p>A confirmation email has been sent to {email}.</p>
                     <p>See you on {startDate}!</p>
                     <Link href="/">
-                        <button className={styles.btn}>Return to Home</button>
+                        <button className={styles.btn} aria-label="Return to Home">Return to Home</button>
                     </Link>
                 </div>
             )}
         </main>
     );
-};
-
-export default BookingPage;
+}    

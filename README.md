@@ -4,8 +4,9 @@ A heavy emphasis on SSR was made to enable better SEO.
 
 
 ## For Devs
-- /lib/getBikes handles the Firebase request
-- Firebase is called in the root and then an API has been created /bikes/route.js to handle subsequent fetching and caching.
+- /lib/getBikesFromFirebase handles the Firebase request
+- /lib/getBikes handles caching all the data for the rest of the website navigation.
+- /lib/clearCache is a function that is only called from the admin panel, it occurs when a new bike is uploaded, deleted or edited.
 - Contact Form, booking form and purchase form are handled by PostMark.
 - app/api/bookings/route.js - recieves form data and sends an email to both the client and the .env FROM_EMAIL. both HTML and plain text.
 - app/api/buy-online/route.js is very similar
@@ -29,7 +30,6 @@ Edit/Remove bike fetches all matching params with firebase, users can use setDoc
 # To Do
 Change postMark account to client address
 Paypal account
-Backdrop images removal for home page
 Style mobile nav
 sitemap
 robots.txt

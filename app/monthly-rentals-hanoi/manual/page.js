@@ -29,7 +29,7 @@ const Manual = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} priority />
                 <h1>Manual</h1>
                 <h2>The Classic Ride</h2>
                 <div className={styles.padded}>

@@ -13,7 +13,6 @@ import motorcycle from '../../../../public/motorcycle.png'
 
 const SimilarBikes = dynamic(() => import('../../../../components/SimilarBikes'), { ssr: false });
 
-
 export default async function BikeDetailPage({ params }) {
     const { id } = params;
 
@@ -35,6 +34,7 @@ export default async function BikeDetailPage({ params }) {
         "@context": "https://schema.org",
         "@type": "Vehicle",
         "name": `${bike.name}`,
+        "price": bike.cityPrice,
         "brand": {
             "@type": "Brand",
             "name": bike.model
@@ -143,10 +143,10 @@ export default async function BikeDetailPage({ params }) {
                         <p> All inner city rentals include helmets, a rack for your luggage, a phone holder for easy navigation, and secure rubber straps. You&apos;ll also receive insider tips on the best routes, must-visit destinations, and local attractions in Hanoi.</p>
                         <div className={styles.btnWrapper}>
                             <Link href="/motorbikes-for-rent-hanoi">
-                                <button className={styles.btn}>Return</button>
+                                <button className={styles.btn} aria-label='Return to motorbikes for rent Hanoi'>Return</button>
                             </Link>
                             <Link href={`/bookings/${bike.id}`}>
-                                <button className={`${styles.btn} ${styles.pulse}`}>Book Now</button>
+                                <button className={`${styles.btn} ${styles.pulse}`} aria-label={`Book ${bike.model} ${bike.name} Now`}>Book Now</button>
                             </Link>
                         </div>
                     </div>
@@ -173,13 +173,13 @@ export default async function BikeDetailPage({ params }) {
                 <Link href={`/motorbike-rentals-vietnam/${bikeUrl}/${bike.id}`}>Get this {bike.model} for just ${bike.cityPrice}/day with weekly discounts for longer rental periods!
                 </Link>
                 <Link href={`/motorbike-rentals-vietnam/${bikeUrl}/${bike.id}`}>
-                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Show Travel Rates!</button>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }} aria-label={`Show Travel Rates for ${bike.model}`}>Show Travel Rates!</button>
                 </Link>
                 <h3>Planning to stay a while?</h3>
                 <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>Special rate for long stays and expats at just ₫{bike.monthPrice}/month!
                 </Link>
                 <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>
-                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get Monthly Rates!</button>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }} aria-label={`Get Monthly Rates for ${bike.model}`}>Get Monthly Rates!</button>
                 </Link>
             </div>
 

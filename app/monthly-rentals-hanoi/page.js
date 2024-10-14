@@ -9,11 +9,6 @@ import hanoi from '../../public/hanoi.webp';
 import { getBikes } from '../lib/getBikes';
 
 const Hanoi = async () => {
-    // const baseUrl = process.env.NEXT_PUBLIC_URL;
-    // const response = await fetch(`${baseUrl}/api/bikes`, {
-    //     next: { revalidate: 3600 } // Revalidate every hour
-    // });
-    // const bikes = await response.json();
     const bikes = await getBikes();
 
     const basePath = '/monthly-rentals-hanoi';
@@ -25,7 +20,7 @@ const Hanoi = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="Hanoi" width={300} height={300} priority />
                 <h1>Monthly Rentals</h1>
                 <div className={styles.deskContent}>
                     <Image className={styles.deskImg} src={hanoi} alt="Hanoi" width={500} height={750} priority />

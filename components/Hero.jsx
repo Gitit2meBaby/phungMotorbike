@@ -14,6 +14,7 @@ const Hero = () => {
                         alt="phung motorbike logo"
                         width={220}
                         height={130}
+                        priority
                     />
                 </div>
                 <Image
@@ -21,6 +22,7 @@ const Hero = () => {
                     alt="phung motorbike logo"
                     width={330}
                     height={130}
+                    priority
                 />
             </div>
 

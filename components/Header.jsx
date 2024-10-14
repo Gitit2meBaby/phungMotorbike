@@ -92,9 +92,9 @@ const Header = () => {
         <>
             <header className={styles.headerDesk}>
                 <div className={styles.headLogo}>
-                    <Image src={phung} alt="phung motorbike logo" width={140} height={50} />
+                    <Image src={phung} alt="phung motorbike logo" width={140} height={50} priority />
                     <div>
-                        <Image src={motorbike} alt="phung motorbike logo" width={220} height={50} />
+                        <Image src={motorbike} alt="phung motorbike logo" width={220} height={50} priority />
                     </div>
                 </div>
                 <nav className={styles.nav}>
@@ -150,9 +150,9 @@ const Header = () => {
                     <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path>
                 </svg>
                 <div className={styles.headLogo} style={{ display: pathname === '/' ? 'none' : 'block' }}>
-                    <Image src={phung} alt="phung motorbike logo" width={120} height={50} />
+                    <Image src={phung} alt="phung motorbike logo" width={120} height={50} priority />
                     <div>
-                        <Image src={motorbike} alt="phung motorbike logo" width={180} height={50} />
+                        <Image src={motorbike} alt="phung motorbike logo" width={180} height={50} priority />
                     </div>
                 </div>
             </header>
@@ -168,7 +168,7 @@ const Header = () => {
             </aside>
 
             {showNav && (
-                <button className={styles.closeBtn} onClick={() => setShowNav(false)}>CLOSE</button>
+                <button aria-label='Close Navigation' className={styles.closeBtn} onClick={() => setShowNav(false)}>CLOSE</button>
             )}
         </>
     );

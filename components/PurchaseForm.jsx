@@ -6,6 +6,7 @@ import Image from 'next/image';
 import success from '../public/success.webp';
 import { scrollToTop } from '../app/lib/scrollToTop';
 import PayPalButton from './PayPalButton';
+import { notFound } from 'next/navigation';
 
 const PurchaseForm = ({ bike }) => {
 
@@ -22,6 +23,10 @@ const PurchaseForm = ({ bike }) => {
     const [formSubmitted, setFormSubmitted] = useState(false);
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!bike) {
+        return notFound();
+    }
 
     useEffect(() => {
         // Check if all required fields are filled and there's no date or monthly error
@@ -88,17 +93,24 @@ const PurchaseForm = ({ bike }) => {
     };
 
     return (
-        <main className={styles.bookings}>
+        <main className={styles.bookings} aria-labelledby="purchase-heading">
             {formSubmitted ? (
-                <h1>Ready for Pickup</h1>
+                <h1 id="purchase-heading">Ready for Pickup</h1>
             ) : (
-                <h1>Purchase</h1>
+                <h1 id="purchase-heading">Purchase</h1>
             )}
             <h2>Your new {bike.model} {bike.name} {bike.capacity}cc</h2>
 
             {!formSubmitted ? (
                 <>
-                    <Image src={bike.images[0].thumbURL} alt={`${bike.model} ${bike.name}`} width={300} height={225}></Image>
+                    <Image
+                        src={bike.images[0].thumbURL}
+                        alt={`${bike.model} ${bike.name}`}
+                        width={300}
+                        height={225}
+                        priority
+                        aria-hidden="true"
+                    />
 
                     {/* Personal Details Section */}
                     <div className={styles.details}>
@@ -110,7 +122,8 @@ const PurchaseForm = ({ bike }) => {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
-                                placeholder='*required'
+                                placeholder="*required"
+                                aria-label="Enter your full name"
                             />
                         </div>
                         <div>
@@ -121,11 +134,20 @@ const PurchaseForm = ({ bike }) => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                placeholder='*required'
+                                placeholder="*required"
+                                aria-label="Enter your email address"
                                 onFocus={() => setEmailError(false)}
                             />
                         </div>
-                        {emailError && <p style={{ color: 'red', fontStyle: 'italic' }}>*Please provide a valid email.</p>}
+                        {emailError && (
+                            <p
+                                style={{ color: 'red', fontStyle: 'italic' }}
+                                role="alert"
+                                aria-live="assertive"
+                            >
+                                *Please provide a valid email.
+                            </p>
+                        )}
                         <div>
                             <label htmlFor="phone">Phone</label>
                             <input
@@ -133,7 +155,8 @@ const PurchaseForm = ({ bike }) => {
                                 type="tel"
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
-                                placeholder='optional'
+                                placeholder="optional"
+                                aria-label="Enter your phone number (optional)"
                             />
                         </div>
                     </div>
@@ -148,6 +171,7 @@ const PurchaseForm = ({ bike }) => {
                             style={{ display: 'none' }}
                             tabIndex="-1"
                             autoComplete="off"
+                            aria-hidden="true"
                         />
                     </div>
 
@@ -156,14 +180,16 @@ const PurchaseForm = ({ bike }) => {
                     </div>
 
                     <div className={styles.btnWrapper}>
-                        <button className={styles.btn}
+                        <button
+                            className={styles.btn}
                             style={error ? { filter: 'blur(2px)', pointerEvents: 'none' } : {}}
                             onClick={(e) => handleBuyNow(e)}
+                            aria-label="Reserve your bike now and pay later"
                         >
                             Reserve Now (Pay Later)
                         </button>
 
-                        <PayPalButton total={bike.salePrice} />
+                        <PayPalButton total={bike.salePrice} aria-label="Pay with PayPal" />
                     </div>
                 </>
             ) : (
@@ -173,12 +199,14 @@ const PurchaseForm = ({ bike }) => {
                         alt="success"
                         width={300}
                         height={300}
+                        aria-hidden="true"
+                        priority
                     />
                     <p>Congratulations {name} on your new bike!</p>
                     <p>A confirmation email has been sent to {email}.</p>
                     <p>We look forward to seeing you in store for the final handover.</p>
                     <Link href="/">
-                        <button className={styles.btn}>Return to Home</button>
+                        <button className={styles.btn} aria-label="Return to home page">Return to Home</button>
                     </Link>
                 </div>
             )}

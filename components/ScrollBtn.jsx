@@ -57,6 +57,7 @@ const ScrollBtn = () => {
                 onMouseOut={(e) => {
                     e.currentTarget.style.opacity = isScrolling ? 0.5 : 1;
                 }}
+                aria-label="Scroll to top"
             >
                 <svg
                     style={{ marginBottom: '-.2rem' }}

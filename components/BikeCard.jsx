@@ -5,7 +5,6 @@ import { Mynerve } from 'next/font/google';
 
 import styles from '../styles/bikeCard.module.css';
 
-// Move the font loader to the top-level scope
 const mynerve = Mynerve({
     weight: ['400'],
     subsets: ['latin'],
@@ -71,9 +70,9 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin }) => {
                     <div className={styles.btnWrapper}
                         style={inDetails ? { borderBottom: 'none', marginTop: '1.5rem' } : { borderBottom: '1px solid #e97f26' }}>
                         <Link href={formRedirectUrl}>
-                            <button className={styles.activeBtn}>{buttonText}</button>
+                            <button aria-label={buttonText} className={styles.activeBtn}>{buttonText}</button>
                         </Link>
-                        <Link href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`}>
+                        <Link aria-label={`View ${bike.name} ${bike.model} details`} href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`}>
                             <button className={styles.btn}>Details</button>
                         </Link>
                     </div>

@@ -8,15 +8,6 @@ import camera from '../../../public/camera.png';
 
 const Automatic = async () => {
 
-    // const baseUrl = process.env.NEXT_PUBLIC_URL;
-    // let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
-    //     headers: { 'Cache-Control': 'no-store' }
-    // });
-    // let bikes = await data.json()
-
-    // bikes.sort((a, b) => a.cityPrice - b.cityPrice);
-    // const automaticBikes = bikes.filter(bike => bike.type === 'Automatic');
-
     const automaticBikes = await getBikes({ type: 'Automatic' });
 
     const basePath = '/motorbike-rentals-vietnam';
@@ -28,7 +19,7 @@ const Automatic = async () => {
                 style={{ margin: '0 auto' }}
             ></div>
             <section className={styles.hanoiRentals}>
-                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} />
+                <Image className={styles.cameraImg} src={camera} alt="camera icon" width={300} height={300} priority />
                 <h1>Automatic</h1>
                 <h2>Effortless Exploration</h2>
                 <p>Experience the convenience of our automatic scooters for a hassle-free journey through Vietnam.</p>

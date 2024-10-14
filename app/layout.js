@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 import ScrollBtn from '../components/ScrollBtn';
 
 const kanit = Kanit({
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['400', '700'],
   subsets: ['latin', 'vietnamese'],
 });
 

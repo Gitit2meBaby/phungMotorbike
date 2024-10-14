@@ -36,6 +36,7 @@ export default async function BikeDetailPage({ params }) {
         "@context": "https://schema.org",
         "@type": "Product",
         "name": `${bike.name}`,
+        "price": bike.salePrice,
         "brand": {
             "@type": "Brand",
             "name": bike.model
@@ -118,6 +119,7 @@ export default async function BikeDetailPage({ params }) {
                                 alt={`${bike.model} ${bike.name}`}
                                 width={600}
                                 height={450}
+                                priority
                             />
                         ) : (
                             <SliderBasic bike={bike} settings={fullSettings} fallbackImage={fullFallback} useFullUrl={true} width={600} height={450} />
@@ -130,13 +132,14 @@ export default async function BikeDetailPage({ params }) {
                                 alt={`${bike.model} ${bike.name}`}
                                 width={300}
                                 height={225}
+                                priority
                             />
                         ) : (
                             <SliderBasic bike={bike} settings={thumbSettings} fallbackImage={thumbFallback} />
                         )}
                     </div>
                     <div className={styles.details}>
-                        <Image src={motorcycle} width={350} height={350} alt='motorbike icon'></Image>
+                        <Image src={motorcycle} width={350} height={350} alt='motorbike icon' priority></Image>
                         <h2>Selling Price - ${bike.salePrice} <span>USD</span></h2>
                         <p className={styles.transmission}>Transmission: {bike.type}</p>
                         <p>{bike.description}</p>
@@ -148,10 +151,10 @@ export default async function BikeDetailPage({ params }) {
                         <p>Whether you&apos;re planning a short trip or a cross-country expedition, this bike is ready to take you there. Dont miss this opportunity to own a piece of adventure. Your dream of exploring Vietnam on two wheels is closer than you think. Contact us today to make this bike yours!</p>
                         <div className={styles.btnWrapper}>
                             <Link href="/motorbikes-for-sale">
-                                <button className={styles.btn}>Return</button>
+                                <button className={styles.btn} aria-label="Return to Motorbikes for Sale Page">Return</button>
                             </Link>
                             <Link href={`/buy-online/${bike.id}`}>
-                                <button className={`${styles.btn} ${styles.pulse}`}>Buy Now</button>
+                                <button className={`${styles.btn} ${styles.pulse}`} aria-label={`Buy ${bike.model} ${bike.name} Now`}>Buy Now</button>
                             </Link>
                         </div>
                     </div>
@@ -173,18 +176,21 @@ export default async function BikeDetailPage({ params }) {
             </section>
 
             <div className={styles.options}>
-                <Image src={think} width={300} height={300} alt='thinking emoji'></Image>
+                <Image src={think} width={300} height={300} alt="thinking emoji" />
                 <h3>Want to rent before you buy?</h3>
-                <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>Get this {bike.model} for just ${bike.cityPrice}/day
+                <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>
+                    Get this {bike.model} for just ${bike.cityPrice}/day
                 </Link>
                 <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>
-                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get City Rates!</button>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }} aria-label={`Get City Rates for ${bike.model}`}>Get City Rates!</button>
                 </Link>
+
                 <h3>Just looking for a rental in Hanoi?</h3>
-                <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>Special rate for long stays and expats at just ₫{bike.monthPrice}/month!
+                <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>
+                    Special rate for long stays and expats at just ₫{bike.monthPrice}/month!
                 </Link>
                 <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>
-                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get Monthly Rates!</button>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }} aria-label={`Get Monthly Rates for ${bike.model}`}>Get Monthly Rates!</button>
                 </Link>
             </div>
 

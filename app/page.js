@@ -14,7 +14,7 @@ const structuredData = {
   '@type': 'Organization',
   name: 'Phung Motorbike',
   url: 'https://phungmotorbike.com',
-  logo: 'https://phungmotorbike.com/assets/logo.webp', // Ensure this points to the correct path of your logo
+  logo: 'https://phungmotorbike.com/icon.jpg',
   description: 'Phung Motorbike offers motorbike and scooter rentals and sales in Hanoi, Vietnam. Reliable, affordable, and perfect for travelers and locals.',
   contactPoint: {
     '@type': 'ContactPoint',
