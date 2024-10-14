@@ -8,6 +8,7 @@ import { deleteObject, ref } from 'firebase/storage';
 import BikeCard from './BikeCard';
 
 import { scrollToTop } from '../app/lib/scrollToTop';
+import { clearBikeCache } from '../app/lib/clearBikeCache';
 
 
 const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
@@ -139,6 +140,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
         checkForDuplicates();
         setDeletedBikes((prev) => [...prev, id]);
         alert("Motorbike removed from database");
+        clearBikeCache();
         scrollToTop();
     }
 
