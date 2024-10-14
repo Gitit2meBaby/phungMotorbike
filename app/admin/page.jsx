@@ -290,7 +290,6 @@ export default function AdminDashboardForm() {
                                     value="automatic"
                                     checked={formData.type === 'automatic'}
                                     onChange={(e) => handleType(e)}
-                                    aria-label="Automatic"
                                 />
                                 <label htmlFor="type-automatic">Automatic</label>
                             </div>
@@ -303,7 +302,6 @@ export default function AdminDashboardForm() {
                                     value="semi-auto"
                                     checked={formData.type === 'semi-auto'}
                                     onChange={(e) => handleType(e)}
-                                    aria-label="Semi-Automatic"
                                 />
                                 <label htmlFor="type-semi-auto">Semi-Automatic</label>
                             </div>
@@ -316,7 +314,6 @@ export default function AdminDashboardForm() {
                                     value="manual"
                                     checked={formData.type === 'manual'}
                                     onChange={(e) => handleType(e)}
-                                    aria-label="Manual"
                                 />
                                 <label htmlFor="type-manual">Manual</label>
                             </div>

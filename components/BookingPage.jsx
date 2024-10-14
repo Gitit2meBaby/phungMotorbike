@@ -181,7 +181,6 @@ const BookingPage = ({ bike }) => {
                                 onChange={(e) => setName(e.target.value)}
                                 required
                                 placeholder="*required"
-                                aria-required="true"
                             />
                         </div>
                         <div>
@@ -193,8 +192,6 @@ const BookingPage = ({ bike }) => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                                 placeholder="*required"
-                                aria-required="true"
-                                aria-describedby="emailError"
                                 onFocus={() => setEmailError(false)}
                             />
                         </div>
@@ -221,9 +218,8 @@ const BookingPage = ({ bike }) => {
                                     type="date"
                                     value={startDate}
                                     onChange={(e) => setStartDate(e.target.value)}
-                                    aria-required="true"
                                 />
-                                <CalendarIcon aria-hidden="true" />
+                                <CalendarIcon />
                             </div>
                         </div>
                         <div>
@@ -234,9 +230,8 @@ const BookingPage = ({ bike }) => {
                                     type="date"
                                     value={endDate}
                                     onChange={(e) => setEndDate(e.target.value)}
-                                    aria-required="true"
                                 />
-                                <CalendarIcon aria-hidden="true" />
+                                <CalendarIcon />
                             </div>
                         </div>
                         {dateError && <p style={{ color: 'red' }}>End date cannot be before start date.</p>}
@@ -247,17 +242,17 @@ const BookingPage = ({ bike }) => {
                     </div>
 
                     {/* Rental Type Section */}
-                    <div className={styles.rentType} role="group" aria-labelledby="rental-type-label">
+                    <div className={styles.rentType} role="group">
                         <span id="rental-type-label">Rental Type</span>
-                        <button aria-label="View pricing structure" onClick={() => setShowToolTip(true)}>
+                        <button onClick={() => setShowToolTip(true)}>
                             <svg stroke="currentColor" fill="#e97f26" strokeWidth="2" viewBox="0 0 1024 1024" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="..."></path>
                             </svg>
                         </button>
 
                         {showToolTip && (
-                            <div className={styles.toolTip} aria-live="polite">
-                                <button aria-label="Close tooltip" onClick={() => setShowToolTip(false)}>
+                            <div className={styles.toolTip}>
+                                <button onClick={() => setShowToolTip(false)}>
                                     <svg stroke="#e97f26" fill="#e97f26" strokeWidth="1" viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                                         <path d="..."></path>
                                     </svg>
@@ -277,7 +272,6 @@ const BookingPage = ({ bike }) => {
                                 name="rentalType"
                                 checked={rentalType === "city"}
                                 onChange={() => setRentalType("city")}
-                                aria-checked={rentalType === "city"}
                             />
                             <label htmlFor="city">Inner City Rental (${bike.cityPrice}/day)</label>
                         </div>
@@ -290,7 +284,6 @@ const BookingPage = ({ bike }) => {
                                 name="rentalType"
                                 checked={rentalType === "travel"}
                                 onChange={() => setRentalType("travel")}
-                                aria-checked={rentalType === "travel"}
                             />
                             <label htmlFor="travel">Unlimited Kms (${bike.travelPrice}/day)</label>
                         </div>
@@ -303,7 +296,6 @@ const BookingPage = ({ bike }) => {
                                 name="rentalType"
                                 checked={rentalType === "monthly"}
                                 onChange={() => setRentalType("monthly")}
-                                aria-checked={rentalType === "monthly"}
                             />
                             <label htmlFor="monthly">Monthly (đ{bike.monthPrice}/month)</label>
                         </div>
@@ -325,7 +317,6 @@ const BookingPage = ({ bike }) => {
                             className={styles.btn}
                             onClick={(e) => handleBookNow(e)}
                             disabled={error}
-                            aria-disabled={error}
                         >
                             Book Now (Pay Later)
                         </button>
@@ -333,7 +324,6 @@ const BookingPage = ({ bike }) => {
                             className={styles.btn}
                             onClick={() => handlePayNow()}
                             disabled={error}
-                            aria-disabled={error}
                         >
                             Pay Now (4.4% Surcharge)
                         </button>
@@ -352,7 +342,7 @@ const BookingPage = ({ bike }) => {
                     <p>A confirmation email has been sent to {email}.</p>
                     <p>See you on {startDate}!</p>
                     <Link href="/">
-                        <button className={styles.btn} aria-label="Return to Home">Return to Home</button>
+                        <button className={styles.btn}>Return to Home</button>
                     </Link>
                 </div>
             )}

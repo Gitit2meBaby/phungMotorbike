@@ -57,7 +57,7 @@ const ContactForm = () => {
         <section className={styles.form} id='contactForm'>
             <h4>Contact Us</h4>
             {!messageSent ? (
-                <form onSubmit={handleSubmit} aria-labelledby="contactForm">
+                <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="name">Name</label>
                         <input
@@ -67,7 +67,6 @@ const ContactForm = () => {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            aria-label="Enter your full name"
                         />
                     </div>
                     <div>
@@ -79,7 +78,6 @@ const ContactForm = () => {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            aria-label="Enter your email address"
                         />
                     </div>
                     <div>
@@ -91,7 +89,6 @@ const ContactForm = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             required
-                            aria-label="Enter your phone number"
                         />
                     </div>
                     <div>
@@ -103,7 +100,6 @@ const ContactForm = () => {
                             onChange={handleChange}
                             placeholder="Ask us anything! We will get back to you ASAP!"
                             required
-                            aria-label="Enter your message"
                         />
                     </div>
                     {/* Honeypot field - hidden from users but visible to bots */}
@@ -115,9 +111,8 @@ const ContactForm = () => {
                         style={{ display: 'none' }}
                         tabIndex="-1"
                         autoComplete="off"
-                        aria-hidden="true"
                     />
-                    <button className={styles.btn} type="submit" aria-label="Submit contact form">Submit</button>
+                    <button className={styles.btn} type="submit">Submit</button>
                 </form>
             ) : (
                 <p style={{ textAlign: 'center', color: '#ebebeb', letterSpacing: '1px', marginTop: '3rem', padding: '0 2rem' }}>
