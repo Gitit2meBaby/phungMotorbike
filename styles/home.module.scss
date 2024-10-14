@@ -26,6 +26,12 @@
         }
     }
 
+    @include phoneLandscape {
+        h1 {
+            display: none;
+        }
+    }
+
     @include tablet {
         display: flex;
         flex-direction: column-reverse;

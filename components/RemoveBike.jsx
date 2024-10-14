@@ -137,7 +137,6 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     const handleRemove = (e, id) => {
         e.preventDefault()
         handleDeleteDoc(id);
-        checkForDuplicates();
         setDeletedBikes((prev) => [...prev, id]);
         alert("Motorbike removed from database");
         clearBikeCache();

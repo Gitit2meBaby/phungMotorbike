@@ -144,16 +144,7 @@
     justify-content: space-around;
     margin: 3rem 0 0 0;
     width: 90%;
-    border-bottom: 1px solid $theme;
     padding-bottom: 3rem;
-
-    @include desktop {
-        border-bottom: none;
-    }
-
-    @include tablet {
-        border-bottom: none;
-    }
 }
 
 .btn {

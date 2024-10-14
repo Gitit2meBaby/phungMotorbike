@@ -141,18 +141,7 @@
   justify-content: space-around;
   margin: 3rem 0 0 0;
   width: 90%;
-  border-bottom: 1px solid #e97f26;
   padding-bottom: 3rem;
-}
-@media (min-width: 1025px) {
-  .btnWrapper {
-    border-bottom: none;
-  }
-}
-@media (min-width: 767px) and (max-width: 1024px) {
-  .btnWrapper {
-    border-bottom: none;
-  }
 }
 
 .btn {
