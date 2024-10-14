@@ -19,7 +19,7 @@ const Button = ({ inCard }) => {
 
 
     return (
-        <button aria-label='Contact Us'
+        <button
             onClick={() => handleScroll()}
             className={styles.btn}
             style={inCard ? { marginTop: '2rem' } : {}}

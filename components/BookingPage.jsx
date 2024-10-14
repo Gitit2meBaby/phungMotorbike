@@ -154,9 +154,9 @@ const BookingPage = ({ bike }) => {
     return (
         <main className={styles.bookings}>
             {formSubmitted ? (
-                <h1 aria-live="polite">Booking Confirmed</h1>
+                <h1 >Booking Confirmed</h1>
             ) : (
-                <h1 aria-live="polite">Book Your Motorbike</h1>
+                <h1>Book Your Motorbike</h1>
             )}
             <h2>Your {bike.model} {bike.name} {bike.capacity}cc</h2>
 

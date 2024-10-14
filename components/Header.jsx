@@ -168,7 +168,7 @@ const Header = () => {
             </aside>
 
             {showNav && (
-                <button aria-label='Close Navigation' className={styles.closeBtn} onClick={() => setShowNav(false)}>CLOSE</button>
+                <button className={styles.closeBtn} onClick={() => setShowNav(false)}>CLOSE</button>
             )}
         </>
     );

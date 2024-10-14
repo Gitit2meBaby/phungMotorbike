@@ -69,9 +69,9 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin }) => {
                 {!inAdmin && (
                     <div className={styles.btnWrapper}
                         style={inDetails ? { borderBottom: 'none', marginTop: '1.5rem' } : { borderBottom: '1px solid #e97f26' }}>
-                        <Link href={formRedirectUrl} aria-label={buttonText} className={styles.activeBtn}>{buttonText}
+                        <Link href={formRedirectUrl} className={styles.activeBtn}>{buttonText}
                         </Link>
-                        <Link aria-label={`View ${bike.name} ${bike.model} details`} href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`} className={styles.btn}>Details
+                        <Link href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`} className={styles.btn}>Details
                         </Link>
                     </div>
                 )}

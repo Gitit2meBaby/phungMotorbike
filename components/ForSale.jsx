@@ -16,7 +16,7 @@ const ForSale = () => {
                 <SaleSlider />
 
                 <div className={styles.btnHolder}>
-                    <Link href="/motorbikes-for-sale" aria-label='View All Motorbikes for Sale' className={styles.btn}>View All</Link>
+                    <Link href="/motorbikes-for-sale" className={styles.btn}>View All</Link>
                 </div>
             </section>
         </>

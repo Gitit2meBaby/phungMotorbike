@@ -28,7 +28,6 @@ const Filter = ({ slug }) => {
                     className={`${btnStyles.btn} ${isActive(`${slug}/automatic`) || isHovered('automatic') ? btnStyles.activeBtn : ''}`}
                     onMouseEnter={() => handleMouseEnter('automatic')}
                     onMouseLeave={handleMouseLeave}
-                    aria-label='View automatic bikes'
                 >
                     Auto
                 </button>
@@ -38,7 +37,6 @@ const Filter = ({ slug }) => {
                     className={`${btnStyles.btn} ${isActive(`${slug}/semi-auto`) || isHovered('semi-auto') ? btnStyles.activeBtn : ''}`}
                     onMouseEnter={() => handleMouseEnter('semi-auto')}
                     onMouseLeave={handleMouseLeave}
-                    aria-label='View semi-automatic bikes'
                 >
                     Semi-Auto
                 </button>
@@ -48,7 +46,6 @@ const Filter = ({ slug }) => {
                     className={`${btnStyles.btn} ${isActive(`${slug}/manual`) || isHovered('manual') ? btnStyles.activeBtn : ''}`}
                     onMouseEnter={() => handleMouseEnter('manual')}
                     onMouseLeave={handleMouseLeave}
-                    aria-label='View manual bikes'
                 >
                     Manual
                 </button>
@@ -58,7 +55,6 @@ const Filter = ({ slug }) => {
                     className={`${btnStyles.btn} ${isActive(slug) || isHovered('all') ? btnStyles.activeBtn : ''}`}
                     onMouseEnter={() => handleMouseEnter('all')}
                     onMouseLeave={handleMouseLeave}
-                    aria-label='View all bikes'
                 >
                     All
                 </button>

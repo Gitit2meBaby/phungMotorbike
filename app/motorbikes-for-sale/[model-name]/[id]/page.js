@@ -151,10 +151,10 @@ export default async function BikeDetailPage({ params }) {
                         <p>Whether you&apos;re planning a short trip or a cross-country expedition, this bike is ready to take you there. Dont miss this opportunity to own a piece of adventure. Your dream of exploring Vietnam on two wheels is closer than you think. Contact us today to make this bike yours!</p>
                         <div className={styles.btnWrapper}>
                             <Link href="/motorbikes-for-sale">
-                                <button className={styles.btn} aria-label="Return to Motorbikes for Sale Page">Return</button>
+                                <button className={styles.btn} >Return</button>
                             </Link>
                             <Link href={`/buy-online/${bike.id}`}>
-                                <button className={`${styles.btn} ${styles.pulse}`} aria-label={`Buy ${bike.model} ${bike.name} Now`}>Buy Now</button>
+                                <button className={`${styles.btn} ${styles.pulse}`}>Buy Now</button>
                             </Link>
                         </div>
                     </div>
@@ -182,7 +182,7 @@ export default async function BikeDetailPage({ params }) {
                     Get this {bike.model} for just ${bike.cityPrice}/day
                 </Link>
                 <Link href={`/motorbikes-for-rent-hanoi/${bikeUrl}/${bike.id}`}>
-                    <button className={styles.btn} style={{ marginTop: '1rem' }} aria-label={`Get City Rates for ${bike.model}`}>Get City Rates!</button>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get City Rates!</button>
                 </Link>
 
                 <h3>Just looking for a rental in Hanoi?</h3>
@@ -190,7 +190,7 @@ export default async function BikeDetailPage({ params }) {
                     Special rate for long stays and expats at just ₫{bike.monthPrice}/month!
                 </Link>
                 <Link href={`/monthly-rentals-hanoi/${bikeUrl}/${bike.id}`}>
-                    <button className={styles.btn} style={{ marginTop: '1rem' }} aria-label={`Get Monthly Rates for ${bike.model}`}>Get Monthly Rates!</button>
+                    <button className={styles.btn} style={{ marginTop: '1rem' }}>Get Monthly Rates!</button>
                 </Link>
             </div>
 

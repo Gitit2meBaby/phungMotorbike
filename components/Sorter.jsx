@@ -34,7 +34,6 @@ const Sorter = ({ onSortChange }) => {
                         onClick={handlePriceClick}
                         className={sortMethod === 'price' ? btnStyles.activeBtn : btnStyles.btn}
                         style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}
-                        aria-label='Sort by price'
                     >
                         Price
                         {priceDirection === 'asc' ? (
@@ -54,7 +53,6 @@ const Sorter = ({ onSortChange }) => {
                         onClick={handleCapacityClick}
                         className={sortMethod === 'capacity' ? btnStyles.activeBtn : btnStyles.btn}
                         style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}
-                        aria-label='Sort by capacity'
                     >
                         Capacity
                         {capacityDirection === 'asc' ? (
