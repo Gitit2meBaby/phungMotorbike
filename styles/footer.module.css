@@ -139,6 +139,9 @@
   gap: 1rem;
   padding: 2rem 1rem 0 1rem;
 }
+.details a {
+  text-decoration: none;
+}
 
 .contact {
   display: grid;

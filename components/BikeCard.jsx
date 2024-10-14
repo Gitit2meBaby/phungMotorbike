@@ -57,13 +57,13 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin }) => {
                             <p className={styles.discount}>*discounts apply after the 1st week</p>
                         </>}
                     {basePath === '/motorbikes-for-sale' && !inDetails && <p>${bike.salePrice}<span>USD</span></p>}
-                    {basePath === '/monthly-rentals-hanoi' && !inDetails && <p>${bike.monthPrice}<span>USD</span></p>}
+                    {basePath === '/monthly-rentals-hanoi' && !inDetails && <p>₫{bike.monthPrice}<span>VND</span></p>}
                     {basePath === '/admin' && (
                         <>
                             <p>City Price - ${bike.cityPrice}<span>USD</span></p>
                             <p>Travel Price - ${bike.travelPrice}<span>USD</span></p>
-                            <p>Month Price - ${bike.monthPrice}<span>VND</span></p>
-                            <p>Sale Price - {bike.salePrice}<span>USD</span></p>
+                            <p>Month Price - {bike.monthPrice}<span>VND</span></p>
+                            <p>Sale Price - ${bike.salePrice}<span>USD</span></p>
                         </>
 
                     )}

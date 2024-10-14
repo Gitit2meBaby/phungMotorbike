@@ -49,6 +49,11 @@ const SimilarBikes = ({ bikes, currentBike, rateTypeUrl, basePath }) => {
             newTitle = `Other bikes for sale at $${rateType}`;
         }
 
+        if (rateTypeUrl === 'monthly') {
+            filteredBikes = bikes.filter(bike => bike.monthPrice === rateType && bike.id !== currentBike.id);
+            newTitle = `Other bikes at ₫${rateType}/month`;
+        }
+
         if (filteredBikes.length < 2) {
             filteredBikes = bikes.filter(bike => bike.capacity === currentBike.capacity && bike.id !== currentBike.id);
             newTitle = `More Bikes with ${currentBike.capacity}cc`;
