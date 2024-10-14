@@ -7,7 +7,7 @@ const ContactDetails = () => {
     const [showSignin, setShowSignin] = useState(false);
 
     return (
-        <section className={styles.details}>
+        <div className={styles.details}>
             <div className={`${styles.divider} ${styles.final}`}></div>
 
             {/* Address with Google Maps */}
@@ -18,7 +18,7 @@ const ContactDetails = () => {
                 rel="noopener noreferrer"
                 aria-label="Open address in Google Maps"
             >
-                <svg stroke="#e97f26" fill="none" strokeWidth="2" viewBox="0 0 24 24" cap="round" strokeLinejoin="round" height="1.8em" width="1.8em" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <svg stroke="#e97f26" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1.8em" width="1.8em" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 <p>13 Ngo Huyện, Hàng Trống, Hoàn Kiếm, Hà Nội</p>
             </a>
 
@@ -83,7 +83,7 @@ const ContactDetails = () => {
             </div>
 
             {showSignin && <Signin setShowSignin={setShowSignin} />}
-        </section>
+        </div>
     );
 }
 

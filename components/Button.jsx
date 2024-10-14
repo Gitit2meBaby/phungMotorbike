@@ -2,7 +2,7 @@
 import React from 'react'
 import styles from '../styles/infoCard.module.css'
 
-const Button = () => {
+const Button = ({ inCard }) => {
 
     const handleScroll = () => {
         const element = document.getElementById('contactForm');
@@ -19,7 +19,11 @@ const Button = () => {
 
 
     return (
-        <button aria-label='Contact Us' onClick={() => handleScroll()} className={styles.btn}>Contact Us</button>
+        <button aria-label='Contact Us'
+            onClick={() => handleScroll()}
+            className={styles.btn}
+            style={inCard ? { marginTop: '2rem' } : {}}
+        >Contact Us</button>
     )
 }
 

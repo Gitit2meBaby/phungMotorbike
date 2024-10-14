@@ -20,6 +20,7 @@ export const metadata = {
   author: 'Daniel Thomas',
   keywords: 'motorbikes fo rent, motorbikes for sale, Hanoi Rentals, Hanoi motorbikes for sale, scooter rental Hanoi, Vietnam scooter rental, Vietnam motorbike rental',
   'theme-color': '#e97f26',
+  content: "width=device-width, initial-scale=1.0",
 
   // Open Graph (OG) tags for social media
   openGraph: {

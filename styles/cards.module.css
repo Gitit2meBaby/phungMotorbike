@@ -119,14 +119,16 @@
   padding: 0.5rem 1rem;
   margin: 0.5rem 0 1rem;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
   min-width: 120px;
   width: -moz-fit-content;
   width: fit-content;
   z-index: 2;
   box-shadow: 0 0 10px #0d0d0d;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 .btn:hover {
   background-color: #0d0d0d;

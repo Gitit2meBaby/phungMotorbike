@@ -51,13 +51,17 @@
     color: $black;
     border: none;
     border-radius: .3rem;
-    padding: .5rem 1rem;
-    align-self: center;
+    padding: .3rem 1rem;
     cursor: pointer;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    width: 140px;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    min-width: 120px;
+    width: fit-content;
+    z-index: 2;
+    box-shadow: 0 0 10px $black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
 
     &:hover {
         background-color: $black;

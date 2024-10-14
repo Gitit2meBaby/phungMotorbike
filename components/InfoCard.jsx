@@ -9,7 +9,7 @@ const InfoCard = () => {
 
             <p>We offer special rates for long term rentals, inner city rates and travellers discounts. We always carry a fleet of top quality bikes for sale.</p>
 
-            <Button />
+            <Button inCard={true} />
         </section>
     )
 }

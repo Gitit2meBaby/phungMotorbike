@@ -6,7 +6,7 @@ import motorbike from '../public/motorbike.png'
 
 const Hero = () => {
     return (
-        <section className={styles.hero}>
+        <div className={styles.hero}>
             <div className={styles.title}>
                 <div className={styles.titleWord}>
                     <Image
@@ -39,7 +39,7 @@ const Hero = () => {
                     <p><span>4.7</span> / 493 reviews</p>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 

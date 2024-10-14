@@ -119,13 +119,15 @@
     padding: .5rem 1rem;
     margin: .5rem 0 1rem;
     cursor: pointer;
-    font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.2rem;
     letter-spacing: 1px;
     min-width: 120px;
     width: fit-content;
     z-index: 2;
     box-shadow: 0 0 10px $black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
 
     &:hover {
         background-color: $black;
