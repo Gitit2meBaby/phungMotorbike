@@ -120,7 +120,6 @@
   letter-spacing: 1px;
   transition: all 0.5s ease;
   cursor: pointer;
-  filter: blur(0.8px);
   min-width: 120px;
 }
 

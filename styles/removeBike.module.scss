@@ -43,9 +43,15 @@
 
 .textInput {
     display: grid;
-    grid-template-columns: 25% 1fr;
+    grid-template-columns: 30% 1fr;
 }
 
+.dropdown {
+    display: flex;
+    align-items: center;
+    gap: 4vw;
+    margin-bottom: 2rem;
+}
 
 .btnWrapper {
     display: flex;

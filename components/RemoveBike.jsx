@@ -1,15 +1,13 @@
 'use client'
-import React, { useState } from 'react';
-import { query, where, collection, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
+import { deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { db, storage } from '../app/lib/firebase';
-
 import styles from '../styles/removeBike.module.css';
 import { deleteObject, ref } from 'firebase/storage';
 import BikeCard from './BikeCard';
-
 import { scrollToTop } from '../app/lib/scrollToTop';
 import { clearBikeCache } from '../app/lib/clearBikeCache';
-
+import { getBikes } from '../app/lib/getBikes';
 
 const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     const [findData, setFindData] = useState({
@@ -19,6 +17,33 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     });
     const [searchItems, setSearchItems] = useState([]);
     const [deletedBikes, setDeletedBikes] = useState([]);
+    const [allBikes, setAllBikes] = useState([]);
+    const [uniqueValues, setUniqueValues] = useState({
+        model: [],
+        name: [],
+        capacity: [],
+    });
+    const [hasSearched, setHasSearched] = useState(false);
+
+    useEffect(() => {
+        const fetchBikes = async () => {
+            const bikes = await getBikes();
+            setAllBikes(bikes);
+
+            // Extract unique values for dropdowns
+            const uniqueModel = [...new Set(bikes.map(bike => bike.model))];
+            const uniqueName = [...new Set(bikes.map(bike => bike.name))];
+            const uniqueCapacity = [...new Set(bikes.map(bike => bike.capacity))];
+
+            setUniqueValues({
+                model: uniqueModel,
+                name: uniqueName,
+                capacity: uniqueCapacity,
+            });
+        };
+
+        fetchBikes();
+    }, []);
 
     // Handle form input changes
     const handleChange = (event) => {
@@ -27,51 +52,21 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     };
 
     // Function to handle the search
-    const handleSearch = async () => {
-        const listingsCollection = collection(db, 'bikes');
+    const handleSearch = () => {
+        const filteredBikes = allBikes.filter(bike => {
+            const modelMatch = !findData.model || bike.model.toLowerCase().includes(findData.model.toLowerCase());
+            const nameMatch = !findData.name || bike.name.toLowerCase().includes(findData.name.toLowerCase());
+            const capacityMatch = !findData.capacity || bike.capacity.toString() === findData.capacity;
+            return modelMatch && nameMatch && capacityMatch;
+        });
 
-        let bikeQuery = query(listingsCollection);
-
-        if (findData.model) {
-            bikeQuery = query(bikeQuery, where('model', '==', findData.model));
-        }
-        if (findData.name) {
-            bikeQuery = query(bikeQuery, where('name', '==', findData.name));
-        }
-        if (findData.capacity) {
-            bikeQuery = query(bikeQuery, where('capacity', '==', findData.capacity));
-        }
-
-        try {
-            const snapshot = await getDocs(bikeQuery);
-            const results = snapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-
-            setSearchItems(results);
-        } catch (error) {
-            console.error('Error fetching bikes:', error);
-        }
+        setHasSearched(true);
+        setSearchItems(filteredBikes);
     };
 
     // Show all bikes in collection
-    const handleListAll = async () => {
-        const listingsCollection = collection(db, 'bikes');
-
-        let bikeQuery = query(listingsCollection);
-
-        try {
-            const snapshot = await getDocs(bikeQuery);
-            const results = snapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-
-            setSearchItems(results);
-        } catch (error) {
-            console.error('Error fetching bikes:', error);
-        }
+    const handleListAll = () => {
+        setSearchItems(allBikes);
     };
 
     // Helper function to extract the file path from a Firebase Storage URL
@@ -156,7 +151,6 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
             <section className={styles.removeBike}>
                 <div className={styles.content}>
                     <p>Search by: Model, Name or Capacity, you will then get a list of matching motorbikes.</p>
-                    <p>*If you are having trouble make sure you are using the correct capitalization<br></br><span> (ie. Cub, not cub or Honda, not honda)</span></p>
                     <form>
                         <div className={styles.textInput}>
                             <label htmlFor="model">Model</label>
@@ -169,6 +163,20 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
                                 placeholder='Honda, Yamaha?'
                             />
                         </div>
+                        <div className={styles.dropdown}>
+                            <label htmlFor='model'>Choose -</label>
+                            <select
+                                name="model"
+                                id='model'
+                                onChange={(e) => handleChange(e)}
+                                value={findData.model}
+                            >
+                                <option value="">Select Model</option>
+                                {uniqueValues.model.map((model, index) => (
+                                    <option key={index} value={model}>{model}</option>
+                                ))}
+                            </select>
+                        </div>
                         <div className={styles.textInput}>
                             <label htmlFor="name">Name</label>
                             <input
@@ -180,6 +188,21 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
                                 placeholder='Cub, Nuovo, Jupiter?'
                             />
                         </div>
+                        <div className={styles.dropdown}>
+                            <label htmlFor='name'>Choose -</label>
+                            <select
+                                name="name"
+                                id='name'
+                                onChange={(e) => handleChange(e)}
+                                value={findData.name}
+                            >
+                                <option value="">Select Name</option>
+                                {uniqueValues.name.map((name, index) => (
+                                    <option key={index} value={name}>{name}</option>
+                                ))}
+                            </select>
+                        </div>
+
                         <div className={styles.textInput}>
                             <label htmlFor="capacity">Capacity</label>
                             <input
@@ -190,6 +213,20 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
                                 onChange={(e) => handleChange(e)}
                                 placeholder='125, 250? do not add "CC"'
                             />
+                        </div>
+                        <div className={styles.dropdown}>
+                            <label htmlFor='capacity'>Choose -</label>
+                            <select
+                                name="capacity"
+                                id='capacity'
+                                onChange={(e) => handleChange(e)}
+                                value={findData.capacity}
+                            >
+                                <option value="">Select Capacity</option>
+                                {uniqueValues.capacity.map((capacity, index) => (
+                                    <option key={index} value={capacity}>{capacity}</option>
+                                ))}
+                            </select>
                         </div>
                         <input
                             type="text"
@@ -206,30 +243,54 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
                     </form>
                 </div>
             </section>
-            <section className={styles.removeBikeList}>
-                {searchItems.length > 0 && (
-                    <>
-                        <h2>Search Results</h2>
-                        <div className={styles.searchList}>
-                            {searchItems.map((bike) => (
-                                <div key={bike.id}
-                                    className={styles.listItem}>
-                                    <BikeCard
-                                        bike={bike}
-                                        basePath={'/admin'}
-                                        inDetails={false}
-                                        inAdmin={true}
-                                    />
-                                    <div className={styles.btnWrapper}>
-                                        <button className={styles.btnActive} onClick={(e) => handleEditClick(e, bike.id)}>Edit</button>
-                                        <button className={styles.btnActive} onClick={(e) => handleRemove(e, bike.id)}>Delete</button>
+            {hasSearched ? (
+                <div className={styles.removeBikeList}>
+                    {searchItems.length > 0 && (
+                        <>
+                            <h2>Search Results</h2>
+                            <div className={styles.searchList}>
+                                {searchItems.map((bike) => (
+                                    <div key={bike.id}
+                                        className={styles.listItem}>
+                                        <BikeCard
+                                            bike={bike}
+                                            basePath={'/admin'}
+                                            inDetails={false}
+                                            inAdmin={true}
+                                        />
+                                        <div className={styles.btnWrapper}>
+                                            <button className={styles.btnActive} onClick={(e) => handleEditClick(e, bike.id)}>Edit</button>
+                                            <button className={styles.btnActive} onClick={(e) => handleRemove(e, bike.id)}>Delete</button>
+                                        </div>
                                     </div>
+                                ))}
+                            </div>
+                        </>
+                    )}
+                </div>
+
+            ) : (
+                <div className={styles.removeBikeList}>
+                    <h2>All Bikes</h2>
+                    <div className={styles.searchList}>
+                        {allBikes.map((bike) => (
+                            <div key={bike.id}
+                                className={styles.listItem}>
+                                <BikeCard
+                                    bike={bike}
+                                    basePath={'/admin'}
+                                    inDetails={false}
+                                    inAdmin={true}
+                                />
+                                <div className={styles.btnWrapper}>
+                                    <button className={styles.btnActive} onClick={(e) => handleEditClick(e, bike.id)}>Edit</button>
+                                    <button className={styles.btnActive} onClick={(e) => handleRemove(e, bike.id)}>Delete</button>
                                 </div>
-                            ))}
-                        </div>
-                    </>
-                )}
-            </section>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </>
     )
 }

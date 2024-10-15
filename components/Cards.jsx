@@ -38,7 +38,7 @@ const Cards = () => {
             {/* Monthly Rentals Section */}
             <div className={styles.cards}>
                 <div className={styles.divider} style={{ margin: '0 auto', width: '85%', marginBottom: '1rem' }}></div>
-                <h2 id="monthly-rentals-heading">Monthly Rentals</h2>
+                <h2 id="monthly-rentals-heading">Monthly Rental</h2>
                 <div className={styles.image3}>
                     <h3>Cheapest Rates<br />for your Vietnam Journey</h3>
                     <Link href='/monthly-rentals-hanoi/automatic' className={styles.btn}>Automatic

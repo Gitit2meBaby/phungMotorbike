@@ -34,7 +34,7 @@ export default function AdminDashboardForm() {
     const [files, setFiles] = useState([]);
     const [preview, setPreview] = useState([]);
 
-    const [formType, setFormType] = useState('Add Bike');
+    const [formType, setFormType] = useState('Remove Bike');
     const [editBikeId, setEditBikeId] = useState(null); // Store bikeId if editing
     const [initialFiles, setInitialFiles] = useState([]);
 

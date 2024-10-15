@@ -33,6 +33,13 @@
         justify-content: space-around;
         padding: 0 4vw;
     }
+
+    @media screen and (max-width: 1240px) and (min-width: 1025px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 0 1vw;
+    }
 }
 
 .cards {
@@ -47,7 +54,7 @@
         letter-spacing: 3px;
         text-transform: uppercase;
         padding: 0 1rem;
-        margin: 1rem;
+        margin: 1rem 0;
     }
 }
 
