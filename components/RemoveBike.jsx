@@ -10,6 +10,7 @@ import { clearBikeCache } from '../app/lib/clearBikeCache';
 import { getBikes } from '../app/lib/getBikes';
 
 const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
+    const [admin, setAdmin] = useState(false);
     const [findData, setFindData] = useState({
         model: '',
         name: '',
@@ -24,6 +25,14 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
         capacity: [],
     });
     const [hasSearched, setHasSearched] = useState(false);
+
+    useEffect(() => {
+        sessionStorage.getItem('Admin');
+
+        if (sessionStorage.getItem('Admin')) {
+            setAdmin(true)
+        }
+    }, []);
 
     useEffect(() => {
         const fetchBikes = async () => {
@@ -148,7 +157,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
 
     return (
         <>
-            <section className={styles.removeBike}>
+            <section className={styles.removeBike} style={admin ? {} : { filter: 'blur(2px)', pointerEvents: 'none' }}>
                 <div className={styles.content}>
                     <p>Search by: Model, Name or Capacity, you will then get a list of matching motorbikes.</p>
                     <form>
@@ -244,7 +253,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
                 </div>
             </section>
             {hasSearched ? (
-                <div className={styles.removeBikeList}>
+                <div className={styles.removeBikeList} style={admin ? {} : { filter: 'blur(2px)', pointerEvents: 'none' }}>
                     {searchItems.length > 0 && (
                         <>
                             <h2>Search Results</h2>
@@ -270,7 +279,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
                 </div>
 
             ) : (
-                <div className={styles.removeBikeList}>
+                <div className={styles.removeBikeList} style={admin ? {} : { filter: 'blur(2px)', pointerEvents: 'none' }}>
                     <h2>All Bikes</h2>
                     <div className={styles.searchList}>
                         {allBikes.map((bike) => (
