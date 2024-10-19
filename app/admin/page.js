@@ -17,6 +17,7 @@ import styles from '../../styles/admin.module.css';
 import ImageUploader from '../../components/ImageUploader';
 import RemoveBike from '../../components/RemoveBike';
 import { clearBikeCache } from '../lib/clearBikeCache';
+import { revalidateCache } from '../actions/revalidateCache';
 
 export default function AdminDashboardForm() {
     const [admin, setAdmin] = useState(false);
@@ -157,7 +158,8 @@ export default function AdminDashboardForm() {
             }
 
             clearFields();
-            clearBikeCache();
+            // clearBikeCache();
+            await revalidateCache();
             setEditBikeId(null); // Reset edit state
 
         } catch (error) {

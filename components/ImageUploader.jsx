@@ -7,6 +7,7 @@ import { deleteObject, ref } from "firebase/storage";
 import { arrayRemove, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../app/lib/firebase";
 import { clearBikeCache } from "../app/lib/clearBikeCache";
+import { revalidateCache } from "../app/actions/revalidateCache";
 
 const ImageUploader = ({
   files,
@@ -128,7 +129,8 @@ const ImageUploader = ({
       setPreview((prevPreviews) => prevPreviews.filter((_, i) => i !== index));
 
       alert("Image deleted successfully!");
-      clearBikeCache();
+      // clearBikeCache();
+      await revalidateCache();
     } catch (error) {
       console.error("Error deleting image:", error);
       alert("An error occurred while deleting the image.");
