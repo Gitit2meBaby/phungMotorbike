@@ -40,3 +40,5 @@ next-env.d.ts
 
 phung-motorbike-firebase-adminsdk-cr6g0-3fd3f94690
 .json*
+
+/app/payment
