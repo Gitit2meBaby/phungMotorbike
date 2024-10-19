@@ -57,7 +57,7 @@ export default function AdminDashboardForm() {
             [name]: value
         }));
     };
-
+ 
     const handleType = (e) => {
         setFormData(prevState => ({
             ...prevState,
@@ -65,46 +65,47 @@ export default function AdminDashboardForm() {
         }));
     };
 
-    const uploadImages = async (files, bikeId, bikeModel, bikeName) => {
-        console.log(files, bikeId, bikeModel, bikeName);
+ const uploadImages = async (files, bikeId, bikeModel, bikeName) => {
+    console.log(files, bikeId, bikeModel, bikeName);
 
-        if (!bikeModel || !bikeName) {
-            console.error('Bike model or name is missing:', { bikeModel, bikeName });
-            alert('Error: Bike model or name is missing');
-            throw new Error('Bike model and name are required for uploading images.');
+    if (!bikeModel || !bikeName) {
+        console.error('Bike model or name is missing:', { bikeModel, bikeName });
+        alert('Error: Bike model or name is missing');
+        throw new Error('Bike model and name are required for uploading images.');
+    }
+
+    const uploadPromises = files.flatMap(async (file, index) => {
+        if (file && file.thumbImage && file.fullImage) {
+            // Construct file names directly without adding a subfolder for the bikeId
+            const thumbFileName = `${bikeModel}-${bikeName}-thumb-${index}.webp`;
+            const fullFileName = `${bikeModel}-${bikeName}-full-${index}.webp`;
+
+            // Update storage references to put the files directly in the 'bikes' folder
+            const thumbRef = ref(storage, `bikes/${thumbFileName}`);
+            const fullRef = ref(storage, `bikes/${fullFileName}`);
+
+            // Upload thumb and full images
+            const [thumbUpload, fullUpload] = await Promise.all([
+                uploadBytes(thumbRef, file.thumbImage),
+                uploadBytes(fullRef, file.fullImage)
+            ]);
+
+            // Get download URLs for the uploaded files
+            const [thumbURL, fullURL] = await Promise.all([
+                getDownloadURL(thumbUpload.ref),
+                getDownloadURL(fullUpload.ref)
+            ]);
+
+            return { thumbURL, fullURL };  // Return URLs for this image set
         }
+        return null;
+    });
 
-        const uploadPromises = files.flatMap(async (file, index) => {
-            if (file && file.thumbImage && file.fullImage) {
-                // Construct unique file names using model, name, and index to avoid duplicates
-                const thumbFileName = `${bikeModel}-${bikeName}-thumb-${index}.webp`;
-                const fullFileName = `${bikeModel}-${bikeName}-full-${index}.webp`;
+    // Wait for all upload promises to resolve
+    const imageUrls = await Promise.all(uploadPromises);
+    return imageUrls.filter(Boolean);  // Filter out any null entries
+};
 
-                // Update storage references with unique filenames
-                const thumbRef = ref(storage, `bikes/${bikeModel}-${bikeName}-${bikeId}/${thumbFileName}`);
-                const fullRef = ref(storage, `bikes/${bikeModel}-${bikeName}-${bikeId}/${fullFileName}`);
-
-                // Upload thumb and full images
-                const [thumbUpload, fullUpload] = await Promise.all([
-                    uploadBytes(thumbRef, file.thumbImage),
-                    uploadBytes(fullRef, file.fullImage)
-                ]);
-
-                // Get download URLs for the uploaded files
-                const [thumbURL, fullURL] = await Promise.all([
-                    getDownloadURL(thumbUpload.ref),
-                    getDownloadURL(fullUpload.ref)
-                ]);
-
-                return { thumbURL, fullURL };  // Return URLs for this image set
-            }
-            return null;
-        });
-
-        // Wait for all upload promises to resolve
-        const imageUrls = await Promise.all(uploadPromises);
-        return imageUrls.filter(Boolean);  // Filter out any null entries
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -166,6 +167,7 @@ export default function AdminDashboardForm() {
     };
 
     const handleEdit = async (bikeId) => {
+        scrollToTop();
         try {
             // Fetch the bike data by bikeId
             const bikeDocRef = doc(db, "bikes", bikeId);
@@ -184,6 +186,7 @@ export default function AdminDashboardForm() {
                     fullImage: image.fullURL
                 }));
 
+                console.log("Loaded files:", loadedFiles);
                 setInitialFiles(loadedFiles);
             } else {
                 console.log("No such document exists.");
@@ -212,7 +215,6 @@ export default function AdminDashboardForm() {
         setFiles([]);
         setPreview([]);
         setEditBikeId(null);
-        setFormType('Add Bike');
         scrollToTop();
     };
 
@@ -227,9 +229,9 @@ export default function AdminDashboardForm() {
                 <div className={styles.btnWrapper}>
                     <button
                         className={formType === 'Add Bike' ? styles.btnActive : styles.btn}
-                        onClick={() => setFormType('Add Bike')}
+                        onClick={() => {setFormType('Add Bike'); clearFields();}}
                     >
-                        {formType === 'Edit Bike' ? 'Edit Bike' : 'Add Bike'}
+                        Add Bike
                     </button>
                     <button
                         className={formType === 'Remove Bike' ? styles.btnActive : styles.btn}
@@ -379,7 +381,7 @@ export default function AdminDashboardForm() {
                             />
                         </div>
 
-                        <ImageUploader files={files} setFiles={setFiles} preview={preview} setPreview={setPreview} />
+                        <ImageUploader files={files} setFiles={setFiles} preview={preview} setPreview={setPreview} id={editBikeId} formtype={formType} />
 
                         {/*Honeypot*/}
                         <input

@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { CalendarIcon } from "lucide-react";
 import Link from 'next/link';
-import styles from '../styles/booking.module.css';
 import Image from 'next/image';
+
+import styles from '../styles/booking.module.css';
 import success from '../public/success.webp';
 import { scrollToTop } from '../app/lib/scrollToTop';
 import PayPalButton from './PayPalButton';
@@ -31,6 +32,19 @@ const BookingPage = ({ bike }) => {
     const [showToolTip, setShowToolTip] = useState(false)
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const bookingDetails = {
+        name,
+        email,
+        phone,
+        bike,
+        rentalType,
+        startDate,
+        endDate,
+        days,
+        roundedTotalPrice,
+        honeypot
+    };
 
     useEffect(() => {
         if (startDate && endDate) {
@@ -327,7 +341,7 @@ const BookingPage = ({ bike }) => {
                         >
                             Pay Now (4.4% Surcharge)
                         </button>
-                        <PayPalButton total={roundedTotalPrice} />
+                        <PayPalButton total={roundedTotalPrice} bookingDetails={bookingDetails} />
                     </div>
                 </>
             ) : (
@@ -348,4 +362,6 @@ const BookingPage = ({ bike }) => {
             )}
         </main>
     );
-}    
+}
+
+export default BookingPage

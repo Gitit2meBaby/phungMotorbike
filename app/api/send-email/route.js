@@ -1,10 +1,12 @@
-import { ServerClient } from 'postmark';
+import { Resend } from 'resend';
 
-const client = new ServerClient(process.env.POSTMARK_API_TOKEN);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
     try {
-        const { name, email, phone, message, honeypot } = await req.json();
+        const {
+            name, email, phone, message, honeypot
+        } = await req.json();
 
         if (honeypot) {
             return new Response(JSON.stringify({ error: 'Bot submission detected' }), { status: 400 });
@@ -18,16 +20,17 @@ export async function POST(req) {
             <p><strong>Message:</strong> ${message}</p>
         `;
 
-        await client.sendEmail({
-            From: process.env.FROM_EMAIL,
-            To: process.env.TO_EMAIL,
-            Subject: 'New Contact Form Submission',
-            HtmlBody: emailContent,
-            TextBody: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
-            MessageStream: 'outbound'
+        // Sending the email to the admin
+        await resend.emails.send({
+            from: process.env.FROM_EMAIL,
+            to: process.env.TO_EMAIL,
+            subject: 'New Motorbike Purchase',
+            html: emailContent,
+            text: emailContent
         });
 
         return new Response(JSON.stringify({ success: true }), { status: 200 });
+
     } catch (error) {
         console.error('Failed to send email:', error);
         return new Response(JSON.stringify({ error: 'Failed to send email' }), { status: 500 });

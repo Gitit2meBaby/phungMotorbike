@@ -1,7 +1,6 @@
-import { ServerClient } from 'postmark';
+import { Resend } from 'resend';
 
-// Initialize the Postmark client
-const client = new ServerClient(process.env.POSTMARK_API_TOKEN);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
     try {
@@ -48,13 +47,12 @@ export async function POST(req) {
         - Paid: No`;
 
         // Sending the email to the admin
-        await client.sendEmail({
-            From: process.env.FROM_EMAIL,
-            To: process.env.TO_EMAIL,
-            Subject: 'New Bike Rental Booking',
-            HtmlBody: emailHtmlBody,
-            TextBody: emailTextBody,
-            MessageStream: 'outbound',
+        await resend.emails.send({
+            from: process.env.FROM_EMAIL,
+            to: process.env.TO_EMAIL,
+            subject: 'New Bike Rental Booking',
+            html: emailHtmlBody,
+            text: emailTextBody
         });
 
         // Sending confirmation email to the user
@@ -94,13 +92,12 @@ export async function POST(req) {
         Mr Phung`;
 
         // Send the confirmation email to the user
-        await client.sendEmail({
-            From: process.env.FROM_EMAIL,
-            To: email,  // Send to the user's email
-            Subject: 'Your Bike Rental Booking is Confirmed',
-            HtmlBody: userEmailHtmlBody,
-            TextBody: userEmailTextBody,
-            MessageStream: 'outbound',
+        await resend.emails.send({
+            from: process.env.FROM_EMAIL,
+            to: email,  // Send to the user's email
+            subject: 'Your Bike Rental Booking is Confirmed',
+            html: userEmailHtmlBody,
+            text: userEmailTextBody
         });
 
         return new Response(JSON.stringify({ success: true }), { status: 200 });
