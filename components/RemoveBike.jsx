@@ -7,6 +7,7 @@ import { deleteObject, ref } from "firebase/storage";
 import BikeCard from "./BikeCard";
 import { getBikes } from "../app/lib/getBikes";
 import { revalidateCache } from "../app/actions/revalidateCache";
+import { clearBikeCache } from "../app/lib/clearBikeCache";
 
 const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
   const [admin, setAdmin] = useState(false);
@@ -145,6 +146,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     setDeletedBike(id);
     alert(`${model} ${name} removed from database`);
     revalidateCache();
+    clearBikeCache();
   };
 
   const handleEditClick = (e, id) => {

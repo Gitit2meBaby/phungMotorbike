@@ -17,6 +17,7 @@ import styles from '../../styles/admin.module.css';
 import ImageUploader from '../../components/ImageUploader';
 import RemoveBike from '../../components/RemoveBike';
 import { revalidateCache } from '../actions/revalidateCache';
+import { clearBikeCache } from '../lib/clearBikeCache';
 
 export default function AdminDashboardForm() {
     const [admin, setAdmin] = useState(false);
@@ -169,11 +170,16 @@ const handleSubmit = async (e) => {
 
         clearFields();
         await revalidateCache();
+        clearBikeCache();
         setEditBikeId(null); // Reset edit state
 
     } catch (error) {
-        console.error("Error:", error);
-        alert("An error occurred. Please try again.");
+         if (error.code === 'resource-exhausted' || error.message.includes('quota exceeded')) {
+        alert("Error: Quota exceeded. Please try again later.", error); 
+      } else {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again.");
+      }
     }
 };
 

@@ -14,7 +14,10 @@ import motorcycle from '../../../../public/motorcycle.png'
 const SimilarBikes = dynamic(() => import('../../../../components/SimilarBikes'), { ssr: false });
 
 export default async function BikeDetailPage({ params }) {
-    const { id } = params;
+    console.log(params); // Check if params contain the expected values
+
+    const { id, 'model-name': modelName } = params;
+    console.log(modelName, id); // Log to verify the values
 
     // Fetch all bikes using our cached getBikes function
     const bikes = await getBikes();

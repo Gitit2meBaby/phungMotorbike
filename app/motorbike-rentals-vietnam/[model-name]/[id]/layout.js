@@ -1,6 +1,5 @@
 import { getBikes } from '../../../lib/getBikes';
 import { notFound } from 'next/navigation';
-export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }) {
     const { id, 'model-name': modelName } = params;
