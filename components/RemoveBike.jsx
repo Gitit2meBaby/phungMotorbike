@@ -5,7 +5,6 @@ import { db, storage } from "../app/lib/firebase";
 import styles from "../styles/removeBike.module.css";
 import { deleteObject, ref } from "firebase/storage";
 import BikeCard from "./BikeCard";
-import { clearBikeCache } from "../app/lib/clearBikeCache";
 import { getBikes } from "../app/lib/getBikes";
 import { revalidateCache } from "../app/actions/revalidateCache";
 
@@ -145,7 +144,6 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     handleDeleteDoc(id);
     setDeletedBike(id);
     alert(`${model} ${name} removed from database`);
-    // clearBikeCache();
     revalidateCache();
   };
 

@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { deleteObject, ref } from "firebase/storage";
 import { arrayRemove, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../app/lib/firebase";
-import { clearBikeCache } from "../app/lib/clearBikeCache";
 import { revalidateCache } from "../app/actions/revalidateCache";
 
 const ImageUploader = ({
@@ -129,7 +128,6 @@ const ImageUploader = ({
       setPreview((prevPreviews) => prevPreviews.filter((_, i) => i !== index));
 
       alert("Image deleted successfully!");
-      // clearBikeCache();
       await revalidateCache();
     } catch (error) {
       console.error("Error deleting image:", error);

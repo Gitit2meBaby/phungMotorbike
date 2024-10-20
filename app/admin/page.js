@@ -16,7 +16,6 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import styles from '../../styles/admin.module.css';
 import ImageUploader from '../../components/ImageUploader';
 import RemoveBike from '../../components/RemoveBike';
-import { clearBikeCache } from '../lib/clearBikeCache';
 import { revalidateCache } from '../actions/revalidateCache';
 
 export default function AdminDashboardForm() {
@@ -107,66 +106,76 @@ export default function AdminDashboardForm() {
     return imageUrls.filter(Boolean);  // Filter out any null entries
 };
 
+const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (files.length === 0) {
+            if (files.length === 0) {
             console.error("No files to submit!");
             return;
         }
-        if (formData.honeypot) {
-            console.log("Bot submission detected");
-            return;
-        }
 
-        try {
-            if (editBikeId) {
+    if (formData.honeypot) {
+        console.log("Bot submission detected");
+        return;
+    }
 
-                // Editing an existing bike
-                const bikeDocRef = doc(db, "bikes", editBikeId);
-                const updatedBikeData = {
-                    ...formData,
-                    timestamp: serverTimestamp()
-                };
+    try {
+        const bikeData = {
+            ...formData,
+            timestamp: serverTimestamp()
+        };
 
-                // Upload new images (if any) and add them to the bike data
+        // Check if images have been modified
+        const filesChanged = files.some((file, index) => {
+            return (
+                file.thumbImage !== initialFiles[index]?.thumbImage ||
+                file.fullImage !== initialFiles[index]?.fullImage
+            );
+        });
+
+        if (editBikeId) {
+            // Editing an existing bike
+            const bikeDocRef = doc(db, "bikes", editBikeId);
+
+            if (filesChanged) {
+                // Only upload new images if they have changed
                 const updatedImageUrls = await uploadImages(files, editBikeId, formData.model, formData.name);
-                updatedBikeData.images = [...(formData.images || []), ...updatedImageUrls];
-
-                // Update the bike document with new data and images
-                await updateDoc(bikeDocRef, updatedBikeData);
-                alert("Bike updated successfully!");
+                bikeData.images = updatedImageUrls;
             } else {
-                // Adding a new bike (existing code)
-                const bikesRef = collection(db, "bikes");
-                const bikeId = nanoid(10);
-                const bikeDoc = doc(bikesRef, bikeId);
-                const bikeData = {
-                    ...formData,
-                    timestamp: serverTimestamp(),
-                    id: bikeId
-                };
-
-                const imageUrls = await uploadImages(files, bikeId, formData.model, formData.name);
-                bikeData.images = imageUrls;
-
-                // Set the bike document with bikeData, including image URLs
-                await setDoc(bikeDoc, bikeData);
-
-                alert("Bike added successfully!");
+                // Retain the existing images
+                bikeData.images = initialFiles.map(file => ({
+                    thumbURL: file.thumbImage,
+                    fullURL: file.fullImage
+                }));
             }
 
-            clearFields();
-            // clearBikeCache();
-            await revalidateCache();
-            setEditBikeId(null); // Reset edit state
+            // Update the bike document with new data and images
+            await updateDoc(bikeDocRef, bikeData);
+            alert("Bike updated successfully!");
+        } else {
+            // Adding a new bike (existing code)
+            const bikesRef = collection(db, "bikes");
+            const bikeId = nanoid(10);
+            const bikeDoc = doc(bikesRef, bikeId);
 
-        } catch (error) {
-            console.error("Error:", error);
-            alert("An error occurred. Please try again.");
+            const imageUrls = await uploadImages(files, bikeId, formData.model, formData.name);
+            bikeData.images = imageUrls;
+
+            // Set the bike document with bikeData, including image URLs
+            await setDoc(bikeDoc, bikeData);
+
+            alert("Bike added successfully!");
         }
-    };
+
+        clearFields();
+        await revalidateCache();
+        setEditBikeId(null); // Reset edit state
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+    }
+};
 
     const handleEdit = async (bikeId) => {
         scrollToTop();
@@ -291,8 +300,8 @@ export default function AdminDashboardForm() {
                                     type="radio"
                                     id="type-automatic"
                                     name="type"
-                                    value="automatic"
-                                    checked={formData.type === 'automatic'}
+                                    value="Automatic"
+                                    checked={formData.type === 'Automatic'}
                                     onChange={(e) => handleType(e)}
                                 />
                                 <label htmlFor="type-automatic">Automatic</label>
@@ -303,8 +312,8 @@ export default function AdminDashboardForm() {
                                     type="radio"
                                     id="type-semi-auto"
                                     name="type"
-                                    value="semi-auto"
-                                    checked={formData.type === 'semi-auto'}
+                                    value="Semi - Automatic"
+                                    checked={formData.type === 'Semi - Automatic'}
                                     onChange={(e) => handleType(e)}
                                 />
                                 <label htmlFor="type-semi-auto">Semi-Automatic</label>
@@ -315,8 +324,8 @@ export default function AdminDashboardForm() {
                                     type="radio"
                                     id="type-manual"
                                     name="type"
-                                    value="manual"
-                                    checked={formData.type === 'manual'}
+                                    value="Manual"
+                                    checked={formData.type === 'Manual'}
                                     onChange={(e) => handleType(e)}
                                 />
                                 <label htmlFor="type-manual">Manual</label>
