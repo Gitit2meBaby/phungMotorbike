@@ -38,10 +38,10 @@ const Signin = ({ setShowSignin }) => {
     <section className={styles.signinModal}>
       <form onSubmit={handleSubmit}>
         <div className={styles.inputGroup}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="text">Email:</label>
           <input
-            type="email"
-            id="email"
+            type="text"
+            id="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onFocus={() => setError("")}
