@@ -7,7 +7,7 @@ import styles from '../../../styles/hanoiRentals.module.scss';
 import camera from '../../../public/camera.png';
 
 const Automatic = async () => {
-await getBikes({ 
+const automaticBikes = await getBikes({ 
     type: 'Automatic',
     priceType: 'monthPrice'
 });
