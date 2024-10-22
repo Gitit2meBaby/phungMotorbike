@@ -9,16 +9,10 @@ import Link from 'next/link';
 
 const Manual = async () => {
 
-    // const baseUrl = process.env.NEXT_PUBLIC_URL;
-    // let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
-    //     headers: { 'Cache-Control': 'no-store' }
-    // });
-    // let bikes = await data.json()
-
-    // bikes.sort((a, b) => a.cityPrice - b.cityPrice);
-    // const manualBikes = bikes.filter(bike => bike.type === 'Manual');
-
-    const manualBikes = await getBikes({ type: 'Manual' });
+    const manualBikes = await getBikes({ 
+    type: 'Manual',
+    priceType: 'monthPrice'
+});
 
     const basePath = '/motorbikes-for-rent-hanoi';
 

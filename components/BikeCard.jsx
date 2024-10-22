@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import { Mynerve } from "next/font/google";
 
 import styles from "../styles/bikeCard.module.css";
@@ -12,6 +14,7 @@ const mynerve = Mynerve({
 
 const BikeCard = ({ bike, basePath, inDetails, inAdmin, deletedBike }) => {
   const fallbackImage = "/placeHolderThumb.webp";
+  const pathname = usePathname();
 
   const imageUrl =
     bike.images && bike.images.length > 0 && bike.images[0].thumbURL
@@ -35,13 +38,18 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin, deletedBike }) => {
 
   // Return null (or don't render) if this bike is the deleted bike
   if (bike.id === deletedBike) {
-    return null; // Don't render this bike if it matches the deletedBike
+    return null;
   }
+
+  const handleClick = () => {
+    sessionStorage.setItem("lastBikeListPath", pathname);
+  };
 
   return (
     <>
       <div
         className={styles.bikeCard}
+        id={`bike-${bike.id}`}
         style={bike.id === deletedBike ? { display: "none" } : {}}
       >
         <div className={styles.polaroid}>
@@ -132,6 +140,7 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin, deletedBike }) => {
             <Link
               href={`${basePath}/${modelSlug}-${nameSlug}/${bike.id}`}
               className={styles.btn}
+              onClick={() => handleClick()}
             >
               Details
             </Link>

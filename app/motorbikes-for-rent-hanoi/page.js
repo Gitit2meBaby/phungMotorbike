@@ -9,7 +9,9 @@ import hanoi2 from '../../public/hanoi.webp';
 import { getBikes } from '../lib/getBikes';
 
 const Hanoi = async () => {
-    const bikes = await getBikes();
+    const bikes = await getBikes({ 
+    priceType: 'cityPrice'
+});
 
     const basePath = '/motorbikes-for-rent-hanoi';
 

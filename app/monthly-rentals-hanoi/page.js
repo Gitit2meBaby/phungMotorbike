@@ -9,7 +9,11 @@ import hanoi from '../../public/hanoi.webp';
 import { getBikes } from '../lib/getBikes';
 
 const Hanoi = async () => {
-    const bikes = await getBikes();
+    const bikes = await getBikes({ 
+    type: 'Automatic',
+    priceType: 'monthPrice'
+});
+    
 
     const basePath = '/monthly-rentals-hanoi';
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { deleteDoc, doc, getDoc } from "firebase/firestore";
 import { db, storage } from "../app/lib/firebase";
 import styles from "../styles/removeBike.module.css";
@@ -25,6 +25,25 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     capacity: [],
   });
   const [hasSearched, setHasSearched] = useState(false);
+  const scrollTargetRef = useRef(null);
+
+  useEffect(() => {
+    // Try to scroll after component mounts/updates
+    const scrollToBikeId = sessionStorage.getItem("scrollToBikeId");
+    if (scrollToBikeId) {
+      // Small delay to ensure the list has rendered
+      const timeoutId = setTimeout(() => {
+        const element = document.getElementById(`bike-${scrollToBikeId}`);
+        if (element) {
+          element.scrollIntoView({ block: "center", behavior: "smooth" });
+          // Clear the stored ID
+          sessionStorage.removeItem("scrollToBikeId");
+        }
+      }, 500);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [searchItems]);
 
   useEffect(() => {
     sessionStorage.getItem("Admin");
@@ -154,6 +173,7 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
     handleEdit(id);
     setFormType("Edit Bike");
     setEditBikeId(id);
+    sessionStorage.setItem("lastEditedBikeId", id);
   };
 
   return (
@@ -290,7 +310,16 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
                 (bike) =>
                   // Conditionally render the entire div
                   bike.id !== deletedBike && (
-                    <div key={bike.id} className={styles.listItem}>
+                    <div
+                      key={bike.id}
+                      id={`bike-${bike.id}`}
+                      ref={
+                        bike.id === sessionStorage.getItem("scrollToBikeId")
+                          ? scrollTargetRef
+                          : null
+                      }
+                      className={styles.listItem}
+                    >
                       <BikeCard
                         bike={bike}
                         basePath={"/admin"}
@@ -337,7 +366,16 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
           <h2>All Bikes</h2>
           <div className={styles.searchList}>
             {allBikes.map((bike) => (
-              <div key={bike.id} className={styles.listItem}>
+              <div
+                key={bike.id}
+                className={styles.listItem}
+                id={`bike-${bike.id}`}
+                ref={
+                  bike.id === sessionStorage.getItem("scrollToBikeId")
+                    ? scrollTargetRef
+                    : null
+                }
+              >
                 <BikeCard
                   bike={bike}
                   basePath={"/admin"}

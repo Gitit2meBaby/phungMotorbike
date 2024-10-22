@@ -8,7 +8,10 @@ import styles from '../../../styles/hanoiRentals.module.scss';
 import camera from '../../../public/camera.png';
 
 const SemiAuto = async () => {
-    const semiAutoBikes = await getBikes({ type: 'Semi - Automatic' });
+    const semiAutoBikes = await getBikes({ 
+    type: 'Semi -Automatic',
+    priceType: 'salePrice'
+});
 
     const basePath = '/motorbikes-for-sale';
 

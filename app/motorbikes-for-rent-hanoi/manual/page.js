@@ -8,7 +8,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Manual = async () => {
-    const manualBikes = await getBikes({ type: 'Manual' });
+    const manualBikes = await getBikes({ 
+    type: 'Manual',
+    priceType: 'cityPrice'
+});
 
     const basePath = '/motorbikes-for-rent-hanoi';
 

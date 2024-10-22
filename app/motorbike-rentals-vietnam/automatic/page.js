@@ -8,7 +8,10 @@ import camera from '../../../public/camera.png';
 
 const Automatic = async () => {
 
-    const automaticBikes = await getBikes({ type: 'Automatic' });
+    const automaticBikes = await getBikes({ 
+    type: 'Automatic',
+    priceType: 'travelPrice'
+});
 
     const basePath = '/motorbike-rentals-vietnam';
 

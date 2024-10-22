@@ -9,7 +9,9 @@ import sunrise from '../../public/sunrise.webp';
 import { getBikes } from "../lib/getBikes";
 
 const Travel = async () => {
-    const bikes = await getBikes();
+    const bikes = await getBikes({ 
+    priceType: 'travelPrice'
+});
 
     const basePath = '/motorbike-rentals-vietnam';
 

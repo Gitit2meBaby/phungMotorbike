@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
+export const dynamic = 'force-dynamic';
 
 import { db, storage } from '../lib/firebase';
 import {
@@ -18,6 +19,7 @@ import ImageUploader from '../../components/ImageUploader';
 import RemoveBike from '../../components/RemoveBike';
 import { revalidateCache } from '../actions/revalidateCache';
 import { clearBikeCache } from '../lib/clearBikeCache';
+import { scrollToTop } from '../lib/scrollToTop';
 
 export default function AdminDashboardForm() {
     const [admin, setAdmin] = useState(false);
@@ -46,10 +48,6 @@ export default function AdminDashboardForm() {
             setAdmin(true)
         }
     }, []);
-
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -150,9 +148,10 @@ const handleSubmit = async (e) => {
                 }));
             }
 
-            // Update the bike document with new data and images
             await updateDoc(bikeDocRef, bikeData);
             alert("Bike updated successfully!");
+        sessionStorage.setItem('scrollToBikeId', editBikeId);
+        setFormType('Remove Bike');
         } else {
             // Adding a new bike (existing code)
             const bikesRef = collection(db, "bikes");
@@ -232,7 +231,7 @@ const handleSubmit = async (e) => {
         setFiles([]);
         setPreview([]);
         setEditBikeId(null);
-        scrollToTop();
+        setFormType('Remove Bike');
     };
 
     return (

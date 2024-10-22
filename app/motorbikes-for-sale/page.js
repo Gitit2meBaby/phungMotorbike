@@ -9,7 +9,9 @@ import dogOnBike from '../../public/dogOnBike.webp';
 import { getBikes } from '../lib/getBikes';
 
 const ForSale = async () => {
-    const bikes = await getBikes();
+    const bikes = await getBikes({ 
+    priceType: 'salePrice'
+});
 
     const basePath = '/motorbikes-for-sale';
 

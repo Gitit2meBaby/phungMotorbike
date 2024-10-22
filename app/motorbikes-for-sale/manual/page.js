@@ -7,7 +7,10 @@ import camera from '../../../public/camera.png';
 import Image from 'next/image';
 
 const Manual = async () => {
-    const manualBikes = await getBikes({ type: 'Manual' });
+    const manualBikes = await getBikes({ 
+    type: 'Manual',
+    priceType: 'salePrice'
+});
 
     const basePath = '/motorbikes-for-sale';
 

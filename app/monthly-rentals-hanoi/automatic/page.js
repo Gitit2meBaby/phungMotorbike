@@ -7,8 +7,10 @@ import styles from '../../../styles/hanoiRentals.module.scss';
 import camera from '../../../public/camera.png';
 
 const Automatic = async () => {
-    const automaticBikes = await getBikes({ type: 'Automatic' });
-
+await getBikes({ 
+    type: 'Automatic',
+    priceType: 'monthPrice'
+});
     const basePath = '/motorbikes-for-rent-hanoi';
 
     return (

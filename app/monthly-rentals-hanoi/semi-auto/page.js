@@ -8,17 +8,10 @@ import styles from '../../../styles/hanoiRentals.module.scss';
 import camera from '../../../public/camera.png';
 
 const SemiAuto = async () => {
-
-    // const baseUrl = process.env.NEXT_PUBLIC_URL;
-    // let data = await fetch(`${baseUrl}api/bikes?forceRefresh=true`, {
-    //     headers: { 'Cache-Control': 'no-store' }
-    // }); let bikes = await data.json()
-
-    // bikes.sort((a, b) => a.cityPrice - b.cityPrice);
-    // const semiAutoBikes = bikes.filter(bike => bike.type === 'Semi - Automatic');
-
-    const semiAutoBikes = await getBikes({ type: 'Semi - Automatic' });
-
+    const semiAutoBikes = await getBikes({ 
+    type: 'Semi - Automatic',
+    priceType: 'monthPrice'
+});
     const basePath = '/motorbikes-for-rent-hanoi';
 
     return (
