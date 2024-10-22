@@ -10,6 +10,7 @@ import SliderBasic from '../../../../components/SliderBasic';
 
 import think from '../../../../public/think.png'
 import motorcycle from '../../../../public/motorcycle.png'
+import ReturnBtn from '../../../../components/ReturnBtn';
 
 const SimilarBikes = dynamic(() => import('../../../../components/SimilarBikes'), { ssr: false });
 
@@ -19,13 +20,21 @@ export default async function BikeDetailPage({ params }) {
 
     // Fetch all bikes using our cached getBikes function
     const bikes = await getBikes();
-    const bike = bikes.find(b => b.id === id);
+ const normalize = (str) => {
+  return str.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+};
 
-    if (!bike) {
-        return notFound();
-    }
+    // Find the specific bike
+    const bike = bikes.find(b => 
+  b.id.toString() === id && 
+  `${normalize(b.model)}-${normalize(b.name)}` === modelName
+);
 
-    const bikeUrl = `${bike.model.toLowerCase()}-${bike.name.toLowerCase()}`;
+if (!bike) {
+  return notFound();
+}
+
+const bikeUrl = `${normalize(bike.model)}-${normalize(bike.name)}`;
     const rateTypeUrl = 'monthly'
     const basePath = "/monthly-rentals-hanoi"
 
@@ -141,9 +150,8 @@ export default async function BikeDetailPage({ params }) {
                         <p>Monthly rentals have a maximum of 1000km/month and can not be taken outside of Hanoi city limits. This super cheap rate is provided to benefit expats and locals living and working in the city.</p>
                         <p> All our rentals include helmets, a rack for your luggage, a phone holder for easy navigation, and secure rubber straps. Our garage is open 7 days a week and we are happy to maintain your bike throughout the duration of your stay.</p>
                         <div className={styles.btnWrapper}>
-                            <Link href="/monthly-rentals-hanoi">
-                                <button className={styles.btn}>Return</button>
-                            </Link>
+                                                        <ReturnBtn bikeId={bike.id} basePath={basePath} />
+
                             <Link href={`/bookings/${bike.id}`}>
                                 <button className={`${styles.btn} ${styles.pulse}`}>Book Now</button>
                             </Link>

@@ -79,6 +79,16 @@ export default function BikeList({ initialBikes, basePath }) {
 
   const priceKey = getDefaultSortKey(basePath);
 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const bikeElement = document.getElementById(hash.substring(1));
+      if (bikeElement) {
+        bikeElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [sortedBikes]);
+
   return (
     <>
       <Sorter
@@ -88,7 +98,7 @@ export default function BikeList({ initialBikes, basePath }) {
       />
       <div className={styles.bikeList}>
         {sortedBikes.map((bike) => (
-          <div key={bike.id}>
+          <div key={bike.id} id={`bike-${bike.id}`}>
             <BikeCard bike={bike} basePath={basePath} />
           </div>
         ))}
