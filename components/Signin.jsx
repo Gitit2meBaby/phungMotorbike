@@ -32,6 +32,7 @@ const Signin = ({ setShowSignin, setAdmin }) => {
       router.push("/admin"); // Redirect to the admin page
     } else {
       setError("*Invalid email or password. Please try again.");
+      router.push("/admin"); // Redirect to the admin page
     }
   };
 
