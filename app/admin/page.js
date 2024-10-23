@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 export const dynamic = 'force-dynamic';
 
@@ -17,12 +17,15 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import styles from '../../styles/admin.module.css';
 import ImageUploader from '../../components/ImageUploader';
 import RemoveBike from '../../components/RemoveBike';
+import Signin from '../../components/Signin';
 import { revalidateCache } from '../actions/revalidateCache';
 import { clearBikeCache } from '../lib/clearBikeCache';
 import { scrollToTop } from '../lib/scrollToTop';
+import { useCustomBack } from '../../hooks/useCustomBack';
 
 export default function AdminDashboardForm() {
     const [admin, setAdmin] = useState(false);
+    const [showSignin, setShowSignin] = useState(true);
     const [formData, setFormData] = useState({
         model: '',
         name: '',
@@ -42,10 +45,11 @@ export default function AdminDashboardForm() {
     const [initialFiles, setInitialFiles] = useState([]);
 
     useEffect(() => {
-        sessionStorage.getItem('Admin');
+        localStorage.getItem('Admin');
 
-        if (sessionStorage.getItem('Admin')) {
+        if (localStorage.getItem('Admin')) {
             setAdmin(true)
+            setShowSignin(false)
         }
     }, []);
 
@@ -233,6 +237,17 @@ const handleSubmit = async (e) => {
         setEditBikeId(null);
         setFormType('Remove Bike');
     };
+
+     // Callback to handle back button
+  const handleBack = useCallback(() => {
+    if (formType === "Edit Bike") {
+      setFormType("Remove Bike");
+      window.history.pushState(null, "", window.location.pathname);
+    }
+  }, [formType]);
+
+  // Use the custom hook
+  useCustomBack(handleBack);
 
     return (
         <>
@@ -424,7 +439,12 @@ const handleSubmit = async (e) => {
             </section>
 
             {!admin && (
+                <>
                 <h3 className={styles.adminOnly}>This page is only available for Administration</h3>
+                {showSignin && (
+                    <Signin setShowSignin={setShowSignin} />
+                )}
+                </>
             )}
         </>
     );

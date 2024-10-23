@@ -31,8 +31,11 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin, deletedBike }) => {
 
   const formRedirectUrl =
     basePath === "/motorbikes-for-sale"
-      ? `/buy-online/${bike.id}`
-      : `/bookings/${bike.id}`;
+      ? `/buy-online/${bike.id}?priceType=sale`
+      : `/bookings/${bike.id}?priceType=${
+          basePath === "/motorbikes-for-rent-hanoi" ? "city" : "travel"
+        }`;
+
   const buttonText =
     basePath === "/motorbikes-for-sale" ? "Buy Now" : "Book Now";
 

@@ -7,7 +7,7 @@ export async function POST(req) {
     try {
         const {
             name, email, phone, honeypot,
-            bike, rentalType, startDate, endDate,
+            bike, priceType, startDate, endDate,
             days, roundedTotalPrice
         } = await req.json();
 
@@ -26,8 +26,8 @@ export async function POST(req) {
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Bike:</strong> ${bike.name} (${bike.model})</p>
-            <p><strong>Rental Type:</strong> ${rentalType}</p>
+            <p><strong>Bike:</strong> ${bike.model} ${bike.name}</p>
+            <p><strong>Rental Type:</strong> ${priceType}</p>
             <p><strong>Start Date:</strong> ${startDate}</p>
             <p><strong>End Date:</strong> ${endDate}</p>
             <p><strong>Total Days:</strong> ${days}</p>
@@ -39,8 +39,8 @@ export async function POST(req) {
         - Name: ${name}
         - Email: ${email}
         - Phone: ${phone}
-        - Bike: ${bike.name} (${bike.model})
-        - Rental Type: ${rentalType}
+        - Bike: ${bike.model} ${bike.name}
+        - Rental Type: ${priceType}
         - Start Date: ${startDate}
         - End Date: ${endDate}
         - Total Days: ${days}
@@ -62,8 +62,8 @@ export async function POST(req) {
             <h3>Your Booking is Confirmed!</h3>
             <p>Hi ${name},</p>
             <p>Thank you for your booking. Below are the details of your rental:</p>
-            <p><strong>Bike:</strong> ${bike.name} (${bike.model})</p>
-            <p><strong>Rental Type:</strong> ${rentalType}</p>
+            <p><strong>Bike:</strong> ${bike.model} ${bike.name}</p>
+            <p><strong>Rental Type:</strong> ${priceType}</p>
             <p><strong>Start Date:</strong> ${startDate}</p>
             <p><strong>End Date:</strong> ${endDate}</p>
             <p><strong>Total Days:</strong> ${days}</p>
@@ -80,7 +80,7 @@ export async function POST(req) {
 
         Thank you for your booking. Below are the details of your rental:
         - Bike: ${bike.name} (${bike.model})
-        - Rental Type: ${rentalType}
+        - Rental Type: ${priceType}
         - Start Date: ${startDate}
         - End Date: ${endDate}
         - Total Days: ${days}

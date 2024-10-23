@@ -27,7 +27,7 @@ const Signin = ({ setShowSignin }) => {
     if (validEmails.includes(email) && password === correctPassword) {
       setError("");
       setShowSignin(false);
-      sessionStorage.setItem("Admin", true);
+      localStorage.setItem("Admin", true);
       router.push("/admin"); // Redirect to the admin page
     } else {
       setError("*Invalid email or password. Please try again.");

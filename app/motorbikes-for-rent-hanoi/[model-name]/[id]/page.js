@@ -153,7 +153,7 @@ const bikeUrl = `${normalize(bike.model)}-${normalize(bike.name)}`;
                         <div className={styles.btnWrapper}>
                                                         <ReturnBtn bikeId={bike.id} basePath={basePath} />
 
-                            <Link href={`/bookings/${bike.id}`}>
+                            <Link href={`/bookings/${bike.id}?priceType=city`}>
                                 <button className={`${styles.btn} ${styles.pulse}`}>Book Now</button>
                             </Link>
                         </div>
