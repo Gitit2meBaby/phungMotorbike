@@ -51,6 +51,15 @@ export default function AdminDashboardForm() {
             setAdmin(true)
             setShowSignin(false)
         }
+    }, [showSignin]);
+
+    useEffect(() => {
+        localStorage.getItem('Admin');
+
+        if (localStorage.getItem('Admin')) {
+            setAdmin(true)
+            setShowSignin(false)
+        }
     }, []);
 
     const handleChange = (e) => {
@@ -434,7 +443,8 @@ const handleSubmit = async (e) => {
                 {formType === 'Remove Bike' && (
                     <RemoveBike setEditBikeId={setEditBikeId}
                         setFormType={setFormType}
-                        handleEdit={handleEdit} />
+                        handleEdit={handleEdit}
+                        showSignin={showSignin} />
                 )}
             </section>
 
@@ -442,7 +452,7 @@ const handleSubmit = async (e) => {
                 <>
                 <h3 className={styles.adminOnly}>This page is only available for Administration</h3>
                 {showSignin && (
-                    <Signin setShowSignin={setShowSignin} />
+                    <Signin setShowSignin={setShowSignin} setAdmin={setAdmin} />
                 )}
                 </>
             )}

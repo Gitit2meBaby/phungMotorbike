@@ -9,7 +9,7 @@ import { getBikes } from "../app/lib/getBikes";
 import { revalidateCache } from "../app/actions/revalidateCache";
 import { clearBikeCache } from "../app/lib/clearBikeCache";
 
-const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
+const RemoveBike = ({ handleEdit, setFormType, setEditBikeId, showSignin }) => {
   const [admin, setAdmin] = useState(false);
   const [findData, setFindData] = useState({
     model: "",
@@ -26,6 +26,14 @@ const RemoveBike = ({ handleEdit, setFormType, setEditBikeId }) => {
   });
   const [hasSearched, setHasSearched] = useState(false);
   const scrollTargetRef = useRef(null);
+
+  useEffect(() => {
+    localStorage.getItem("Admin");
+
+    if (localStorage.getItem("Admin")) {
+      setAdmin(true);
+    }
+  }, [showSignin]);
 
   useEffect(() => {
     // Try to scroll after component mounts/updates
