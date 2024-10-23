@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../styles/signin.module.css";
 
-const Signin = ({ setShowSignin, setAdmin }) => {
+const Signin = ({ setShowSignin, setAdmin, admin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -31,6 +31,7 @@ const Signin = ({ setShowSignin, setAdmin }) => {
       localStorage.setItem("Admin", true);
       router.push("/admin"); // Redirect to the admin page
     } else {
+      localStorage.setItem("Admin", false);
       setError("*Invalid email or password. Please try again.");
       router.push("/admin"); // Redirect to the admin page
     }
