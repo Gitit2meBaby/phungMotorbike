@@ -41,6 +41,22 @@
   font-weight: 600;
 }
 
+.link {
+  text-decoration: none;
+  color: #ebebeb;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 1px;
+  margin-left: auto;
+  margin-right: 1rem;
+  margin: 0 1rem 1rem auto;
+  border: 1px solid #ebebeb;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
 .textInput {
   display: grid;
   grid-template-columns: 25% 1fr;

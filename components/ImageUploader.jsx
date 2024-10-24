@@ -19,7 +19,6 @@ const ImageUploader = ({
   formtype,
 }) => {
   useEffect(() => {
-    console.log("Initial files:", initialFiles);
     if (initialFiles && files.length === 0) {
       setFiles(initialFiles);
       setPreview(initialFiles.map((file) => file.thumbImage));
