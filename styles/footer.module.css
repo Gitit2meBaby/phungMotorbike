@@ -150,10 +150,12 @@
   color: #ebebeb;
   letter-spacing: 1px;
 }
-.contact p {
+.contact p,
+.contact a {
   margin: 0;
   margin-top: 0.2rem;
   font-size: 0.8rem;
+  color: #e97f26;
 }
 .contact svg {
   place-self: center;
