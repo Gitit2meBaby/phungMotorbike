@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import BikeCard from "./BikeCard";
 import Sorter from "./Sorter";
 import styles from "../styles/bikeList.module.css";
+import { usePathname } from "next/navigation";
 
 export default function BikeList({ initialBikes, basePath }) {
   const [sortedBikes, setSortedBikes] = useState(initialBikes);
@@ -11,6 +12,14 @@ export default function BikeList({ initialBikes, basePath }) {
     key: getDefaultSortKey(basePath),
     direction: "asc",
   });
+
+  const pathname = usePathname();
+
+  // Extract the base path from the current pathname
+  const currentBasePath = pathname.split("/").slice(0, -1).join("/");
+
+  // Use the extracted basePath instead of the prop
+  const actualBasePath = currentBasePath || basePath;
 
   // Function to determine the default sort key based on basePath
   function getDefaultSortKey(basePath) {
@@ -99,7 +108,7 @@ export default function BikeList({ initialBikes, basePath }) {
       <div className={styles.bikeList}>
         {sortedBikes.map((bike) => (
           <div key={bike.id} id={`bike-${bike.id}`}>
-            <BikeCard bike={bike} basePath={basePath} />
+            <BikeCard bike={bike} basePath={actualBasePath} />
           </div>
         ))}
       </div>
