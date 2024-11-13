@@ -18,8 +18,10 @@ import styles from "../../styles/admin.module.css";
 import ImageUploader from "../../components/ImageUploader";
 import RemoveBike from "../../components/RemoveBike";
 import Signin from "../../components/Signin";
-import { revalidateCache } from "../actions/revalidateCache";
+import { revalidateCache } from "../../server-actions/revalidateCache";
+import { revalidatePaths } from "../../server-actions/revalidate";
 import { clearBikeCache } from "../lib/clearBikeCache";
+import { clearClientCache } from "../lib/cacheManager";
 import { scrollToTop } from "../lib/scrollToTop";
 import Link from "next/link";
 
@@ -197,9 +199,20 @@ export default function AdminDashboardForm() {
         alert("Bike added successfully!");
       }
 
+      try {
+        await Promise.all([
+          revalidateCache(),
+          revalidatePaths(),
+          (async () => {
+            clearClientCache(); // Synchronous operation
+            clearBikeCache(); // Synchronous operation
+          })(),
+        ]);
+      } catch (cacheError) {
+        console.error("Cache clearing error:", cacheError);
+      }
+
       clearFields();
-      await revalidateCache();
-      clearBikeCache();
       setEditBikeId(null);
     } catch (error) {
       if (

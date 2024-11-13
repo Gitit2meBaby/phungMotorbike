@@ -190,8 +190,11 @@ import { useEffect } from "react";
 import { deleteObject, ref } from "firebase/storage";
 import { arrayRemove, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../app/lib/firebase";
-import { revalidateCache } from "../app/actions/revalidateCache";
+
+import { revalidateCache } from "../server-actions/revalidateCache";
+import { revalidatePaths } from "../server-actions/revalidate";
 import { clearBikeCache } from "../app/lib/clearBikeCache";
+import { clearClientCache } from "../app/lib/cacheManager";
 
 const ImageUploader = ({
   files,
@@ -344,6 +347,8 @@ const ImageUploader = ({
 
         await revalidateCache();
         clearBikeCache();
+        revalidatePaths();
+        clearClientCache();
       }
 
       setFiles((prevFiles) => {
