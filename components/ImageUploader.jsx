@@ -196,6 +196,8 @@ import { revalidatePaths } from "../server-actions/revalidate";
 import { clearBikeCache } from "../app/lib/clearBikeCache";
 import { clearClientCache } from "../app/lib/cacheManager";
 
+import { getFreshBikes } from "../app/lib/getBikes";
+
 const ImageUploader = ({
   files,
   setFiles,
@@ -349,6 +351,7 @@ const ImageUploader = ({
         clearBikeCache();
         revalidatePaths();
         clearClientCache();
+        getFreshBikes();
       }
 
       setFiles((prevFiles) => {

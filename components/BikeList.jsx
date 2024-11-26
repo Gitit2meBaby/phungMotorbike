@@ -6,12 +6,42 @@ import Sorter from "./Sorter";
 import styles from "../styles/bikeList.module.css";
 import { usePathname } from "next/navigation";
 
+import { globalCache } from "../app/lib/globalCache";
+import { getBikesFromFirebase } from "../app/lib/getBikesFromFirebase";
+
 export default function BikeList({ initialBikes, basePath }) {
   const [sortedBikes, setSortedBikes] = useState(initialBikes);
   const [sortMethod, setSortMethod] = useState({
     key: getDefaultSortKey(basePath),
     direction: "asc",
   });
+
+  useEffect(() => {
+    console.log("Current bikes data:", initialBikes);
+    // console.log("Global cache state:", globalCache.keys());
+  }, [initialBikes]);
+
+  useEffect(() => {
+    // Force a fresh Firebase fetch
+    const checkFirebase = async () => {
+      console.log("Direct Firebase check...");
+      const freshBikes = await getBikesFromFirebase();
+      console.log("Direct Firebase result:", freshBikes.length, "bikes");
+    };
+
+    checkFirebase();
+  }, []);
+
+  // Add this to one of your bike listing pages temporarily
+  useEffect(() => {
+    async function checkCache() {
+      const response = await fetch("/api/debug-cache");
+      const data = await response.json();
+      console.log("Cache Debug:", data);
+    }
+
+    checkCache();
+  }, []);
 
   const pathname = usePathname();
 

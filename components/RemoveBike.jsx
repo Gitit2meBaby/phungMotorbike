@@ -17,6 +17,8 @@ import { revalidatePaths } from "../server-actions/revalidate";
 import { clearBikeCache } from "../app/lib/clearBikeCache";
 import { clearClientCache } from "../app/lib/cacheManager";
 
+import { getFreshBikes } from "../app/lib/getBikes";
+
 const RemoveBike = ({
   handleEdit,
   setFormType,
@@ -194,6 +196,7 @@ const RemoveBike = ({
     clearBikeCache();
     revalidatePaths();
     clearClientCache();
+    getFreshBikes();
   };
 
   const handleEditClick = (e, id) => {
