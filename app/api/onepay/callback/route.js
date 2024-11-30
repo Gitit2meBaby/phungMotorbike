@@ -2,66 +2,75 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 
-const STAGING_URL = "https://phung-motorbike.vercel.app";
+const ONEPAY_HASH_KEY = process.env.ONEPAY_HASH_KEY;
 
 export async function GET(req) {
+  const { searchParams } = new URL(req.url);
+
   try {
-    const { searchParams } = new URL(req.url);
-
-    // Log all received parameters
-    console.log(
-      "Received callback parameters:",
-      Object.fromEntries(searchParams.entries())
-    );
-
-    // Get vpc_ parameters for verification (excluding vpc_SecureHash)
+    // Get all parameters except vpc_SecureHash
     const params = {};
+    const secureHash = searchParams.get("vpc_SecureHash");
+
     searchParams.forEach((value, key) => {
-      if (key !== "vpc_SecureHash" && key.startsWith("vpc_")) {
+      if (key !== "vpc_SecureHash") {
         params[key] = value;
       }
     });
 
-    // Create query string
-    const queryString = Object.keys(params)
+    // Sort parameters alphabetically
+    const sortedParams = Object.keys(params)
+      .filter((key) => key.startsWith("vpc_"))
       .sort()
-      .map((key) => `${key}=${params[key]}`)
+      .reduce((acc, key) => {
+        acc[key] = params[key];
+        return acc;
+      }, {});
+
+    // Create query string for verification
+    const queryString = Object.entries(sortedParams)
+      .map(([key, value]) => `${key}=${value}`)
       .join("&");
 
-    // Calculate hash
+    // Calculate secure hash
     const calculatedHash = crypto
-      .createHmac("sha256", "6D0870CDE5F24F34F3915FB0045120DB")
+      .createHmac("sha256", ONEPAY_HASH_KEY)
       .update(queryString)
       .digest("hex")
       .toUpperCase();
 
+    // Get response code
     const responseCode = searchParams.get("vpc_TxnResponseCode");
 
-    console.log({
-      queryString,
-      calculatedHash,
-      receivedHash: searchParams.get("vpc_SecureHash"),
-      responseCode,
-    });
+    // Verify hash and determine status
+    const isValidHash = calculatedHash === secureHash;
+    const isSuccessful = responseCode === "0";
 
-    // Redirect based on transaction status
-    const redirectUrl = new URL(
-      responseCode === "0"
-        ? "/booking/success"
-        : `/booking/failed?code=${responseCode}`,
-      STAGING_URL
-    );
+    // Construct redirect URL with all original parameters
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+    const redirectPath = isSuccessful ? "/booking/success" : "/booking/failed";
 
-    // Add response parameters to redirect URL
+    const redirectUrl = new URL(redirectPath, baseUrl);
+
+    // Add all original parameters to the redirect URL
     searchParams.forEach((value, key) => {
       redirectUrl.searchParams.append(key, value);
     });
 
-    return NextResponse.redirect(redirectUrl);
+    // Add validation status
+    redirectUrl.searchParams.append(
+      "hashValid",
+      isValidHash ? "true" : "false"
+    );
+
+    return NextResponse.redirect(redirectUrl.toString());
   } catch (error) {
-    console.error("Callback error:", error);
+    console.error("OnePay callback error:", error);
     return NextResponse.redirect(
-      new URL("/booking/failed?error=callback_failed", STAGING_URL)
+      new URL(
+        "/booking/failed?error=system_error",
+        process.env.NEXT_PUBLIC_BASE_URL
+      )
     );
   }
 }

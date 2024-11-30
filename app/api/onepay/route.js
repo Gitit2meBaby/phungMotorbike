@@ -2,57 +2,69 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 
-export async function POST(req) {
-  const ONEPAY_URL = "https://mtf.onepay.vn/paygate/vpcpay.op";
-  const STAGING_URL = "https://phung-motorbike.vercel.app";
+const ONEPAY_MERCHANT_ID = process.env.ONEPAY_MERCHANT_ID;
+const ONEPAY_ACCESS_CODE = process.env.ONEPAY_ACCESS_CODE;
+const ONEPAY_HASH_KEY = process.env.ONEPAY_HASH_KEY;
+const ONEPAY_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://onepay.vn/onecomm-pay/vpc.op"
+    : "https://mtf.onepay.vn/onecomm-pay/vpc.op";
 
+export async function POST(req) {
   try {
     const bookingData = await req.json();
 
-    // Convert amount to VND (no decimals)
-    const amountInVND = Math.round(
-      bookingData.roundedTotalPrice * 23000
-    ).toString();
+    // Convert amount to VND cents (no decimal points)
+    const amountInVND = Math.round(bookingData.roundedTotalPrice * 100);
 
-    const params = {
+    // Generate unique transaction reference
+    const txnRef = `ORDER${Date.now()}${Math.floor(Math.random() * 1000)}`;
+
+    const vpcParams = {
+      vpc_Merchant: ONEPAY_MERCHANT_ID,
+      vpc_AccessCode: ONEPAY_ACCESS_CODE,
       vpc_Version: "2",
-      vpc_Currency: "VND",
       vpc_Command: "pay",
-      vpc_AccessCode: "6BEB2546",
-      vpc_Merchant: "TESTONEPAY",
+      vpc_Currency: "VND",
       vpc_Locale: "vn",
-      vpc_ReturnURL: `${STAGING_URL}/api/onepay/callback`,
-      vpc_MerchTxnRef: `BOOK${Date.now()}`,
-      vpc_OrderInfo: `Booking ${bookingData.bike.name}`,
-      vpc_Amount: amountInVND,
-      vpc_TicketNo: "127.0.0.1",
-      AgainLink: `${STAGING_URL}/bookings/${bookingData.bike.id}`,
+      vpc_TicketNo: req.headers.get("x-forwarded-for") || "127.0.0.1",
+      vpc_Amount: amountInVND.toString(),
+      vpc_MerchTxnRef: txnRef,
+      vpc_OrderInfo: `Booking for ${bookingData.name}`,
+      vpc_ReturnURL: `${process.env.NEXT_PUBLIC_BASE_URL}/api/onepay/callback`,
+      vpc_Customer_Email: bookingData.email,
+      vpc_Customer_Phone: bookingData.phone || "",
     };
 
-    const queryString = Object.keys(params)
-      .filter((key) => key.startsWith("vpc_"))
+    // Sort parameters alphabetically for hash creation
+    const sortedParams = Object.keys(vpcParams)
       .sort()
-      .map((key) => `${key}=${params[key]}`)
+      .reduce((acc, key) => {
+        acc[key] = vpcParams[key];
+        return acc;
+      }, {});
+
+    // Create query string for hash
+    const queryString = Object.entries(sortedParams)
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
       .join("&");
 
+    // Generate HMAC-SHA256 hash
     const secureHash = crypto
-      .createHmac("sha256", "6D0870CDE5F24F34F3915FB0045120DB")
+      .createHmac("sha256", ONEPAY_HASH_KEY)
       .update(queryString)
       .digest("hex")
       .toUpperCase();
 
+    // Create final payment URL
     const paymentUrl = `${ONEPAY_URL}?${queryString}&vpc_SecureHash=${secureHash}`;
-
-    console.log({
-      params,
-      queryString,
-      secureHash,
-      paymentUrl,
-    });
 
     return NextResponse.json({ paymentUrl });
   } catch (error) {
-    console.error("OnePay error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("OnePay payment error:", error);
+    return NextResponse.json(
+      { error: "Payment initialization failed" },
+      { status: 500 }
+    );
   }
 }
