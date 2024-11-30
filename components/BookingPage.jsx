@@ -182,6 +182,51 @@ const BookingPage = ({ bike }) => {
     }
   };
 
+  // Update your handlePayNow function in BookingPage.jsx
+  const handlePayNow = async () => {
+    try {
+      // Log what we're sending
+      console.log("Sending payment request:", {
+        ...bookingDetails,
+        roundedTotalPrice,
+        priceType,
+      });
+
+      const response = await fetch("/api/onepay", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...bookingDetails,
+          roundedTotalPrice,
+          priceType,
+        }),
+      });
+
+      // Log raw response
+      console.log("Raw response:", response);
+
+      const data = await response.json();
+      console.log("Response data:", data);
+
+      if (data.paymentUrl) {
+        console.log("Redirecting to:", data.paymentUrl);
+        // Add a small delay to ensure logs are visible
+        setTimeout(() => {
+          window.location.href = data.paymentUrl;
+        }, 100);
+      } else {
+        throw new Error("No payment URL received");
+      }
+    } catch (error) {
+      console.error("Payment error:", error);
+      alert(
+        `Payment error: ${error.message}. Please try again or contact support.`
+      );
+    }
+  };
+
   return (
     <main className={styles.bookings}>
       {formSubmitted ? (
@@ -430,10 +475,6 @@ const BookingPage = ({ bike }) => {
             >
               Pay Now (4.4% Surcharge)
             </button>
-            <PayPalButton
-              total={roundedTotalPrice}
-              bookingDetails={bookingDetails}
-            />
           </div>
         </>
       ) : (
