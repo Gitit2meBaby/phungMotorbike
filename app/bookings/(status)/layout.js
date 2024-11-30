@@ -1,5 +1,5 @@
 // app/booking/(status)/layout.js
-import styles from "./status.module.scss";
+import styles from "../../../styles/status.module.css";
 
 export const metadata = {
   title: "Booking Status | Motorbike Rental",
