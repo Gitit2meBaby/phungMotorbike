@@ -140,63 +140,76 @@ const RemoveBike = ({
   // Modified to use the correct collection and storage path
   const handleDeleteDoc = async (id) => {
     if (!id) {
-      console.error("Id is undefined");
-      alert("Id is undefined, cannot find that motorbike in the database");
-      return;
+      throw new Error(
+        "Id is undefined, cannot find that motorbike in the database"
+      );
     }
 
-    try {
-      const docRef = doc(db, collectionType, id);
-      const docSnap = await getDoc(docRef);
+    const docRef = doc(db, collectionType, id);
+    const docSnap = await getDoc(docRef);
 
-      if (docSnap.exists()) {
-        const bikeData = docSnap.data();
-        const imageUrls = bikeData.images || [];
+    if (!docSnap.exists()) {
+      throw new Error("No such document exists.");
+    }
 
-        // Delete images from storage
-        for (const imageSet of imageUrls) {
-          if (imageSet.fullURL && imageSet.thumbURL) {
-            try {
-              const fullFilePath = getFilePathFromURL(imageSet.fullURL);
-              const thumbFilePath = getFilePathFromURL(imageSet.thumbURL);
+    const bikeData = docSnap.data();
+    const imageUrls = bikeData.images || [];
 
-              const fullRef = ref(storage, fullFilePath);
-              const thumbRef = ref(storage, thumbFilePath);
+    // Delete images from storage
+    const imageDeletePromises = imageUrls.map(async (imageSet) => {
+      if (imageSet.fullURL && imageSet.thumbURL) {
+        try {
+          const fullFilePath = getFilePathFromURL(imageSet.fullURL);
+          const thumbFilePath = getFilePathFromURL(imageSet.thumbURL);
 
-              await deleteObject(fullRef).catch((error) =>
-                console.log(`Error deleting full image: ${error.message}`)
-              );
-              await deleteObject(thumbRef).catch((error) =>
-                console.log(`Error deleting thumbnail: ${error.message}`)
-              );
-            } catch (error) {
-              console.log(`Error processing image set: ${error.message}`);
-            }
-          }
+          const fullRef = ref(storage, fullFilePath);
+          const thumbRef = ref(storage, thumbFilePath);
+
+          await Promise.all([deleteObject(fullRef), deleteObject(thumbRef)]);
+        } catch (error) {
+          console.warn(`Error deleting images: ${error.message}`);
+          // Continue with document deletion even if image deletion fails
         }
-
-        await deleteDoc(docRef);
-        setDeletedBike(id);
-      } else {
-        console.error("No such document exists.");
-        alert("Error: No such document exists.");
       }
-    } catch (error) {
-      console.error("Error deleting document and images:", error);
-      alert(`Error deleting document and images: ${error.message}`);
-    }
+    });
+
+    // Wait for all image deletions to complete
+    await Promise.all(imageDeletePromises);
+
+    // Finally delete the document
+    await deleteDoc(docRef);
   };
 
-  const handleRemove = (e, id, model, name) => {
+  const handleRemove = async (e, id, model, name) => {
     e.preventDefault();
-    handleDeleteDoc(id);
-    setDeletedBike(id);
-    alert(`${model} ${name} removed from database`);
-    revalidateCache();
-    clearBikeCache();
-    revalidatePaths();
-    clearClientCache();
-    getFreshBikes();
+
+    try {
+      // First delete the document and wait for confirmation
+      await handleDeleteDoc(id);
+
+      // Only if deletion was successful:
+      setDeletedBike(id);
+
+      // Clear all caches synchronously
+      clearClientCache();
+      clearBikeCache();
+
+      // Update UI state
+      setAllBikes((prev) => prev.filter((bike) => bike.id !== id));
+      setSearchItems((prev) => prev.filter((bike) => bike.id !== id));
+
+      // Fetch fresh data
+      await getFreshBikes();
+
+      // Revalidate server caches
+      await Promise.all([revalidateCache(), revalidatePaths()]);
+
+      // Show success message
+      alert(`${model} ${name} removed from database`);
+    } catch (error) {
+      console.error("Error removing bike:", error);
+      alert(`Error removing bike: ${error.message}`);
+    }
   };
 
   const handleEditClick = (e, id) => {

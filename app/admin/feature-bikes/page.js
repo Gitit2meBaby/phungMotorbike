@@ -1,4 +1,3 @@
-// app/admin/feature-bikes/page.js
 "use client";
 import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
@@ -22,6 +21,7 @@ import { revalidatePaths } from "../../../server-actions/revalidate";
 import { clearBikeCache } from "../../lib/clearBikeCache";
 import { clearClientCache } from "../../lib/cacheManager";
 import { scrollToTop } from "../../lib/scrollToTop";
+import Link from "next/link";
 
 export default function FeatureBikesAdmin() {
   const [admin, setAdmin] = useState(false);
@@ -72,7 +72,8 @@ export default function FeatureBikesAdmin() {
       throw new Error("Bike model and name are required for uploading images.");
     }
 
-    const uploadPromises = files.flatMap(async (file, index) => {
+    const validFiles = files.filter((file) => file !== null);
+    const uploadPromises = validFiles.flatMap(async (file, index) => {
       if (file && file.thumbImage && file.fullImage) {
         const thumbFileName = `${bikeModel}-${bikeName}-thumb-${index}.webp`;
         const fullFileName = `${bikeModel}-${bikeName}-full-${index}.webp`;
@@ -107,7 +108,8 @@ export default function FeatureBikesAdmin() {
   const handleSubmitRental = async (e) => {
     e.preventDefault();
 
-    if (files.length === 0) {
+    const validFiles = files.filter((file) => file !== null);
+    if (validFiles.length === 0) {
       alert("Please upload at least one image");
       return;
     }
@@ -139,23 +141,27 @@ export default function FeatureBikesAdmin() {
         const bikeDocRef = doc(collectionRef, editBikeId);
         const filesChanged = files.some(
           (file, index) =>
-            file.thumbImage !== initialFiles[index]?.thumbImage ||
-            file.fullImage !== initialFiles[index]?.fullImage
+            file &&
+            (!initialFiles[index] ||
+              file.thumbImage !== initialFiles[index]?.thumbImage ||
+              file.fullImage !== initialFiles[index]?.fullImage)
         );
 
         if (filesChanged) {
           const updatedImageUrls = await uploadImages(
-            files,
+            validFiles,
             editBikeId,
             formData.model,
             formData.name
           );
           bikeData.images = updatedImageUrls;
         } else {
-          bikeData.images = initialFiles.map((file) => ({
-            thumbURL: file.thumbImage,
-            fullURL: file.fullImage,
-          }));
+          bikeData.images = initialFiles
+            .filter((file) => file !== null)
+            .map((file) => ({
+              thumbURL: file.thumbImage,
+              fullURL: file.fullImage,
+            }));
         }
 
         await updateDoc(bikeDocRef, bikeData);
@@ -164,7 +170,7 @@ export default function FeatureBikesAdmin() {
         const bikeId = nanoid(10);
         const bikeDoc = doc(collectionRef, bikeId);
         const imageUrls = await uploadImages(
-          files,
+          validFiles,
           bikeId,
           formData.model,
           formData.name
@@ -179,8 +185,8 @@ export default function FeatureBikesAdmin() {
           revalidateCache(),
           revalidatePaths(),
           (async () => {
-            clearClientCache(); // Synchronous operation
-            clearBikeCache(); // Synchronous operation
+            clearClientCache();
+            clearBikeCache();
           })(),
         ]);
       } catch (cacheError) {
@@ -189,16 +195,26 @@ export default function FeatureBikesAdmin() {
 
       clearFields();
       setEditBikeId(null);
+      setFormType("Remove Bike");
     } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      console.error("Detailed Error:", error); // Add this line
+      if (
+        error.code === "resource-exhausted" ||
+        error.message.includes("quota exceeded")
+      ) {
+        alert("Error: Quota exceeded. Please try again later.");
+      } else {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+      }
     }
   };
 
   const handleSubmitSale = async (e) => {
     e.preventDefault();
 
-    if (files.length === 0) {
+    const validFiles = files.filter((file) => file !== null);
+    if (validFiles.length === 0) {
       alert("Please upload at least one image");
       return;
     }
@@ -230,23 +246,27 @@ export default function FeatureBikesAdmin() {
         const bikeDocRef = doc(collectionRef, editBikeId);
         const filesChanged = files.some(
           (file, index) =>
-            file.thumbImage !== initialFiles[index]?.thumbImage ||
-            file.fullImage !== initialFiles[index]?.fullImage
+            file &&
+            (!initialFiles[index] ||
+              file.thumbImage !== initialFiles[index]?.thumbImage ||
+              file.fullImage !== initialFiles[index]?.fullImage)
         );
 
         if (filesChanged) {
           const updatedImageUrls = await uploadImages(
-            files,
+            validFiles,
             editBikeId,
             formData.model,
             formData.name
           );
           bikeData.images = updatedImageUrls;
         } else {
-          bikeData.images = initialFiles.map((file) => ({
-            thumbURL: file.thumbImage,
-            fullURL: file.fullImage,
-          }));
+          bikeData.images = initialFiles
+            .filter((file) => file !== null)
+            .map((file) => ({
+              thumbURL: file.thumbImage,
+              fullURL: file.fullImage,
+            }));
         }
 
         await updateDoc(bikeDocRef, bikeData);
@@ -255,7 +275,7 @@ export default function FeatureBikesAdmin() {
         const bikeId = nanoid(10);
         const bikeDoc = doc(collectionRef, bikeId);
         const imageUrls = await uploadImages(
-          files,
+          validFiles,
           bikeId,
           formData.model,
           formData.name
@@ -265,11 +285,22 @@ export default function FeatureBikesAdmin() {
         alert("Featured sale bike added successfully!");
       }
 
+      try {
+        await Promise.all([
+          revalidateCache(),
+          revalidatePaths(),
+          (async () => {
+            clearClientCache();
+            clearBikeCache();
+          })(),
+        ]);
+      } catch (cacheError) {
+        console.error("Cache clearing error:", cacheError);
+      }
+
       clearFields();
-      await revalidateCache();
-      revalidatePaths();
-      clearBikeCache();
       setEditBikeId(null);
+      setFormType("Remove Bike");
     } catch (error) {
       console.error("Error:", error);
       alert("An error occurred. Please try again.");
