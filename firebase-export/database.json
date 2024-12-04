@@ -1,0 +1,1448 @@
+{
+  "bikes": {
+    "63": {
+      "cityPrice": 8,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20125%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20125%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20125%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20125%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20125%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20125%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20125%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20125%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 2500000,
+      "travelPrice": 13,
+      "salePrice": 1300,
+      "description": "new model Honda lead 125 cc ! Super reliable, economic, very good for traveling also going around cyti with big box under the seat",
+      "model": "Honda",
+      "type": "Automatic",
+      "capacity": 125,
+      "timestamp": {
+        "_seconds": 1728400560,
+        "_nanoseconds": 805000000
+      },
+      "name": "Lead"
+    },
+    "72": {
+      "cityPrice": 6,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20sirius%20fuel%20injection%20115%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20sirius%20fuel%20injection%20115%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20sirius%20fuel%20injection%20115%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20sirius%20fuel%20injection%20115%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20sirius%20fuel%20injection%20115%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20sirius%20fuel%20injection%20115%20cc-300x225-2.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1000000,
+      "travelPrice": 10,
+      "salePrice": 500,
+      "description": "Very new, reliable, economic bike model 2016 .It done 11000 km only! Good for going every where.",
+      "model": "Yamaha",
+      "type": "Semi - Automatic",
+      "capacity": 115,
+      "timestamp": {
+        "_seconds": 1728400598,
+        "_nanoseconds": 887000000
+      },
+      "name": "Sirius"
+    },
+    "120": {
+      "cityPrice": 10,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20EN%20150%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20EN%20150%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20EN%20150%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20EN%20150%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20EN%20150%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20EN%20150%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20EN%20150%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20EN%20150%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 2200000,
+      "description": "Strong, smooth, reliable bike.\n Comfortable for 2 people going every where in Vietnam",
+      "model": "Suzuki",
+      "type": "Manual",
+      "capacity": 150,
+      "name": "EN",
+      "travelPrice": "14",
+      "salePrice": "1000",
+      "timestamp": {
+        "_seconds": 1732724592,
+        "_nanoseconds": 895000000
+      }
+    },
+    "137": {
+      "cityPrice": 10,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Lifan%20PCX%20150-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Lifan%20PCX%20150-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Lifan%20PCX%20150-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Lifan%20PCX%20150-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Lifan%20PCX%20150-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Lifan%20PCX%20150-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Lifan%20PCX%20150-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Lifan%20PCX%20150-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1500000,
+      "salePrice": 800,
+      "description": "Big body good for big body people!\n Strong and smooth engine! Big box under the seat",
+      "model": "Lifan",
+      "type": "Automatic",
+      "capacity": 150,
+      "name": "PCX",
+      "travelPrice": "14",
+      "timestamp": {
+        "_seconds": 1729712397,
+        "_nanoseconds": 407000000
+      }
+    },
+    "160": {
+      "cityPrice": 5,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSym-Sym%20Attila%20elizabet%20125%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSym-Sym%20Attila%20elizabet%20125%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSym-Sym%20Attila%20elizabet%20125%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSym-Sym%20Attila%20elizabet%20125%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSym-Sym%20Attila%20elizabet%20125%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSym-Sym%20Attila%20elizabet%20125%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSym-Sym%20Attila%20elizabet%20125%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSym-Sym%20Attila%20elizabet%20125%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 8,
+      "salePrice": 300,
+      "description": "Fuel injection, smooth, comfortable, easy to start and riding around city",
+      "model": "Sym",
+      "type": "Automatic",
+      "capacity": 125,
+      "name": "Attila elizabeth",
+      "monthPrice": "1000000",
+      "timestamp": {
+        "_seconds": 1729603953,
+        "_nanoseconds": 676000000
+      }
+    },
+    "166": {
+      "cityPrice": 7,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FBrand-Brand%20new%20detech%20win%20130-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FBrand-Brand%20new%20detech%20win%20130-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FBrand-Brand%20new%20detech%20win%20130-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FBrand-Brand%20new%20detech%20win%20130-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FBrand-Brand%20new%20detech%20win%20130-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FBrand-Brand%20new%20detech%20win%20130-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FBrand-Brand%20new%20detech%20win%20130-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FBrand-Brand%20new%20detech%20win%20130-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1500000,
+      "travelPrice": 9,
+      "salePrice": 600,
+      "type": "Manual",
+      "capacity": 130,
+      "name": "Win",
+      "model": "Detech",
+      "description": "Brand New, comfortable, smooth and strong bike\nThe bike comes with phones holder, extra rack and rubber straps, helmets ",
+      "timestamp": {
+        "_seconds": 1729712556,
+        "_nanoseconds": 608000000
+      }
+    },
+    "171": {
+      "cityPrice": 7,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuper-Super%20Lifan%20Honda%20cub-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuper-Super%20Lifan%20Honda%20cub-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuper-Super%20Lifan%20Honda%20cub-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuper-Super%20Lifan%20Honda%20cub-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuper-Super%20Lifan%20Honda%20cub-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuper-Super%20Lifan%20Honda%20cub-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuper-Super%20Lifan%20Honda%20cub-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuper-Super%20Lifan%20Honda%20cub-300x225-3.webp?alt=media"
+        }
+      ],
+      "salePrice": 500,
+      "description": "It’s is 50 cc in the blue card but actually it is 100 cc , therefore it is legal for the people have no legal license but enough power to go every where even for traveling! It good for small body people also",
+      "type": "Semi - Automatic",
+      "capacity": 50,
+      "model": "Lifan",
+      "name": "Super cub",
+      "monthPrice": "1200000",
+      "travelPrice": "10",
+      "timestamp": {
+        "_seconds": 1729434594,
+        "_nanoseconds": 319000000
+      }
+    },
+    "187": {
+      "cityPrice": 25,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CRF%20250-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CRF%20250-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CRF%20250-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CRF%20250-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CRF%20250-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CRF%20250-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CRF%20250-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CRF%20250-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 40,
+      "salePrice": 4000,
+      "description": "Great Off-road bike for traveling!",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 250,
+      "name": "CRF",
+      "monthPrice": "7000000",
+      "timestamp": {
+        "_seconds": 1729603999,
+        "_nanoseconds": 26000000
+      }
+    },
+    "219": {
+      "cityPrice": 7,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1500000,
+      "travelPrice": 11,
+      "salePrice": 700,
+      "description": "Nice and cool bike, it’s only one in Vietnam.\n Running smooth, strong, easy to handle",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 110,
+      "timestamp": {
+        "_seconds": 1728400628,
+        "_nanoseconds": 440000000
+      },
+      "name": "67"
+    },
+    "223": {
+      "cityPrice": 20,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FGPX-GPX%20legend-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FGPX-GPX%20legend-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FGPX-GPX%20legend-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FGPX-GPX%20legend-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FGPX-GPX%20legend-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FGPX-GPX%20legend-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FGPX-GPX%20legend-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FGPX-GPX%20legend-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 5000000,
+      "travelPrice": 30,
+      "description": "Nice and good condition bike, good for 2 people traveling",
+      "model": "GPX",
+      "type": "Manual",
+      "capacity": 250,
+      "name": "Legend",
+      "salePrice": "2000",
+      "timestamp": {
+        "_seconds": 1732452091,
+        "_nanoseconds": 939000000
+      }
+    },
+    "231": {
+      "cityPrice": 8,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20Axelo%20125%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20Axelo%20125%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20Axelo%20125%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20Axelo%20125%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20Axelo%20125%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20Axelo%20125%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20Axelo%20125%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20Axelo%20125%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1500000,
+      "travelPrice": 11,
+      "salePrice": 600,
+      "description": "Very good condition and reliable bike for going every where in Vietnam",
+      "model": "Suzuki",
+      "type": "Manual",
+      "capacity": 125,
+      "timestamp": {
+        "_seconds": 1728400583,
+        "_nanoseconds": 884000000
+      },
+      "name": "Axelo"
+    },
+    "239": {
+      "cityPrice": 9,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067%20for%20selling-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067%20for%20selling-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067%20for%20selling-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067%20for%20selling-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067%20for%20selling-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067%20for%20selling-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067%20for%20selling-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%2067%20for%20selling-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1500000,
+      "travelPrice": 0,
+      "salePrice": 850,
+      "description": "Nice and coo Honda 67 for selling.\n The bike in great condition. It’s toys bike , good for the people like traditional bikes",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 50,
+      "timestamp": {
+        "_seconds": 1728400467,
+        "_nanoseconds": 974000000
+      },
+      "name": "67"
+    },
+    "248": {
+      "cityPrice": 7,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20vision%20115%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20vision%20115%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20vision%20115%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20vision%20115%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20vision%20115%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20vision%20115%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20vision%20115%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20vision%20115%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1400000,
+      "travelPrice": 10,
+      "salePrice": 650,
+      "description": "Nice and good condition bike.\n Reliable, comfortable and easy to ride",
+      "model": "Honda",
+      "type": "Automatic",
+      "capacity": 110,
+      "timestamp": {
+        "_seconds": 1728400635,
+        "_nanoseconds": 71000000
+      },
+      "name": "Vision"
+    },
+    "249": {
+      "cityPrice": 8,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20125%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20125%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20125%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20125%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20125%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20125%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20125%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20125%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 2500000,
+      "travelPrice": 13,
+      "salePrice": 1000,
+      "description": "Nice and good condition new model Honda Airblad 125 cc\n It is famous and regular bikes in Vietnam as many many Vietnamese people use it for going every where",
+      "model": "Honda",
+      "type": "Automatic",
+      "capacity": 125,
+      "timestamp": {
+        "_seconds": 1728400590,
+        "_nanoseconds": 791000000
+      },
+      "name": "Airblade"
+    },
+    "251": {
+      "cityPrice": 6,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FKymco-Kymco%20candy%20Hi-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FKymco-Kymco%20candy%20Hi-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FKymco-Kymco%20candy%20Hi-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FKymco-Kymco%20candy%20Hi-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FKymco-Kymco%20candy%20Hi-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FKymco-Kymco%20candy%20Hi-300x225-2.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1200000,
+      "salePrice": 400,
+      "description": "The best automatic bike for the people have no license",
+      "model": "Kymco",
+      "type": "Automatic",
+      "capacity": 50,
+      "name": "Candy Hi",
+      "travelPrice": "",
+      "timestamp": {
+        "_seconds": 1729688950,
+        "_nanoseconds": 157000000
+      }
+    },
+    "253": {
+      "cityPrice": 8,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20winner%20150-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20winner%20150-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20winner%20150-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20winner%20150-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20winner%20150-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20winner%20150-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20winner%20150-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20winner%20150-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 2000000,
+      "travelPrice": 12,
+      "salePrice": 1000,
+      "description": "New and good condition bike for renting and selling",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 150,
+      "timestamp": {
+        "_seconds": 1728400529,
+        "_nanoseconds": 305000000
+      },
+      "name": "Winner"
+    },
+    "256": {
+      "cityPrice": 10,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20RR150%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20RR150%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20RR150%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20RR150%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20RR150%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20RR150%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20RR150%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20RR150%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 2500000,
+      "travelPrice": 15,
+      "description": "Good condition, cool bike for the people going every where in Vietnam",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 150,
+      "name": "RR",
+      "salePrice": "1000",
+      "timestamp": {
+        "_seconds": 1729602372,
+        "_nanoseconds": 523000000
+      }
+    },
+    "257": {
+      "cityPrice": 10,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 2500000,
+      "travelPrice": 15,
+      "salePrice": 1000,
+      "description": "Very good solid and comfortable bike",
+      "model": "Yamaha",
+      "type": "Manual",
+      "capacity": 155,
+      "timestamp": {
+        "_seconds": 1728400489,
+        "_nanoseconds": 280000000
+      },
+      "name": "FZ"
+    },
+    "258": {
+      "cityPrice": 0,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20win%20125%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20win%20125%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20win%20125%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20win%20125%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20win%20125%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20win%20125%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20win%20125%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20win%20125%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 0,
+      "salePrice": 400,
+      "description": "Nice and cool cafe racer bike",
+      "type": "Manual",
+      "capacity": 125,
+      "model": "Detech",
+      "name": "Win",
+      "monthPrice": "1300000",
+      "timestamp": {
+        "_seconds": 1729712766,
+        "_nanoseconds": 369000000
+      }
+    },
+    "262": {
+      "cityPrice": 8,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20PL150%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20PL150%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20PL150%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20PL150%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20PL150%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20PL150%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20PL150%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20PL150%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 2000000,
+      "travelPrice": 14,
+      "description": "Strong, smooth, reliable bike for 2 people going to mountain for traveling",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 150,
+      "name": "PL",
+      "salePrice": "800",
+      "timestamp": {
+        "_seconds": 1731706300,
+        "_nanoseconds": 956000000
+      }
+    },
+    "266": {
+      "cityPrice": 7,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1200000,
+      "travelPrice": 11,
+      "salePrice": 600,
+      "description": "Very nice and good condition Honda dream 110 for selling and renting",
+      "type": "Semi - Automatic",
+      "capacity": 110,
+      "timestamp": {
+        "_seconds": 1728400614,
+        "_nanoseconds": 494000000
+      },
+      "model": "Honda",
+      "name": "Dream"
+    },
+    "267": {
+      "cityPrice": 14,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Xr%20190%20cc-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Xr%20190%20cc-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Xr%20190%20cc-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Xr%20190%20cc-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Xr%20190%20cc-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Xr%20190%20cc-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Xr%20190%20cc-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Xr%20190%20cc-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 5000000,
+      "travelPrice": 20,
+      "salePrice": 2500,
+      "description": "It Honda Xr 150 cc upgraded to 190 cc . Very good condition, smooth and strong bike for going to mountain even with 2 people and luggage",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 190,
+      "timestamp": {
+        "_seconds": 1728400486,
+        "_nanoseconds": 51000000
+      },
+      "name": "XR"
+    },
+    "269": {
+      "cityPrice": 10,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20xr-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20xr-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20xr-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20xr-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20xr-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20xr-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20xr-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20xr-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 3000000,
+      "travelPrice": 14,
+      "salePrice": 1200,
+      "description": "It’s Honda Xr 125 cc upgraded to 150 cc \n Strong, smooth and reliable bike for traveling to every where in Vietnam",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 150,
+      "name": "XR",
+      "timestamp": {
+        "_seconds": 1729424786,
+        "_nanoseconds": 392000000
+      }
+    },
+    "270": {
+      "cityPrice": 6,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20Nouvo%205-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20Nouvo%205-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20Nouvo%205-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20Nouvo%205-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20Nouvo%205-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20Nouvo%205-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20Nouvo%205-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20Nouvo%205-300x225-3.webp?alt=media"
+        }
+      ],
+      "monthPrice": 1200000,
+      "travelPrice": 10,
+      "salePrice": 350,
+      "description": "Nice and good condition automatic fuel injection bike.\n Strong bike with capa 125 cc",
+      "model": "Yamaha",
+      "type": "Automatic",
+      "capacity": 125,
+      "timestamp": {
+        "_seconds": 1728400552,
+        "_nanoseconds": 597000000
+      },
+      "name": "Nouvo 5"
+    },
+    "1mQFFkcp7nPwTWdFcRf3": {
+      "cityPrice": 6,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-1mQFFkcp7nPwTWdFcRf3-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-1mQFFkcp7nPwTWdFcRf3-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-1mQFFkcp7nPwTWdFcRf3-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-1mQFFkcp7nPwTWdFcRf3-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-1mQFFkcp7nPwTWdFcRf3-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-1mQFFkcp7nPwTWdFcRf3-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-1mQFFkcp7nPwTWdFcRf3-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-1mQFFkcp7nPwTWdFcRf3-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 10,
+      "description": "Nice and good condition bike.\n  Comfortable, easy to ride, safe enough for going to every where in Vietnamese",
+      "model": "Honda",
+      "type": "Automatic",
+      "capacity": 110,
+      "name": "Airblade",
+      "monthPrice": "1300000",
+      "salePrice": "500",
+      "timestamp": {
+        "_seconds": 1729570053,
+        "_nanoseconds": 603000000
+      }
+    },
+    "98VYEy4gfJGWWJFHPAIM": {
+      "cityPrice": 7,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-98VYEy4gfJGWWJFHPAIM-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-98VYEy4gfJGWWJFHPAIM-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-98VYEy4gfJGWWJFHPAIM-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-98VYEy4gfJGWWJFHPAIM-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-98VYEy4gfJGWWJFHPAIM-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-98VYEy4gfJGWWJFHPAIM-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-98VYEy4gfJGWWJFHPAIM-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FDream-Dream%20Vietnam%20110-98VYEy4gfJGWWJFHPAIM-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 11,
+      "description": "Very nice and good condition Honda dream 110 for selling and renting",
+      "type": "Semi - Automatic",
+      "capacity": 110,
+      "model": "Honda",
+      "name": "Dream",
+      "monthPrice": "1200000",
+      "salePrice": "650",
+      "timestamp": {
+        "_seconds": 1729435542,
+        "_nanoseconds": 271000000
+      }
+    },
+    "JTYugRKN1u6rnVa0HYVD": {
+      "cityPrice": 7,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-JTYugRKN1u6rnVa0HYVD-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-JTYugRKN1u6rnVa0HYVD-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-JTYugRKN1u6rnVa0HYVD-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-JTYugRKN1u6rnVa0HYVD-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-JTYugRKN1u6rnVa0HYVD-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-JTYugRKN1u6rnVa0HYVD-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-JTYugRKN1u6rnVa0HYVD-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-JTYugRKN1u6rnVa0HYVD-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 10,
+      "description": "Very nice and good condition bike for riding to every where in Vietnam",
+      "model": "Honda",
+      "type": "Automatic",
+      "capacity": 110,
+      "name": "Airblade",
+      "monthPrice": "1300000",
+      "salePrice": "500",
+      "timestamp": {
+        "_seconds": 1729599252,
+        "_nanoseconds": 906000000
+      }
+    },
+    "KD8rGpQWjWHHLHFonEbj": {
+      "cityPrice": 6,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-KD8rGpQWjWHHLHFonEbj-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-KD8rGpQWjWHHLHFonEbj-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-KD8rGpQWjWHHLHFonEbj-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-KD8rGpQWjWHHLHFonEbj-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-KD8rGpQWjWHHLHFonEbj-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-KD8rGpQWjWHHLHFonEbj-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-KD8rGpQWjWHHLHFonEbj-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20Airblad%20110%20cc-KD8rGpQWjWHHLHFonEbj-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": null,
+      "description": "Good enough bike for riding around city even for traveling",
+      "model": "Honda",
+      "type": "Automatic",
+      "capacity": 110,
+      "name": "Airblade",
+      "monthPrice": "1200000",
+      "salePrice": "400",
+      "timestamp": {
+        "_seconds": 1729483778,
+        "_nanoseconds": 341000000
+      }
+    },
+    "LKjBs2kKQqo3UmFozRQf": {
+      "cityPrice": 8,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20GN125-LKjBs2kKQqo3UmFozRQf-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20GN125-LKjBs2kKQqo3UmFozRQf-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20GN125-LKjBs2kKQqo3UmFozRQf-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20GN125-LKjBs2kKQqo3UmFozRQf-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20GN125-LKjBs2kKQqo3UmFozRQf-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20GN125-LKjBs2kKQqo3UmFozRQf-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20GN125-LKjBs2kKQqo3UmFozRQf-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FSuzuki-Suzuki%20GN125-LKjBs2kKQqo3UmFozRQf-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 12,
+      "description": "It’s old bike but everything still original.\n  It’s running great, comfortable and reliable",
+      "model": "Suzuki",
+      "type": "Manual",
+      "capacity": 125,
+      "name": "GN",
+      "monthPrice": "1800000",
+      "salePrice": "700",
+      "timestamp": {
+        "_seconds": 1729429345,
+        "_nanoseconds": 734000000
+      }
+    },
+    "Q4BweRQjeVtoCVbqRqNh": {
+      "cityPrice": 6,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20110-Q4BweRQjeVtoCVbqRqNh-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20110-Q4BweRQjeVtoCVbqRqNh-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20110-Q4BweRQjeVtoCVbqRqNh-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20110-Q4BweRQjeVtoCVbqRqNh-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20110-Q4BweRQjeVtoCVbqRqNh-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20110-Q4BweRQjeVtoCVbqRqNh-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20110-Q4BweRQjeVtoCVbqRqNh-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20lead%20110-Q4BweRQjeVtoCVbqRqNh-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 10,
+      "description": "Nice , reliable , smooth running! Fuel injection, economic",
+      "model": "Honda",
+      "type": "Automatic",
+      "capacity": 110,
+      "name": "Lead",
+      "monthPrice": "1300000",
+      "salePrice": "450",
+      "timestamp": {
+        "_seconds": 1729602868,
+        "_nanoseconds": 590000000
+      }
+    },
+    "SflGWCrG1sK4vanT6Iws": {
+      "cityPrice": 6,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20click%20110%20cc-SflGWCrG1sK4vanT6Iws-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20click%20110%20cc-SflGWCrG1sK4vanT6Iws-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20click%20110%20cc-SflGWCrG1sK4vanT6Iws-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20click%20110%20cc-SflGWCrG1sK4vanT6Iws-300x225-1.webp?alt=media"
+        }
+      ],
+      "travelPrice": 9,
+      "description": "Reliable, easy to ride, good for small body people to go around cyti",
+      "model": "Honda",
+      "type": "Automatic",
+      "capacity": 110,
+      "name": "Click",
+      "monthPrice": "1200000",
+      "salePrice": "400",
+      "timestamp": {
+        "_seconds": 1729602932,
+        "_nanoseconds": 454000000
+      }
+    },
+    "b1FSeRB5M0te5trBsIqu": {
+      "cityPrice": 10,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ150-b1FSeRB5M0te5trBsIqu-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ150-b1FSeRB5M0te5trBsIqu-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ150-b1FSeRB5M0te5trBsIqu-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ150-b1FSeRB5M0te5trBsIqu-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ150-b1FSeRB5M0te5trBsIqu-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ150-b1FSeRB5M0te5trBsIqu-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ150-b1FSeRB5M0te5trBsIqu-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ150-b1FSeRB5M0te5trBsIqu-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 13,
+      "description": "Nice and good condition, good power, comfortable bike",
+      "model": "Yamaha",
+      "type": "Manual",
+      "capacity": 150,
+      "name": "FZ",
+      "monthPrice": "2000000",
+      "salePrice": "700",
+      "timestamp": {
+        "_seconds": 1729752574,
+        "_nanoseconds": 717000000
+      }
+    },
+    "cRgBkuURjPLFAZL11p59": {
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CBF125%20R-cRgBkuURjPLFAZL11p59-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CBF125%20R-cRgBkuURjPLFAZL11p59-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CBF125%20R-cRgBkuURjPLFAZL11p59-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CBF125%20R-cRgBkuURjPLFAZL11p59-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CBF125%20R-cRgBkuURjPLFAZL11p59-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CBF125%20R-cRgBkuURjPLFAZL11p59-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CBF125%20R-cRgBkuURjPLFAZL11p59-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Honda%20CBF125%20R-cRgBkuURjPLFAZL11p59-300x225-3.webp?alt=media"
+        }
+      ],
+      "description": "Nice and good bike, fair price also !\n  Comfortable and reliable fuel injection bike \n  Good for the people going every in Vietnam",
+      "model": "Honda",
+      "type": "Manual",
+      "capacity": 125,
+      "name": "CBF",
+      "monthPrice": "2000000",
+      "cityPrice": "10",
+      "travelPrice": "12",
+      "salePrice": "1000",
+      "timestamp": {
+        "_seconds": 1731990401,
+        "_nanoseconds": 918000000
+      }
+    },
+    "ewxv8hOxx6NkMQV2r8VG": {
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Cruise%20Lifan%20150%20cc-ewxv8hOxx6NkMQV2r8VG-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Cruise%20Lifan%20150%20cc-ewxv8hOxx6NkMQV2r8VG-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Cruise%20Lifan%20150%20cc-ewxv8hOxx6NkMQV2r8VG-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Cruise%20Lifan%20150%20cc-ewxv8hOxx6NkMQV2r8VG-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Cruise%20Lifan%20150%20cc-ewxv8hOxx6NkMQV2r8VG-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Cruise%20Lifan%20150%20cc-ewxv8hOxx6NkMQV2r8VG-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Cruise%20Lifan%20150%20cc-ewxv8hOxx6NkMQV2r8VG-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FLifan-Cruise%20Lifan%20150%20cc-ewxv8hOxx6NkMQV2r8VG-300x225-3.webp?alt=media"
+        }
+      ],
+      "description": "Very comfortable bike for bigger body people!\n  Good for traveling in long distance",
+      "model": "Lifan",
+      "type": "Manual",
+      "capacity": 150,
+      "name": "Cruise",
+      "salePrice": "1200",
+      "cityPrice": "9",
+      "monthPrice": "2200000",
+      "travelPrice": "14",
+      "timestamp": {
+        "_seconds": 1729808687,
+        "_nanoseconds": 95000000
+      }
+    },
+    "lh5pzSYt2fyOZVhIX1TV": {
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20NVX%20155%20cc-lh5pzSYt2fyOZVhIX1TV-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20NVX%20155%20cc-lh5pzSYt2fyOZVhIX1TV-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20NVX%20155%20cc-lh5pzSYt2fyOZVhIX1TV-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20NVX%20155%20cc-lh5pzSYt2fyOZVhIX1TV-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20NVX%20155%20cc-lh5pzSYt2fyOZVhIX1TV-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20NVX%20155%20cc-lh5pzSYt2fyOZVhIX1TV-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20NVX%20155%20cc-lh5pzSYt2fyOZVhIX1TV-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20NVX%20155%20cc-lh5pzSYt2fyOZVhIX1TV-300x225-3.webp?alt=media"
+        }
+      ],
+      "description": "Strong , smooth and reliable automatic bike for the people going every where even with 2 people on one bike",
+      "model": "Yamaha",
+      "type": "Automatic",
+      "capacity": 155,
+      "name": "NVX",
+      "monthPrice": "2500000",
+      "cityPrice": "11",
+      "travelPrice": "15",
+      "salePrice": "1000",
+      "timestamp": {
+        "_seconds": 1729808769,
+        "_nanoseconds": 843000000
+      }
+    },
+    "mDSMm5MOYGCgTVnA2y4k": {
+      "cityPrice": 10,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-mDSMm5MOYGCgTVnA2y4k-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-mDSMm5MOYGCgTVnA2y4k-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-mDSMm5MOYGCgTVnA2y4k-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-mDSMm5MOYGCgTVnA2y4k-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-mDSMm5MOYGCgTVnA2y4k-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-mDSMm5MOYGCgTVnA2y4k-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-mDSMm5MOYGCgTVnA2y4k-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FYamaha-Yamaha%20FZ155%20cc-mDSMm5MOYGCgTVnA2y4k-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": 15,
+      "description": "Very good solid and comfortable bike",
+      "model": "Yamaha",
+      "type": "Manual",
+      "capacity": 155,
+      "name": "FZ",
+      "monthPrice": "2500000",
+      "salePrice": "1000",
+      "timestamp": {
+        "_seconds": 1729603759,
+        "_nanoseconds": 908000000
+      }
+    },
+    "odgFrhPA0G": {
+      "model": "Honda ",
+      "name": "Wave Rsx ",
+      "capacity": "110",
+      "description": "Nice bike ",
+      "cityPrice": "6",
+      "travelPrice": "9",
+      "monthPrice": "1000000",
+      "honeypot": "",
+      "type": "Semi - Automatic",
+      "salePrice": "600",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda%20-Wave%20Rsx%20-thumb-0.webp?alt=media&token=ad44ebdf-d113-41a7-a825-c2c9d25b749f",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda%20-Wave%20Rsx%20-full-0.webp?alt=media&token=7ea3c00c-c34e-4697-9c11-f13c27fd67e6"
+        },
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda%20-Wave%20Rsx%20-thumb-1.webp?alt=media&token=a60509c7-3520-4d70-8910-e01cde6fb67b",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda%20-Wave%20Rsx%20-full-1.webp?alt=media&token=dce36b0a-cdf4-484e-a4e2-860ce87950c6"
+        },
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda%20-Wave%20Rsx%20-thumb-2.webp?alt=media&token=fdeca34d-eced-426c-9a84-e7db78f11b55",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda%20-Wave%20Rsx%20-full-2.webp?alt=media&token=f11ffa42-2be4-4580-9f49-4e6468a4fd2f"
+        },
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda%20-Wave%20Rsx%20-thumb-3.webp?alt=media&token=30ad1afc-bc0e-4b39-a230-f775d4759dc4",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda%20-Wave%20Rsx%20-full-3.webp?alt=media&token=9a7914a4-d79b-4e5a-84fc-163692e05af7"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1731989597,
+        "_nanoseconds": 27000000
+      }
+    },
+    "vwvzWRp0bdfDy5Yk9PfU": {
+      "cityPrice": 6.5,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20cub%2050%20cc%20for%20selling%20and%20renting-vwvzWRp0bdfDy5Yk9PfU-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20cub%2050%20cc%20for%20selling%20and%20renting-vwvzWRp0bdfDy5Yk9PfU-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20cub%2050%20cc%20for%20selling%20and%20renting-vwvzWRp0bdfDy5Yk9PfU-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20cub%2050%20cc%20for%20selling%20and%20renting-vwvzWRp0bdfDy5Yk9PfU-300x225-1.webp?alt=media"
+        }
+      ],
+      "travelPrice": null,
+      "description": "Original Honda cub, nice and good condition",
+      "model": "Honda",
+      "type": "Semi - Automatic",
+      "capacity": 50,
+      "name": "Cub",
+      "monthPrice": "1500000",
+      "salePrice": "700",
+      "timestamp": {
+        "_seconds": 1729602139,
+        "_nanoseconds": 399000000
+      }
+    },
+    "wcqnyw053UNiG9eMscz8": {
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20dream-wcqnyw053UNiG9eMscz8-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20dream-wcqnyw053UNiG9eMscz8-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20dream-wcqnyw053UNiG9eMscz8-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20dream-wcqnyw053UNiG9eMscz8-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20dream-wcqnyw053UNiG9eMscz8-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20dream-wcqnyw053UNiG9eMscz8-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20dream-wcqnyw053UNiG9eMscz8-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FHonda-Real%20Honda%20dream-wcqnyw053UNiG9eMscz8-300x225-3.webp?alt=media"
+        }
+      ],
+      "description": "Nice and good condition bike.\n  It’s almost 30 years olds , everything almost original.\n  It runs very smoothly and strong.",
+      "model": "Honda",
+      "type": "Semi - Automatic",
+      "capacity": 100,
+      "name": "Dream",
+      "monthPrice": "1500000",
+      "cityPrice": "8",
+      "travelPrice": "10",
+      "salePrice": "1000",
+      "timestamp": {
+        "_seconds": 1730123962,
+        "_nanoseconds": 179000000
+      }
+    },
+    "xMKSupwuX9xEPedaZJsr": {
+      "cityPrice": null,
+      "images": [
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20Honda%20win%20for%20sale-xMKSupwuX9xEPedaZJsr-600x450-0.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20Honda%20win%20for%20sale-xMKSupwuX9xEPedaZJsr-300x225-0.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20Honda%20win%20for%20sale-xMKSupwuX9xEPedaZJsr-600x450-1.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20Honda%20win%20for%20sale-xMKSupwuX9xEPedaZJsr-300x225-1.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20Honda%20win%20for%20sale-xMKSupwuX9xEPedaZJsr-600x450-2.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20Honda%20win%20for%20sale-xMKSupwuX9xEPedaZJsr-300x225-2.webp?alt=media"
+        },
+        {
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20Honda%20win%20for%20sale-xMKSupwuX9xEPedaZJsr-600x450-3.webp?alt=media",
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/bikes%2FCustomized-Customized%20Honda%20win%20for%20sale-xMKSupwuX9xEPedaZJsr-300x225-3.webp?alt=media"
+        }
+      ],
+      "travelPrice": null,
+      "description": "You can see the pictures, it’s nice and cool customized Honda win for selling.\n  It runs great, strong and smooth.\n  Easy to start and ride it",
+      "type": "Manual",
+      "capacity": 110,
+      "model": "Honda",
+      "name": "Custom Win",
+      "salePrice": "500",
+      "timestamp": {
+        "_seconds": 1729601464,
+        "_nanoseconds": 74000000
+      }
+    }
+  },
+  "featureBikes": {
+    "BcT34TPzk8": {
+      "model": "Honda",
+      "name": "XR",
+      "capacity": "150",
+      "cityPrice": "10",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureBikes%2FHonda-XR-thumb-0.webp?alt=media&token=f336a67a-63d2-458c-9816-2b7ab25685fa",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureBikes%2FHonda-XR-full-0.webp?alt=media&token=0fb69312-0dfd-465b-9e6a-907416eb095f"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1733132449,
+        "_nanoseconds": 510000000
+      }
+    },
+    "CafNX9oWs6": {
+      "model": "Yamaha",
+      "name": "NVX",
+      "capacity": "155",
+      "cityPrice": "11",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureBikes%2FYamaha-NVX-thumb-0.webp?alt=media&token=59627907-8b0b-40f7-8ac8-219c9ab760a6",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureBikes%2FYamaha-NVX-full-0.webp?alt=media&token=fa7b4bc1-b169-434b-b601-17c6c3dfb305"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1733134206,
+        "_nanoseconds": 457000000
+      }
+    },
+    "PMv2GFP7Y_": {
+      "model": "Honda",
+      "name": "Lead",
+      "capacity": "125",
+      "cityPrice": "8",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureBikes%2FHonda-Lead-thumb-0.webp?alt=media&token=13c8288f-f493-4d19-9a0f-4c0399d9f18d",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureBikes%2FHonda-Lead-full-0.webp?alt=media&token=8abad399-d522-44e3-96ea-082a422ece3b"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1733139461,
+        "_nanoseconds": 76000000
+      }
+    },
+    "umY7b3FZJR": {
+      "model": "Honda",
+      "name": "CRF",
+      "capacity": "250",
+      "cityPrice": "25",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureBikes%2FHonda-CRF-thumb-0.webp?alt=media&token=1eabab6a-8982-4c2e-b24d-fc8cb80aca6b",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureBikes%2FHonda-CRF-full-0.webp?alt=media&token=c95cb31a-fa84-428d-84a6-bf0485cfee98"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1733132128,
+        "_nanoseconds": 137000000
+      }
+    }
+  },
+  "featureSaleBikes": {
+    "-XmnOdeocB": {
+      "model": "Honda",
+      "name": "CRF",
+      "capacity": "250",
+      "salePrice": "4000",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FHonda-CRF-thumb-0.webp?alt=media&token=35c1d007-1291-4445-afc0-67680e985bc4",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FHonda-CRF-full-0.webp?alt=media&token=b63a8601-57fe-4c52-8114-1a22d2589f74"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1729746288,
+        "_nanoseconds": 143000000
+      }
+    },
+    "I-cklcIHRS": {
+      "model": "Sym",
+      "name": "Attila",
+      "capacity": "125",
+      "salePrice": "300",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FSym-Attila-thumb-0.webp?alt=media&token=0e5ce210-f4d7-4087-b08e-923244cd7dbe",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FSym-Attila-full-0.webp?alt=media&token=51975544-9942-40b4-9d5b-e6415b21dff9"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1729746205,
+        "_nanoseconds": 935000000
+      }
+    },
+    "M-gmOMf9eC": {
+      "model": "Honda",
+      "name": "Dream",
+      "capacity": "110",
+      "salePrice": "600",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FHonda-Dream-thumb-0.webp?alt=media&token=247579a4-a57d-4795-a7a3-40204bc2df8b",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FHonda-Dream-full-0.webp?alt=media&token=679b2d13-5a4c-4717-bc98-271cafeabf1e"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1729746163,
+        "_nanoseconds": 184000000
+      }
+    },
+    "jv_ZSpeoYG": {
+      "model": "Lifan",
+      "name": "Custom",
+      "capacity": "150",
+      "salePrice": "800",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FLifan-Custom-thumb-0.webp?alt=media&token=ae48f5d0-ea18-4357-b89d-903170419dd0",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FLifan-Custom-full-0.webp?alt=media&token=020b55ce-884a-4335-81ef-b0fd0919cc01"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1729746254,
+        "_nanoseconds": 31000000
+      }
+    },
+    "ljwaV6Y7Wq": {
+      "model": "Yamaha",
+      "name": "Sirius",
+      "capacity": "115",
+      "salePrice": "500",
+      "images": [
+        {
+          "thumbURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FYamaha-Sirius-thumb-0.webp?alt=media&token=0298074a-50c7-4805-a6eb-2f01342b8070",
+          "fullURL": "https://firebasestorage.googleapis.com/v0/b/phung-motorbike.appspot.com/o/featureSaleBikes%2FYamaha-Sirius-full-0.webp?alt=media&token=41bce654-5223-43d2-a2ea-e68fe61a5d96"
+        }
+      ],
+      "timestamp": {
+        "_seconds": 1729746092,
+        "_nanoseconds": 140000000
+      }
+    }
+  }
+}

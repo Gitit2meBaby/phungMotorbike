@@ -16,7 +16,7 @@
     "browser-image-compression": "^2.0.2",
     "date-fns": "^4.1.0",
     "firebase": "^10.8.1",
-    "firebase-admin": "^12.6.0",
+    "firebase-admin": "^12.7.0",
     "firestore": "^1.1.6",
     "lucide-react": "^0.451.0",
     "nanoid": "^5.0.7",
