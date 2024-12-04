@@ -30,8 +30,12 @@ A heavy emphasis on SSR was made to enable better SEO.
 
 ### To Do
 
-Change postMark account to client address
-Change Firebase account to client address
-Change domain to client address
-Change postMark to resend.
-Paypal account
+- Change postMark account to client address
+- Change Firebase account to client address
+- Change domain to client address
+- Change postMark to resend.
+- Paypal account
+
+---
+
+
