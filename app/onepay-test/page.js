@@ -1,6 +1,7 @@
 // app/onepay-test/page.js
 "use client";
 import React from "react";
+import OnepayTest from "./(components)/OnePayTest";
 
 function OnepayTestPage() {
   const [loading, setLoading] = React.useState(false);
@@ -27,24 +28,27 @@ function OnepayTestPage() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>OnePay Test</h1>
-      <p>Amount: 10,000 VND</p>
-      <button
-        onClick={handleTestPayment}
-        disabled={loading}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: loading ? "#ccc" : "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: loading ? "not-allowed" : "pointer",
-        }}
-      >
-        {loading ? "Processing..." : "Test Payment"}
-      </button>
-    </div>
+    <>
+      <OnepayTest />
+      <div style={{ padding: "20px" }}>
+        <h1>OnePay Test</h1>
+        <p>Amount: 10,000 VND</p>
+        <button
+          onClick={handleTestPayment}
+          disabled={loading}
+          style={{
+            padding: "10px 20px",
+            backgroundColor: loading ? "#ccc" : "#007bff",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            cursor: loading ? "not-allowed" : "pointer",
+          }}
+        >
+          {loading ? "Processing..." : "Test Payment"}
+        </button>
+      </div>
+    </>
   );
 }
 

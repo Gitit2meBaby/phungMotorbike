@@ -147,18 +147,24 @@ const ImageUploader = ({
       // Always update the local state first
       setFiles((prevFiles) => {
         const newFiles = [...prevFiles];
-        newFiles[index] = null; // Set to null instead of removing
+        newFiles[index] = null;
         return newFiles;
       });
 
       setPreview((prevPreviews) => {
         const newPreviews = [...prevPreviews];
-        newPreviews[index] = null; // Set to null instead of removing
+        newPreviews[index] = null;
         return newPreviews;
       });
 
-      // Only attempt storage/database deletion if in edit mode
-      if (formtype === "Edit Bike") {
+      // Only attempt storage/database deletion if:
+      // 1. We're in edit mode AND
+      // 2. The file exists in Firebase (has URL strings)
+      if (
+        formtype === "Edit Bike" &&
+        typeof fileToDelete.thumbImage === "string" &&
+        typeof fileToDelete.fullImage === "string"
+      ) {
         const thumbFilePath = decodeURIComponent(
           fileToDelete.thumbImage.split("/o/")[1].split("?")[0]
         );
@@ -186,7 +192,14 @@ const ImageUploader = ({
       }
     } catch (error) {
       console.error("Error deleting image:", error);
-      alert("An error occurred while deleting the image.");
+      // Only show alert if we were trying to delete from Firebase
+      if (
+        formtype === "Edit Bike" &&
+        typeof fileToDelete.thumbImage === "string" &&
+        typeof fileToDelete.fullImage === "string"
+      ) {
+        alert("An error occurred while deleting the image.");
+      }
     }
   };
 
@@ -205,10 +218,10 @@ const ImageUploader = ({
       </div>
 
       <div className={styles.previewGrid}>
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
-          <div key={index} className={styles.imgWrapper}>
-            {preview[index] && (
-              <>
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(
+          (index) =>
+            preview[index] && ( // Only render if there's a preview
+              <div key={index} className={styles.imgWrapper}>
                 <Image
                   src={preview[index]}
                   alt={`Uploaded image ${index + 1}`}
@@ -221,10 +234,9 @@ const ImageUploader = ({
                 >
                   DELETE
                 </button>
-              </>
-            )}
-          </div>
-        ))}
+              </div>
+            )
+        )}
       </div>
     </section>
   );

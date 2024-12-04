@@ -2,13 +2,11 @@
 import React, { useState, useEffect } from "react";
 import { CalendarIcon } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
 
 import styles from "../styles/booking.module.css";
 import success from "../public/success.webp";
 import { scrollToTop } from "../app/lib/scrollToTop";
-import PayPalButton from "./PayPalButton";
 
 const BookingPage = ({ bike }) => {
   const searchParams = useSearchParams();
