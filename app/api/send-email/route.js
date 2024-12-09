@@ -1,6 +1,6 @@
-import { ServerClient } from 'postmark';
+import { Resend } from 'resend';
 
-const client = new ServerClient(process.env.POSTMARK_API_TOKEN);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
     try {
@@ -18,13 +18,13 @@ export async function POST(req) {
             <p><strong>Message:</strong> ${message}</p>
         `;
 
-        await client.sendEmail({
-            From: process.env.FROM_EMAIL,
-            To: process.env.TO_EMAIL,
-            Subject: 'New Contact Form Submission',
-            HtmlBody: emailContent,
-            TextBody: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
-            MessageStream: 'outbound'
+        await resend.emails.send({
+            from: process.env.FROM_EMAIL,
+            to: process.env.TO_EMAIL,
+            subject: 'New Contact Form Submission',
+            html: emailContent,
+            // TextBody: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+            // MessageStream: 'outbound'
         });
 
         return new Response(JSON.stringify({ success: true }), { status: 200 });
