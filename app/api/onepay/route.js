@@ -7,8 +7,8 @@ const ONEPAY_ACCESS_CODE = process.env.ONEPAY_ACCESS_CODE;
 const ONEPAY_HASH_KEY = process.env.ONEPAY_HASH_KEY;
 const ONEPAY_URL =
   process.env.NODE_ENV === "production"
-    ? "https://onepay.vn/onecomm-pay/vpc.op"
-    : "https://mtf.onepay.vn/onecomm-pay/vpc.op";
+    ? "https://onepay.vn/paygate/vpcpay.op"
+    : "https://mtf.onepay.vn/paygate/vpcpay.op";
 
 export async function POST(req) {
   try {
