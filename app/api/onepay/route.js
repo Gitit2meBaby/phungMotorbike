@@ -6,7 +6,7 @@ const ONEPAY_MERCHANT_ID = process.env.ONEPAY_MERCHANT_ID;
 const ONEPAY_ACCESS_CODE = process.env.ONEPAY_ACCESS_CODE;
 const ONEPAY_HASH_KEY = process.env.ONEPAY_HASH_KEY;
 const ONEPAY_URL =
-  process.env.NODE_ENV === "production"
+  process.env.VERCEL_ENV === "production"
     ? "https://onepay.vn/paygate/vpcpay.op"
     : "https://mtf.onepay.vn/paygate/vpcpay.op";
 
