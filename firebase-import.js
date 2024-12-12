@@ -9,18 +9,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // You'll need to create a new service account key for the destination project
-// in Firebase Console, hit gear icon, navigate to 'Service Accounts', press 'Generate new private key', and download the JSON file. Store it in the root and do not share it with anyone. (add it to your .gitignore)
+// in Firebase Console, hit gear icon, navigate to 'Service Accounts', press
+// 'Generate new private key', and download the JSON file. Store it in the root
+// and do not share it with anyone. (add it to your .gitignore)
 const serviceAccount = JSON.parse(
   readFileSync(
-    "../phung-credential/phung-motorbike-firebase-adminsdk-cr6g0-3fd3f94690.json"
+    "./firebase-account.json"
   ) // Update this ***************
 );
 
-// The storageBucket is the name of your project, you should find these credentials in the firebase console, gear icon, project settings.
-//These are the same credentials that need to be changed in your .env file.
+// The storageBucket is the name of your project, you should find these
+// credentials in the firebase console, gear icon, project settings. These are
+// the same credentials that need to be changed in your .env file.
 const app = initializeApp({
   credential: cert(serviceAccount),
-  storageBucket: "your-new-project.appspot.com", // Update this ***************
+  storageBucket: "gs://phung-motorbike-new.firebasestorage.app", // Update this ***************
 });
 
 const db = getFirestore();
