@@ -1,3 +1,4 @@
+// main config file for firebase, these exports are required for firebase to work
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";

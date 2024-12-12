@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 export const dynamic = "force-dynamic";
 
+// Firebase imports for database and storage operations
 import { db, storage } from "../lib/firebase";
 import {
   collection,
@@ -14,6 +15,7 @@ import {
 } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+// Component and utility imports
 import styles from "../../styles/admin.module.css";
 import ImageUploader from "../../components/ImageUploader";
 import RemoveBike from "../../components/RemoveBike";
@@ -26,8 +28,11 @@ import { scrollToTop } from "../lib/scrollToTop";
 import Link from "next/link";
 
 export default function AdminDashboardForm() {
+  // State management for authentication and form visibility
   const [admin, setAdmin] = useState(false);
   const [showSignin, setShowSignin] = useState(true);
+
+  // Main form data state with all bike details
   const [formData, setFormData] = useState({
     model: "",
     name: "",
@@ -39,31 +44,25 @@ export default function AdminDashboardForm() {
     salePrice: "",
     monthPrice: "",
   });
+
+  // State for managing image uploads and previews
   const [files, setFiles] = useState([]);
   const [preview, setPreview] = useState([]);
 
+  // State for managing form mode (Add/Edit/Remove) and editing specific bike
   const [formType, setFormType] = useState("Remove Bike");
-  const [editBikeId, setEditBikeId] = useState(null); // Store bikeId if editing
+  const [editBikeId, setEditBikeId] = useState(null);
   const [initialFiles, setInitialFiles] = useState([]);
 
+  // Check for admin authentication on component mount and signin state change
   useEffect(() => {
-    localStorage.getItem("Admin");
-
     if (localStorage.getItem("Admin")) {
       setAdmin(true);
       setShowSignin(false);
     }
   }, [showSignin]);
 
-  useEffect(() => {
-    localStorage.getItem("Admin");
-
-    if (localStorage.getItem("Admin")) {
-      setAdmin(true);
-      setShowSignin(false);
-    }
-  }, []);
-
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -72,6 +71,7 @@ export default function AdminDashboardForm() {
     }));
   };
 
+  // Handle bike type radio selection
   const handleType = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -79,9 +79,8 @@ export default function AdminDashboardForm() {
     }));
   };
 
+  // Upload images to Firebase Storage and return URLs
   const uploadImages = async (files, bikeId, bikeModel, bikeName) => {
-    console.log(files, bikeId, bikeModel, bikeName);
-
     if (!bikeModel || !bikeName) {
       console.error("Bike model or name is missing:", { bikeModel, bikeName });
       alert("Error: Bike model or name is missing");
@@ -90,40 +89,37 @@ export default function AdminDashboardForm() {
 
     const uploadPromises = files.flatMap(async (file, index) => {
       if (file && file.thumbImage && file.fullImage) {
-        // Construct file names directly without adding a subfolder for the bikeId
+        // Create standardized filenames for storage
         const thumbFileName = `${bikeModel}-${bikeName}-thumb-${index}.webp`;
         const fullFileName = `${bikeModel}-${bikeName}-full-${index}.webp`;
 
-        // Update storage references to put the files directly in the 'bikes' folder
         const thumbRef = ref(storage, `bikes/${thumbFileName}`);
         const fullRef = ref(storage, `bikes/${fullFileName}`);
 
-        // Upload thumb and full images
+        // Upload both thumbnail and full-size images
         const [thumbUpload, fullUpload] = await Promise.all([
           uploadBytes(thumbRef, file.thumbImage),
           uploadBytes(fullRef, file.fullImage),
         ]);
 
-        // Get download URLs for the uploaded files
+        // Get download URLs for uploaded images
         const [thumbURL, fullURL] = await Promise.all([
           getDownloadURL(thumbUpload.ref),
           getDownloadURL(fullUpload.ref),
         ]);
 
-        return { thumbURL, fullURL }; // Return URLs for this image set
+        return { thumbURL, fullURL };
       }
       return null;
     });
 
-    // Wait for all upload promises to resolve
     const imageUrls = await Promise.all(uploadPromises);
-    return imageUrls.filter(Boolean); // Filter out any null entries
+    return imageUrls.filter(Boolean);
   };
 
+  // Handle form submission for both adding and editing bikes
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Filter out null entries from files array
     const validFiles = files.filter((file) => file !== null);
 
     if (validFiles.length === 0) {
@@ -131,6 +127,7 @@ export default function AdminDashboardForm() {
       return;
     }
 
+    // Bot protection check
     if (formData.honeypot) {
       console.log("Bot submission detected");
       return;
@@ -142,7 +139,7 @@ export default function AdminDashboardForm() {
         timestamp: serverTimestamp(),
       };
 
-      // For editing, check if images have been modified
+      // Check if images have been modified during edit
       const filesChanged =
         editBikeId &&
         files.some((file, index) => {
@@ -155,57 +152,47 @@ export default function AdminDashboardForm() {
         });
 
       if (editBikeId) {
-        // Editing an existing bike
+        // Update existing bike
         const bikeDocRef = doc(db, "bikes", editBikeId);
-
-        if (filesChanged) {
-          // Only upload new images if they have changed
-          const updatedImageUrls = await uploadImages(
-            validFiles,
-            editBikeId,
-            formData.model,
-            formData.name
-          );
-          bikeData.images = updatedImageUrls;
-        } else {
-          // Retain the existing images
-          bikeData.images = initialFiles
-            .filter((file) => file !== null)
-            .map((file) => ({
-              thumbURL: file.thumbImage,
-              fullURL: file.fullImage,
-            }));
-        }
+        bikeData.images = filesChanged
+          ? await uploadImages(
+              validFiles,
+              editBikeId,
+              formData.model,
+              formData.name
+            )
+          : initialFiles
+              .filter((file) => file !== null)
+              .map((file) => ({
+                thumbURL: file.thumbImage,
+                fullURL: file.fullImage,
+              }));
 
         await updateDoc(bikeDocRef, bikeData);
         alert("Bike updated successfully!");
         sessionStorage.setItem("scrollToBikeId", editBikeId);
-        setFormType("Remove Bike");
       } else {
-        // Adding a new bike
-        const bikesRef = collection(db, "bikes");
+        // Add new bike
         const bikeId = nanoid(10);
-        const bikeDoc = doc(bikesRef, bikeId);
-
-        const imageUrls = await uploadImages(
+        const bikeDoc = doc(collection(db, "bikes"), bikeId);
+        bikeData.images = await uploadImages(
           validFiles,
           bikeId,
           formData.model,
           formData.name
         );
-        bikeData.images = imageUrls;
-
         await setDoc(bikeDoc, bikeData);
         alert("Bike added successfully!");
       }
 
+      // Clear all caches after successful update
       try {
         await Promise.all([
           revalidateCache(),
           revalidatePaths(),
           (async () => {
-            clearClientCache(); // Synchronous operation
-            clearBikeCache(); // Synchronous operation
+            clearClientCache();
+            clearBikeCache();
           })(),
         ]);
       } catch (cacheError) {
@@ -227,41 +214,36 @@ export default function AdminDashboardForm() {
     }
   };
 
+  // Load bike data for editing
   const handleEdit = async (bikeId) => {
     scrollToTop();
     try {
-      // Fetch the bike data by bikeId
-      const bikeDocRef = doc(db, "bikes", bikeId);
-      const bikeDoc = await getDoc(bikeDocRef);
-
+      const bikeDoc = await getDoc(doc(db, "bikes", bikeId));
       if (bikeDoc.exists()) {
         const bikeData = bikeDoc.data();
-
-        setFormData(bikeData); // Populate form
+        setFormData(bikeData);
         setFormType("Edit Bike");
         setEditBikeId(bikeId);
 
-        // Extract images from Firestore document and prepare for state
+        // Prepare existing images for the form
         const loadedFiles = (bikeData.images || []).map((image) => ({
           thumbImage: image.thumbURL,
           fullImage: image.fullURL,
         }));
-
-        console.log("Loaded files:", loadedFiles);
         setInitialFiles(loadedFiles);
-      } else {
-        console.log("No such document exists.");
       }
     } catch (error) {
       console.error("Error fetching bike:", error);
     }
   };
 
+  // Update files and preview when initialFiles changes
   useEffect(() => {
     setFiles(initialFiles);
     setPreview(initialFiles.map((file) => file.thumbImage));
   }, [initialFiles]);
 
+  // Reset form to initial state
   const clearFields = () => {
     setFormData({
       model: "",

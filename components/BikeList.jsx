@@ -6,7 +6,6 @@ import Sorter from "./Sorter";
 import styles from "../styles/bikeList.module.css";
 import { usePathname } from "next/navigation";
 
-import { globalCache } from "../app/lib/globalCache";
 import { getBikesFromFirebase } from "../app/lib/getBikesFromFirebase";
 
 export default function BikeList({ initialBikes, basePath }) {
@@ -17,11 +16,6 @@ export default function BikeList({ initialBikes, basePath }) {
   });
 
   useEffect(() => {
-    console.log("Current bikes data:", initialBikes);
-    // console.log("Global cache state:", globalCache.keys());
-  }, [initialBikes]);
-
-  useEffect(() => {
     // Force a fresh Firebase fetch
     const checkFirebase = async () => {
       console.log("Direct Firebase check...");
@@ -30,17 +24,6 @@ export default function BikeList({ initialBikes, basePath }) {
     };
 
     checkFirebase();
-  }, []);
-
-  // Add this to one of your bike listing pages temporarily
-  useEffect(() => {
-    async function checkCache() {
-      const response = await fetch("/api/debug-cache");
-      const data = await response.json();
-      console.log("Cache Debug:", data);
-    }
-
-    checkCache();
   }, []);
 
   const pathname = usePathname();
@@ -74,6 +57,7 @@ export default function BikeList({ initialBikes, basePath }) {
     setSortMethod({ key: defaultSortKey, direction: "asc" });
   }, [basePath]);
 
+  // Sort the bikes based on the current sort method
   useEffect(() => {
     let sortedArray = [...initialBikes];
 
@@ -112,12 +96,14 @@ export default function BikeList({ initialBikes, basePath }) {
     setSortedBikes(sortedArray);
   }, [sortMethod, initialBikes]);
 
+  // Function to handle sort changes dropdown
   const handleSortChange = (key, direction) => {
     setSortMethod({ key, direction });
   };
 
   const priceKey = getDefaultSortKey(basePath);
 
+  // used mostly in Admin Page to help with returning to the last edited bike
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {

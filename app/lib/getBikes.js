@@ -1,3 +1,4 @@
+// Main function for getting bikes from Firebase, cached throughout the app, only cleared by the functions in the admin pages
 import globalCache from "./globalCache";
 import { getBikesFromFirebase } from "./getBikesFromFirebase";
 

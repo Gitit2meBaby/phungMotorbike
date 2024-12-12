@@ -11,6 +11,7 @@ import { scrollToTop } from "../app/lib/scrollToTop";
 const BookingPage = ({ bike }) => {
   const searchParams = useSearchParams();
 
+  // Date and pricing states
   const [startDate, setStartDate] = useState(
     new Date(Date.now()).toISOString().slice(0, 10)
   );
@@ -20,26 +21,27 @@ const BookingPage = ({ bike }) => {
   const [discount, setDiscount] = useState(0);
   const [days, setDays] = useState(0);
 
+  // Customer information states
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  // UI state management
   const [isMounted, setIsMounted] = useState(false);
+  const [showToolTip, setShowToolTip] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
+  // Form validation states
   const [honeypot, setHoneyPot] = useState(false);
   const [error, setError] = useState(true);
   const [dateError, setDateError] = useState(false);
   const [monthlyError, setMonthlyError] = useState(false);
   const [emailError, setEmailError] = useState(false);
 
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const [showToolTip, setShowToolTip] = useState(false);
-
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   const roundedTotalPrice = Math.ceil(totalPrice * 100) / 100;
 
+  // Booking details object for API submissions
   const bookingDetails = {
     name,
     email,
@@ -53,6 +55,7 @@ const BookingPage = ({ bike }) => {
     honeypot,
   };
 
+  // Initialize component and handle URL parameters
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -66,10 +69,12 @@ const BookingPage = ({ bike }) => {
     }
   }, [isMounted, searchParams]);
 
+  // Calculate rental duration and update price when dates change
   useEffect(() => {
     if (startDate && endDate) {
       const start = new Date(startDate);
       const end = new Date(endDate);
+
       if (start > end) {
         setDateError(true);
         setDays(0);
@@ -83,6 +88,7 @@ const BookingPage = ({ bike }) => {
     }
   }, [startDate, endDate, priceType]);
 
+  // Form validation effect
   useEffect(() => {
     if (name && email && startDate && endDate && !dateError && !monthlyError) {
       setError(false);
@@ -91,9 +97,10 @@ const BookingPage = ({ bike }) => {
     }
   }, [name, email, startDate, endDate, dateError, monthlyError]);
 
+  // Calculate rental price based on duration and type
   const calculatePrice = (days) => {
     let basePrice;
-    setMonthlyError(false); // Reset monthly error
+    setMonthlyError(false);
 
     switch (priceType) {
       case "city":
@@ -101,6 +108,7 @@ const BookingPage = ({ bike }) => {
         setDiscount(0);
         break;
       case "travel":
+        // Apply progressive discount for longer travel rentals
         basePrice = bike.travelPrice * days;
         const weeks = Math.floor(days / 7);
         let discountPercentage = Math.min(weeks * 5, 50);
@@ -108,9 +116,10 @@ const BookingPage = ({ bike }) => {
         basePrice = basePrice * (1 - discountPercentage / 100);
         break;
       case "monthly":
+        // Validate monthly rental duration (28-31 days)
         if (days < 28 || days > 31) {
           setMonthlyError(true);
-          basePrice = 0; // Set price to 0 if monthly error occurs
+          basePrice = 0;
         } else {
           basePrice = bike.monthPrice;
           setDiscount(0);
@@ -123,48 +132,26 @@ const BookingPage = ({ bike }) => {
     setTotalPrice(basePrice);
   };
 
+  // Handle booking submission
   const handleBookNow = async (e) => {
     e.preventDefault();
 
-    // Validate email
-    const isEmailValid = emailRegex.test(email);
-    if (!isEmailValid) {
+    if (!emailRegex.test(email)) {
       setEmailError(true);
-      console.log("Email is invalid");
-
-      return; // Exit early if email is invalid
-    }
-
-    if (honeypot) {
-      console.log("Bot submission detected");
-      alert("Bot submission detected");
       return;
     }
 
-    if (!name || !email || !startDate || !endDate || !priceType) {
-      alert("Please fill in all required fields.");
+    if (honeypot || !name || !email || !startDate || !endDate || !priceType) {
+      honeypot
+        ? console.log("Bot submission detected")
+        : alert("Please fill in all required fields.");
       return;
     }
-
-    const bookingDetails = {
-      name,
-      email,
-      phone,
-      bike,
-      priceType,
-      startDate,
-      endDate,
-      days,
-      roundedTotalPrice,
-      honeypot,
-    };
 
     try {
       const response = await fetch("/api/bookings", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingDetails),
       });
 
@@ -180,20 +167,19 @@ const BookingPage = ({ bike }) => {
     }
   };
 
-  // Update your handlePayNow function in BookingPage.jsx
+  // Handle payment processing
   const handlePayNow = async () => {
     try {
       const response = await fetch("/api/onepay", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...bookingDetails,
+          // Convert USD to VND if not monthly rate
           roundedTotalPrice:
             priceType === "monthly"
-              ? roundedTotalPrice // VND amount
-              : roundedTotalPrice * 23000, // Convert USD to VND using current rate
+              ? roundedTotalPrice
+              : roundedTotalPrice * 23000,
         }),
       });
 

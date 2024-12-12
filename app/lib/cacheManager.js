@@ -1,3 +1,4 @@
+// This handles the timing of the client caching, separate from the server, browser cache
 import globalCache from "./globalCache";
 
 // Client-side cache clearing

@@ -7,12 +7,14 @@ import { Mynerve } from "next/font/google";
 
 import styles from "../styles/bikeCard.module.css";
 
+// font for polaroid titles
 const mynerve = Mynerve({
   weight: ["400"],
   subsets: ["latin"],
 });
 
 const BikeCard = ({ bike, basePath, inDetails, inAdmin, deletedBike }) => {
+  // Fallback image URL saved locally
   const fallbackImage = "/placeHolderThumb.webp";
   const pathname = usePathname();
 
@@ -29,6 +31,7 @@ const BikeCard = ({ bike, basePath, inDetails, inAdmin, deletedBike }) => {
   const modelSlug = bike.model.toLowerCase().replace(/\s+/g, "-");
   const nameSlug = bike.name.toLowerCase().replace(/\s+/g, "-");
 
+  // helps add a param for the form redirect to booking page (ie priceType)
   const formRedirectUrl =
     basePath === "/motorbikes-for-sale"
       ? `/buy-online/${bike.id}?priceType=sale`

@@ -1,4 +1,4 @@
-// components/ClientSaleSlider.jsx
+// same as Client Slider, but for sale page
 "use client";
 import Image from "next/image";
 import Slider from "react-slick";

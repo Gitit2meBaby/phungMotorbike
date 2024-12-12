@@ -1,1 +1,85 @@
-/*# sourceMappingURL=status.module.css.map */
+.status {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 600px;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+}
+.status h1 {
+  color: #e97f26;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 3rem;
+}
+.status img {
+  filter: invert(100%);
+  margin: 0 auto 3rem auto;
+}
+
+.message {
+  color: #e97f26;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 1.25rem;
+}
+.message ul {
+  margin: 0;
+}
+.message li {
+  text-align: left;
+  color: #ebebeb;
+  line-height: 3rem;
+}
+
+.details {
+  color: #e97f26;
+  letter-spacing: 1px;
+}
+.details h3,
+.details span {
+  color: #ebebeb;
+}
+
+.error {
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.error span {
+  color: #ebebeb;
+  font-weight: 500;
+}
+.error p:first-of-type {
+  color: red;
+}
+.error p:last-of-type {
+  color: #e97f26;
+}
+
+.btn {
+  background-color: #e97f26;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  min-width: 120px;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 2;
+  box-shadow: 0 0 10px #0d0d0d;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+}
+.btn:hover {
+  background-color: #0d0d0d;
+  color: #e97f26;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out;
+  border: 2px solid #e97f26;
+}/*# sourceMappingURL=status.module.css.map */

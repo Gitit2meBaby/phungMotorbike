@@ -1,4 +1,90 @@
 @import "./globals.scss";
 
 .status {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 600px;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+  h1 {
+    color: $theme;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  img {
+    filter: invert(100%);
+    margin: 0 auto 3rem auto;
+  }
+}
+
+.message {
+  color: $theme;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 1.25rem;
+  ul {
+    margin: 0;
+  }
+
+  li {
+    text-align: left;
+    color: $offWhite;
+    line-height: 3rem;
+  }
+}
+
+.details {
+  color: $theme;
+  letter-spacing: 1px;
+
+  h3,
+  span {
+    color: $offWhite;
+  }
+}
+
+.error {
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  span {
+    color: $offWhite;
+    font-weight: 500;
+  }
+  p:first-of-type {
+    color: red;
+  }
+  p:last-of-type {
+    color: $theme;
+  }
+}
+
+.btn {
+  background-color: $theme;
+  color: $black;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  min-width: 120px;
+  width: fit-content;
+  z-index: 2;
+  box-shadow: 0 0 10px $black;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+
+  &:hover {
+    background-color: $black;
+    color: $theme;
+    transform: scale(1.2);
+    transition: all 0.5s ease-in-out;
+    border: 2px solid $theme;
+  }
 }

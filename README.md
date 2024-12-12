@@ -5,10 +5,18 @@ A heavy emphasis on SSR was made to enable better SEO.
 
 ## For Devs
 
+### High End overview
+
+- Data fetched from firebase, cached throughout, only broken when admin alterations made.
+- BikeList maps incoming data, BikeCard components display. Click action use the ID of the motorbike, pushing to booking and onepay payment with ID in URL params
+- No Other global state to track, managed instead via caching or params
+
+### Components Breakdown
+
 - /lib/getBikesFromFirebase handles the Firebase request
 - /lib/getBikes handles caching all the data for the rest of the website navigation.
 - /actions/reavalidateCache is a server action that is run on the server to update the cache. It is called in the Admin section after making any changes to the bikes.
-- Contact Form, booking form and purchase form are handled by PostMark.
+- Contact Form, booking form and purchase form are handled by Resend.
 - app/api/bookings/route.js - recieves form data and sends an email to both the client and the .env FROM_EMAIL. both HTML and plain text.
 - app/api/buy-online/route.js is very similar
 - Bikes are divided into URL's via their rental/sale type. req provides 'bikes' which are currently generated on the server, and filtered client side.
@@ -27,11 +35,3 @@ A heavy emphasis on SSR was made to enable better SEO.
 - SCSS was used with modules to make naming conventions easier, most jsx or page.js files should have a coresponding .module.scss file
 - globals.scss handles minimal variants, but also the media queries. @include desktop, tablet etc are outlined in this file.
 - There are just 4 major breakpoints, some fine tuning could be added particularly for extra wide screens and smaller tablets that sit between the current 'tablet' and 'phoneLandscape' breakpoints.
-
-### To Do
-
-Change postMark account to client address
-Change Firebase account to client address
-Change domain to client address
-Change postMark to resend.
-Paypal account
